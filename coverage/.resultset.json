@@ -222,12 +222,34 @@
           null,
           null,
           null,
+          1,
+          1,
           null
         ]
       },
       "/Users/nathantrautenberg/turing_work/3mod/projects/third_space/fe/third_space_fe/app/helpers/application_helper.rb": {
         "lines": [
           1,
+          null
+        ]
+      },
+      "/Users/nathantrautenberg/turing_work/3mod/projects/third_space/fe/third_space_fe/spec/models/location_spec.rb": {
+        "lines": [
+          1,
+          null,
+          1,
+          null,
+          1,
+          2,
+          2,
+          null,
+          null,
+          1,
+          2,
+          2,
+          2,
+          2,
+          null,
           null
         ]
       },
@@ -319,6 +341,6 @@
         ]
       }
     },
-    "timestamp": 1704316509
+    "timestamp": 1704318694
   }
 }
