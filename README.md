@@ -85,16 +85,23 @@ bundle exec rspec
 ```
 
 ## Gem Information
-The front end repository handles most of what the user will interact with, including routing and page rendering. It also includes extensive testing using the [Capybara gem](https://github.com/teamcapybara/capybara) to simulate user input and interaction.
+The front end repository handles most of what the user will interact with, including routing and page rendering. 
+
+### Testing
+Our application includes extensive testing using the [Capybara gem](https://github.com/teamcapybara/capybara) to simulate user input and interaction.
+
+This application also uses the [Launchy Gem](https://github.com/copiousfreetime/launchy) to view pages in the browser without needing to start the server.
+
+The [Shoulda Matchers Gem](https://github.com/thoughtbot/shoulda-matchers) is used for one-liner testing of models.
+
+The [Orderly Gem](https://github.com/jmondo/orderly) is used to check the order in which items appear on the pages for our application.
+
+The [SimpleCov Gem](https://github.com/simplecov-ruby/simplecov) provides test coverage analysis for our application.
+
 
 The back end handles API calls to the TomTom API as well as accepts post requests from the user for location moods. It simulates API calls using the [WebMock gem](https://github.com/bblimke/webmock) and the [VCR gem](https://github.com/vcr/vcr).
 
 Both use the [Pry gem](https://github.com/pry/pry) and [RSpec Rails](https://github.com/rspec/rspec-rails) within the testing environment for unit and feature testing.
-
-## Release History
-
-* 0.2.1
-    * CHANGE: Update docs (module code remains unchanged)
 
 ## Staff
 
