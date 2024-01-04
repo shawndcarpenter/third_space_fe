@@ -75,4 +75,4 @@ end
 
 gem "faraday"
 gem "figaro"
-gem 'webauthn'
+gem 'devise'
