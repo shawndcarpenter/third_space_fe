@@ -1,11 +1,25 @@
-<%# <h1>Home#index</h1>
-<p>Find me in app/views/home/index.html.erb</p>
+<body>
+  
 
-<div class="container-flouid">
+<div class="container-sm d-flex justify-content-center align-items-center">
+  <div class="text-center">
+  <div class="mb-3">
+    <%= image_tag 'temp_logo.png', class: "img-fluid", alt: "Logo" %>
+  </div>
+  <div class="d-grid gap-4 d-md-flex justify-content-md-center">
+      <button type="button" class="btn btn-primary shadow-sm">Login</button> 
+      <button type="button" class="btn btn-primary shadow-sm">New User</button>
+</div>
+</div>
+
+</body>
+
+
+<%# <div class="container-fluid">
   <nav class="navbar navbar-expand-lg bg-light">
     <div class="container">
       <a class="navbar-brand" href="/">
-        <h3>Your Logo</h3>
+        <h3>third space.</h3>
       </a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -30,7 +44,7 @@
         </ul>
         <form class="">
           <a class="btn btn-outline-primary mr-2" href="#">Login</a>
-          <a class="btn btn-outline-success" href="#">Become member</a>
+          <a class="btn btn-outline-success" href="#">New User</a>
         </form>
 
       </div>
