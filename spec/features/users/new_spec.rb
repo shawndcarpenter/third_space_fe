@@ -30,7 +30,7 @@ RSpec.describe "new user", type: :feature do
     it 'creates an account' do
       visit new_user_path
       click_button "create new account"
-
+      #add more to this
     end
   
   end
