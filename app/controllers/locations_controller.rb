@@ -12,5 +12,9 @@ class MarketsController < ApplicationController
     response = Faraday.get("http://127.0.0.1:3000/api/v0/locations/#{location_id}")
     @data = JSON.parse(response.body, symbolize_names: true)
   end
+
+  def new
+    
+  end
   
 end

@@ -7,7 +7,7 @@ resources :users, only: [:new, :create]
   # root "articles#index"
   root "landing#index"
 
-  resources :locations, only: [:index, :show]
+  resources :locations, only: [:index, :show, :new, :create]
   
   get "/register", to: "users#new"
   post "/register", to: "users#create"

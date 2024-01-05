@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe "home/index.html.erb", type: :feature do
+RSpec.describe "landing page", type: :feature do
   describe 'basic functionality' do
     it 'has a login link' do
       visit root_path
