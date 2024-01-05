@@ -1,5 +1,7 @@
 class LocationsController < ApplicationController
   
+
+  #NOT SETUP -- THESE ARE PLACEHOLDERS AT THE MOMENT UNTIL BE IS SETUP
   def index
     #refactor into service/poro/facade that also instantiates locations as objects
     response = Faraday.get("http://127.0.0.1:3000/api/v0/locations")
