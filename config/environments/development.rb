@@ -45,14 +45,16 @@ Rails.application.configure do
   #config.action_mailer.delivery_method = :letter_opener
   config.action_mailer.default_url_options = { host: 'localhost:3000' }
   config.action_mailer.delivery_method = :smtp
+  smtp_credentials = Rails.application.credentials.smtp
+
   config.action_mailer.smtp_settings = {
-    address: 'smtp.gmail.com',
-    port: 587,
-    domain: 'gmail.com',
-    user_name: 'thirdspace2308@gmail.com',
-    password: 'kfel gchf qkhs cehl',
-    authentication: 'plain',
-    enable_starttls_auto: true
+    address: smtp_credentials[:address],
+    port: smtp_credentials[:port],
+    domain: smtp_credentials[:domain],
+    user_name: smtp_credentials[:user_name],
+    password: smtp_credentials[:password],
+    authentication: smtp_credentials[:authentication],
+    enable_starttls_auto: smtp_credentials[:enable_starttls_auto]
   }
 
   # Print deprecation notices to the Rails logger.
