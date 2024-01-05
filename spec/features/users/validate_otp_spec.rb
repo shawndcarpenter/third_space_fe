@@ -7,8 +7,8 @@ RSpec.describe "validate otp", type: :feature do
       expect(page).to have_field("otp")
     end
 
-    xit 'has submit button' do
-      visit login_path
+    it 'has submit button' do
+      visit validate_otp_path
       click_button "submit"
 
       #add path

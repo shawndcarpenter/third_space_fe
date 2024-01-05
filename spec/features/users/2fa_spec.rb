@@ -33,7 +33,7 @@ RSpec.describe "2fa", type: :feature do
       otp_code_match = email_body.match(/Your OTP code is: (\d+)/)
       otp_code = otp_code_match[1]
       fill_in "otp", with: otp_code.to_i
-      click_button "Submit"
+      click_button "submit"
       expect(current_path).to eq "/"
     end
 
@@ -66,7 +66,7 @@ RSpec.describe "2fa", type: :feature do
       fill_in "confirm_password", with: "c"
       click_button "create new account"
       fill_in "otp", with: 1
-      click_button "Submit"
+      click_button "submit"
       expect(page).to have_content("Invalid OTP. Please try again.")
       expect(current_path).to eq "/validate_otp"
     end
@@ -78,7 +78,7 @@ RSpec.describe "2fa", type: :feature do
       fill_in "password", with: "#{@user1.password}"
       click_button "log in"
       fill_in "otp", with: 1
-      click_button "Submit"
+      click_button "submit"
       expect(page).to have_content("Invalid OTP. Please try again.")
       expect(current_path).to eq "/validate_otp"
     end
@@ -95,7 +95,7 @@ RSpec.describe "2fa", type: :feature do
       otp_code = otp_code_match[1]
       fill_in "otp", with: otp_code.to_i
       allow(Time).to receive(:now).and_return(6.minutes.from_now)
-      click_button "Submit"
+      click_button "submit"
       expect(page).to have_content("OTP session has expired. Please try logging in again.")
       expect(current_path).to eq "/login"
     end

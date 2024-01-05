@@ -11,8 +11,9 @@ RSpec.describe "new location", type: :feature do
       expect(page).to have_field("city")
     end
 
-    xit 'has submit button' do
-      visit login_path
+    it 'has submit button' do
+      visit new_location_path
+      expect(page).to have_button('submit new space')
       click_button "submit new space"
 
       #add path

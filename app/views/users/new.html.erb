@@ -7,7 +7,7 @@
       <%= link_to "I already have an account", "/login", class: "btn btn-primary" %>
     </div>
 
-    <%= form_with(model: User.new, url: "/register", method: "post") do |f| %>
+    <%= form_with(model: User.new, url: "/register", method: "post", local: true) do |f| %>
 
       <div class="mb-3 d-flex align-items-center">
         <%= f.label :first_name, class: "col-sm-2 col-form-label" %>
@@ -46,7 +46,7 @@
       </div>
 
       <div class="mb-3">
-        <%= f.submit "Create New Account", class: "btn btn-primary" %>
+        <%= f.submit "create new account", class: "btn btn-primary" %>
       </div>
 
     <% end %>
