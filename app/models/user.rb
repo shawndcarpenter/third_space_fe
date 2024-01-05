@@ -13,4 +13,17 @@ class User < ApplicationRecord
 
   enum role: %w(default admin)
 
+  def generate_otp_secret_key
+    self.otp_secret_key = ROTP::Base32.random(6)
+    save
+  end
+
+  def generate_otp
+    ROTP::TOTP.new(otp_secret_key).now
+  end
+
+  def valid_otp?(code)
+    totp = ROTP::TOTP.new(otp_secret_key)
+    totp.verify(code)
+  end
 end

@@ -127,6 +127,8 @@ GEM
       activesupport (>= 5.0.0)
     launchy (2.5.2)
       addressable (~> 2.8)
+    letter_opener (1.8.1)
+      launchy (>= 2.2, < 3)
     loofah (2.22.0)
       crass (~> 1.0.2)
       nokogiri (>= 1.12.0)
@@ -205,6 +207,7 @@ GEM
     reline (0.4.1)
       io-console (~> 0.5)
     rexml (3.2.6)
+    rotp (6.3.0)
     rspec (3.12.0)
       rspec-core (~> 3.12.0)
       rspec-expectations (~> 3.12.0)
@@ -293,11 +296,13 @@ DEPENDENCIES
   importmap-rails
   jbuilder
   launchy
+  letter_opener
   orderly
   pg (~> 1.1)
   pry
   puma (~> 5.0)
   rails (~> 7.0.8)
+  rotp
   rspec-rails
   sassc-rails
   shoulda-matchers

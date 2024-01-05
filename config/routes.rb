@@ -14,4 +14,8 @@ Rails.application.routes.draw do
 
   get "/logout", to: "users#logout"
 
+  get '/initiate_otp_verification', to: 'users#initiate_verification'
+  post '/validate_otp', to: 'users#validate_otp'
+  get '/validate_otp', to: 'users#validate_otp_form'
+
 end
