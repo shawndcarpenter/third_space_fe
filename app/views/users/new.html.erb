@@ -1,65 +1,54 @@
-
-  <div class="container-sm d-flex justify-content-center align-items-center">
-    <div class="text-center">
-      <div class="mb-3">
-        <%= image_tag 'temp_logo.png', class: "img-fluid", alt: "Logo" %>
-      </div>
+<div class="container-sm d-flex justify-content-center align-items-center">
+  <div class="text-center">
     <div class="mb-3">
-      <a href="/login" class="btn btn-primary">I already have an account</a>
+      <%= image_tag 'temp_logo.png', class: "img-fluid", alt: "Logo" %>
+    </div>
+    <div class="mb-3">
+      <%= link_to "I already have an account", "/login", class: "btn btn-primary" %>
     </div>
 
-    <%= form_tag("/register", method: "post") do %>
+    <%= form_with(model: User.new, url: "/register", method: "post") do |f| %>
 
-    <div class="mb-3 d-flex align-items-center">
-      <div class="col-sm-2">
-        <label for="first_name" class="form-label">first name</label>
+      <div class="mb-3 d-flex align-items-center">
+        <%= f.label :first_name, class: "col-sm-2 col-form-label" %>
+        <div class="col-sm-10">
+          <%= f.text_field :first_name, class: "form-control", id: "first_name" %>
+        </div>
       </div>
-    <div class="col-sm-10">
-      <input type="text" name="user[first_name]" id="first_name" class="form-control">
-    </div>
-  </div>
-  
-  
-  <div class="mb-3 d-flex align-items-center">
-    <div class="col-sm-2">
-      <label for="last_name" class="form-label">last name</label>
-    </div>
-    <div class="col-sm-10">
-      <input type="text" name="user[last_name]" id="last_name" class="form-control">
-    </div>
-  </div>
 
-  <div class="mb-3 d-flex align-items-center">
-    <div class="col-sm-2">
-      <label for="email" class="form-label">e-mail</label>
-    </div>
-    <div class="col-sm-10">
-      <input type="email" name="user[email]" class="form-control" id="email" aria-describedby="input-email">
-      <div id="emailHelp" class="form-text">We'll never share your information</div>
-    </div>
-  </div>
+      <div class="mb-3 d-flex align-items-center">
+        <%= f.label :last_name, class: "col-sm-2 col-form-label" %>
+        <div class="col-sm-10">
+          <%= f.text_field :last_name, class: "form-control", id: "last_name" %>
+        </div>
+      </div>
 
-  <div class="mb-3 d-flex align-items-center">
-    <div class="col-sm-2">
-      <label for="password" class="form-label">password</label>
-    </div>
-    <div class="col-sm-10">
-      <input type="password" name="user[password]" class="form-control" id="password">
-    </div>
-  </div>
+      <div class="mb-3 d-flex align-items-center">
+        <%= f.label :email, class: "col-sm-2 col-form-label" %>
+        <div class="col-sm-10">
+          <%= f.email_field :email, class: "form-control", id: "email", aria_describedby: "input-email" %>
+          <div id="emailHelp" class="form-text">We'll never share your information</div>
+        </div>
+      </div>
 
-  <div class="mb-3 d-flex align-items-center">
-    <div class="col-sm-2">
-      <label for="confirm_password" class="form-label">confirm password</label>
-    </div>
-    <div class="col-sm-10">
-      <input type="password" name="user[password_confirmation]" class="form-control" id="confirm_password">
-    </div>
-  </div>
+      <div class="mb-3 d-flex align-items-center">
+        <%= f.label :password, class: "col-sm-2 col-form-label" %>
+        <div class="col-sm-10">
+          <%= f.password_field :password, class: "form-control", id: "password" %>
+        </div>
+      </div>
 
-  <div class="mb-3">
-    <button type="submit" class="btn btn-primary">create new account</button>
+      <div class="mb-3 d-flex align-items-center">
+        <%= f.label :password_confirmation, class: "col-sm-2 col-form-label" %>
+        <div class="col-sm-10">
+          <%= f.password_field :password_confirmation, class: "form-control", id: "confirm_password" %>
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <%= f.submit "Create New Account", class: "btn btn-primary" %>
+      </div>
+
+    <% end %>
   </div>
 </div>
-<% end %>
-</body>
