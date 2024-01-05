@@ -1,4 +1,4 @@
-class MarketsController < ApplicationController
+class LocationsController < ApplicationController
   
   def index
     #refactor into service/poro/facade that also instantiates locations as objects
@@ -14,6 +14,10 @@ class MarketsController < ApplicationController
   end
 
   def new
+    # require 'pry'; binding.pry
+  end
+
+  def create
     
   end
   

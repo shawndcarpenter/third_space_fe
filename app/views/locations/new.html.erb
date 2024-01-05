@@ -3,7 +3,9 @@
   <div class="mb-3">
     <%= image_tag 'temp_logo.png', class: "img-fluid", alt: "Logo" %>
   </div>
-    <%= form_with url: , method: :post, local: true do |form| %>
+
+
+    <%= form_with url: locations_path, method: :post, local: true do |form| %>
   <div class="mb-3 d-flex align-items-center">
     <div class="col-sm-2">
       <%= form.label :new_space, "new space", class: "form-label" %>
@@ -23,6 +25,6 @@
   </div>
 
   <div class="mb-3">
-    <%= form.submit "log in", class: "btn btn-primary" %>
+    <%= form.submit "submit new space", class: "btn btn-primary" %>
   </div>
 <% end %>
