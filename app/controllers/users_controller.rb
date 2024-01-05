@@ -71,7 +71,7 @@ class UsersController < ApplicationController
       session[:user_id] = current_user.id
     else
       flash.now[:alert] = 'Invalid OTP. Please try again.'
-      render 'validate_otp_page'
+      render validate_otp_path
     end
   end
 

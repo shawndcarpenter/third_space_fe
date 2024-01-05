@@ -22,8 +22,9 @@ class User < ApplicationRecord
     ROTP::TOTP.new(otp_secret_key).now
   end
 
-  def valid_otp?(code)
-    totp = ROTP::TOTP.new(otp_secret_key)
-    totp.verify(code)
-  end
+  # doesn't work: I manually set the sesssion cookie code to otp passcode
+  # def valid_otp?(code)
+  #   totp = ROTP::TOTP.new(otp_secret_key)
+  #   totp.verify(code)
+  # end
 end

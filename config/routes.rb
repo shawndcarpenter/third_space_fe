@@ -1,13 +1,13 @@
 Rails.application.routes.draw do
   # root 'home#index'
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
-resources :users, only: [:new, :create]
-
+  
   # Defines the root path route ("/")
   # root "articles#index"
   root "landing#index"
-
-  resources :locations, only: [:index, :show]
+  
+  #resources :users, only: [:new, :create]
+  #resources :locations, only: [:index, :show]
   
   get "/register", to: "users#new"
   post "/register", to: "users#create"
