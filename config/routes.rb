@@ -7,7 +7,10 @@ Rails.application.routes.draw do
   root "landing#index"
 
   resources :locations, only: [:index, :show]
-  resources :users, only: [:show, :new, :create]
+  
+  get "/register", to: "users#new"
+  post "/register", to: "users#create"
+  get "/users/:user_id", to: "users#show"
 
   get "/login", to: "users#login_form"
   post "/login", to: "users#login"
