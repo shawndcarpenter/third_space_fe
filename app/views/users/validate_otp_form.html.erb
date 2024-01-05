@@ -1,0 +1,19 @@
+<!-- app/views/users/validate_otp_form.html.erb -->
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Enter OTP</title>
+</head>
+<body>
+  <h1>Enter OTP</h1>
+  <%= form_tag(validate_otp_path, method: :post) do %>
+    <label for="otp">Enter the OTP:</label>
+    <%= text_field_tag :otp %>
+    <%= submit_tag 'Submit' %>
+  <% end %>
+
+  <% if flash[:alert] %>
+    <p style="color: red;"><%= flash[:alert] %></p>
+  <% end %>
+</body>
+</html>
