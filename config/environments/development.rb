@@ -47,6 +47,10 @@ Rails.application.configure do
   config.action_mailer.delivery_method = :smtp
   smtp_credentials = Rails.application.credentials.smtp
 
+  config.action_mailer.delivery_method = :smtp
+  smtp_credentials = Rails.application.credentials.smtp
+  smtp_credentials = smtp_credentials || {}
+
   config.action_mailer.smtp_settings = {
     address: smtp_credentials[:address],
     port: smtp_credentials[:port],
