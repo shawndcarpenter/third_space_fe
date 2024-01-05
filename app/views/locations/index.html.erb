@@ -1,0 +1,34 @@
+<body>
+  <h3>Locations</h3>
+  <div class="four-columns">
+    <div class="market_sub">
+      <b>Name</b>
+      <% @data[:data].each do |location| %>
+        <p><%= location[:attributes][:name] %></p>
+      <% end %>
+    </div>
+
+    <div class="market_sub">
+      <b>Address</b>
+      <% @data[:data].each do |location| %>
+        <p><%= location[:attributes][:address] %></p>
+      <% end %>
+    </div>
+
+    <div class="market_sub">
+      <b>Latitude and Longitude</b>
+      <% @data[:data].each do |location| %>
+        <p><%= location[:attributes][:latitude] %></p>
+        <p><%= location[:attributes][:longitude] %></p>
+      <% end %>
+    </div>
+
+    <div class="market_sub">
+      <b>More Info</b>
+      <% @data[:data].each do |location| %>
+      <div class="button-container">
+        <p><%= button_to "More Info", location_path(location[:id]), method: :get %></p>
+      <% end %>
+    </div>
+  </div>
+</body>

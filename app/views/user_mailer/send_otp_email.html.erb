@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+</head>
+<body>
+  <h1>Your OTP for Two-Factor Authentication</h1>
+  <p>Your OTP code is: <%= @otp %></p>
+  <p>This code will expire in <%= distance_of_time_in_words(Time.now, @user.otp_code_expires_at) %>.</p>
+</body>
+</html>

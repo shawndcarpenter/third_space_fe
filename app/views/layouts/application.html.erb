@@ -11,6 +11,40 @@
   </head>
 
   <body>
+    <style>
+      body {
+      font-family: Arial, sans-serif;
+      }
+      .four-columns{
+        display:flex;
+      }
+
+      .four-columns > * {
+        width: 25%;
+        padding: 1rem;
+      }
+
+      .market_sub {
+        font-family: Arial;
+        background-color: mediumseagreen;
+        border-top: 2px solid #622583;
+        padding: 2px 200px;
+        text-align: center;
+        float: left;
+      }
+
+      .button-container {
+        white-space: nowrap; 
+        /* Prevent line breaks */
+      }
+
+      .button-container form {
+        display: inline-block; 
+        /* Display the forms horizontally */
+        margin-right: 4px; 
+        /* Add some spacing between the buttons */
+      }
+    </style>
     <%= yield %>
   </body>
 </html>
