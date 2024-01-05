@@ -8,7 +8,7 @@
   <%= form_with url: login_path, method: :post, local: true do |form| %>
   <div class="mb-3 d-flex align-items-center">
     <div class="col-sm-2">
-      <%= form.label :email, "Email:", class: "form-label" %>
+      <%= form.label :email, "email:", class: "form-label" %>
     </div>
     <div class="col-sm-10">
       <%= form.text_field :email, class: "form-control" %>
@@ -17,7 +17,7 @@
 
   <div class="mb-3 d-flex align-items-center">
     <div class="col-sm-2">
-      <%= form.label :password, "Password:", class: "form-label" %>
+      <%= form.label :password, "password:", class: "form-label" %>
     </div>
     <div class="col-sm-10">
       <%= form.password_field :password, class: "form-control" %>
@@ -29,5 +29,5 @@
   </div>
 <% end %>
       <div class="mb-3">
-<a href="/register" class="btn btn-primary">create an account</a>
+<a href="/register" class="btn btn-primary">create new account</a>
   </div>
