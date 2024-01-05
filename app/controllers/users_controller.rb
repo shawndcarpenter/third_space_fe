@@ -56,6 +56,7 @@ class UsersController < ApplicationController
     user.update(otp_code: user.generate_otp, otp_code_expires_at: 5.minutes.from_now)
     user.save
     session[:code] = user.otp_code
+    session[:otp_expires_at] = 5.minutes.from_now
     # Send OTP via email (using ActionMailer or similar)
     UserMailer.send_otp_email(user).deliver_now
     redirect_to validate_otp_path
@@ -63,16 +64,18 @@ class UsersController < ApplicationController
 
   def validate_otp
     entered_otp = params[:otp]
-
-    if session[:code] == entered_otp
+    if session[:code] == entered_otp && session[:otp_expires_at] > Time.current
       #user.valid_otp?(entered_otp)
       # Mark the user as verified, update the session, or perform any other necessary actions
       redirect_to root_path, notice: 'OTP verification successful!'
       session.delete(:code)
+      session.delete(:otp_expires_at)
       session[:user_id] = current_user.id
+    elsif session[:code] == entered_otp && session[:otp_expires_at] < Time.current
+      redirect_to login_path, notice: 'OTP session has expired. Please try logging in again.'
     else
-      flash.now[:alert] = 'Invalid OTP. Please try again.'
-      render validate_otp_path
+      flash[:alert] = 'Invalid OTP. Please try again.'
+      redirect_to validate_otp_path
     end
   end
 
