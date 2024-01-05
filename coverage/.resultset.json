@@ -1,7 +1,7 @@
 {
   "RSpec": {
     "coverage": {
-      "/Users/nathantrautenberg/turing_work/3mod/projects/third_space/fe/third_space_fe/config/environment.rb": {
+      "/Users/brendanbondurant/3mod/projects/third_space_fe/config/environment.rb": {
         "lines": [
           null,
           1,
@@ -10,7 +10,7 @@
           1
         ]
       },
-      "/Users/nathantrautenberg/turing_work/3mod/projects/third_space/fe/third_space_fe/config/application.rb": {
+      "/Users/brendanbondurant/3mod/projects/third_space_fe/config/application.rb": {
         "lines": [
           1,
           null,
@@ -51,7 +51,7 @@
           null
         ]
       },
-      "/Users/nathantrautenberg/turing_work/3mod/projects/third_space/fe/third_space_fe/config/boot.rb": {
+      "/Users/brendanbondurant/3mod/projects/third_space_fe/config/boot.rb": {
         "lines": [
           1,
           null,
@@ -59,7 +59,7 @@
           1
         ]
       },
-      "/Users/nathantrautenberg/turing_work/3mod/projects/third_space/fe/third_space_fe/config/environments/test.rb": {
+      "/Users/brendanbondurant/3mod/projects/third_space_fe/config/environments/test.rb": {
         "lines": [
           1,
           null,
@@ -123,7 +123,7 @@
           null
         ]
       },
-      "/Users/nathantrautenberg/turing_work/3mod/projects/third_space/fe/third_space_fe/config/initializers/assets.rb": {
+      "/Users/brendanbondurant/3mod/projects/third_space_fe/config/initializers/assets.rb": {
         "lines": [
           null,
           null,
@@ -136,10 +136,11 @@
           null,
           null,
           null,
-          null
+          null,
+          1
         ]
       },
-      "/Users/nathantrautenberg/turing_work/3mod/projects/third_space/fe/third_space_fe/config/initializers/content_security_policy.rb": {
+      "/Users/brendanbondurant/3mod/projects/third_space_fe/config/initializers/content_security_policy.rb": {
         "lines": [
           null,
           null,
@@ -150,38 +151,6 @@
           null,
           null,
           null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null
-        ]
-      },
-      "/Users/nathantrautenberg/turing_work/3mod/projects/third_space/fe/third_space_fe/config/initializers/filter_parameter_logging.rb": {
-        "lines": [
-          null,
-          null,
-          null,
-          null,
-          null,
-          1,
-          null,
-          null
-        ]
-      },
-      "/Users/nathantrautenberg/turing_work/3mod/projects/third_space/fe/third_space_fe/config/initializers/inflections.rb": {
-        "lines": [
           null,
           null,
           null,
@@ -200,7 +169,39 @@
           null
         ]
       },
-      "/Users/nathantrautenberg/turing_work/3mod/projects/third_space/fe/third_space_fe/config/initializers/permissions_policy.rb": {
+      "/Users/brendanbondurant/3mod/projects/third_space_fe/config/initializers/filter_parameter_logging.rb": {
+        "lines": [
+          null,
+          null,
+          null,
+          null,
+          null,
+          1,
+          null,
+          null
+        ]
+      },
+      "/Users/brendanbondurant/3mod/projects/third_space_fe/config/initializers/inflections.rb": {
+        "lines": [
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ]
+      },
+      "/Users/brendanbondurant/3mod/projects/third_space_fe/config/initializers/permissions_policy.rb": {
         "lines": [
           null,
           null,
@@ -215,9 +216,135 @@
           null
         ]
       },
-      "/Users/nathantrautenberg/turing_work/3mod/projects/third_space/fe/third_space_fe/config/routes.rb": {
+      "/Users/brendanbondurant/3mod/projects/third_space_fe/config/routes.rb": {
         "lines": [
           1,
+          null,
+          null,
+          1,
+          null,
+          null,
+          null,
+          1,
+          null,
+          1,
+          null,
+          1,
+          1,
+          1,
+          null,
+          1,
+          1,
+          null,
+          1,
+          null,
+          1,
+          1,
+          1,
+          null,
+          null
+        ]
+      },
+      "/Users/brendanbondurant/3mod/projects/third_space_fe/app/helpers/application_helper.rb": {
+        "lines": [
+          1,
+          null
+        ]
+      },
+      "/Users/brendanbondurant/3mod/projects/third_space_fe/app/helpers/home_helper.rb": {
+        "lines": [
+          1,
+          null
+        ]
+      },
+      "/Users/brendanbondurant/3mod/projects/third_space_fe/spec/features/locations/index_spec.rb": {
+        "lines": [
+          1,
+          null,
+          1,
+          1,
+          1,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          0,
+          null,
+          0,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          0,
+          0,
+          0,
+          0,
+          0,
+          null,
+          null,
+          null
+        ]
+      },
+      "/Users/brendanbondurant/3mod/projects/third_space_fe/spec/features/users/new_spec.rb": {
+        "lines": [
+          1,
+          null,
+          1,
+          1,
+          1,
+          1,
+          1,
+          null,
+          1,
+          1,
+          1,
+          null,
+          1,
+          1,
+          1,
+          null,
+          1,
+          1,
+          1,
+          null,
+          1,
+          1,
+          1,
+          null,
+          1,
+          1,
+          1,
+          1,
+          null,
+          1,
+          1,
+          1,
+          null,
+          null,
+          null,
+          null,
+          null
+        ]
+      },
+      "/Users/brendanbondurant/3mod/projects/third_space_fe/spec/helpers/home_helper_spec.rb": {
+        "lines": [
+          1,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
           null,
           null,
           null,
@@ -227,53 +354,38 @@
           null
         ]
       },
-      "/Users/nathantrautenberg/turing_work/3mod/projects/third_space/fe/third_space_fe/app/helpers/application_helper.rb": {
+      "/Users/brendanbondurant/3mod/projects/third_space_fe/spec/mailers/user_mailer_spec.rb": {
         "lines": [
+          1,
+          null,
+          1,
           1,
           null
         ]
       },
-      "/Users/nathantrautenberg/turing_work/3mod/projects/third_space/fe/third_space_fe/spec/models/location_spec.rb": {
+      "/Users/brendanbondurant/3mod/projects/third_space_fe/app/mailers/user_mailer.rb": {
         "lines": [
           1,
-          null,
           1,
           null,
           1,
-          2,
-          2,
+          0,
+          0,
           null,
-          null,
-          1,
-          2,
-          2,
-          2,
-          2,
+          0,
           null,
           null
         ]
       },
-      "/Users/nathantrautenberg/turing_work/3mod/projects/third_space/fe/third_space_fe/app/models/location.rb": {
+      "/Users/brendanbondurant/3mod/projects/third_space_fe/app/mailers/application_mailer.rb": {
         "lines": [
-          1,
-          1,
-          1,
-          null,
-          1,
           1,
           1,
           1,
           null
         ]
       },
-      "/Users/nathantrautenberg/turing_work/3mod/projects/third_space/fe/third_space_fe/app/models/application_record.rb": {
-        "lines": [
-          1,
-          1,
-          null
-        ]
-      },
-      "/Users/nathantrautenberg/turing_work/3mod/projects/third_space/fe/third_space_fe/spec/models/user_location_spec.rb": {
+      "/Users/brendanbondurant/3mod/projects/third_space_fe/spec/models/location_spec.rb": {
         "lines": [
           1,
           null,
@@ -285,35 +397,6 @@
           null,
           null,
           1,
-          2,
-          2,
-          null,
-          null
-        ]
-      },
-      "/Users/nathantrautenberg/turing_work/3mod/projects/third_space/fe/third_space_fe/app/models/user_location.rb": {
-        "lines": [
-          1,
-          1,
-          1,
-          1,
-          1,
-          null
-        ]
-      },
-      "/Users/nathantrautenberg/turing_work/3mod/projects/third_space/fe/third_space_fe/spec/models/user_spec.rb": {
-        "lines": [
-          1,
-          null,
-          1,
-          null,
-          1,
-          2,
-          2,
-          null,
-          null,
-          1,
-          2,
           2,
           2,
           2,
@@ -322,7 +405,7 @@
           null
         ]
       },
-      "/Users/nathantrautenberg/turing_work/3mod/projects/third_space/fe/third_space_fe/app/models/user.rb": {
+      "/Users/brendanbondurant/3mod/projects/third_space_fe/app/models/location.rb": {
         "lines": [
           1,
           1,
@@ -332,15 +415,237 @@
           1,
           1,
           1,
+          null
+        ]
+      },
+      "/Users/brendanbondurant/3mod/projects/third_space_fe/app/models/application_record.rb": {
+        "lines": [
+          1,
+          1,
+          null
+        ]
+      },
+      "/Users/brendanbondurant/3mod/projects/third_space_fe/spec/models/user_location_spec.rb": {
+        "lines": [
           1,
           null,
           1,
           null,
           1,
+          2,
+          2,
+          null,
+          null,
+          1,
+          2,
+          2,
+          null,
+          null
+        ]
+      },
+      "/Users/brendanbondurant/3mod/projects/third_space_fe/app/models/user_location.rb": {
+        "lines": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          null
+        ]
+      },
+      "/Users/brendanbondurant/3mod/projects/third_space_fe/spec/models/user_spec.rb": {
+        "lines": [
+          1,
+          null,
+          1,
+          null,
+          1,
+          2,
+          2,
+          null,
+          null,
+          1,
+          2,
+          2,
+          2,
+          2,
+          2,
+          null,
+          null
+        ]
+      },
+      "/Users/brendanbondurant/3mod/projects/third_space_fe/app/models/user.rb": {
+        "lines": [
+          1,
+          null,
+          1,
+          1,
+          null,
+          1,
+          1,
+          1,
+          1,
+          1,
+          null,
+          1,
+          null,
+          1,
+          null,
+          1,
+          0,
+          0,
+          null,
+          null,
+          1,
+          0,
+          null,
+          null,
+          1,
+          0,
+          0,
+          null,
+          null
+        ]
+      },
+      "/Users/brendanbondurant/3mod/projects/third_space_fe/spec/requests/home_spec.rb": {
+        "lines": [
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ]
+      },
+      "/Users/brendanbondurant/3mod/projects/third_space_fe/app/controllers/landing_controller.rb": {
+        "lines": [
+          1,
+          1,
+          2,
+          null,
+          null
+        ]
+      },
+      "/Users/brendanbondurant/3mod/projects/third_space_fe/app/controllers/application_controller.rb": {
+        "lines": [
+          1,
+          1,
+          null,
+          1,
+          0,
+          null,
+          null,
+          1,
+          0,
+          null,
+          null,
+          null,
+          null
+        ]
+      },
+      "/Users/brendanbondurant/3mod/projects/third_space_fe/app/controllers/users_controller.rb": {
+        "lines": [
+          1,
+          null,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          null,
+          0,
+          0,
+          null,
+          null,
+          null,
+          1,
+          9,
+          null,
+          null,
+          1,
+          1,
+          1,
+          1,
+          1,
+          0,
+          0,
+          0,
+          null,
+          1,
+          1,
+          null,
+          null,
+          null,
+          1,
+          null,
+          null,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          null,
+          0,
+          null,
+          null,
+          0,
+          0,
+          null,
+          null,
+          null,
+          1,
+          null,
+          0,
+          0,
+          0,
+          0,
+          null,
+          0,
+          0,
+          null,
+          null,
+          1,
+          0,
+          null,
+          0,
+          null,
+          null,
+          0,
+          0,
+          0,
+          null,
+          0,
+          0,
+          null,
+          null,
+          null,
+          1,
+          null,
+          null,
+          null,
+          1,
+          0,
+          0,
+          0,
+          null,
+          null,
+          1,
+          1,
+          1,
+          null,
+          null,
           null
         ]
       }
     },
-    "timestamp": 1704318694
+    "timestamp": 1704429513
   }
 }
