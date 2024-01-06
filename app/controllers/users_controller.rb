@@ -12,6 +12,10 @@ class UsersController < ApplicationController
     end
   end
   
+  def support
+    
+  end
+
   def new
     @user = User.new
   end
@@ -88,6 +92,8 @@ class UsersController < ApplicationController
     flash[:success] = "You have been logged out successfully."
     redirect_to "/"
   end
+
+
 
   private
   def users_params
