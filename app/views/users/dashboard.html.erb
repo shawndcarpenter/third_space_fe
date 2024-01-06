@@ -1,14 +1,8 @@
-<h1>Welcome to the User Dashboard</h1>
-<p><%= button_to "Contact Us", admin_merchans_path%></p>
-<p><%= link_to "Admin Invoices", admin_invoices_path%></p>
-
-<h3>Top 5 Customers</h3>
-<% @top5.each_with_index do |customer, index| %>
-  <p><%= "#{index+1}. #{customer.first_name} #{customer.last_name} - #{customer.transaction_count} transactions" %></p>
-<% end %>
-
-<h3>Incomplete Invoices</h3>
-<h4>Items to Ship, Oldest to Newest</h4>
-<% @items_to_ship.each do |invoice_item|%>
-  <p><%= link_to "#{invoice_item.invoice_id}", admin_invoice_path(invoice_item.invoice_id)%> <%="#{invoice_item.invoice.date_format}"%></p>
-<% end %>
+<div class="container mt-5">
+  <h1 class="display-4 text-center">Welcome to the User Dashboard</h1>
+  <div class="row justify-content-center mt-4">
+    <div class="col-auto">
+      <%= button_to "Contact Us", admin_merchans_path, method: :get, class: "btn btn-primary btn-lg" %>
+    </div>
+  </div>
+</div>

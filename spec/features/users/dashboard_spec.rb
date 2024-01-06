@@ -27,7 +27,7 @@ RSpec.describe 'User Dashboard', type: :feature do
     expect(current_path).to eq(new_contact_form_path) # Replace with your actual path
 
     fill_in 'Subject', with: 'Test Subject'
-    fill_in 'Description', with: 'Test description of the issue'
+    fill_in 'Description', with: 'Description Issue'
 
     click_button 'Submit'
 
