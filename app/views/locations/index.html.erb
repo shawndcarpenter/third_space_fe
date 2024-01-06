@@ -1,34 +1,18 @@
-<body>
-  <h3>Locations</h3>
-  <div class="four-columns">
-    <div class="market_sub">
-      <b>Name</b>
-      <% @data[:data].each do |location| %>
-        <p><%= location[:attributes][:name] %></p>
-      <% end %>
-    </div>
+<div class="container-sm d-flex justify-content-center align-items-center">
+  <div class="text-center">
+  <div class="mb-3">
+    <%= image_tag 'temp_logo.png', class: "img-fluid", alt: "Logo" %>
+  </div>
 
-    <div class="market_sub">
-      <b>Address</b>
-      <% @data[:data].each do |location| %>
-        <p><%= location[:attributes][:address] %></p>
-      <% end %>
-    </div>
 
-    <div class="market_sub">
-      <b>Latitude and Longitude</b>
-      <% @data[:data].each do |location| %>
-        <p><%= location[:attributes][:latitude] %></p>
-        <p><%= location[:attributes][:longitude] %></p>
-      <% end %>
-    </div>
+<%= form_with url: locations_path, method: :post, local: true do |form| %>
+  <div class="mb-3 d-flex align-items-center">
+    <div class="col-sm-10">
+      <%= form.text_field :search, class: "form-control", id: "floatingInput", placeholder: "where are you today?"%>
 
-    <div class="market_sub">
-      <b>More Info</b>
-      <% @data[:data].each do |location| %>
-      <div class="button-container">
-        <p><%= button_to "More Info", location_path(location[:id]), method: :get %></p>
-      <% end %>
+    </div>
+    <div class="col-sm-2">
+      <%= form.submit "search", class: "btn btn-primary" %>
     </div>
   </div>
-</body>
+<% end %>
