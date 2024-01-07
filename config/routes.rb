@@ -13,6 +13,10 @@ Rails.application.routes.draw do
   post "/register", to: "users#create"
   get "/users/support", to: "users#support", as: 'support'
   get "/users/:user_id", to: "users#show"
+  get "/dashboard", to: "users#dashboard"
+
+  get '/contact', to: 'contacts#new', as: :new_contact_form
+  post '/contact', to: 'contacts#create'
 
   get "/login", to: "users#login_form"
   post "/login", to: "users#login"
