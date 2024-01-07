@@ -14,3 +14,9 @@
  *= require_self
  */
 @import "bootstrap";
+
+.gradient-background {
+  background: linear-gradient(to top, #ffffff, #88b984);
+  background-repeat: no-repeat;
+  background-attachment:fixed;
+}

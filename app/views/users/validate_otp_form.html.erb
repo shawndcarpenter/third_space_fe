@@ -4,10 +4,10 @@
       <%= image_tag 'temp_logo.png', class: "img-fluid", alt: "Logo" %>
     </div>
 <body>
-  <h1>Enter OTP</h1>
+  <h1>Enter OTP:</h1>
   <%= form_tag(validate_otp_path, method: :post, class: "mb-3") do %>
   <div class="form-group">
-    <label for="otp">Enter the OTP:</label>
+    <label for="otp"></label>
     <%= text_field_tag :otp, nil, class: "form-control", id: "otp" %>
     </div>
     <%= submit_tag 'submit', class: "btn btn-primary" %>
