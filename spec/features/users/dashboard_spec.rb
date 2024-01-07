@@ -17,7 +17,7 @@ RSpec.describe 'User Dashboard', type: :feature do
   end
 
   it 'allows the user to click the contact button and redirects to a form' do
-    expect(page).to have_content('User Dashboard')
+    expect(page).to have_content('Welcome to the Dashboard')
     expect(page).to have_button('contact us')
 
     click_button 'contact us'
