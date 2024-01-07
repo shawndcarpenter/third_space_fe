@@ -1,14 +1,21 @@
-<h1>Contact Us</h1>
-<%= form_with url: contact_path, local: true, html: { class: 'form-group' } do |form| %>
+<div class="container-sm d-flex justify-content-center align-items-center">
+  <div class="text-center">
   <div class="mb-3">
-    <%= form.label :subject, class: 'form-label' %>
-    <%= form.text_field :subject, class: 'form-control' %>
+    <%= image_tag 'temp_logo.png', class: "img-fluid", alt: "Logo" %>
   </div>
 
-  <div class="mb-3">
-    <%= form.label :description, class: 'form-label' %>
-    <%= form.text_area :description, class: 'form-control', rows: 3 %>
+<h2>contact us</h2>
+<%= form_with model: @contact, url: new_contact_form_path, local: true, html: { class: 'form-floating mb-3' } do |form| %>
+
+  <div class="form-floating mb-3">
+    <%= form.text_field :subject, id: 'floatingInput', class: 'form-control', placeholder: 'Subject' %>
+    <%= form.label :subject, 'subject', for: 'floatingInput' %>
   </div>
 
-  <%= form.submit 'Submit', class: 'btn btn-primary' %>
+  <div class="form-floating">
+    <%= form.text_area :description, id: 'floatingTextarea2', class: 'form-control', placeholder: 'Description', style: 'height: 100px' %>
+    <%= form.label :description, 'description', for: 'floatingTextarea2' %>
+  </div>
+  <br>
+  <%= form.submit 'submit', class: 'btn btn-primary' %>
 <% end %>
