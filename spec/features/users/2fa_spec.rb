@@ -34,7 +34,7 @@ RSpec.describe "2fa", type: :feature do
       otp_code = otp_code_match[1]
       fill_in "otp", with: otp_code.to_i
       click_button "submit"
-      expect(current_path).to eq "/dashboard"
+      expect(current_path).to eq "/set_location"
     end
 
     it 'mailer mails email' do

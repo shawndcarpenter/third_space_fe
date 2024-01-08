@@ -67,7 +67,7 @@ class UsersController < ApplicationController
     if session[:code] == entered_otp && session[:otp_expires_at] > Time.current
       #user.valid_otp?(entered_otp)
       # Mark the user as verified, update the session, or perform any other necessary actions
-      redirect_to dashboard_path, notice: 'OTP verification successful!'
+      redirect_to set_location_path, notice: 'OTP verification successful!'
       session.delete(:code)
       session.delete(:otp_expires_at)
       session[:user_id] = current_user.id
@@ -87,6 +87,10 @@ class UsersController < ApplicationController
     session[:user_id] = nil
     flash[:success] = "You have been logged out successfully."
     redirect_to "/"
+  end
+
+  def set_location_form
+
   end
 
   private
