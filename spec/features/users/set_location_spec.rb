@@ -14,7 +14,7 @@ RSpec.describe 'Set Location Page', type: :feature do
   end
 
   it "user can submit a location and search" do
-    fill_in :city, with: "Minneapolis", wait: 5
+    find('input[name="city"]').set("Minneapolis")
     select 'MN', from: :state
     click_button "submit"
     expect(current_path).to eq(dashboard_path)
