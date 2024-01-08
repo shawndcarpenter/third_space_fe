@@ -28,6 +28,7 @@ Rails.application.routes.draw do
 
   resources :saved_locations, only: :index
   resources :locations
+  resources :search_locations, only: :create
 
 
 end

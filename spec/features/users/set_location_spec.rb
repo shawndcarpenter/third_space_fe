@@ -7,9 +7,17 @@ RSpec.describe 'Set Location Page', type: :feature do
 
   it 'has city or address input' do
     expect(current_path).to eq(set_location_path)
-    expect(page).to have_content("Where would you like to search?")
-    expect(page).to have_field('City')
-    expect(page).to have_field('State')
+    expect(page).to have_content("Where would you like to search today?")
+    expect(page).to have_field('city')
+    expect(page).to have_field('state')
     # expect(page).to have_field('Address') ## Ignore for now, will be better with GeoLocator
+  end
+
+  it "user can submit a location and search" do
+    fill_in :city, with: "Minneapolis"
+    select 'MN', from: :state
+    click_button "submit"
+    expect(current_page).to eq(dashboard_path)
+    expect(page).to have_content("Search Location: Minneapolis, MN")
   end
 end
