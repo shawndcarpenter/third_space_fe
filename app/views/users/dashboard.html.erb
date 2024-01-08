@@ -2,7 +2,7 @@
   <h1 class="display-4 text-center">Welcome to the User Dashboard</h1>
   <% if @search_location.present? %>
     <p>Search Location: <%= @search_location.city%>, <%= @search_location.state%></p>
-  <% end %>>
+  <% end %>
   <div class="row justify-content-center mt-4">
     <div class="text-center">
       <div class="col-auto">
@@ -14,7 +14,7 @@
 
   <h3>recommendations.</h3>
   <% if @recommended.empty?%>
-    No Third Spaces near you. Add a location <%=link_to "here"%>.
+    No Third Spaces near you. Add a location <%=link_to "here", new_third_space_path %>.
   <% else %>
 
   <% end %>
