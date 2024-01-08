@@ -1,5 +1,6 @@
 class User < ApplicationRecord
 
+  has_one :search_location
   has_many :user_locations
   has_many :locations, through: :user_locations
 
