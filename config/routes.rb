@@ -30,5 +30,5 @@ Rails.application.routes.draw do
   resources :locations
   resources :search_locations, only: :create
 
-
+  get '/user/auth/google_oauth2/callback', to: 'sessions#create'
 end
