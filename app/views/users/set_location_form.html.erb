@@ -1,34 +1,33 @@
-<div class="container-sm d-flex justify-content-center align-items-center">
+<div class="container-fluid d-flex justify-content-center align-items-center vh-100">
   <div class="text-center">
     <div class="mb-3">
       <%= image_tag 'temp_logo.png', class: "img-fluid", alt: "Logo" %>
     </div>
-    <%= form_with url: login_path, method: :post, local: true do |form| %>
+    <h3>Welcome, <%= @user.first_name %>! Where would you like to search today?</h3><br>
+    
+    <%= form_with url: dashboard_path, method: :post, local: true do |form| %>
     <div class="mb-3 d-flex align-items-center">
       <div class="col-sm-2">
-        <%= form.label :email, "email", class: "form-label" %>
+        <%= form.label :city, "city", class: "form-label" %>
       </div>
       <div class="col-sm-10">
-        <%= form.text_field :email, class: "form-control" %>
+        <%= form.text_field :city, class: "form-control" %>
       </div>
     </div>
 
     <div class="mb-3 d-flex align-items-center">
       <div class="col-sm-2">
-        <%= form.label :password, "password", class: "form-label" %>
+        <%= form.label :state, "state", class: "form-label" %>
       </div>
       <div class="col-sm-10">
-        <%= form.password_field :password, class: "form-control" %>
+        <%= form.select :state, User::STATE_ACRONYMS, { prompt: 'Select a state' }, class: "form-control" %>
       </div>
     </div>
 
     <div class="mb-3">
-      <%= form.submit "log in", class: "btn btn-primary" %>
+      <%= form.submit "submit", class: "btn btn-primary" %>
     </div>
     <% end %>
 
-    <div class="mb-3">
-      <%= link_to "create new account", register_path, class: "btn btn-primary" %>
-    </div>
   </div>
 </div>

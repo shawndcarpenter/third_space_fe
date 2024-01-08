@@ -36,7 +36,6 @@ class UsersController < ApplicationController
   def login
     user = User.find_by(email: params[:email])
     if user.nil?
-      # render :login_form
       flash[:error] = "Sorry, we are unable to find a user with this e-mail. Please check credentials or create an account."
       redirect_to login_path
     elsif user.authenticate(params[:password])
@@ -93,7 +92,7 @@ class UsersController < ApplicationController
   end
 
   def set_location_form
-
+    @user = current_user
   end
 
   private
