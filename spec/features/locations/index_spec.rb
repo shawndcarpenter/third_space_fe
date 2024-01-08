@@ -7,6 +7,7 @@ RSpec.describe "Find Locations", type: :feature do
       user_select_loc_data
       click_link "here"
 
+      save_and_open_page
       fill_in :name, with: "Five Watt"
       fill_in :city, with: "Minneapolis"
       click_button "submit"
