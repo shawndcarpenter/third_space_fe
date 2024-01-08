@@ -17,7 +17,7 @@
             <% @location_results.each do |location| %>
               <tr>
                 <div id ="location_result-<%= location.id %>">
-                  <td><%= location.name %></td>
+                  <td><%= link_to "#{location.name}", location_path(location) %></td>
                   <td><%= location.address %></td>
                   <td><%= location.category %></td>
                 </div>
