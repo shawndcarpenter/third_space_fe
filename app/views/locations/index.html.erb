@@ -1,34 +1,30 @@
 <body>
-  <h3>Locations</h3>
-  <div class="four-columns">
-    <div class="market_sub">
-      <b>Name</b>
-      <% @data[:data].each do |location| %>
-        <p><%= location[:attributes][:name] %></p>
-      <% end %>
+    <div class="container-fluid d-flex justify-content-center align-items-center vh-100">
+      <div class="text-center">
+        <div class="mb-3">
+          <%= image_tag 'temp_logo.png', class: "img-fluid", alt: "Logo" %>
+        </div>
+        <h3>Locations</h3>
+        <table class="three-columns">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Address</th>
+              <th>Category</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @location_results.each do |location| %>
+              <div id ="location_result-<%= location.id %>">
+                <tr>
+                  <td><%= link_to "#{location.name}", location_path(location.id) %></td>
+                  <td><%= location.address %></td>
+                  <td><%= location.category %></td>
+                </tr>
+              </div>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
     </div>
-
-    <div class="market_sub">
-      <b>Address</b>
-      <% @data[:data].each do |location| %>
-        <p><%= location[:attributes][:address] %></p>
-      <% end %>
-    </div>
-
-    <div class="market_sub">
-      <b>Latitude and Longitude</b>
-      <% @data[:data].each do |location| %>
-        <p><%= location[:attributes][:latitude] %></p>
-        <p><%= location[:attributes][:longitude] %></p>
-      <% end %>
-    </div>
-
-    <div class="market_sub">
-      <b>More Info</b>
-      <% @data[:data].each do |location| %>
-      <div class="button-container">
-        <p><%= button_to "More Info", location_path(location[:id]), method: :get %></p>
-      <% end %>
-    </div>
-  </div>
 </body>
