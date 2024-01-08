@@ -15,13 +15,13 @@
           </thead>
           <tbody>
             <% @location_results.each do |location| %>
-              <tr>
-                <div id ="location_result-<%= location.id %>">
-                  <td><%= link_to "#{location.name}", location_path(location) %></td>
+              <div id ="location_result-<%= location.id %>">
+                <tr>
+                  <td><%= link_to "#{location.name}", location_path(location.id) %></td>
                   <td><%= location.address %></td>
                   <td><%= location.category %></td>
-                </div>
-              </tr>
+                </tr>
+              </div>
             <% end %>
           </tbody>
         </table>

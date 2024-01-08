@@ -24,11 +24,10 @@ RSpec.describe "Find Locations", type: :feature do
     end
 
     it "user can select name of business to go to the show page" do
-      click_link "Five Watt Coffee Lyndale"
       within("#location_result-5pWHnKN3_AIrXiyyqZ74pw") do
-        click "Five Watt"
+        click_link "Five Watt"
       end
-      # expect(current_path).to eq()
+      expect(current_path).to eq(location_path("5pWHnKN3_AIrXiyyqZ74pw"))
     end
   end
 end
