@@ -20,7 +20,15 @@ RSpec.describe "Location Search Page", type: :feature do
       fill_in :city, with: "Minneapolis"
       click_button "submit"
       expect(current_path).to eq("/locations")
-      # expect(page).to have_content("Search Location: Minneapolis, MN")
+    end
+
+    it "will return all results that follow" do
+      expect(page).to have_content("Five Watt")
+      expect(page).to have_content("3745 Nicollet Ave S, Minneapolis, MN 55409")
+      expect(page).to have_content("Coffee & Tea")
+
+      expect(page).to have_content("Five Watt Coffee Lyndale")
+      expect(page).to have_content("3350 Lyndale Ave S, Minneapolis, MN 55408")
     end
   end
 end
