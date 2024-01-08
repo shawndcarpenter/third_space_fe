@@ -24,10 +24,8 @@ class UsersController < ApplicationController
   def create
     user = users_params
     user[:email] = user[:email].downcase
-    #binding.pry
     new_user = User.create(user)
     if new_user.save
-      #added line below
       session[:user_id] = new_user.id
       flash[:success] = "Welcome, #{new_user.email}!"
       initiate_verification(new_user)
