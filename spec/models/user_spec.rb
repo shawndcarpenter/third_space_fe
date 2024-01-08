@@ -3,6 +3,7 @@ require "rails_helper"
 RSpec.describe User, type: :model do
   
   describe "relationships" do
+    it { should have_one(:search_location) }
     it { should have_many(:user_locations) }
     it { should have_many(:locations).through(:user_locations) }
   end
