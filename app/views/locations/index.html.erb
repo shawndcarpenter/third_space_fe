@@ -16,9 +16,11 @@
           <tbody>
             <% @location_results.each do |location| %>
               <tr>
-                <td><%= location.name %></td>
-                <td><%= location.address %></td>
-                <td><%= location.category %></td>
+                <div id ="location_result-<%= location.id %>">
+                  <td><%= location.name %></td>
+                  <td><%= location.address %></td>
+                  <td><%= location.category %></td>
+                </div>
               </tr>
             <% end %>
           </tbody>

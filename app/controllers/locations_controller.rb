@@ -5,6 +5,7 @@ class LocationsController < ApplicationController
   
   def index
     @location_results = find_locations
+    binding.pry
   end
 
 
