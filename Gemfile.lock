@@ -326,6 +326,7 @@ DEPENDENCIES
   importmap-rails
   jbuilder
   launchy
+  omniauth
   omniauth-google-oauth2
   omniauth-rails_csrf_protection
   orderly

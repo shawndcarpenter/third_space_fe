@@ -26,6 +26,8 @@ class UsersController < ApplicationController
     user[:email] = user[:email].downcase
     new_user = User.create(user)
     if new_user.save
+      #added line below
+      User.setup_password_security(new_user)
       session[:user_id] = new_user.id
       flash[:success] = "Welcome, #{new_user.email}!"
       initiate_verification(new_user)
@@ -40,6 +42,8 @@ class UsersController < ApplicationController
 
   def login
     user = User.find_by(email: params[:email])
+    #
+    User.setup_password_security(user)
     if user.nil?
       flash[:error] = "Sorry, we are unable to find a user with this e-mail. Please check credentials or create an account."
       redirect_to login_path

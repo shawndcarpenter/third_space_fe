@@ -8,9 +8,11 @@ class User < ApplicationRecord
   validates :last_name, presence: true
   validates :email, presence: true
   validates_uniqueness_of :email
-  validates_presence_of :password
+  #validates :password, presence: true
+  validates_inclusion_of :provider, in: [true, false]
 
-  has_secure_password
+
+  #has_secure_password
 
   enum role: %w(default admin)
 
@@ -34,4 +36,13 @@ class User < ApplicationRecord
   #   totp = ROTP::TOTP.new(otp_secret_key)
   #   totp.verify(code)
   # end
+
+  def self.setup_password_security(user)
+    if user.provider == true
+      has_secure_password validations: false
+    else
+      has_secure_password
+      validates :password, presence: true
+    end
+  end
 end

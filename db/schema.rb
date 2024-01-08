@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_01_08_024749) do
+ActiveRecord::Schema[7.0].define(version: 2024_01_08_203745) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -62,6 +62,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_01_08_024749) do
     t.string "otp_code"
     t.integer "otp_code_attempts"
     t.datetime "otp_code_expires_at"
+    t.boolean "provider", default: false
   end
 
   add_foreign_key "search_locations", "users"
