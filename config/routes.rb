@@ -25,4 +25,6 @@ Rails.application.routes.draw do
   post '/validate_otp', to: 'users#validate_otp'
   get '/validate_otp', to: 'users#validate_otp_form'
 
+  resources :saved_locations, only: :index
+
 end

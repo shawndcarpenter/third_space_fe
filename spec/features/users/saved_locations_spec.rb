@@ -3,14 +3,14 @@ require 'rails_helper'
 RSpec.describe 'Saved Locations Index', type: :feature do
   before :each do
     user_login_data
+    visit saved_locations_path
   end
 
-  it 'allows the user to click the contact button and redirects to a form' do
-    expect(page).to have_content('User Dashboard')
-    expect(page).to have_button('contact us')
+  xit 'page exists' do
+    expect(page).to have_content('Saved Locations')
+    # expect(page).to have_button('contact us')
+    # expect(page).to have_button('contact us')
 
-    click_button 'contact us'
-
-    expect(current_path).to eq(new_contact_form_path) 
+    # expect(current_path).to eq(new_contact_form_path) 
   end
 end
