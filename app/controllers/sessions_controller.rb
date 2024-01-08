@@ -1,18 +1,9 @@
 class SessionsController < ApplicationController
   def create
     auth = request.env['omniauth.auth']
-    #binding.pry
     if auth.present? && auth['provider'].present? && auth['uid'].present? && auth['info'].present?
       user = User.find_by(email: auth['info']['email'])
-      # user = User.find_or_create_by(email: auth['info']['email']) do |u|
-      #   u.first_name = auth['info']['first_name']
-      #   u.last_name = auth['info']['last_name']
-      #   u.email = auth['info']['email']
-      # end
-      #binding.pry
       if user.present?
-        # User already exists, handle accordingly (e.g., update user details)
-        #binding.pry
         session[:user_id] = user.id
         redirect_to set_location_path
       else
@@ -20,8 +11,9 @@ class SessionsController < ApplicationController
           email: auth['info']['email'],
           first_name: auth['info']['first_name'],
           last_name: auth['info']['last_name'],
+          password: SecureRandom.hex(16),
           provider: true
-        )
+          )
 
         if new_user.save
           session[:user_id] = new_user.id

@@ -12,7 +12,16 @@
 # the additional setup, and require it from the spec files that actually need
 # it.
 def user_login_data
+  #issue is password doesn't exist only digest until you validate user, but the creation here
+  #is happening before that... so I need to run through all the steps
   @user1 = User.create(first_name: 'Candy', last_name: 'Land', email: 'shawncarpenter.co@gmail.com', password: 'test')
+  # visit register_path
+  # fill_in "first_name", with: "Candy"
+  # fill_in "last_name", with: "Land"
+  # fill_in "email", with: "shawncarpenter.co@gmail.com"
+  # fill_in "password", with: "test"
+  # fill_in "confirm_password", with: "test"
+  # click_button "create new account"
   visit '/login'
   fill_in "email", with: "#{@user1.email}"
   fill_in "password", with: "#{@user1.password}"
