@@ -34,9 +34,12 @@ class UsersController < ApplicationController
   end
 
   def login
-    # require 'pry'; binding.pry
     user = User.find_by(email: params[:email])
-    if user.authenticate(params[:password])
+    if user.nil?
+      # render :login_form
+      flash[:error] = "Sorry, we are unable to find a user with this e-mail. Please check credentials or create an account."
+      redirect_to login_path
+    elsif user.authenticate(params[:password])
       session[:user_id] = user.id
       flash[:success] = "Welcome, #{user.email}!"
       if user.admin?
