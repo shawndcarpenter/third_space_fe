@@ -1,13 +1,22 @@
 require "rails_helper"
 
-RSpec.describe "User Search of Locations for Creation", type: :feature do 
+RSpec.describe "Location Search Page", type: :feature do 
   before :each do
+    user_login_data
+    user_select_loc_data
+    click_link "here"
   end
 
-  describe "General Third Space details displayed" do 
-    xit "lists the the general details including name, open status, tags, description, address, and hours" do
-      expect(page).to have_content("Five Watt Coffee")
+  describe "Search Page" do 
+    it "has a form with fields for name and city" do
+      expect(current_path).to eq(locations_search_path)
+      expect(page).to have_content("What is the name and city of this Third Space?")
+      expect(page).to have_field('name')
+      expect(page).to have_field('city')
     end
 
+    it "use can submit and entries and redirect to the search index" do
+
+    end
   end
 end

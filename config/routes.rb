@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   # root "articles#index"
   root "landing#index"
 
+  get "/locations/search", to: "locations#search"
   resources :locations, only: [:index, :show, :new, :create]
   
   get "/register", to: "users#new"
@@ -27,9 +28,7 @@ Rails.application.routes.draw do
   get '/validate_otp', to: 'users#validate_otp_form'
 
   resources :saved_locations, only: :index
-  resources :locations
   resources :search_locations, only: :create
-  resources :third_spaces, only: :new
-
+  
 
 end

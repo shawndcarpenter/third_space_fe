@@ -1,7 +1,6 @@
 class ThirdSpacesController < ApplicationController
 
-  def new
-
+  def search
   end
 
 end
