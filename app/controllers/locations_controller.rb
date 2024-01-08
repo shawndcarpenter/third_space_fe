@@ -9,7 +9,8 @@ class LocationsController < ApplicationController
   
   def show
     location_id = params[:id]
-    @details = find_show_details(location_id)
+    @location = find_show_details(location_id)
+    # binding.pry
   end
 
   def new
