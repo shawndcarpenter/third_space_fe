@@ -1,5 +1,10 @@
 class UsersController < ApplicationController
 
+  def dashboard
+    @user = current_user
+    @search_location = @user.search_location
+  end
+
   def show
     current_user
     if @_current_user && current_user.admin?
@@ -38,9 +43,11 @@ class UsersController < ApplicationController
   end
 
   def login
-    # require 'pry'; binding.pry
     user = User.find_by(email: params[:email])
-    if user.authenticate(params[:password])
+    if user.nil?
+      flash[:error] = "Sorry, we are unable to find a user with this e-mail. Please check credentials or create an account."
+      redirect_to login_path
+    elsif user.authenticate(params[:password])
       session[:user_id] = user.id
       flash[:success] = "Welcome, #{user.email}!"
       if user.admin?
@@ -71,7 +78,7 @@ class UsersController < ApplicationController
     if session[:code] == entered_otp && session[:otp_expires_at] > Time.current
       #user.valid_otp?(entered_otp)
       # Mark the user as verified, update the session, or perform any other necessary actions
-      redirect_to dashboard_path, notice: 'OTP verification successful!'
+      redirect_to set_location_path, notice: 'OTP verification successful!'
       session.delete(:code)
       session.delete(:otp_expires_at)
       session[:user_id] = current_user.id
@@ -93,7 +100,9 @@ class UsersController < ApplicationController
     redirect_to "/"
   end
 
-
+  def set_location_form
+    @user = current_user
+  end
 
   private
   def users_params

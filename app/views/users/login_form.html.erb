@@ -1,30 +1,30 @@
-<div class="container-sm d-flex justify-content-center align-items-center">
+<div class="container-fluid d-flex justify-content-center align-items-center vh-100">
   <div class="text-center">
     <div class="mb-3">
       <%= image_tag 'temp_logo.png', class: "img-fluid", alt: "Logo" %>
     </div>
     <%= form_with url: login_path, method: :post, local: true do |form| %>
-    <div class="mb-3 d-flex align-items-center">
-      <div class="col-sm-2">
-        <%= form.label :email, "email", class: "form-label" %>
+      <div class="mb-3 d-flex align-items-center">
+        <div class="col-sm-2">
+          <%= form.label :email, "email", class: "form-label" %>
+        </div>
+        <div class="col-sm-10">
+          <%= form.text_field :email, class: "form-control" %>
+        </div>
       </div>
-      <div class="col-sm-10">
-        <%= form.text_field :email, class: "form-control" %>
-      </div>
-    </div>
 
-    <div class="mb-3 d-flex align-items-center">
-      <div class="col-sm-2">
-        <%= form.label :password, "password", class: "form-label" %>
+      <div class="mb-3 d-flex align-items-center">
+        <div class="col-sm-2">
+          <%= form.label :password, "password", class: "form-label" %>
+        </div>
+        <div class="col-sm-10">
+          <%= form.password_field :password, class: "form-control" %>
+        </div>
       </div>
-      <div class="col-sm-10">
-        <%= form.password_field :password, class: "form-control" %>
-      </div>
-    </div>
 
-    <div class="mb-3">
-      <%= form.submit "log in", class: "btn btn-primary" %>
-    </div>
+      <div class="mb-3">
+        <%= form.submit "log in", class: "btn btn-primary" %>
+      </div>
     <% end %>
 
     <div class="mb-3">
