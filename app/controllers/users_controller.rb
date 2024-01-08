@@ -3,7 +3,18 @@ class UsersController < ApplicationController
   def dashboard
     @user = current_user
     @search_location = @user.search_location
+    @recommended = find_spaces
   end
+
+  # def make_
+  #   conn = Faraday.new(url: "http://localhost:3000") do |faraday|
+  #     faraday.params["api_key"] = Rails.application.credentials.yelp[:key]
+  #     faraday.params["name"] = Rails.application.credentials.yelp[:key]
+  #   end
+
+  #   response = conn.get("/api/v1/locations/search_locations")
+
+  # end
 
   def show
     current_user
@@ -100,5 +111,19 @@ class UsersController < ApplicationController
   def users_params
     params.require(:user).permit(:email, :first_name, :last_name, :password, :password_confirmation)
   end
+
+  def find_spaces
+    conn = Faraday.new(url: "http://localhost:3000")
+    response = conn.get("/api/v1/third_spaces")
+    data = JSON.parse(response.body, symbolize_names: true)[:data]
+
+    locations = data.map do |d|
+      Location.new(d)
+    end
+
+    ## Add logic to only return locations within the area
+  end
+
+
 
 end
