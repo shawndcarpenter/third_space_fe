@@ -1,9 +1,11 @@
 class LocationsController < ApplicationController
   
   def search
-
   end
-
+  
+  def index
+    @location_results = find_locations
+  end
 
   # #NOT SETUP -- THESE ARE PLACEHOLDERS AT THE MOMENT UNTIL BE IS SETUP
   # def index
@@ -27,4 +29,18 @@ class LocationsController < ApplicationController
     
   end
   
+  private
+
+  def find_locations
+    conn = Faraday.new(url: "http://localhost:3000") do |faraday| 
+      faraday.params["name"] = params[:name]
+      faraday.params["city"] = params[:city]
+    end
+    response = conn.get("/api/v1/locations/search_locations")
+    data = JSON.parse(response.body, symbolize_names: true)[:data]
+  
+    search_results = data.map do |d|
+      SearchResult.new(d[:attributes])
+    end
+  end
 end

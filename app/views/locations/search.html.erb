@@ -3,30 +3,30 @@
     <div class="mb-3">
       <%= image_tag 'temp_logo.png', class: "img-fluid", alt: "Logo" %>
     </div>
-    <h3> </h3><br>
+    <h3>What is the name and city of this third space?</h3><br>
     
-    <%= form_with url: search_locations_path, method: :post, local: true do |form| %>
-    <div class="mb-3 d-flex align-items-center">
-      <div class="col-sm-2">
-        <%= form.label :city, "city", class: "form-label" %>
+    <%= form_with url: locations_path, method: :get, local: true do |form| %>
+      <div class="mb-3 d-flex align-items-center">
+        <div class="col-sm-2">
+          <%= form.label :name, "name", class: "form-label" %>
+        </div>
+        <div class="col-sm-10">
+          <%= text_field_tag :name, params[:name], class: "form-control" %>
+        </div>
       </div>
-      <div class="col-sm-10">
-        <%= form.text_field :city, class: "form-control" %>
-      </div>
-    </div>
 
-    <div class="mb-3 d-flex align-items-center">
-      <div class="col-sm-2">
-        <%= form.label :state, "state", class: "form-label" %>
+      <div class="mb-3 d-flex align-items-center">
+        <div class="col-sm-2">
+          <%= form.label :city, "city", class: "form-label" %>
+        </div>
+              <div class="col-sm-10">
+          <%= text_field_tag :city, params[:city], class: "form-control" %>
+        </div>
       </div>
-      <div class="col-sm-10">
-        <%= form.select :state, User::STATE_ACRONYMS, { prompt: 'Select a state' }, class: "form-control" %>
-      </div>
-    </div>
 
-    <div class="mb-3">
-      <%= form.submit "submit", class: "btn btn-primary" %>
-    </div>
+      <div class="mb-3">
+        <%= form.submit "submit", class: "btn btn-primary" %>
+      </div>
     <% end %>
 
   </div>
