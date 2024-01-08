@@ -25,6 +25,11 @@ def user_login_data
   click_button 'submit'
 end
 
+def user_select_loc_data
+  fill_in :city, with: "Minneapolis"
+  select 'MN', from: :state
+  click_button "submit"
+end
 #
 # See https://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
 RSpec.configure do |config|

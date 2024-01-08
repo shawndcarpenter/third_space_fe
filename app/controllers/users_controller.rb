@@ -1,5 +1,10 @@
 class UsersController < ApplicationController
 
+  def dashboard
+    @user = current_user
+    @search_location = @user.search_location
+  end
+
   def show
     current_user
     if @_current_user && current_user.admin?

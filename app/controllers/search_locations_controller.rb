@@ -1,6 +1,7 @@
 class SearchLocationsController < ApplicationController
   def create
-    current_user.build_search_location(search_params)
+    search_location = current_user.build_search_location(search_params)
+    search_location.save
     redirect_to dashboard_path
   end
 
