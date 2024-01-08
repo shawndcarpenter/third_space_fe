@@ -17,7 +17,7 @@ RSpec.describe 'Set Location Page', type: :feature do
     fill_in :city, with: "Minneapolis"
     select 'MN', from: :state
     click_button "submit"
-    expect(current_page).to eq(dashboard_path)
+    expect(current_path).to eq(dashboard_path)
     expect(page).to have_content("Search Location: Minneapolis, MN")
   end
 end
