@@ -4,11 +4,14 @@ RSpec.describe "New Third Space Form", type: :feature do
   before :each do
     user_login_data
     user_select_loc_data
+    sleep(0.3)
     click_link "here"
-
+    sleep(0.3)
+    
     fill_in :name, with: "Five Watt"
     fill_in :city, with: "Minneapolis"
     click_button "submit"
+    sleep(0.3)
 
     within("#location_result-5pWHnKN3_AIrXiyyqZ74pw") do
       click_link "Five Watt"

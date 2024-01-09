@@ -5,12 +5,12 @@ RSpec.describe "Show Location Details of Space", type: :feature do
     user_login_data
     user_select_loc_data
     click_link "here"
-
     fill_in :name, with: "Five Watt"
     fill_in :city, with: "Minneapolis"
     click_button "submit"
 
     within("#location_result-5pWHnKN3_AIrXiyyqZ74pw") do
+      sleep(0.3)
       click_link "Five Watt"
     end
   end
