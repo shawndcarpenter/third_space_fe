@@ -5,7 +5,8 @@ class ThirdSpacesController < ApplicationController
     @location = DetailedLocation.new(json)
   end
 
-  def create
+  def create_third_space
+    binding.pry
   end
 
 end
