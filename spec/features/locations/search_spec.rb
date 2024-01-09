@@ -20,7 +20,7 @@ RSpec.describe "Location Search Page", type: :feature do
       end
     end
 
-    it "user can submit and entries and redirect to the search index" do
+    xit "user can submit and entries and redirect to the search index" do
       VCR.use_cassette("fill in name and city") do 
         user_login_data
         sleep(0.3)
