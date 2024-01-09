@@ -15,7 +15,7 @@ RSpec.describe "Show Location Details of Space", type: :feature do
     end
   end
 
-  describe "General Third Space details displayed" do 
+  describe "General Third Space details displayed", :vcr do
     it "lists the the general details including name, open status, tags, description, address, and hours" do
       expect(page).to have_content("Five Watt Coffee")
       expect(page).to have_content("$$")

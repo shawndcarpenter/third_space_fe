@@ -29,8 +29,13 @@ RSpec.describe "new user", type: :feature do
     end
     it 'creates an account' do
       visit register_path
-      click_button "create new account"
-      #add more to this
+      fill_in "first_name", with: "Candy"
+      fill_in "last_name", with: "Land"
+      fill_in "email", with: "shawncarpenter.co@gmail.com"
+      fill_in "password", with: "test"
+      fill_in "confirm_password", with: "test"
+      click_button "create new account"   
+      expect(current_path).to eq(validate_otp_path)
     end
   
   end

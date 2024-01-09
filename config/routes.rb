@@ -8,9 +8,11 @@ Rails.application.routes.draw do
 
   get "/locations/search", to: "locations#search"
   resources :locations, only: [:index, :show, :new, :create]
+  get '/locations/search', to: 'locations#search', as: 'location_search'
   
   get "/register", to: "users#new"
   post "/register", to: "users#create"
+  get "/users/support", to: "users#support", as: 'support'
   get "/users/:user_id", to: "users#show"
   get "/dashboard", to: "users#dashboard"
   get "/set_location", to: "users#set_location_form"
@@ -33,4 +35,6 @@ Rails.application.routes.draw do
   resources :third_spaces, only: [:new]
   get "/third_space/create", to: "third_spaces#create_third_space", as: :third_space_create
 
+
+  get '/user/auth/google_oauth2/callback', to: 'sessions#create'
 end

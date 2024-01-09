@@ -17,7 +17,7 @@ RSpec.describe "New Third Space Form", type: :feature do
     click_link("Create a Third Space")
   end
 
-  describe "General Third Space details displayed" do 
+  describe "General Third Space details displayed", :vcr do 
     it "lists the the general details including name, category, address, section for tags" do
       expect(page).to have_content("Five Watt Coffee")
       expect(page).to have_content("Coffee & Tea")
