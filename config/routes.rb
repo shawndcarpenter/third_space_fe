@@ -33,4 +33,6 @@ Rails.application.routes.draw do
   resources :third_spaces, only: [:new, :create]
   
 
+
+  get '/user/auth/google_oauth2/callback', to: 'sessions#create'
 end
