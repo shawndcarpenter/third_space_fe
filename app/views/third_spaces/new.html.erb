@@ -1,21 +1,64 @@
 <body>
-  <div class="container-fluid">
     <div class="logo-container">
       <%= image_tag 'temp_logo.png', class: "img-fluid smaller-logo", alt: "Logo" %>
     </div>
+  <div class="container-fluid d-flex justify-content-center align-items-center vh-100">
 
-    <div class="d-flex flex-column justify-content-center align-items-center vh-100">
-      <div class="text-center">
-        <div class="d-inline-block text-left">
-          <h2>Create a New Third Space</h2>
-        </div>
-      </div>
+    <div class="text-center">
+      <div class="mb-3">
+        <h3>Create a New Third Space</h3><br>
 
-      <br>
-      <div class="text-center">
-        
+        <%= form_with(model: User.new, url: "/register", method: "post", local: true) do |form| %>
+
+          <div class="mb-3 d-flex align-items-center">
+            <div class="col-sm-2">
+              <label class="form-label" for="name">Name</label>
+            </div>
+            <div class="col-sm-10">
+              <div class="form-control" style="border: none; padding: 0;">
+                <span id="name"><%= @location.name %></span>
+              </div>
+            </div>
+          </div>
+
+          <div class="mb-3 d-flex align-items-center">
+            <div class="col-sm-2">
+              <label class="form-label" for="category">Category</label>
+            </div>
+            <div class="col-sm-10">
+              <div class="form-control" style="border: none; padding: 0;">
+                <span id="category"><%= @location.category %></span>
+              </div>
+            </div>
+          </div>
+
+          <div class="mb-3 d-flex align-items-center">
+            <div class="col-sm-2">
+              <label class="form-label" for="address">Address</label>
+            </div>
+            <div class="col-sm-10">
+              <div class="form-control" style="border: none; padding: 0;">
+                <span id="rating"><%= @location.address %></span>
+              </div>
+            </div>
+          </div>
+
+          <div class="mb-3 d-flex align-items-center">
+            <div class="col-sm-2">
+              <%= form.label :tags, "Tags", class: "form-label" %>
+            </div>
+            <div class="col-sm-10">
+              <div class="form-control" style="border: none; padding: 0;">
+                <%= form.text_field :tags, class: "form-control" %>
+              </div>
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <%= form.submit "create", class: "btn btn-primary" %>
+          </div>
+        <% end %>
       </div>
-       
     </div>
   </div>
 </body>
