@@ -25,7 +25,7 @@ class LocationsController < ApplicationController
     end
     response = conn.get("/api/v1/locations/search_locations")
     data = JSON.parse(response.body, symbolize_names: true)[:data]
-  
+
     search_results = data.map do |d|
       SearchResult.new(d[:attributes])
     end

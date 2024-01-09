@@ -38,8 +38,15 @@ RSpec.describe "New Third Space Form", type: :feature do
       expect(page).to have_content('Volume')
     end
 
-    it "can take the user to the new Third Space form" do
-      expect(current_path).to eq(new_third_space_path)
+    it "user can select tags for the submissions" do
+      checkbox_labels = ['Accessible Entrance', 'BIPOC Friendly', 'Child Friendly', 'Customer Restrooms', 'Gender Neutral Restrooms', 'Parking', 'Purchase Necessary', 'Public Transportation Nearby', 'Queer Friendly', 'Sober', 'Staff Responsiveness', 'Volume']
+      checkbox_labels.each do |label|
+        next if label == 'Volume'
+        find("input[name='tags[]'][value='#{label}']", visible: :all).check
+      end
+
+      click_button 'Create'
+      expect(current_path).to eq(dashboard_path)
     end
   end
 end
