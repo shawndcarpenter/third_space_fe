@@ -1,9 +1,9 @@
 class UsersController < ApplicationController
 
   def dashboard
-    @user = current_user
-    @search_location = @user.search_location
-    @recommended = find_spaces
+    # @user = current_user
+    # @search_location = @user.search_location
+    # @recommended = find_spaces
   end
 
   # def make_
