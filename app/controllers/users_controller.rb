@@ -28,6 +28,10 @@ class UsersController < ApplicationController
     end
   end
   
+  def support
+    
+  end
+
   def new
     @user = User.new
   end
