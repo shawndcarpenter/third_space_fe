@@ -121,8 +121,8 @@ class UsersController < ApplicationController
     response = conn.get("/api/v1/third_spaces")
     data = JSON.parse(response.body, symbolize_names: true)[:data]
 
-    return if data.nil?
-    
+    data == [] if data.nil?
+
     locations = data.map do |d|
       Location.new(d)
     end

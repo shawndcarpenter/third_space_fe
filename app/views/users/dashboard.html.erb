@@ -13,7 +13,7 @@
   </div>
 
   <h3>recommendations.</h3>
-  <% if @recommended.nil?%>
+  <% if @recommended.empty?%>
     No Third Spaces near you. Add a location <%=link_to "here", locations_search_path %>.
   <% else %>
 

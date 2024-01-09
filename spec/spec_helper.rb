@@ -34,7 +34,6 @@ def user_select_loc_data
   search_location = @user1.build_search_location(city: "Minneapolis", state: "MN")
   search_location.save
   visit dashboard_path
-
 end
 #
 # See https://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
