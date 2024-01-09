@@ -1,7 +1,7 @@
 <body>
-    <div class="logo-container">
-      <%= image_tag 'temp_logo.png', class: "img-fluid smaller-logo", alt: "Logo" %>
-    </div>
+  <div class="logo-container">
+    <%= image_tag 'temp_logo.png', class: "img-fluid smaller-logo", alt: "Logo" %>
+  </div>
   <div class="container-fluid d-flex justify-content-center align-items-center vh-100">
 
     <div class="text-center">
@@ -9,12 +9,11 @@
         <h3>Create a New Third Space</h3><br>
 
         <%= form_with(model: User.new, url: "/register", method: "post", local: true) do |form| %>
-
           <div class="mb-3 d-flex align-items-center">
-            <div class="col-sm-2">
+            <div class="col-sm-2 rounded-highlight">
               <label class="form-label" for="name">Name</label>
             </div>
-            <div class="col-sm-10">
+            <div class="col-sm-9">
               <div class="form-control" style="border: none; padding: 0;">
                 <span id="name"><%= @location.name %></span>
               </div>
@@ -22,10 +21,10 @@
           </div>
 
           <div class="mb-3 d-flex align-items-center">
-            <div class="col-sm-2">
+            <div class="col-sm-2 rounded-highlight">
               <label class="form-label" for="category">Category</label>
             </div>
-            <div class="col-sm-10">
+            <div class="col-sm-9">
               <div class="form-control" style="border: none; padding: 0;">
                 <span id="category"><%= @location.category %></span>
               </div>
@@ -33,23 +32,38 @@
           </div>
 
           <div class="mb-3 d-flex align-items-center">
-            <div class="col-sm-2">
+            <div class="col-sm-2 rounded-highlight">
               <label class="form-label" for="address">Address</label>
             </div>
-            <div class="col-sm-10">
+            <div class="col-sm-9">
               <div class="form-control" style="border: none; padding: 0;">
                 <span id="rating"><%= @location.address %></span>
               </div>
             </div>
           </div>
 
-          <div class="mb-3 d-flex align-items-center">
-            <div class="col-sm-2">
-              <%= form.label :tags, "Tags", class: "form-label" %>
+          <div class="mb-3">
+            <div class="d-flex justify-content-center align-items-center">
+            <div class="col-sm-2 rounded-highlight">
+              Tags
             </div>
-            <div class="col-sm-10">
-              <div class="form-control" style="border: none; padding: 0;">
-                <%= form.text_field :tags, class: "form-control" %>
+              <div class="col-sm-4">
+                <%= form.check_box :accessible_entrance, { class: 'form-check-input' } %> Accessible Entrance<br>
+                <%= form.check_box :bipoc_friendly, { class: 'form-check-input' } %> BIPOC Friendly<br>
+                <%= form.check_box :child_friendly, { class: 'form-check-input' } %> Child Friendly<br>
+                <%= form.check_box :customer_restrooms, { class: 'form-check-input' } %> Customer Restrooms<br>
+              </div>
+              <div class="col-sm-4">
+                <%= form.check_box :gender_neutral_restrooms, { class: 'form-check-input' } %> Gender Neutral Restrooms<br>
+                <%= form.check_box :parking, { class: 'form-check-input' } %> Parking<br>
+                <%= form.check_box :purchase_necessary, { class: 'form-check-input' } %> Purchase Necessary<br>
+                <%= form.check_box :public_transportation_nearby, { class: 'form-check-input' } %> Public Transportation Nearby<br>
+              </div>
+              <div class="col-sm-4">
+                <%= form.check_box :queer_friendly, { class: 'form-check-input' } %> Queer Friendly<br>
+                <%= form.check_box :sober, { class: 'form-check-input' } %> Sober<br>
+                <%= form.check_box :staff_responsiveness, { class: 'form-check-input' } %> Staff Responsiveness<br>
+                <%= form.check_box :volume, { class: 'form-check-input' } %> Volume<br>
               </div>
             </div>
           </div>
