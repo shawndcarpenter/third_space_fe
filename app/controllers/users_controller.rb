@@ -120,8 +120,7 @@ class UsersController < ApplicationController
     conn = Faraday.new(url: "http://localhost:3000")
     response = conn.get("/api/v1/third_spaces")
     data = JSON.parse(response.body, symbolize_names: true)[:data]
-
-    data == [] if data.nil?
+    return [] if data.nil?
 
     locations = data.map do |d|
       Location.new(d)

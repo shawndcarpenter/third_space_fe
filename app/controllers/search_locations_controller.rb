@@ -3,6 +3,8 @@ class SearchLocationsController < ApplicationController
     if current_user.search_location.nil?
       search_location = current_user.build_search_location(search_params)
       search_location.save
+    else
+      current_user.search_location.update(search_params)
     end
     redirect_to dashboard_path
   end
