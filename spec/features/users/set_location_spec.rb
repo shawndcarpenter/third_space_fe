@@ -6,6 +6,7 @@ RSpec.describe 'Set Location Page', type: :feature do
   end
 
   it 'has city or address input' do
+    user_login_data
     expect(current_path).to eq(set_location_path)
     expect(page).to have_content("Where would you like to search today?")
     expect(page).to have_field('city')
@@ -14,10 +15,13 @@ RSpec.describe 'Set Location Page', type: :feature do
   end
 
   it "user can submit a location and search" do
-    find('input[name="city"]').set("Minneapolis")
-    select 'MN', from: :state
-    click_button "submit"
-    expect(current_path).to eq(dashboard_path)
-    expect(page).to have_content("Search Location: Minneapolis, MN")
+    VCR.use_cassette("search location") do
+      user_login_data
+      find('input[name="city"]').set("Minneapolis")
+      select 'MN', from: :state
+      click_button "submit"
+      expect(current_path).to eq(dashboard_path)
+      expect(page).to have_content("Search Location: Minneapolis, MN")
+    end
   end
 end
