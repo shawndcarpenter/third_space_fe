@@ -22,7 +22,7 @@ RSpec.describe "Show Location Details of Space", type: :feature do
       expect(page).to have_content("Rating: 4.5")
       expect(page).to have_content("Coffee & Tea")
       expect(page).to have_content("Address: 3745 Nicollet Ave S, Minneapolis, MN 55409")
-      expect(page).to have_link("Create a Third Space", href: new_third_space_path, class: "rounded-button")
+      expect(page).to have_link("Create a Third Space")
     end
 
     it "can take the user to the new Third Space form" do

@@ -26,8 +26,7 @@ def user_login_data
 end
 
 def user_select_loc_data
-  find('input[name="city"]').set("Minneapolis")
-
+  fill_in 'city', with: 'Minneapolis', wait: 5
   select 'MN', from: :state
   click_button "submit"
 end

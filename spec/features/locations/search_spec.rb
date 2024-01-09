@@ -17,7 +17,7 @@ RSpec.describe "Location Search Page", type: :feature do
 
     it "use can submit and entries and redirect to the search index" do
       fill_in :name, with: "Five Watt"
-      fill_in :city, with: "Minneapolis"
+      find_field('city').set('Minneapolis')
       click_button "submit"
       expect(current_path).to eq("/locations")
     end
