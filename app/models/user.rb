@@ -22,6 +22,10 @@ class User < ApplicationRecord
     ROTP::TOTP.new(otp_secret_key).now
   end
 
+  def name
+    "#{self.first_name} #{self.last_name}"
+  end
+
   # doesn't work: I manually set the sesssion cookie code to otp passcode
   # def valid_otp?(code)
   #   totp = ROTP::TOTP.new(otp_secret_key)

@@ -16,6 +16,9 @@ Rails.application.routes.draw do
   get '/contact', to: 'contacts#new', as: :new_contact_form
   post '/contact', to: 'contacts#create'
 
+  get '/profile', to: 'users#profile', as: 'profile'
+  get '/privacy', to: 'users#privacy'
+
   get "/login", to: "users#login_form"
   post "/login", to: "users#login"
 

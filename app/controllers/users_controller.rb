@@ -30,6 +30,19 @@ class UsersController < ApplicationController
     end
   end
 
+  def profile
+    @user = current_user
+
+    unless @user
+      flash[:error] = "You must be logged in to view this page."
+      redirect_to login_path 
+    end
+  end
+
+  def privacy 
+
+  end
+
   def login_form
   end
 

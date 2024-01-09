@@ -1,0 +1,16 @@
+<div class="container mt-4">
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+      <div class="card">
+        <div class="card-header">
+          <h1>User Profile</h1>
+        </div>
+        <div class="card-body">
+          <p><strong>Name: <%= @user.name %></strong></p>
+          <p><strong>Email: <%= @user.email %></strong></p>
+          <%= link_to 'Dashboard', dashboard_path, class: 'btn btn-primary mt-3' %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

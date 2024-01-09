@@ -20,3 +20,14 @@
   background-repeat: no-repeat;
   background-attachment:fixed;
 }
+
+// .custom-navbar {
+//   background-color: rgba(255, 255, 255, 0.9); /* Slightly transparent white */
+//   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+// }
+
+.custom-navbar {
+  background: linear-gradient(to bottom, rgba(136, 185, 132, 0.85), rgba(255, 255, 255, 0));
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05); /* More subtle shadow */
+  border: none; /* Optional: remove border if present */
+}
