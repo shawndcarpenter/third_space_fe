@@ -5,7 +5,8 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "articles#index"
   root "landing#index"
-  
+
+  get "/locations/search", to: "locations#search"
   resources :locations, only: [:index, :show, :new, :create]
   get '/locations/search', to: 'locations#search', as: 'location_search'
   
@@ -29,8 +30,11 @@ Rails.application.routes.draw do
   get '/validate_otp', to: 'users#validate_otp_form'
 
   resources :saved_locations, only: :index
-  resources :locations
   resources :search_locations, only: :create
 
+  resources :third_spaces, only: [:new, :create]
+  
 
+
+  get '/user/auth/google_oauth2/callback', to: 'sessions#create'
 end

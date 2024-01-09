@@ -1,18 +1,30 @@
-<div class="container-sm d-flex justify-content-center align-items-center">
-  <div class="text-center">
-  <div class="mb-3">
-    <%= image_tag 'temp_logo.png', class: "img-fluid", alt: "Logo" %>
-  </div>
-
-
-<%= form_with url: locations_path, method: :post, local: true do |form| %>
-  <div class="mb-3 d-flex align-items-center">
-    <div class="col-sm-10">
-      <%= form.text_field :search, class: "form-control", id: "floatingInput", placeholder: "where are you today?"%>
-
+<body>
+    <div class="container-fluid d-flex justify-content-center align-items-center vh-100">
+      <div class="text-center">
+        <div class="mb-3">
+          <%= image_tag 'temp_logo.png', class: "img-fluid", alt: "Logo" %>
+        </div>
+        <h3>Locations</h3>
+        <table class="three-columns">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Address</th>
+              <th>Category</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @location_results.each do |location| %>
+              <div id ="location_result-<%= location.id %>">
+                <tr>
+                  <td><%= link_to "#{location.name}", location_path(location.id) %></td>
+                  <td><%= location.address %></td>
+                  <td><%= location.category %></td>
+                </tr>
+              </div>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
     </div>
-    <div class="col-sm-2">
-      <%= form.submit "search", class: "btn btn-primary" %>
-    </div>
-  </div>
-<% end %>
+</body>

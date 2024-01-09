@@ -2,44 +2,32 @@ require "rails_helper"
 
 RSpec.describe "Find Locations", type: :feature do 
   describe "Index" do 
-    it 'has basic functionality and appearance' do
-      visit locations_path
-      expect(page).to have_selector("input[placeholder='where are you today?']")
-    end
-    it 'has a search field' do
-      visit locations_path
-      expect(page).to have_field("search")
-    end
-    it 'has search button' do
-      visit locations_path
-      expect(page).to have_button("search")
-    end
-    # xit "displays all markets" do 
-      # As a visitor,
-      # When I visit '/locations'
-      # I see all locations listed with their name, address, lat and lon
-      # When I click a button to see more info on that market
-      # I'm taken to that market's show page '/locations/:id'
+    before :each do
+      user_login_data
+      user_select_loc_data
+      click_link "here"
 
-      #webmock stub
-    #   json_response = File.read("")
+      fill_in :name, with: "Five Watt"
+      fill_in :city, with: "Minneapolis"
+      click_button "submit"
+    end
 
-    #   stub_request(:get, "http://127.0.0.1:3000/api/v0/locations").
-    #      with(
-    #        headers: {
-    #       'Accept'=>'*/*',
-    #       'Accept-Encoding'=>'gzip;q=1.0,deflate;q=0.6,identity;q=0.3',
-    #       'User-Agent'=>'Faraday v2.7.12'
-    #        }).
-    #      to_return(status: 200, body: json_response, headers: {})
-    #     # use postman to copy the api data into a fixture file 
+    it "displays all markets" do 
+      expect(current_path).to eq("/locations")
+      
+      expect(page).to have_content("Five Watt")
+      expect(page).to have_content("3745 Nicollet Ave S, Minneapolis, MN 55409")
+      expect(page).to have_content("Coffee & Tea")
 
-         
-    #   visit "/locations"
-    #   expect(page).to have_content("Locations")
-    #   expect(page).to have_content("Name")
-    #   expect(page).to have_content("Address")
-    #   expect(page).to have_content("Latitude and Longitude")
-    # end
+      expect(page).to have_content("Five Watt Coffee Lyndale")
+      expect(page).to have_content("3350 Lyndale Ave S, Minneapolis, MN 55408")
+    end
+
+    it "user can select name of business to go to the show page" do
+      within("#location_result-5pWHnKN3_AIrXiyyqZ74pw") do
+        click_link "Five Watt"
+      end
+      expect(current_path).to eq(location_path("5pWHnKN3_AIrXiyyqZ74pw"))
+    end
   end
 end

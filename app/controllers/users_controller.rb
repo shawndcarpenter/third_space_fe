@@ -3,7 +3,18 @@ class UsersController < ApplicationController
   def dashboard
     @user = current_user
     @search_location = @user.search_location
+    @recommended = find_spaces
   end
+
+  # def make_
+  #   conn = Faraday.new(url: "http://localhost:3000") do |faraday|
+  #     faraday.params["api_key"] = Rails.application.credentials.yelp[:key]
+  #     faraday.params["name"] = Rails.application.credentials.yelp[:key]
+  #   end
+
+  #   response = conn.get("/api/v1/locations/search_locations")
+
+  # end
 
   def show
     current_user
@@ -62,13 +73,11 @@ class UsersController < ApplicationController
   end
 
   def initiate_verification(user)
-    # Add logic to generate OTP and send it via email
     user.generate_otp_secret_key
     user.update(otp_code: user.generate_otp, otp_code_expires_at: 5.minutes.from_now)
     user.save
     session[:code] = user.otp_code
     session[:otp_expires_at] = 5.minutes.from_now
-    # Send OTP via email (using ActionMailer or similar)
     UserMailer.send_otp_email(user).deliver_now
     redirect_to validate_otp_path
   end
@@ -76,8 +85,6 @@ class UsersController < ApplicationController
   def validate_otp
     entered_otp = params[:otp]
     if session[:code] == entered_otp && session[:otp_expires_at] > Time.current
-      #user.valid_otp?(entered_otp)
-      # Mark the user as verified, update the session, or perform any other necessary actions
       redirect_to set_location_path, notice: 'OTP verification successful!'
       session.delete(:code)
       session.delete(:otp_expires_at)
@@ -108,5 +115,19 @@ class UsersController < ApplicationController
   def users_params
     params.require(:user).permit(:email, :first_name, :last_name, :password, :password_confirmation)
   end
+
+  def find_spaces
+    conn = Faraday.new(url: "http://localhost:3000")
+    response = conn.get("/api/v1/third_spaces")
+    data = JSON.parse(response.body, symbolize_names: true)[:data]
+
+    locations = data.map do |d|
+      Location.new(d)
+    end
+
+    ## Add logic to only return locations within the area
+  end
+
+
 
 end

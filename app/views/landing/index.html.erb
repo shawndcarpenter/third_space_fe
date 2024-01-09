@@ -9,6 +9,8 @@
   <div class="d-grid gap-4 d-md-flex justify-content-md-center">
       <a href="/login" class="btn btn-primary">login</a> 
       <a href="/register" class="btn btn-primary">new user</a>
+      <!--<button type="button" class="btn btn-primary" onclick="window.location.href='/auth/google_oauth2'">Sign up with Google</button>-->
+      <%= button_to "Sign up with Google", '/auth/google_oauth2', data: {turbo: false}%>
   </div>
 </div>
 
