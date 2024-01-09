@@ -1,5 +1,21 @@
 class UsersController < ApplicationController
 
+  def dashboard
+    @user = current_user
+    @search_location = @user.search_location
+    @recommended = find_spaces
+  end
+
+  # def make_
+  #   conn = Faraday.new(url: "http://localhost:3000") do |faraday|
+  #     faraday.params["api_key"] = Rails.application.credentials.yelp[:key]
+  #     faraday.params["name"] = Rails.application.credentials.yelp[:key]
+  #   end
+
+  #   response = conn.get("/api/v1/locations/search_locations")
+
+  # end
+
   def show
     current_user
     if @_current_user && current_user.admin?
@@ -47,9 +63,11 @@ class UsersController < ApplicationController
   end
 
   def login
-    # require 'pry'; binding.pry
     user = User.find_by(email: params[:email])
-    if user.authenticate(params[:password])
+    if user.nil?
+      flash[:error] = "Sorry, we are unable to find a user with this e-mail. Please check credentials or create an account."
+      redirect_to login_path
+    elsif user.authenticate(params[:password])
       session[:user_id] = user.id
       flash[:success] = "Welcome, #{user.email}!"
       if user.admin?
@@ -80,7 +98,7 @@ class UsersController < ApplicationController
     if session[:code] == entered_otp && session[:otp_expires_at] > Time.current
       #user.valid_otp?(entered_otp)
       # Mark the user as verified, update the session, or perform any other necessary actions
-      redirect_to dashboard_path, notice: 'OTP verification successful!'
+      redirect_to set_location_path, notice: 'OTP verification successful!'
       session.delete(:code)
       session.delete(:otp_expires_at)
       session[:user_id] = current_user.id
@@ -102,9 +120,27 @@ class UsersController < ApplicationController
     redirect_to "/"
   end
 
+  def set_location_form
+    @user = current_user
+  end
+
   private
   def users_params
     params.require(:user).permit(:email, :first_name, :last_name, :password, :password_confirmation)
   end
+
+  def find_spaces
+    conn = Faraday.new(url: "http://localhost:3000")
+    response = conn.get("/api/v1/third_spaces")
+    data = JSON.parse(response.body, symbolize_names: true)[:data]
+
+    locations = data.map do |d|
+      Location.new(d)
+    end
+
+    ## Add logic to only return locations within the area
+  end
+
+
 
 end

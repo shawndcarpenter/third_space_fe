@@ -6,12 +6,14 @@ Rails.application.routes.draw do
   # root "articles#index"
   root "landing#index"
 
+  get "/locations/search", to: "locations#search"
   resources :locations, only: [:index, :show, :new, :create]
   
   get "/register", to: "users#new"
   post "/register", to: "users#create"
   get "/users/:user_id", to: "users#show"
   get "/dashboard", to: "users#dashboard"
+  get "/set_location", to: "users#set_location_form"
 
   get '/contact', to: 'contacts#new', as: :new_contact_form
   post '/contact', to: 'contacts#create'
@@ -27,5 +29,11 @@ Rails.application.routes.draw do
   get '/initiate_otp_verification', to: 'users#initiate_verification'
   post '/validate_otp', to: 'users#validate_otp'
   get '/validate_otp', to: 'users#validate_otp_form'
+
+  resources :saved_locations, only: :index
+  resources :search_locations, only: :create
+
+  resources :third_spaces, only: [:new, :create]
+  
 
 end
