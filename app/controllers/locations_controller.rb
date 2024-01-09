@@ -32,7 +32,6 @@ class LocationsController < ApplicationController
   end
 
   def find_show_details(location_id)
-    ## No call API so far for BE
     conn = Faraday.new(url: "http://localhost:3000/")
     response = conn.get("api/v1/locations/#{location_id}")
     json = JSON.parse(response.body, symbolize_names: true)[:data][:attributes]
