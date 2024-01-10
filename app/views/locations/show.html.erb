@@ -32,7 +32,7 @@
         </div>
         <div class="rounded-container"><%= @location.price %></div>
         <div class="rounded-container"><%= "Rating: #{@location.rating}"%></div>
-          <a href="<%= new_third_space_path %>" class="rounded-button">Create a Third Space</a>
+          <a href="<%= new_third_space_path(location_json: @location_json) %>" class="rounded-button">Create a Third Space</a>
           <br><br>
 
           <% @reviews.each do |r| %>

@@ -1,15 +1,9 @@
 class ThirdSpacesController < ApplicationController
 
   def new
-<<<<<<< HEAD
     @json = params[:location_json]
     json_parse = JSON.parse(params[:location_json], symbolize_names: true)
     @location = DetailedLocation.new(json_parse)
-=======
-    # require 'pry'; binding.pry
-    json = JSON.parse(params[:location_json], symbolize_names: true)
-    @location = DetailedLocation.new(json)
->>>>>>> fea5fc1ad721862f308265833bb56b97782d0e64
   end
   
   def create_third_space

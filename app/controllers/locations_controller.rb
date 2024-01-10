@@ -10,6 +10,7 @@ class LocationsController < ApplicationController
   
   def show
     @location = find_show_details
+    @location_json = @location.to_json
     @reviews = find_show_reviews
   end
 
