@@ -37,13 +37,16 @@
 
 
 .rounded-highlight {
-  display: inline-block;
+  display: inline-flex; /* Use flexbox */
+  align-items: center; /* Vertically center the content */
+  justify-content: center; /* Horizontally center the content */
   border-radius: 33px;
   padding: 8px !important;
   background-color: #D7D5AC;
   border: 2px solid #D7D5AC;
-  font-weight: bold; /* Add this line to make the text bold */
+  font-weight: bold;
 }
+
 
 .rounded-button {
   display: inline-block;
@@ -67,5 +70,23 @@
 .rounded-button:active {
   background-color: #6F6FA7;
 }
+
+// .container {
+//   display: flex;
+//   flex-wrap: wrap; /* Allow items to wrap to the next line */
+// }
+
+.rounded-entry {
+  display: block;
+  width: 25%; /* Set the width to be a quarter of the page */
+  border-radius: 8px;
+  padding: 16px;
+  background-color: #D7D5AC;
+  border: 2px solid #D7D5AC;
+  margin-bottom: 16px;
+  box-sizing: border-box; /* Include padding and border in the total width */
+}
+
+
 
 

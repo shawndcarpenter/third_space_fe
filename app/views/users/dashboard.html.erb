@@ -1,21 +1,32 @@
 <div class="container mt-5">
   <h1 class="display-4 text-center">Welcome to the User Dashboard</h1>
-  <% if @search_location.present? %>
-    <p>Search Location: <%= @search_location.city%>, <%= @search_location.state%></p>
-  <% end %>
   <div class="row justify-content-center mt-4">
     <div class="text-center">
       <div class="col-auto">
         <%= button_to "contact us", new_contact_form_path, method: :get, class: "btn btn-primary btn-lg" %>
         <%= button_to "log out", logout_path, method: :get, class: "btn btn-primary btn-lg" %>
+        <%= button_to "create a third space", locations_search_path, method: :get, class: "btn btn-primary btn-lg" %>
       </div>
     </div>
   </div>
 
-  <h3>recommendations.</h3>
-  <% if @recommended.empty?%>
-    No Third Spaces near you. Add a location <%=link_to "here", locations_search_path %>.
-  <% else %>
-
+  <% if @search_location.present? %>
+    <p>Search Location: <%= @search_location.city%>, <%= @search_location.state%></p>
   <% end %>
+
+  <h3>recommendations.</h3>
+    <% if @recommended.any? %>
+      <% @recommended.each do |third_space_poro| %>
+        <div class="rounded-entry">
+          <h3><%= third_space_poro.name %></h3>
+          <p><strong>Category:</strong> <%= third_space_poro.category %></p>
+          <p><strong>Address:</strong> <%= third_space_poro.address %></p>
+          <p><strong>Rating:</strong> <%= third_space_poro.rating %></p>
+        </div>
+      <% end %>
+
+    <% else %>
+      No Third Spaces near you. Add a location <%=link_to "here", locations_search_path %>.
+    <% end %>
+
 </div>

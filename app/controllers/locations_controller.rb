@@ -5,6 +5,7 @@ class LocationsController < ApplicationController
   
   def index
     @location_results = find_locations
+    ##Create error when data is NIL to make new entries
   end
   
   def show
@@ -30,14 +31,14 @@ class LocationsController < ApplicationController
     end
     response = conn.get("/api/v1/locations/search_locations")
     data = JSON.parse(response.body, symbolize_names: true)[:data]
-  
+    return [] if data.nil? 
+
     search_results = data.map do |d|
       SearchResult.new(d[:attributes])
     end
   end
 
   def find_show_details(location_id)
-    ## No call API so far for BE
     conn = Faraday.new(url: "http://localhost:3000/")
     response = conn.get("api/v1/locations/#{location_id}")
     json = JSON.parse(response.body, symbolize_names: true)[:data][:attributes]
