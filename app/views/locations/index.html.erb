@@ -8,25 +8,25 @@
     <div class="row justify-content-center mt-4">
       <nav class="navbar navbar-light bg-light">
         <div class="container-fluid">
-          <!-- Logo -->
-          <a class="navbar-brand" href="#">
+
+          <a class="navbar-brand" href="#" style="margin-right: 2rem;">
             <%= image_tag 'temp_logo.png', style: "width: 200px; height: auto;", alt: "Logo" %> 
           </a>
 
-            <form class="d-flex w-99 mx-2">
-              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" style="width: 70%;">
-              <button class="btn btn-outline-success" type="submit">Search</button>
+          <div class="d-flex flex-grow-1">
+            <form class="d-flex w-100">
+              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" style="flex-grow: 1;">
+              <button class="btn btn-outline-success" type="submit"style="margin-right: 2rem;">Search</button>
             </form>
-          <!-- Toggler -->
+            </div>
+
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
 
-          <!-- Search Bar and Navbar Links -->
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
               <li class="nav-item"><a class="nav-link" href="#">dashboard</a></li>
-              <!-- Commented out preferences link -->
               <!-- <li class="nav-item"><a class="nav-link" href="#">preferences</a></li> -->
               <li class="nav-item"><a class="nav-link" href="#">privacy & security</a></li>
               <li class="nav-item"><a class="nav-link" href="#">create a third space</a></li>
@@ -37,16 +37,15 @@
         </div>
       </nav>
 
-      <!-- Location Section -->
       <div class="container-fluid">
-        <h3>Locations</h3>
+        <h3 class="text-center my-4">Locations</h3>
         <div class="row">
           <% @location_results.each do |location| %>
             <div class="col-md-4 mb-4">
               <div id="location_result-<%= location.id %>" class="location-entry rounded-entry p-3 h-100 w-100">
-                <p class="fs-4 fw-bold text-wrap"><%= link_to location.name, location_path(location.id) %></p>
-                <p class="fs-6 text-wrap"><%= location.address %></p>
-                <p class="fs-6 text-wrap"><%= location.category %></p>
+                <p class="fs-4 text-center fw-bold text-wrap"><%= link_to location.name, location_path(location.id) %></p>
+                <p class="fs-6 text-center text-wrap"><%= location.address %></p>
+                <p class="fs-6 text-center text-wrap"><%= location.category %></p>
               </div>
             </div>
           <% end %>
