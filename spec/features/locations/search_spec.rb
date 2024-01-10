@@ -7,7 +7,7 @@ RSpec.describe "Location Search Page", type: :feature do
   #   click_link "here"
   # end
 
-  describe "Search Page" do 
+  describe "Search Page", :vcr do
     it "has a form with fields for name and city" do
       VCR.use_cassette("name and city") do 
         user_login_data
@@ -23,8 +23,10 @@ RSpec.describe "Location Search Page", type: :feature do
     it "user can submit and entries and redirect to the search index" do
       VCR.use_cassette("fill in name and city") do 
         user_login_data
+        sleep(0.3)
         user_select_loc_data
         click_link "here"
+        sleep(0.2)
         fill_in :name, with: "Five Watt"
         fill_in :city, with: "Minneapolis"
         click_button "submit"

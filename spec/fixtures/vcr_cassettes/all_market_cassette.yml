@@ -39,18 +39,17 @@ http_interactions:
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - d3f82937-7846-44e0-af0f-a4e2a2e46cd3
+      - 5b871449-51ab-4b30-ac8a-70496630b19b
       X-Runtime:
-      - '0.049922'
+      - '0.013762'
       Server-Timing:
-      - start_processing.action_controller;dur=0.14, sql.active_record;dur=20.85,
-        process_action.action_controller;dur=41.80
+      - start_processing.action_controller;dur=0.09, sql.active_record;dur=2.14, process_action.action_controller;dur=5.46
       Transfer-Encoding:
       - chunked
     body:
       encoding: UTF-8
       string: '{"data":[]}'
-  recorded_at: Tue, 09 Jan 2024 04:06:28 GMT
+  recorded_at: Tue, 09 Jan 2024 19:07:36 GMT
 - request:
     method: get
     uri: http://localhost:3000/api/v1/locations/search_locations?city=Minneapolis&name=Five%20Watt
@@ -66,158 +65,40 @@ http_interactions:
       - "*/*"
   response:
     status:
-      code: 500
-      message: Internal Server Error
+      code: 200
+      message: OK
     headers:
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - '0'
+      X-Content-Type-Options:
+      - nosniff
+      X-Download-Options:
+      - noopen
+      X-Permitted-Cross-Domain-Policies:
+      - none
+      Referrer-Policy:
+      - strict-origin-when-cross-origin
       Content-Type:
-      - application/json; charset=UTF-8
+      - application/json; charset=utf-8
+      Vary:
+      - Accept
+      Etag:
+      - W/"c4e698cc819129985e5366a961e5f964"
+      Cache-Control:
+      - max-age=0, private, must-revalidate
       X-Request-Id:
-      - 2a19885d-d2a8-40e5-93b1-a2ea2c2ada54
+      - 1204b7aa-3508-42a4-bf4c-ab2c4b7b4ea2
       X-Runtime:
-      - '0.014390'
+      - '0.627716'
       Server-Timing:
-      - start_processing.action_controller;dur=0.04, process_action.action_controller;dur=0.49
-      Content-Length:
-      - '16155'
+      - start_processing.action_controller;dur=0.08, process_action.action_controller;dur=624.12
+      Transfer-Encoding:
+      - chunked
     body:
-      encoding: UTF-8
-      string: '{"status":500,"error":"Internal Server Error","exception":"#\u003cNoMethodError:
-        undefined method `[]'' for nil:NilClass\u003e","traces":{"Application Trace":[{"exception_object_id":22580,"id":0,"trace":"app/services/location_search_service.rb:4:in
-        `block in conn''"},{"exception_object_id":22580,"id":4,"trace":"app/services/location_search_service.rb:3:in
-        `conn''"},{"exception_object_id":22580,"id":5,"trace":"app/services/location_search_service.rb:9:in
-        `find_locations''"},{"exception_object_id":22580,"id":6,"trace":"app/facades/location_search_facade.rb:9:in
-        `locations''"},{"exception_object_id":22580,"id":7,"trace":"app/controllers/api/v1/locations_controller.rb:6:in
-        `search_locations''"}],"Framework Trace":[{"exception_object_id":22580,"id":1,"trace":"faraday
-        (2.8.1) lib/faraday/connection.rb:91:in `initialize''"},{"exception_object_id":22580,"id":2,"trace":"faraday
-        (2.8.1) lib/faraday.rb:98:in `new''"},{"exception_object_id":22580,"id":3,"trace":"faraday
-        (2.8.1) lib/faraday.rb:98:in `new''"},{"exception_object_id":22580,"id":8,"trace":"actionpack
-        (7.0.8) lib/action_controller/metal/basic_implicit_render.rb:6:in `send_action''"},{"exception_object_id":22580,"id":9,"trace":"actionpack
-        (7.0.8) lib/abstract_controller/base.rb:215:in `process_action''"},{"exception_object_id":22580,"id":10,"trace":"actionpack
-        (7.0.8) lib/action_controller/metal/rendering.rb:165:in `process_action''"},{"exception_object_id":22580,"id":11,"trace":"actionpack
-        (7.0.8) lib/abstract_controller/callbacks.rb:234:in `block in process_action''"},{"exception_object_id":22580,"id":12,"trace":"activesupport
-        (7.0.8) lib/active_support/callbacks.rb:99:in `run_callbacks''"},{"exception_object_id":22580,"id":13,"trace":"actionpack
-        (7.0.8) lib/abstract_controller/callbacks.rb:233:in `process_action''"},{"exception_object_id":22580,"id":14,"trace":"actionpack
-        (7.0.8) lib/action_controller/metal/rescue.rb:23:in `process_action''"},{"exception_object_id":22580,"id":15,"trace":"actionpack
-        (7.0.8) lib/action_controller/metal/instrumentation.rb:67:in `block in process_action''"},{"exception_object_id":22580,"id":16,"trace":"activesupport
-        (7.0.8) lib/active_support/notifications.rb:206:in `block in instrument''"},{"exception_object_id":22580,"id":17,"trace":"activesupport
-        (7.0.8) lib/active_support/notifications/instrumenter.rb:24:in `instrument''"},{"exception_object_id":22580,"id":18,"trace":"activesupport
-        (7.0.8) lib/active_support/notifications.rb:206:in `instrument''"},{"exception_object_id":22580,"id":19,"trace":"actionpack
-        (7.0.8) lib/action_controller/metal/instrumentation.rb:66:in `process_action''"},{"exception_object_id":22580,"id":20,"trace":"actionpack
-        (7.0.8) lib/action_controller/metal/params_wrapper.rb:259:in `process_action''"},{"exception_object_id":22580,"id":21,"trace":"activerecord
-        (7.0.8) lib/active_record/railties/controller_runtime.rb:27:in `process_action''"},{"exception_object_id":22580,"id":22,"trace":"actionpack
-        (7.0.8) lib/abstract_controller/base.rb:151:in `process''"},{"exception_object_id":22580,"id":23,"trace":"actionpack
-        (7.0.8) lib/action_controller/metal.rb:188:in `dispatch''"},{"exception_object_id":22580,"id":24,"trace":"actionpack
-        (7.0.8) lib/action_controller/metal.rb:251:in `dispatch''"},{"exception_object_id":22580,"id":25,"trace":"actionpack
-        (7.0.8) lib/action_dispatch/routing/route_set.rb:49:in `dispatch''"},{"exception_object_id":22580,"id":26,"trace":"actionpack
-        (7.0.8) lib/action_dispatch/routing/route_set.rb:32:in `serve''"},{"exception_object_id":22580,"id":27,"trace":"actionpack
-        (7.0.8) lib/action_dispatch/journey/router.rb:50:in `block in serve''"},{"exception_object_id":22580,"id":28,"trace":"actionpack
-        (7.0.8) lib/action_dispatch/journey/router.rb:32:in `each''"},{"exception_object_id":22580,"id":29,"trace":"actionpack
-        (7.0.8) lib/action_dispatch/journey/router.rb:32:in `serve''"},{"exception_object_id":22580,"id":30,"trace":"actionpack
-        (7.0.8) lib/action_dispatch/routing/route_set.rb:852:in `call''"},{"exception_object_id":22580,"id":31,"trace":"bullet
-        (7.1.3) lib/bullet/rack.rb:14:in `call''"},{"exception_object_id":22580,"id":32,"trace":"rack
-        (2.2.8) lib/rack/etag.rb:27:in `call''"},{"exception_object_id":22580,"id":33,"trace":"rack
-        (2.2.8) lib/rack/conditional_get.rb:27:in `call''"},{"exception_object_id":22580,"id":34,"trace":"rack
-        (2.2.8) lib/rack/head.rb:12:in `call''"},{"exception_object_id":22580,"id":35,"trace":"activerecord
-        (7.0.8) lib/active_record/migration.rb:638:in `call''"},{"exception_object_id":22580,"id":36,"trace":"actionpack
-        (7.0.8) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call''"},{"exception_object_id":22580,"id":37,"trace":"activesupport
-        (7.0.8) lib/active_support/callbacks.rb:99:in `run_callbacks''"},{"exception_object_id":22580,"id":38,"trace":"actionpack
-        (7.0.8) lib/action_dispatch/middleware/callbacks.rb:26:in `call''"},{"exception_object_id":22580,"id":39,"trace":"actionpack
-        (7.0.8) lib/action_dispatch/middleware/executor.rb:14:in `call''"},{"exception_object_id":22580,"id":40,"trace":"actionpack
-        (7.0.8) lib/action_dispatch/middleware/actionable_exceptions.rb:17:in `call''"},{"exception_object_id":22580,"id":41,"trace":"actionpack
-        (7.0.8) lib/action_dispatch/middleware/debug_exceptions.rb:28:in `call''"},{"exception_object_id":22580,"id":42,"trace":"actionpack
-        (7.0.8) lib/action_dispatch/middleware/show_exceptions.rb:29:in `call''"},{"exception_object_id":22580,"id":43,"trace":"railties
-        (7.0.8) lib/rails/rack/logger.rb:40:in `call_app''"},{"exception_object_id":22580,"id":44,"trace":"railties
-        (7.0.8) lib/rails/rack/logger.rb:25:in `block in call''"},{"exception_object_id":22580,"id":45,"trace":"activesupport
-        (7.0.8) lib/active_support/tagged_logging.rb:99:in `block in tagged''"},{"exception_object_id":22580,"id":46,"trace":"activesupport
-        (7.0.8) lib/active_support/tagged_logging.rb:37:in `tagged''"},{"exception_object_id":22580,"id":47,"trace":"activesupport
-        (7.0.8) lib/active_support/tagged_logging.rb:99:in `tagged''"},{"exception_object_id":22580,"id":48,"trace":"railties
-        (7.0.8) lib/rails/rack/logger.rb:25:in `call''"},{"exception_object_id":22580,"id":49,"trace":"actionpack
-        (7.0.8) lib/action_dispatch/middleware/remote_ip.rb:93:in `call''"},{"exception_object_id":22580,"id":50,"trace":"actionpack
-        (7.0.8) lib/action_dispatch/middleware/request_id.rb:26:in `call''"},{"exception_object_id":22580,"id":51,"trace":"rack
-        (2.2.8) lib/rack/runtime.rb:22:in `call''"},{"exception_object_id":22580,"id":52,"trace":"activesupport
-        (7.0.8) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in
-        `call''"},{"exception_object_id":22580,"id":53,"trace":"actionpack (7.0.8)
-        lib/action_dispatch/middleware/server_timing.rb:61:in `block in call''"},{"exception_object_id":22580,"id":54,"trace":"actionpack
-        (7.0.8) lib/action_dispatch/middleware/server_timing.rb:26:in `collect_events''"},{"exception_object_id":22580,"id":55,"trace":"actionpack
-        (7.0.8) lib/action_dispatch/middleware/server_timing.rb:60:in `call''"},{"exception_object_id":22580,"id":56,"trace":"actionpack
-        (7.0.8) lib/action_dispatch/middleware/executor.rb:14:in `call''"},{"exception_object_id":22580,"id":57,"trace":"actionpack
-        (7.0.8) lib/action_dispatch/middleware/static.rb:23:in `call''"},{"exception_object_id":22580,"id":58,"trace":"rack
-        (2.2.8) lib/rack/sendfile.rb:110:in `call''"},{"exception_object_id":22580,"id":59,"trace":"actionpack
-        (7.0.8) lib/action_dispatch/middleware/host_authorization.rb:138:in `call''"},{"exception_object_id":22580,"id":60,"trace":"railties
-        (7.0.8) lib/rails/engine.rb:530:in `call''"},{"exception_object_id":22580,"id":61,"trace":"puma
-        (5.6.7) lib/puma/configuration.rb:252:in `call''"},{"exception_object_id":22580,"id":62,"trace":"puma
-        (5.6.7) lib/puma/request.rb:77:in `block in handle_request''"},{"exception_object_id":22580,"id":63,"trace":"puma
-        (5.6.7) lib/puma/thread_pool.rb:340:in `with_force_shutdown''"},{"exception_object_id":22580,"id":64,"trace":"puma
-        (5.6.7) lib/puma/request.rb:76:in `handle_request''"},{"exception_object_id":22580,"id":65,"trace":"puma
-        (5.6.7) lib/puma/server.rb:443:in `process_client''"},{"exception_object_id":22580,"id":66,"trace":"puma
-        (5.6.7) lib/puma/thread_pool.rb:147:in `block in spawn_thread''"}],"Full Trace":[{"exception_object_id":22580,"id":0,"trace":"app/services/location_search_service.rb:4:in
-        `block in conn''"},{"exception_object_id":22580,"id":1,"trace":"faraday (2.8.1)
-        lib/faraday/connection.rb:91:in `initialize''"},{"exception_object_id":22580,"id":2,"trace":"faraday
-        (2.8.1) lib/faraday.rb:98:in `new''"},{"exception_object_id":22580,"id":3,"trace":"faraday
-        (2.8.1) lib/faraday.rb:98:in `new''"},{"exception_object_id":22580,"id":4,"trace":"app/services/location_search_service.rb:3:in
-        `conn''"},{"exception_object_id":22580,"id":5,"trace":"app/services/location_search_service.rb:9:in
-        `find_locations''"},{"exception_object_id":22580,"id":6,"trace":"app/facades/location_search_facade.rb:9:in
-        `locations''"},{"exception_object_id":22580,"id":7,"trace":"app/controllers/api/v1/locations_controller.rb:6:in
-        `search_locations''"},{"exception_object_id":22580,"id":8,"trace":"actionpack
-        (7.0.8) lib/action_controller/metal/basic_implicit_render.rb:6:in `send_action''"},{"exception_object_id":22580,"id":9,"trace":"actionpack
-        (7.0.8) lib/abstract_controller/base.rb:215:in `process_action''"},{"exception_object_id":22580,"id":10,"trace":"actionpack
-        (7.0.8) lib/action_controller/metal/rendering.rb:165:in `process_action''"},{"exception_object_id":22580,"id":11,"trace":"actionpack
-        (7.0.8) lib/abstract_controller/callbacks.rb:234:in `block in process_action''"},{"exception_object_id":22580,"id":12,"trace":"activesupport
-        (7.0.8) lib/active_support/callbacks.rb:99:in `run_callbacks''"},{"exception_object_id":22580,"id":13,"trace":"actionpack
-        (7.0.8) lib/abstract_controller/callbacks.rb:233:in `process_action''"},{"exception_object_id":22580,"id":14,"trace":"actionpack
-        (7.0.8) lib/action_controller/metal/rescue.rb:23:in `process_action''"},{"exception_object_id":22580,"id":15,"trace":"actionpack
-        (7.0.8) lib/action_controller/metal/instrumentation.rb:67:in `block in process_action''"},{"exception_object_id":22580,"id":16,"trace":"activesupport
-        (7.0.8) lib/active_support/notifications.rb:206:in `block in instrument''"},{"exception_object_id":22580,"id":17,"trace":"activesupport
-        (7.0.8) lib/active_support/notifications/instrumenter.rb:24:in `instrument''"},{"exception_object_id":22580,"id":18,"trace":"activesupport
-        (7.0.8) lib/active_support/notifications.rb:206:in `instrument''"},{"exception_object_id":22580,"id":19,"trace":"actionpack
-        (7.0.8) lib/action_controller/metal/instrumentation.rb:66:in `process_action''"},{"exception_object_id":22580,"id":20,"trace":"actionpack
-        (7.0.8) lib/action_controller/metal/params_wrapper.rb:259:in `process_action''"},{"exception_object_id":22580,"id":21,"trace":"activerecord
-        (7.0.8) lib/active_record/railties/controller_runtime.rb:27:in `process_action''"},{"exception_object_id":22580,"id":22,"trace":"actionpack
-        (7.0.8) lib/abstract_controller/base.rb:151:in `process''"},{"exception_object_id":22580,"id":23,"trace":"actionpack
-        (7.0.8) lib/action_controller/metal.rb:188:in `dispatch''"},{"exception_object_id":22580,"id":24,"trace":"actionpack
-        (7.0.8) lib/action_controller/metal.rb:251:in `dispatch''"},{"exception_object_id":22580,"id":25,"trace":"actionpack
-        (7.0.8) lib/action_dispatch/routing/route_set.rb:49:in `dispatch''"},{"exception_object_id":22580,"id":26,"trace":"actionpack
-        (7.0.8) lib/action_dispatch/routing/route_set.rb:32:in `serve''"},{"exception_object_id":22580,"id":27,"trace":"actionpack
-        (7.0.8) lib/action_dispatch/journey/router.rb:50:in `block in serve''"},{"exception_object_id":22580,"id":28,"trace":"actionpack
-        (7.0.8) lib/action_dispatch/journey/router.rb:32:in `each''"},{"exception_object_id":22580,"id":29,"trace":"actionpack
-        (7.0.8) lib/action_dispatch/journey/router.rb:32:in `serve''"},{"exception_object_id":22580,"id":30,"trace":"actionpack
-        (7.0.8) lib/action_dispatch/routing/route_set.rb:852:in `call''"},{"exception_object_id":22580,"id":31,"trace":"bullet
-        (7.1.3) lib/bullet/rack.rb:14:in `call''"},{"exception_object_id":22580,"id":32,"trace":"rack
-        (2.2.8) lib/rack/etag.rb:27:in `call''"},{"exception_object_id":22580,"id":33,"trace":"rack
-        (2.2.8) lib/rack/conditional_get.rb:27:in `call''"},{"exception_object_id":22580,"id":34,"trace":"rack
-        (2.2.8) lib/rack/head.rb:12:in `call''"},{"exception_object_id":22580,"id":35,"trace":"activerecord
-        (7.0.8) lib/active_record/migration.rb:638:in `call''"},{"exception_object_id":22580,"id":36,"trace":"actionpack
-        (7.0.8) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call''"},{"exception_object_id":22580,"id":37,"trace":"activesupport
-        (7.0.8) lib/active_support/callbacks.rb:99:in `run_callbacks''"},{"exception_object_id":22580,"id":38,"trace":"actionpack
-        (7.0.8) lib/action_dispatch/middleware/callbacks.rb:26:in `call''"},{"exception_object_id":22580,"id":39,"trace":"actionpack
-        (7.0.8) lib/action_dispatch/middleware/executor.rb:14:in `call''"},{"exception_object_id":22580,"id":40,"trace":"actionpack
-        (7.0.8) lib/action_dispatch/middleware/actionable_exceptions.rb:17:in `call''"},{"exception_object_id":22580,"id":41,"trace":"actionpack
-        (7.0.8) lib/action_dispatch/middleware/debug_exceptions.rb:28:in `call''"},{"exception_object_id":22580,"id":42,"trace":"actionpack
-        (7.0.8) lib/action_dispatch/middleware/show_exceptions.rb:29:in `call''"},{"exception_object_id":22580,"id":43,"trace":"railties
-        (7.0.8) lib/rails/rack/logger.rb:40:in `call_app''"},{"exception_object_id":22580,"id":44,"trace":"railties
-        (7.0.8) lib/rails/rack/logger.rb:25:in `block in call''"},{"exception_object_id":22580,"id":45,"trace":"activesupport
-        (7.0.8) lib/active_support/tagged_logging.rb:99:in `block in tagged''"},{"exception_object_id":22580,"id":46,"trace":"activesupport
-        (7.0.8) lib/active_support/tagged_logging.rb:37:in `tagged''"},{"exception_object_id":22580,"id":47,"trace":"activesupport
-        (7.0.8) lib/active_support/tagged_logging.rb:99:in `tagged''"},{"exception_object_id":22580,"id":48,"trace":"railties
-        (7.0.8) lib/rails/rack/logger.rb:25:in `call''"},{"exception_object_id":22580,"id":49,"trace":"actionpack
-        (7.0.8) lib/action_dispatch/middleware/remote_ip.rb:93:in `call''"},{"exception_object_id":22580,"id":50,"trace":"actionpack
-        (7.0.8) lib/action_dispatch/middleware/request_id.rb:26:in `call''"},{"exception_object_id":22580,"id":51,"trace":"rack
-        (2.2.8) lib/rack/runtime.rb:22:in `call''"},{"exception_object_id":22580,"id":52,"trace":"activesupport
-        (7.0.8) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in
-        `call''"},{"exception_object_id":22580,"id":53,"trace":"actionpack (7.0.8)
-        lib/action_dispatch/middleware/server_timing.rb:61:in `block in call''"},{"exception_object_id":22580,"id":54,"trace":"actionpack
-        (7.0.8) lib/action_dispatch/middleware/server_timing.rb:26:in `collect_events''"},{"exception_object_id":22580,"id":55,"trace":"actionpack
-        (7.0.8) lib/action_dispatch/middleware/server_timing.rb:60:in `call''"},{"exception_object_id":22580,"id":56,"trace":"actionpack
-        (7.0.8) lib/action_dispatch/middleware/executor.rb:14:in `call''"},{"exception_object_id":22580,"id":57,"trace":"actionpack
-        (7.0.8) lib/action_dispatch/middleware/static.rb:23:in `call''"},{"exception_object_id":22580,"id":58,"trace":"rack
-        (2.2.8) lib/rack/sendfile.rb:110:in `call''"},{"exception_object_id":22580,"id":59,"trace":"actionpack
-        (7.0.8) lib/action_dispatch/middleware/host_authorization.rb:138:in `call''"},{"exception_object_id":22580,"id":60,"trace":"railties
-        (7.0.8) lib/rails/engine.rb:530:in `call''"},{"exception_object_id":22580,"id":61,"trace":"puma
-        (5.6.7) lib/puma/configuration.rb:252:in `call''"},{"exception_object_id":22580,"id":62,"trace":"puma
-        (5.6.7) lib/puma/request.rb:77:in `block in handle_request''"},{"exception_object_id":22580,"id":63,"trace":"puma
-        (5.6.7) lib/puma/thread_pool.rb:340:in `with_force_shutdown''"},{"exception_object_id":22580,"id":64,"trace":"puma
-        (5.6.7) lib/puma/request.rb:76:in `handle_request''"},{"exception_object_id":22580,"id":65,"trace":"puma
-        (5.6.7) lib/puma/server.rb:443:in `process_client''"},{"exception_object_id":22580,"id":66,"trace":"puma
-        (5.6.7) lib/puma/thread_pool.rb:147:in `block in spawn_thread''"}]}}'
-  recorded_at: Tue, 09 Jan 2024 04:06:28 GMT
+      encoding: ASCII-8BIT
+      string: !binary |-
+        eyJkYXRhIjpbeyJpZCI6IjVwV0huS04zX0FJclhpeXlxWjc0cHciLCJ0eXBlIjoic2VhcmNoX3Jlc3VsdCIsImF0dHJpYnV0ZXMiOnsiaWQiOiI1cFdIbktOM19BSXJYaXl5cVo3NHB3IiwibmFtZSI6IkZpdmUgV2F0dCBDb2ZmZWUiLCJhZGRyZXNzIjoiMzc0NSBOaWNvbGxldCBBdmUgUywgTWlubmVhcG9saXMsIE1OIDU1NDA5IiwiY2F0ZWdvcnkiOiJDb2ZmZWUgXHUwMDI2IFRlYSJ9fSx7ImlkIjoiX2tnOGwxekREbExoSktERzJYWldqZyIsInR5cGUiOiJzZWFyY2hfcmVzdWx0IiwiYXR0cmlidXRlcyI6eyJpZCI6Il9rZzhsMXpERGxMaEpLREcyWFpXamciLCJuYW1lIjoiRml2ZSBXYXR0IENvZmZlZSBMeW5kYWxlIiwiYWRkcmVzcyI6IjMzNTAgTHluZGFsZSBBdmUgUywgTWlubmVhcG9saXMsIE1OIDU1NDA4IiwiY2F0ZWdvcnkiOiJDb2ZmZWUgXHUwMDI2IFRlYSJ9fSx7ImlkIjoiMmdIUFdkVWVpT2tTZEJueF9FRk1zdyIsInR5cGUiOiJzZWFyY2hfcmVzdWx0IiwiYXR0cmlidXRlcyI6eyJpZCI6IjJnSFBXZFVlaU9rU2RCbnhfRUZNc3ciLCJuYW1lIjoiRml2ZSBXYXR0IENvZmZlZSIsImFkZHJlc3MiOiI4NjEgRSBIZW5uZXBpbiBBdmUsIE1pbm5lYXBvbGlzLCBNTiA1NTQxNCIsImNhdGVnb3J5IjoiQ29mZmVlIFx1MDAyNiBUZWEifX0seyJpZCI6IklPNXl3UGg3eExvS05hMUFEc3JzV1EiLCJ0eXBlIjoic2VhcmNoX3Jlc3VsdCIsImF0dHJpYnV0ZXMiOnsiaWQiOiJJTzV5d1BoN3hMb0tOYTFBRHNyc1dRIiwibmFtZSI6IkZpdmUgV2F0dCBDb2ZmZWUiLCJhZGRyZXNzIjoiOTI4IDd0aCBTdCBXLCBTYWludCBQYXVsLCBNTiA1NTEwMiIsImNhdGVnb3J5IjoiQ29mZmVlIFx1MDAyNiBUZWEifX0seyJpZCI6IlBSbFBSTjJNaW1peTRobFk2V0pLNXciLCJ0eXBlIjoic2VhcmNoX3Jlc3VsdCIsImF0dHJpYnV0ZXMiOnsiaWQiOiJQUmxQUk4yTWltaXk0aGxZNldKSzV3IiwibmFtZSI6Ildlc2xleSBBbmRyZXdzIiwiYWRkcmVzcyI6IjExMSBFIDI2dGggU3QsIE1pbm5lYXBvbGlzLCBNTiA1NTQwNCIsImNhdGVnb3J5IjoiQ29mZmVlIFJvYXN0ZXJpZXMifX0seyJpZCI6IllyOGwzMUZZSFR5MEVzZThxRE1iNVEiLCJ0eXBlIjoic2VhcmNoX3Jlc3VsdCIsImF0dHJpYnV0ZXMiOnsiaWQiOiJZcjhsMzFGWUhUeTBFc2U4cURNYjVRIiwibmFtZSI6IkRvZ3dvb2QgQ29mZmVlIiwiYWRkcmVzcyI6IjQwMjEgRSBMYWtlIFN0LCBNaW5uZWFwb2xpcywgTU4gNTU0MDYiLCJjYXRlZ29yeSI6IkNvZmZlZSBcdTAwMjYgVGVhIn19LHsiaWQiOiJLSEtfMlE3cnk1dE9ybThySGNQTTFnIiwidHlwZSI6InNlYXJjaF9yZXN1bHQiLCJhdHRyaWJ1dGVzIjp7ImlkIjoiS0hLXzJRN3J5NXRPcm04ckhjUE0xZyIsIm5hbWUiOiJTcHlob3VzZSBDb2ZmZWUgUm9hc3RlcnMiLCJhZGRyZXNzIjoiOTQ1IEJyb2Fkd2F5IFN0IE5FLCBNaW5uZWFwb2xpcywgTU4gNTU0MTMiLCJjYXRlZ29yeSI6IkNvZmZlZSBcdTAwMjYgVGVhIn19LHsiaWQiOiI3cWQ5OFlBNXZ2MEFTdVhHalZ2bjBBIiwidHlwZSI6InNlYXJjaF9yZXN1bHQiLCJhdHRyaWJ1dGVzIjp7ImlkIjoiN3FkOThZQTV2djBBU3VYR2pWdm4wQSIsIm5hbWUiOiJQYXRpc3NlcmllIDQ2IiwiYWRkcmVzcyI6IjQ1NTIgR3JhbmQgQXZlIFMsIE1pbm5lYXBvbGlzLCBNTiA1NTQxOSIsImNhdGVnb3J5IjoiQmFrZXJpZXMifX0seyJpZCI6IkRZNXFFUFJ3d0tNZGlGMlg1Q0RscGciLCJ0eXBlIjoic2VhcmNoX3Jlc3VsdCIsImF0dHJpYnV0ZXMiOnsiaWQiOiJEWTVxRVBSd3dLTWRpRjJYNUNEbHBnIiwibmFtZSI6IkJvZ2FydCdzIERvdWdobnV0IENvLiIsImFkZHJlc3MiOiI5MDQgVyAzNnRoIFN0LCBNaW5uZWFwb2xpcywgTU4gNTU0MDgiLCJjYXRlZ29yeSI6IkRvbnV0cyJ9fSx7ImlkIjoiUVBMSGtQWG1hVXAwemEyOHhNUGVSdyIsInR5cGUiOiJzZWFyY2hfcmVzdWx0IiwiYXR0cmlidXRlcyI6eyJpZCI6IlFQTEhrUFhtYVVwMHphMjh4TVBlUnciLCJuYW1lIjoiUnVzdGljYSBCYWtlcnkiLCJhZGRyZXNzIjoiMzIyMCBXIExha2UgU3QsIE1pbm5lYXBvbGlzLCBNTiA1NTQxNiIsImNhdGVnb3J5IjoiQmFrZXJpZXMifX0seyJpZCI6IkRma25OSENtTUx1MlpYdEFVUGVjZnciLCJ0eXBlIjoic2VhcmNoX3Jlc3VsdCIsImF0dHJpYnV0ZXMiOnsiaWQiOiJEZmtuTkhDbU1MdTJaWHRBVVBlY2Z3IiwibmFtZSI6IlNweWhvdXNlIENvZmZlZSIsImFkZHJlc3MiOiIyNDUxIE5pY29sbGV0IEF2ZSwgTWlubmVhcG9saXMsIE1OIDU1NDA0IiwiY2F0ZWdvcnkiOiJDb2ZmZWUgXHUwMDI2IFRlYSJ9fSx7ImlkIjoia2JZanBsenhSTmZUWjhYNFd4NTRjQSIsInR5cGUiOiJzZWFyY2hfcmVzdWx0IiwiYXR0cmlidXRlcyI6eyJpZCI6ImtiWWpwbHp4Uk5mVFo4WDRXeDU0Y0EiLCJuYW1lIjoiQnV0dGVyIEJha2VyeSBDYWbDqSIsImFkZHJlc3MiOiIzNzAwIE5pY29sbGV0IEF2ZSBTLCBNaW5uZWFwb2xpcywgTU4gNTU0MDkiLCJjYXRlZ29yeSI6IkJyZWFrZmFzdCBcdTAwMjYgQnJ1bmNoIn19LHsiaWQiOiJfWEcyZG9IM0kzUkZHUFU4YUtYa0xnIiwidHlwZSI6InNlYXJjaF9yZXN1bHQiLCJhdHRyaWJ1dGVzIjp7ImlkIjoiX1hHMmRvSDNJM1JGR1BVOGFLWGtMZyIsIm5hbWUiOiJXaXNlIEFjcmUgRWF0ZXJ5IiwiYWRkcmVzcyI6IjU0MDEgTmljb2xsZXQgQXZlIFMsIE1pbm5lYXBvbGlzLCBNTiA1NTQxOSIsImNhdGVnb3J5IjoiQnJlYWtmYXN0IFx1MDAyNiBCcnVuY2gifX0seyJpZCI6Im9mVUxESTNtWnkzVDZMMnpwUEk4T1EiLCJ0eXBlIjoic2VhcmNoX3Jlc3VsdCIsImF0dHJpYnV0ZXMiOnsiaWQiOiJvZlVMREkzbVp5M1Q2TDJ6cFBJOE9RIiwibmFtZSI6IkNheWRlbmNlIFJlY29yZHMgYW5kIENvZmZlZSIsImFkZHJlc3MiOiI5MDAgUGF5bmUgQXZlLCBTYWludCBQYXVsLCBNTiA1NTEzMCIsImNhdGVnb3J5IjoiQ29mZmVlIFx1MDAyNiBUZWEifX1dfQ==
+  recorded_at: Tue, 09 Jan 2024 19:07:37 GMT
 recorded_with: VCR 6.2.0

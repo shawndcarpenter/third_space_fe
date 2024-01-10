@@ -1,0 +1,157 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://localhost:3000/api/v1/third_spaces
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v2.8.1
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - '0'
+      X-Content-Type-Options:
+      - nosniff
+      X-Download-Options:
+      - noopen
+      X-Permitted-Cross-Domain-Policies:
+      - none
+      Referrer-Policy:
+      - strict-origin-when-cross-origin
+      Content-Type:
+      - application/json; charset=utf-8
+      Vary:
+      - Accept
+      Etag:
+      - W/"8fe32e407a1038ee38753b70e5374b3a"
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - 403a85c6-220d-438d-8cd0-30ba9ff7bb03
+      X-Runtime:
+      - '0.006630'
+      Server-Timing:
+      - start_processing.action_controller;dur=0.05, sql.active_record;dur=0.73, process_action.action_controller;dur=1.55
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: '{"data":[]}'
+  recorded_at: Tue, 09 Jan 2024 18:26:57 GMT
+- request:
+    method: get
+    uri: http://localhost:3000/api/v1/locations/search_locations?city=Minneapolis&name=Five%20Watt
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v2.8.1
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - '0'
+      X-Content-Type-Options:
+      - nosniff
+      X-Download-Options:
+      - noopen
+      X-Permitted-Cross-Domain-Policies:
+      - none
+      Referrer-Policy:
+      - strict-origin-when-cross-origin
+      Content-Type:
+      - application/json; charset=utf-8
+      Vary:
+      - Accept
+      Etag:
+      - W/"a32b1d48262df2a630f70a0dd887f183"
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - 4fc95915-7083-4feb-af56-2d14a70d602e
+      X-Runtime:
+      - '0.581524'
+      Server-Timing:
+      - start_processing.action_controller;dur=0.07, process_action.action_controller;dur=578.09
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        eyJkYXRhIjpbeyJpZCI6IjVwV0huS04zX0FJclhpeXlxWjc0cHciLCJ0eXBlIjoic2VhcmNoX3Jlc3VsdCIsImF0dHJpYnV0ZXMiOnsiaWQiOiI1cFdIbktOM19BSXJYaXl5cVo3NHB3IiwibmFtZSI6IkZpdmUgV2F0dCBDb2ZmZWUiLCJhZGRyZXNzIjoiMzc0NSBOaWNvbGxldCBBdmUgUywgTWlubmVhcG9saXMsIE1OIDU1NDA5IiwiY2F0ZWdvcnkiOiJDb2ZmZWUgXHUwMDI2IFRlYSJ9fSx7ImlkIjoiX2tnOGwxekREbExoSktERzJYWldqZyIsInR5cGUiOiJzZWFyY2hfcmVzdWx0IiwiYXR0cmlidXRlcyI6eyJpZCI6Il9rZzhsMXpERGxMaEpLREcyWFpXamciLCJuYW1lIjoiRml2ZSBXYXR0IENvZmZlZSBMeW5kYWxlIiwiYWRkcmVzcyI6IjMzNTAgTHluZGFsZSBBdmUgUywgTWlubmVhcG9saXMsIE1OIDU1NDA4IiwiY2F0ZWdvcnkiOiJDb2ZmZWUgXHUwMDI2IFRlYSJ9fSx7ImlkIjoiMmdIUFdkVWVpT2tTZEJueF9FRk1zdyIsInR5cGUiOiJzZWFyY2hfcmVzdWx0IiwiYXR0cmlidXRlcyI6eyJpZCI6IjJnSFBXZFVlaU9rU2RCbnhfRUZNc3ciLCJuYW1lIjoiRml2ZSBXYXR0IENvZmZlZSIsImFkZHJlc3MiOiI4NjEgRSBIZW5uZXBpbiBBdmUsIE1pbm5lYXBvbGlzLCBNTiA1NTQxNCIsImNhdGVnb3J5IjoiQ29mZmVlIFx1MDAyNiBUZWEifX0seyJpZCI6IklPNXl3UGg3eExvS05hMUFEc3JzV1EiLCJ0eXBlIjoic2VhcmNoX3Jlc3VsdCIsImF0dHJpYnV0ZXMiOnsiaWQiOiJJTzV5d1BoN3hMb0tOYTFBRHNyc1dRIiwibmFtZSI6IkZpdmUgV2F0dCBDb2ZmZWUiLCJhZGRyZXNzIjoiOTI4IDd0aCBTdCBXLCBTYWludCBQYXVsLCBNTiA1NTEwMiIsImNhdGVnb3J5IjoiQ29mZmVlIFx1MDAyNiBUZWEifX0seyJpZCI6IlBSbFBSTjJNaW1peTRobFk2V0pLNXciLCJ0eXBlIjoic2VhcmNoX3Jlc3VsdCIsImF0dHJpYnV0ZXMiOnsiaWQiOiJQUmxQUk4yTWltaXk0aGxZNldKSzV3IiwibmFtZSI6Ildlc2xleSBBbmRyZXdzIiwiYWRkcmVzcyI6IjExMSBFIDI2dGggU3QsIE1pbm5lYXBvbGlzLCBNTiA1NTQwNCIsImNhdGVnb3J5IjoiQ29mZmVlIFJvYXN0ZXJpZXMifX0seyJpZCI6IjdxZDk4WUE1dnYwQVN1WEdqVnZuMEEiLCJ0eXBlIjoic2VhcmNoX3Jlc3VsdCIsImF0dHJpYnV0ZXMiOnsiaWQiOiI3cWQ5OFlBNXZ2MEFTdVhHalZ2bjBBIiwibmFtZSI6IlBhdGlzc2VyaWUgNDYiLCJhZGRyZXNzIjoiNDU1MiBHcmFuZCBBdmUgUywgTWlubmVhcG9saXMsIE1OIDU1NDE5IiwiY2F0ZWdvcnkiOiJCYWtlcmllcyJ9fSx7ImlkIjoiWXI4bDMxRllIVHkwRXNlOHFETWI1USIsInR5cGUiOiJzZWFyY2hfcmVzdWx0IiwiYXR0cmlidXRlcyI6eyJpZCI6IllyOGwzMUZZSFR5MEVzZThxRE1iNVEiLCJuYW1lIjoiRG9nd29vZCBDb2ZmZWUiLCJhZGRyZXNzIjoiNDAyMSBFIExha2UgU3QsIE1pbm5lYXBvbGlzLCBNTiA1NTQwNiIsImNhdGVnb3J5IjoiQ29mZmVlIFx1MDAyNiBUZWEifX0seyJpZCI6IktIS18yUTdyeTV0T3JtOHJIY1BNMWciLCJ0eXBlIjoic2VhcmNoX3Jlc3VsdCIsImF0dHJpYnV0ZXMiOnsiaWQiOiJLSEtfMlE3cnk1dE9ybThySGNQTTFnIiwibmFtZSI6IlNweWhvdXNlIENvZmZlZSBSb2FzdGVycyIsImFkZHJlc3MiOiI5NDUgQnJvYWR3YXkgU3QgTkUsIE1pbm5lYXBvbGlzLCBNTiA1NTQxMyIsImNhdGVnb3J5IjoiQ29mZmVlIFx1MDAyNiBUZWEifX0seyJpZCI6IkRZNXFFUFJ3d0tNZGlGMlg1Q0RscGciLCJ0eXBlIjoic2VhcmNoX3Jlc3VsdCIsImF0dHJpYnV0ZXMiOnsiaWQiOiJEWTVxRVBSd3dLTWRpRjJYNUNEbHBnIiwibmFtZSI6IkJvZ2FydCdzIERvdWdobnV0IENvLiIsImFkZHJlc3MiOiI5MDQgVyAzNnRoIFN0LCBNaW5uZWFwb2xpcywgTU4gNTU0MDgiLCJjYXRlZ29yeSI6IkRvbnV0cyJ9fSx7ImlkIjoiUVBMSGtQWG1hVXAwemEyOHhNUGVSdyIsInR5cGUiOiJzZWFyY2hfcmVzdWx0IiwiYXR0cmlidXRlcyI6eyJpZCI6IlFQTEhrUFhtYVVwMHphMjh4TVBlUnciLCJuYW1lIjoiUnVzdGljYSBCYWtlcnkiLCJhZGRyZXNzIjoiMzIyMCBXIExha2UgU3QsIE1pbm5lYXBvbGlzLCBNTiA1NTQxNiIsImNhdGVnb3J5IjoiQmFrZXJpZXMifX0seyJpZCI6IkRma25OSENtTUx1MlpYdEFVUGVjZnciLCJ0eXBlIjoic2VhcmNoX3Jlc3VsdCIsImF0dHJpYnV0ZXMiOnsiaWQiOiJEZmtuTkhDbU1MdTJaWHRBVVBlY2Z3IiwibmFtZSI6IlNweWhvdXNlIENvZmZlZSIsImFkZHJlc3MiOiIyNDUxIE5pY29sbGV0IEF2ZSwgTWlubmVhcG9saXMsIE1OIDU1NDA0IiwiY2F0ZWdvcnkiOiJDb2ZmZWUgXHUwMDI2IFRlYSJ9fSx7ImlkIjoia2JZanBsenhSTmZUWjhYNFd4NTRjQSIsInR5cGUiOiJzZWFyY2hfcmVzdWx0IiwiYXR0cmlidXRlcyI6eyJpZCI6ImtiWWpwbHp4Uk5mVFo4WDRXeDU0Y0EiLCJuYW1lIjoiQnV0dGVyIEJha2VyeSBDYWbDqSIsImFkZHJlc3MiOiIzNzAwIE5pY29sbGV0IEF2ZSBTLCBNaW5uZWFwb2xpcywgTU4gNTU0MDkiLCJjYXRlZ29yeSI6IkJyZWFrZmFzdCBcdTAwMjYgQnJ1bmNoIn19LHsiaWQiOiJfWEcyZG9IM0kzUkZHUFU4YUtYa0xnIiwidHlwZSI6InNlYXJjaF9yZXN1bHQiLCJhdHRyaWJ1dGVzIjp7ImlkIjoiX1hHMmRvSDNJM1JGR1BVOGFLWGtMZyIsIm5hbWUiOiJXaXNlIEFjcmUgRWF0ZXJ5IiwiYWRkcmVzcyI6IjU0MDEgTmljb2xsZXQgQXZlIFMsIE1pbm5lYXBvbGlzLCBNTiA1NTQxOSIsImNhdGVnb3J5IjoiQnJlYWtmYXN0IFx1MDAyNiBCcnVuY2gifX0seyJpZCI6Im9mVUxESTNtWnkzVDZMMnpwUEk4T1EiLCJ0eXBlIjoic2VhcmNoX3Jlc3VsdCIsImF0dHJpYnV0ZXMiOnsiaWQiOiJvZlVMREkzbVp5M1Q2TDJ6cFBJOE9RIiwibmFtZSI6IkNheWRlbmNlIFJlY29yZHMgYW5kIENvZmZlZSIsImFkZHJlc3MiOiI5MDAgUGF5bmUgQXZlLCBTYWludCBQYXVsLCBNTiA1NTEzMCIsImNhdGVnb3J5IjoiQ29mZmVlIFx1MDAyNiBUZWEifX1dfQ==
+  recorded_at: Tue, 09 Jan 2024 18:26:58 GMT
+- request:
+    method: get
+    uri: http://localhost:3000/api/v1/locations/5pWHnKN3_AIrXiyyqZ74pw
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v2.8.1
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - '0'
+      X-Content-Type-Options:
+      - nosniff
+      X-Download-Options:
+      - noopen
+      X-Permitted-Cross-Domain-Policies:
+      - none
+      Referrer-Policy:
+      - strict-origin-when-cross-origin
+      Content-Type:
+      - application/json; charset=utf-8
+      Vary:
+      - Accept
+      Etag:
+      - W/"499ca547e444711603903a69b770622f"
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - f97fc8e1-9469-45d5-bc16-cdc7f4f44b81
+      X-Runtime:
+      - '0.260794'
+      Server-Timing:
+      - start_processing.action_controller;dur=0.07, process_action.action_controller;dur=257.34
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: '{"data":{"id":null,"type":"detailed_location","attributes":{"yelp_id":"5pWHnKN3_AIrXiyyqZ74pw","name":"Five
+        Watt Coffee","address":"3745 Nicollet Ave S, Minneapolis, MN 55409","rating":4.5,"phone":"(612)
+        259-7519","photos":["https://s3-media2.fl.yelpcdn.com/bphoto/AyfUwUHqBKUHRtDMK8iPJw/o.jpg","https://s3-media3.fl.yelpcdn.com/bphoto/6Aq6taDnd1eSbwNYcD2KtA/o.jpg","https://s3-media3.fl.yelpcdn.com/bphoto/kypW8wYUYF2WgqJ9_3M7lQ/o.jpg"],"lat":44.934479,"lon":-93.277771,"price":"$$","hours":[{"open":[{"is_overnight":false,"start":"0700","end":"1800","day":0},{"is_overnight":false,"start":"0700","end":"1800","day":1},{"is_overnight":false,"start":"0700","end":"1800","day":2},{"is_overnight":false,"start":"0700","end":"1800","day":3},{"is_overnight":false,"start":"0700","end":"1800","day":4},{"is_overnight":false,"start":"0700","end":"1800","day":5},{"is_overnight":false,"start":"0700","end":"1800","day":6}],"hours_type":"REGULAR","is_open_now":true}],"category":"Coffee
+        \u0026 Tea","open_now":true}}}'
+  recorded_at: Tue, 09 Jan 2024 18:26:58 GMT
+recorded_with: VCR 6.2.0
