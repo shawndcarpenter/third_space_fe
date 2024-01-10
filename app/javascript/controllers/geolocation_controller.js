@@ -32,7 +32,7 @@ export default class extends Controller {
       return response.json();
     })
     .then(data => {
-      // Handle the response from the server if needed
+      
       console.log(data);
     })
     .catch(error => console.error('There was a problem with the fetch operation:', error));
