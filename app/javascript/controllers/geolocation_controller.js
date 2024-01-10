@@ -45,4 +45,9 @@ export default class extends Controller {
   connect() {
     navigator.geolocation.getCurrentPosition(this.success, this.error, options);
   }
+
+  search() {
+    navigator.geolocation.getCurrentPosition(this.success, this.error, options);
+  }
 }
+
