@@ -30,7 +30,9 @@
           <%= "Open Now" if @location.open_now %>
           <%= "Closed" if !@location.open_now %>
         </div>
-        <div class="rounded-container"><%= @location.price %></div>
+        <% if !@location.price.nil? %>
+          <div class="rounded-container"><%= @location.price%></div>
+        <% end %>
         <div class="rounded-container"><%= "Rating: #{@location.rating}"%></div>
           <a href="<%= new_third_space_path(location_json: @location_json) %>" class="rounded-button">Create a Third Space</a>
           <br><br>
