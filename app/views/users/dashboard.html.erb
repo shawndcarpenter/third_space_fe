@@ -1,9 +1,9 @@
 <div class="container mt-5">
   <div class="row justify-content-center mt-4">
-          <nav class="navbar navbar-light bg-light">
-        <div class="container-fluid">
+    <nav class="navbar navbar-light bg-light">
+      <div class="container-fluid">
 
-          <a class="navbar-brand" href="#" style="margin-right: 2rem;">
+        <a class="navbar-brand" href="#" style="margin-right: 2rem;">
             <%= image_tag 'temp_logo.png', style: "width: 200px; height: auto;", alt: "Logo" %> 
           </a>
 
@@ -23,9 +23,9 @@
               <li class="nav-item"><a class="nav-link active" href="#">dashboard</a></li>
               <!-- <li class="nav-item"><a class="nav-link" href="#">preferences</a></li> -->
               <li class="nav-item"><a class="nav-link" href="#">privacy & security</a></li>
-              <li class="nav-item"><a class="nav-link" href="#">create a third space</a></li>
+              <li class="nav-item"><a class="nav-link" href="<%=third_spaces_path%>">create a third space</a></li>
+              <li class="nav-item"><a class="nav-link" href="<%= new_contact_form_path %>">contact us</a></li>
               <li class="nav-item"><a class="nav-link" href="#">logout</a></li>
-              <li class="nav-item"><a class="nav-link" href="#">contact us</a></li>
             </ul>
           </div>
         </div>
