@@ -36,7 +36,7 @@
 }
 
 
-.rounded-highlight {
+.rounded-highlight-b {
   display: inline-flex; /* Use flexbox */
   align-items: center; /* Vertically center the content */
   justify-content: center; /* Horizontally center the content */
@@ -45,6 +45,16 @@
   background-color: #D7D5AC;
   border: 2px solid #D7D5AC;
   font-weight: bold;
+}
+
+.rounded-highlight {
+  display: inline-flex; /* Use flexbox */
+  align-items: center; /* Vertically center the content */
+  justify-content: center; /* Horizontally center the content */
+  border-radius: 33px;
+  padding: 10px 20px !important;
+  background-color: #D7D5AC;
+  border: 2px solid #D7D5AC;
 }
 
 
