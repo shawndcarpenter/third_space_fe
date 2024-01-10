@@ -3,16 +3,10 @@ class UsersController < ApplicationController
   def dashboard
     @user = current_user
     @search_location = @user.search_location
-    @recommended = find_spaces
     city = @search_location.city
     state = @search_location.state
     
-    @recommended = find_spaces.find_all do |space|
-      address_parts = space.address.split(',').map(&:strip)
-      space_city = address_parts[-2]
-      space_state = address_parts[-1]
-      space_city == city && space_state.include?(state)
-    end
+    @recommended = filter_spaces_by_location(find_spaces, city, state)
   end
 
   # def make_
@@ -134,10 +128,15 @@ class UsersController < ApplicationController
     third_spaces = data.map do |d|
       ThirdSpacePoro.new(d[:attributes])
     end
-
-    ## Add logic to only return locations within the area
   end
 
-
+  def filter_spaces_by_location(results, city, state)
+    results.find_all do |space|
+      address_parts = space.address.split(',').map(&:strip)
+      space_city = address_parts[-2]
+      space_state = address_parts[-1]
+      space_city == city && space_state.include?(state)
+    end
+  end
 
 end
