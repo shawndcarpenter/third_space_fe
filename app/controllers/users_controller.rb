@@ -4,6 +4,15 @@ class UsersController < ApplicationController
     @user = current_user
     @search_location = @user.search_location
     @recommended = find_spaces
+    city = @search_location.city
+    state = @search_location.state
+    
+    @recommended = find_spaces.find_all do |space|
+      address_parts = space.address.split(',').map(&:strip)
+      space_city = address_parts[-2]
+      space_state = address_parts[-1]
+      space_city == city && space_state.include?(state)
+    end
   end
 
   # def make_

@@ -13,9 +13,20 @@
   </div>
 
   <h3>recommendations.</h3>
-  <% if @recommended.empty?%>
-    No Third Spaces near you. Add a location <%=link_to "here", locations_search_path %>.
+    <% if @recommended.any? %>
+    <% @recommended.each do |third_space_poro| %>
+      <div>
+        <h2><%= third_space_poro.name %></h2>
+        <p><strong>Category:</strong> <%= third_space_poro.category %></p>
+        <p><strong>Address:</strong> <%= third_space_poro.address %></p>
+        <p><strong>Phone:</strong> <%= third_space_poro.phone %></p>
+        <p><strong>Rating:</strong> <%= third_space_poro.rating %></p>
+        <p><strong>Price:</strong> <%= third_space_poro.price %></p>
+        <!-- Add more details as needed -->
+      </div>
+    <% end %>
   <% else %>
-
+     No Third Spaces near you. Add a location <%=link_to "here", locations_search_path %>.
   <% end %>
+
 </div>
