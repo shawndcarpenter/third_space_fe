@@ -6,8 +6,8 @@ class ThirdSpacesController < ApplicationController
   end
 
   def create_third_space
-    redirect_to dashboard_path
     # binding.pry
+    redirect_to dashboard_path
   end
 
 end

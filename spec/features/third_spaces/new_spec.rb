@@ -37,19 +37,35 @@ RSpec.describe "New Third Space Form", type: :feature do
       expect(page).to have_content('Public Transportation Nearby')
       expect(page).to have_content('Queer Friendly')
       expect(page).to have_content('Sober')
-      expect(page).to have_content('Staff Responsiveness')
+      expect(page).to have_content('Staff responsiveness')
       expect(page).to have_content('Volume')
+      expect(page).to have_content('Lighting')
+
     end
 
     it "user can select tags for the submissions" do
-      checkbox_labels = ['Accessible Entrance', 'BIPOC Friendly', 'Child Friendly', 'Customer Restrooms', 'Gender Neutral Restrooms', 'Parking', 'Purchase Necessary', 'Public Transportation Nearby', 'Queer Friendly', 'Sober', 'Staff Responsiveness', 'Volume']
+      # Check 'Happy' mood
+      find("input[name='moods[]'][value='Happy']", visible: :all).check
+    
+      # # Select 'Helpful' from 'Staff Responsiveness'
+      select 'Helpful', from: 'tags_staff_responsiveness'
+
+      # # Select 'Quiet' from 'Volume'
+      # select 'Quiet', from: 'tags[]'
+
+      # # Select 'Moody' from 'Lighting'
+      # select 'Moody', from: 'tags[]'
+    
+      # Check other tags
+      checkbox_labels = ['Accessible Entrance', 'BIPOC Friendly', 'Child Friendly', 'Customer Restrooms', 'Gender Neutral Restrooms', 'Parking', 'Purchase Necessary', 'Queer Friendly', 'Sober']
       checkbox_labels.each do |label|
         next if label == 'Volume'
         find("input[name='tags[]'][value='#{label}']", visible: :all).check
       end
-
+    
       click_button 'Create'
       expect(current_path).to eq(dashboard_path)
     end
+    
   end
 end
