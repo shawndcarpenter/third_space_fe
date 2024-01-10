@@ -40,6 +40,7 @@ class LocationsController < ApplicationController
     location_id = params[:id]
     conn = Faraday.new(url: "http://localhost:3000/")
     response = conn.get("api/v1/locations/#{location_id}")
+    # require 'pry'; binding.pry
     json = JSON.parse(response.body, symbolize_names: true)[:data][:attributes]
 
     DetailedLocation.new(json)
