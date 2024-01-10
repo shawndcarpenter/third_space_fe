@@ -1,0 +1,53 @@
+<div class="container mt-5">
+  <div class="row justify-content-center mt-4">
+    <nav class="navbar navbar-expand-lg navbar-light">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">
+          <%= image_tag 'temp_logo.png', style: "width: 200px; height: auto;", alt: "Logo" %> 
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="#">dashboard</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">preferences</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">privacy & security</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">logout</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">contact us</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">create a third space</a>
+            </li>
+          </ul>          
+          <form class="d-flex">
+          </form>
+        </div>
+      </div>
+    </nav>
+
+    <h3>Third Spaces matching search terms</h3>
+    <div class="scroll-box">
+      <div class="d-flex">
+        <% if @spaces.any? %>
+          <% @spaces.each do |third_space_poro| %>
+            <div class="rounded-entry me-5">
+              <h3><%= third_space_poro.name %></h3>
+              <p><strong>Category:</strong> <%= third_space_poro.category %></p>
+              <p><strong>Address:</strong> <%= third_space_poro.address %></p>
+              <p><strong>Rating:</strong> <%= third_space_poro.rating %></p>
+            </div>
+          <% end %>
+        <% else %>
+          No Third Spaces found with these search terms. <%= link_to "Add a location", locations_search_path %>.
+        <% end %>
+      </div>

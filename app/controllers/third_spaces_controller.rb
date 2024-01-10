@@ -16,8 +16,6 @@ class ThirdSpacesController < ApplicationController
 
   def search
     @spaces = ThirdSpacesFacade.new(params[:name]).spaces
-    # binding.pry
-
   end
 
   private

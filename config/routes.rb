@@ -7,6 +7,8 @@ Rails.application.routes.draw do
   root "landing#index"
 
   get "/locations/search", to: "locations#search"
+  post "/third_spaces/search", to: "third_spaces#search"
+
   resources :locations, only: [:index, :show, :new, :create]
   get '/locations/search', to: 'locations#search', as: 'location_search'
   
@@ -32,7 +34,7 @@ Rails.application.routes.draw do
   resources :saved_locations, only: :index
   resources :search_locations, only: :create
 
-  resources :third_spaces, only: [:new, :create] do
+  resources :third_spaces, only: [:new, :create, :index] do
     get :create_third_space, on: :collection, as: :create_third_space
   end
 
