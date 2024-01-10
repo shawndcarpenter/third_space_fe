@@ -26,10 +26,14 @@ def user_login_data
 end
 
 def user_select_loc_data
-  find('input[name="city"]').set("Minneapolis")
-
-  select 'MN', from: :state
-  click_button "submit"
+  # sleep(0.3)
+  # fill_in 'city', with: 'Minneapolis', wait: 5
+  # sleep(0.3)
+  # select 'MN', from: :state
+  # click_button "submit"
+  search_location = @user1.build_search_location(city: "Minneapolis", state: "MN")
+  search_location.save
+  visit dashboard_path
 end
 #
 # See https://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration

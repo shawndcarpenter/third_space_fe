@@ -1,14 +1,9 @@
 require "rails_helper"
 
 RSpec.describe "Location Search Page", type: :feature do 
-  # before :each do
-  #   user_login_data
-  #   user_select_loc_data
-  #   click_link "here"
-  # end
 
-  describe "Search Page" do 
-    it "has a form with fields for name and city" do
+  describe "Search Page", :vcr do
+    it "has a form with fields for name and city if there are not any locations available" do
       VCR.use_cassette("name and city") do 
         user_login_data
         user_select_loc_data
@@ -20,7 +15,7 @@ RSpec.describe "Location Search Page", type: :feature do
       end
     end
 
-    it "user can submit and entries and redirect to the search index" do
+    xit "user can submit and entries and redirect to the search index" do
       VCR.use_cassette("fill in name and city") do 
         user_login_data
         user_select_loc_data

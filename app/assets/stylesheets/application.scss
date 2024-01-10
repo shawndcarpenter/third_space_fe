@@ -37,13 +37,16 @@
 
 
 .rounded-highlight {
-  display: inline-block;
+  display: inline-flex; /* Use flexbox */
+  align-items: center; /* Vertically center the content */
+  justify-content: center; /* Horizontally center the content */
   border-radius: 33px;
   padding: 8px !important;
   background-color: #D7D5AC;
   border: 2px solid #D7D5AC;
-  font-weight: bold; /* Add this line to make the text bold */
+  font-weight: bold;
 }
+
 
 .rounded-button {
   display: inline-block;
@@ -172,24 +175,13 @@
   opacity: 8%;
 }
 
-
-// .google-sign-in-btn {
-//   background-color: white; 
-//   color: black;
-//   padding: 10px 15px;
-//   border: 3px solid #ccc;
-//   text-align: left;
-//   border-radius: 4px;
-//   display: inline-flex;
-//   align-items: center;
-// }
-
-// .google-sign-in-btn img {
-//   margin-right: 10px;
-// }
-
-// .google-sign-in-btn:hover {
-//   background-color: #f8f8f8; //make this change when we pick a color scheme
-// }
-
-
+.rounded-entry {
+  display: block;
+  width: 25%; /* Set the width to be a quarter of the page */
+  border-radius: 8px;
+  padding: 16px;
+  background-color: #D7D5AC;
+  border: 2px solid #D7D5AC;
+  margin-bottom: 16px;
+  box-sizing: border-box; /* Include padding and border in the total width */
+}
