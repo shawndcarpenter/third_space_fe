@@ -2,67 +2,96 @@
   <div class="logo-container">
     <%= image_tag 'temp_logo.png', class: "img-fluid smaller-logo", alt: "Logo" %>
   </div>
-  <div class="container-fluid d-flex justify-content-center align-items-center vh-100">
 
-    <div class="text-center">
-      <div class="mb-3">
-        <h3>Create a New Third Space</h3><br>
+  <div class="container text-center mt-5">
+    <div class="mb-3">
+      <h3>Create a New Third Space</h3><br>
 
-        <%= form_tag(third_space_create_path, method: "get") do %>
+      <%= form_tag(third_space_create_path, method: "get") do %>
 
-          <div class="mb-3 d-flex align-items-center">
-            <div class="col-sm-2 rounded-highlight">
-              <label class="form-label" for="name">Name</label>
-            </div>
-            <div class="col-sm-9">
-              <div class="form-control" style="border: none; padding: 0;">
-                <span id="name"><%= @location.name %></span>
-              </div>
-            </div>
-          </div>x
-
-          <div class="mb-3 d-flex align-items-center">
-            <div class="col-sm-2 rounded-highlight">
-              <label class="form-label" for="category">Category</label>
-            </div>
-            <div class="col-sm-9">
-              <div class="form-control" style="border: none; padding: 0;">
-                <span id="category"><%= @location.category %></span>
-              </div>
+        <div class="mb-3 d-flex align-items-center">
+          <div class="col-sm-2 rounded-highlight">
+            <label class="form-label" for="name">Name</label>
+          </div>
+          <div class="col-sm-9">
+            <div class="form-control" style="border: none; padding: 0;">
+              <span id="name"><%= @location.name %></span>
             </div>
           </div>
+        </div>
 
-          <div class="mb-3 d-flex align-items-center">
-            <div class="col-sm-2 rounded-highlight">
-              <label class="form-label" for="address">Address</label>
-            </div>
-            <div class="col-sm-9">
-              <div class="form-control" style="border: none; padding: 0;">
-                <span id="rating"><%= @location.address %></span>
-              </div>
+        <div class="mb-3 d-flex align-items-center">
+          <div class="col-sm-2 rounded-highlight">
+            <label class="form-label" for="category">Category</label>
+          </div>
+          <div class="col-sm-9">
+            <div class="form-control" style="border: none; padding: 0;">
+              <span id="category"><%= @location.category %></span>
             </div>
           </div>
+        </div>
 
-          <div class="mb-3 d-flex justify-content-center align-items-center">
-            <div class="col-sm-2 rounded-highlight">
-              Tags
+        <div class="mb-3 d-flex align-items-center">
+          <div class="col-sm-2 rounded-highlight">
+            <label class="form-label" for="address">Address</label>
+          </div>
+          <div class="col-sm-9">
+            <div class="form-control" style="border: none; padding: 0;">
+              <span id="rating"><%= @location.address %></span>
             </div>
-    
-            <% labels_array = ['Accessible Entrance', 'BIPOC Friendly', 'Child Friendly', 'Customer Restrooms', 'Gender Neutral Restrooms', 'Parking', 'Purchase Necessary', 'Public Transportation Nearby', 'Queer Friendly', 'Sober', 'Staff Responsiveness', 'Volume'] %>
+          </div>
+        </div>
 
-            <% labels_array.each_slice(4) do |labels| %>
-              <div class="col-sm-4">
-                <% labels.each do |label| %>
-                  <%= check_box_tag 'tags[]', label, false, class: 'form-check-input' %> <%= label %><br>
-                <% end %>
-              </div>
+<div class="justify-content-center align-items-center">
+  <div class="row">
+    <div class="col-sm-2 rounded-highlight">
+      Tags
+    </div>
+
+    <div class="col-sm-3">
+      <h4>Moods</h4>
+      <% moods_array = ['Happy', 'Sad', 'Studious'] %>
+      <% moods_array.each do |mood| %>
+        <%= check_box_tag 'moods[]', mood, false, class: 'custom-checkbox-input' %> <%= mood %><br>
+      <% end %>
+    </div>
+
+    <div class="col-sm-3">
+      <h4>Features</h4>
+      <% features_options = {
+        'Staff Responsiveness' => ['Pushy', 'Helpful', 'Respectful'],
+        'Volume' => ['Loud', 'Quiet', 'Average'],
+        'Lighting' => ['Bright', 'Moody', 'Average Lighting']
+      } %>
+      <% features_options.each do |feature, options| %>
+        <%= label_tag feature %>
+        <%= select_tag "tags[]", options_for_select(options.map { |opt| [opt, "#{feature}_#{opt.downcase}"] }), multiple: true, class: 'form-select' %><br>
+      <% end %>
+    </div>
+
+    <div class="col-sm-4">
+      <% labels_array = ['Accessible Entrance', 'BIPOC Friendly', 'Child Friendly', 'Customer Restrooms', 'Gender Neutral Restrooms', 'Parking', 'Purchase Necessary', 'Public Transportation Nearby', 'Queer Friendly', 'Sober'] %>
+      <% labels_array.each_slice(4) do |labels| %>
+        <div class="row">
+          <div class="col-sm-6">
+            <% labels.each do |label| %>
+              <%= check_box_tag 'tags[]', label, false, class: 'form-check-input' %> <%= label %><br>
             <% end %>
           </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
 
-          <%= submit_tag "Create", class: "btn btn-primary" %>
-        <% end %>
 
-      </div>
+        <div class="row mt-3">
+          <div class="col-sm-12 text-center">
+            <%= submit_tag "Create", class: "btn btn-primary" %>
+          </div>
+        </div>
+
+      <% end %>
     </div>
   </div>
 </body>

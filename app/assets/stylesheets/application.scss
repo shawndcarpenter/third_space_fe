@@ -37,13 +37,16 @@
 
 
 .rounded-highlight {
-  display: inline-block;
+  display: inline-flex; /* Use flexbox */
+  align-items: center; /* Vertically center the content */
+  justify-content: center; /* Horizontally center the content */
   border-radius: 33px;
   padding: 8px !important;
   background-color: #D7D5AC;
   border: 2px solid #D7D5AC;
-  font-weight: bold; /* Add this line to make the text bold */
+  font-weight: bold;
 }
+
 
 .rounded-button {
   display: inline-block;
