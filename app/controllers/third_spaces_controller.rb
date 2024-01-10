@@ -10,7 +10,6 @@ class ThirdSpacesController < ApplicationController
     location = JSON.parse(params[:location_json], symbolize_names: true)
     location = location.to_h.transform_keys(&:to_s)
     tags = params[:tags].map{|tag| tag.downcase.split.join("_")}
-    binding.pry
     new_third_space_call(location, tags)
     redirect_to dashboard_path
   end
@@ -24,7 +23,6 @@ class ThirdSpacesController < ApplicationController
     end
 
     response = conn.post("/api/v1/third_spaces")
-    binding.pry
     data = JSON.parse(response.body, symbolize_names: true)
   end
 

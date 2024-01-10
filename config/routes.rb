@@ -32,8 +32,9 @@ Rails.application.routes.draw do
   resources :saved_locations, only: :index
   resources :search_locations, only: :create
 
-  resources :third_spaces, only: [:new, :create]
-  
+  resources :third_spaces, only: [:new, :create] do
+    get :third_space_create, on: :collection
+  end
 
 
   get '/user/auth/google_oauth2/callback', to: 'sessions#create'
