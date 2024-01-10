@@ -1,30 +1,19 @@
 <body>
-    <div class="container-fluid d-flex justify-content-center align-items-center vh-100">
-      <div class="text-center">
-        <div class="mb-3">
-          <%= image_tag 'temp_logo.png', class: "img-fluid", alt: "Logo" %>
-        </div>
-        <h3>Locations</h3>
-        <table class="three-columns">
-          <thead>
-            <tr>
-              <th>Name</th>
-              <th>Address</th>
-              <th>Category</th>
-            </tr>
-          </thead>
-          <tbody>
-            <% @location_results.each do |location| %>
-              <div id ="location_result-<%= location.id %>">
-                <tr>
-                  <td><%= link_to "#{location.name}", location_path(location.id) %></td>
-                  <td><%= location.address %></td>
-                  <td><%= location.category %></td>
-                </tr>
-              </div>
-            <% end %>
-          </tbody>
-        </table>
+  <div class="container-fluid d-flex justify-content-center align-items-center vh-100">
+    <div class="text-center">
+      <div class="mb-3">
+        <%= image_tag 'temp_logo.png', class: "img-fluid", alt: "Logo" %>
+      </div>
+      <h3>Locations</h3>
+      <div class="locations">
+        <% @location_results.each do |location| %>
+          <div id="location_result-<%= location.id %>" class="location-entry rounded-entry me-5">
+            <p class="fs-4 fw-bold"><%= link_to location.name, location_path(location.id) %></p>
+            <p class="fs-6"><%= location.address %></p>
+            <p class="fs-6"><%= location.category %></p>
+          </div>
+        <% end %>
       </div>
     </div>
+  </div>
 </body>
