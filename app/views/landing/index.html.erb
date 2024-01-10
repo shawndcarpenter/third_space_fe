@@ -10,8 +10,23 @@
       <a href="/login" class="btn btn-primary">login</a> 
       <a href="/register" class="btn btn-primary">new user</a>
       <!--<button type="button" class="btn btn-primary" onclick="window.location.href='/auth/google_oauth2'">Sign up with Google</button>-->
-      <%= button_to "Sign up with Google", '/auth/google_oauth2', data: {turbo: false}%>
+      <%=# button_to "Sign up with Google", '/auth/google_oauth2', data: {turbo: false}%>
   </div>
 </div>
+      <%= button_to "Continue with Google", '/auth/google_oauth2', class: "google-sign-in-btn", data: { turbo: false }, id: "google-sign-in-btn" %>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    var btn = document.getElementById('google-sign-in-btn');
+    btn.style.backgroundImage = 'url(https://img.icons8.com/color/16/000000/google-logo.png)';
+    btn.style.backgroundRepeat = 'no-repeat';
+    btn.style.backgroundPosition = '10px 50%';
+    btn.style.paddingLeft = '40px'; // Adjust this value as needed
+  });
+</script>
+
+  </div>
+</div>
+
 
 <% end %>
