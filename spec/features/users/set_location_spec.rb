@@ -27,7 +27,7 @@ RSpec.describe 'Set Location Page', type: :feature do
 
   it "can use a user's location and mood attribute when button is selected" do
     user_login_data
-    find("a.btn[role='button']", text: "Happy").click
+    click_button "Happy"
     expect(current_path).to eq(dashboard_path)
     expect(current_url).to eq("http://www.example.com/dashboard?mood=happy")
   end

@@ -2,16 +2,14 @@ class UsersController < ApplicationController
 
   def dashboard
     @user = current_user
-    if @user.search_location
-      @search_location = @user.search_location
-      city = @search_location.city
-      state = @search_location.state
-      
-      @recommended = filter_spaces_by_location(find_spaces, city, state)
-    else
+    if params[:mood]
       @mood = params[:mood]
-      @recommended = []
     end
+    @search_location = @user.search_location
+    city = @search_location.city
+    state = @search_location.state
+    
+    @recommended = filter_spaces_by_location(find_spaces, city, state)
   end
 
   # def make_
