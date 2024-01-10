@@ -33,7 +33,7 @@ Rails.application.routes.draw do
   resources :search_locations, only: :create
 
   resources :third_spaces, only: [:new, :create] do
-    get :third_space_create, on: :collection
+    get :create_third_space, on: :collection, as: :create_third_space
   end
 
 
