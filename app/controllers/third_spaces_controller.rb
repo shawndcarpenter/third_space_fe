@@ -14,6 +14,12 @@ class ThirdSpacesController < ApplicationController
     redirect_to dashboard_path
   end
 
+  def search
+    @spaces = ThirdSpacesFacade.new(params[:name]).spaces
+    # binding.pry
+
+  end
+
   private
   def new_third_space_call(location, tags)
     conn = Faraday.new(url: "http://localhost:3000") do |faraday| 
