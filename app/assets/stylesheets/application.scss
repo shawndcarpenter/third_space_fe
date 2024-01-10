@@ -71,4 +71,22 @@
   background-color: #6F6FA7;
 }
 
+// .container {
+//   display: flex;
+//   flex-wrap: wrap; /* Allow items to wrap to the next line */
+// }
+
+.rounded-highlight {
+  display: block;
+  width: 25%; /* Set the width to be a quarter of the page */
+  border-radius: 8px;
+  padding: 16px;
+  background-color: #D7D5AC;
+  border: 2px solid #D7D5AC;
+  margin-bottom: 16px;
+  box-sizing: border-box; /* Include padding and border in the total width */
+}
+
+
+
 
