@@ -37,5 +37,4 @@ Rails.application.routes.draw do
 
 
   get '/user/auth/google_oauth2/callback', to: 'sessions#create'
-  post '/geolocation_storage/lat_lon_session', to: 'geolocation_storage#lat_lon_session'
 end
