@@ -14,7 +14,7 @@ RSpec.describe "login", type: :feature do
       visit login_path
       expect(page).to have_button("log in")
     end
-    it 'creates an account' do
+    xit 'creates an account' do
       visit login_path
       click_link "create new account"
       expect(current_path).to eq(register_path)

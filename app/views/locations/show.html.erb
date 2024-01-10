@@ -4,14 +4,14 @@
       <%= image_tag 'temp_logo.png', class: "img-fluid smaller-logo", alt: "Logo" %>
     </div>
 
-    <div class="d-flex flex-column justify-content-center align-items-center vh-100">
+    <div class="container text-center mt-5">
       <div class="text-center">
         <div class="d-inline-block text-left">
           <h2><%= @location.name %></h2>
-          <div class="rounded-highlight">
+          <div class="rounded-highlight-b">
             <%= @location.category %>
           </div>
-          <div class="rounded-highlight">
+          <div class="rounded-highlight-b">
               <%= "Address: #{@location.address}"%>
           </div>
         </div>
@@ -24,17 +24,25 @@
         <% end %>
 
         <br><br>
-    <%= image_tag 'coffee_logo.png', class: "img-fluid smaller-logo", alt: "Logo", style: "height: 75px; width: 104px" %>  
+        <%= image_tag 'coffee_logo.png', class: "img-fluid smaller-logo", alt: "Logo", style: "height: 75px; width: 104px" %>  
 
         <div class="rounded-container">
           <%= "Open Now" if @location.open_now %>
           <%= "Closed" if !@location.open_now %>
         </div>
-        <div class="rounded-container"><%= @location.price %></div>
+        <% if !@location.price.nil? %>
+          <div class="rounded-container"><%= @location.price%></div>
+        <% end %>
         <div class="rounded-container"><%= "Rating: #{@location.rating}"%></div>
-        <a href="<%= new_third_space_path %>" class="rounded-button">Create a Third Space</a>
+          <a href="<%= new_third_space_path(location_json: @location_json) %>" class="rounded-button">Create a Third Space</a>
+          <br><br>
 
-        <br>
+          <% @reviews.each do |r| %>
+            <div class="rounded-highlight">
+              <%= r.text %> <br> - <%= r.name %> (Rating: <%= r.rating %>/5)
+            </div>
+            <br><br>
+          <% end %>
       </div>
     </div>
   </div>
