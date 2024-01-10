@@ -17,7 +17,6 @@ RSpec.describe 'Set Location Page', type: :feature do
   it "user can submit a location and search" do
     VCR.use_cassette("search location") do
       user_login_data
-      sleep(0.3)
       find('input[name="city"]').set("Minneapolis")
       select 'MN', from: :state
       click_button "submit"

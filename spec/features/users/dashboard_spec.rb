@@ -10,7 +10,6 @@ RSpec.describe 'User Dashboard', type: :feature do
   it 'allows the user to click the contact button and redirects to a form' do
     VCR.use_cassette("contact w redirect") do
       user_login_data
-      sleep(0.3)
       user_select_loc_data
       visit dashboard_path
       expect(current_path).to eq '/dashboard'
