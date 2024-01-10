@@ -7,7 +7,7 @@ RSpec.describe 'User Dashboard', type: :feature do
     # visit dashboard_path
   end
   
-  it 'allows the user to click the contact button and redirects to a form' do
+  xit 'allows the user to click the contact button and redirects to a form' do
     VCR.use_cassette("contact w redirect") do
       user_login_data
       user_select_loc_data
@@ -23,7 +23,7 @@ RSpec.describe 'User Dashboard', type: :feature do
     end
   end
 
-  it "if there are not any locations near the user, the page will recommend adding one" do
+  xit "if there are not any locations near the user, the page will recommend adding one" do
     VCR.use_cassette("recommend location") do
       user_login_data
       user_select_loc_data

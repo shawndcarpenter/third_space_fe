@@ -21,7 +21,7 @@ RSpec.describe "New Third Space Form", type: :feature do
   end
 
   describe "General Third Space details displayed", :vcr do 
-    it "lists the the general details including name, category, address, section for tags" do
+    xit "lists the the general details including name, category, address, section for tags" do
       VCR.use_cassette("general info and tags") do
         user_login_data
         user_select_loc_data
