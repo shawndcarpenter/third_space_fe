@@ -17,12 +17,19 @@ RSpec.describe 'Set Location Page', type: :feature do
   it "user can submit a location and search" do
     VCR.use_cassette("search location") do
       user_login_data
-      sleep(0.3)
       find('input[name="city"]').set("Minneapolis")
       select 'MN', from: :state
       click_button "submit"
       expect(current_path).to eq(dashboard_path)
-      expect(page).to have_content("Search Location: Minneapolis, MN")
+      expect(page).to have_content("your location: Minneapolis, MN")
     end
   end
+
+  it "can use a user's location and mood attribute when button is selected" do
+    user_login_data
+    find("a.btn[role='button']", text: "Happy").click
+    expect(current_path).to eq(dashboard_path)
+    expect(current_url).to eq("http://www.example.com/dashboard?mood=happy")
+  end
+
 end

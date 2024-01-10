@@ -1,9 +1,26 @@
+<div data-controller="geolocation"></div>
 <div class="container-fluid d-flex justify-content-center align-items-center vh-100">
   <div class="text-center">
     <div class="mb-3">
       <%= image_tag 'temp_logo.png', class: "img-fluid", alt: "Logo" %>
     </div>
-    <h3>Welcome, <%= @user.first_name %>! Where would you like to search today?</h3><br>
+
+    <h3>Welcome, <%= @user.first_name %>! What is your mood today?</h3>
+    <h6>Allow ThirdSpace to acess your location for the nearby search to work. Alternatively, search by city and state.</h6>
+    <nav class="navbar navbar-light bg-white">
+  <form class="container-fluid d-flex justify-content-between">
+    <%= link_to "Happy", dashboard_path(:mood => "happy"), data: {action: "geolocation#search"}, class: "btn btn-outline-success me-2", role: "button" %>
+    <%= link_to "Sad", dashboard_path(:mood => "sad"), data: {action: "geolocation#search"}, class: "btn btn-outline-success me-2", role: "button" %>
+    <%= link_to "Studious", dashboard_path(:mood => "studious"), data: {action: "geolocation#search"}, class: "btn btn-outline-success me-2", role: "button" %>
+    <%= link_to "Social", dashboard_path(:mood => "social"), data: {action: "geolocation#search"}, class: "btn btn-outline-success me-2", role: "button" %>
+    <%= link_to "Party!", dashboard_path(:mood => "party"), data: {action: "geolocation#search"}, class: "btn btn-outline-success me-2", role: "button" %>
+    <%= link_to "Chill", dashboard_path(:mood => "chill"), data: {action: "geolocation#search"}, class: "btn btn-outline-success me-2", role: "button" %>
+  </form>
+</nav>
+
+
+
+    <h3>Where would you like to search today?</h3><br>
     
     <%= form_with url: search_locations_path, method: :post, local: true do |form| %>
     <div class="mb-3 d-flex align-items-center">
@@ -11,10 +28,9 @@
         <%= form.label :city, "city", class: "form-label" %>
       </div>
       <div class="col-sm-10">
-        <input type="text" name="city" class="form-control">
+        <%= form.text_field :city, class: "form-control" %>
       </div>
     </div>
-
 
     <div class="mb-3 d-flex align-items-center">
       <div class="col-sm-2">

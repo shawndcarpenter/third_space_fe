@@ -2,11 +2,16 @@ class UsersController < ApplicationController
 
   def dashboard
     @user = current_user
-    @search_location = @user.search_location
-    city = @search_location.city
-    state = @search_location.state
-    
-    @recommended = filter_spaces_by_location(find_spaces, city, state)
+    if @user.search_location
+      @search_location = @user.search_location
+      city = @search_location.city
+      state = @search_location.state
+      
+      @recommended = filter_spaces_by_location(find_spaces, city, state)
+    else
+      @mood = params[:mood]
+      @recommended = []
+    end
   end
 
   # def make_
@@ -105,7 +110,7 @@ class UsersController < ApplicationController
   end
 
   def logout
-    session[:user_id] = nil
+    reset_session
     flash[:success] = "You have been logged out successfully."
     redirect_to "/"
   end

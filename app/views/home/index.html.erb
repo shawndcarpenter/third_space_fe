@@ -8,3 +8,15 @@
       <button href="/new_user_path" class="btn btn-primary">New User</button>
   </div>
 </div>
+ <%= button_to "Continue with Google", '/auth/google_oauth2', class: "google-sign-in-btn", data: { turbo: false }, id: "google-sign-in-btn" %>
+</div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    var btn = document.getElementById('google-sign-in-btn');
+    btn.style.backgroundImage = 'url(<%= asset_url("google_button.png") %>)';
+    btn.style.backgroundRepeat = 'no-repeat';
+    btn.style.backgroundPosition = '10px 50%';
+    btn.style.paddingLeft = '40px'; 
+  });
+</script>

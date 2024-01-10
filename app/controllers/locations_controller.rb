@@ -11,10 +11,15 @@ class LocationsController < ApplicationController
   def show
     location_id = params[:id]
     @location = find_show_details(location_id)
-    @location_json = @location.to_json
+    # binding.pry
+  end
+
+  def new
+    # require 'pry'; binding.pry
   end
 
   def create
+    
   end
   
   private

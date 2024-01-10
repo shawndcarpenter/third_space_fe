@@ -24,7 +24,7 @@
         <% end %>
 
         <br><br>
-        <%= image_tag 'coffee_logo.png', class: "img-fluid smaller-logo", alt: "Logo", style: "height: 55px; width: 80px" %>  
+    <%= image_tag 'coffee_logo.png', class: "img-fluid smaller-logo", alt: "Logo", style: "height: 75px; width: 104px" %>  
 
         <div class="rounded-container">
           <%= "Open Now" if @location.open_now %>
@@ -32,7 +32,8 @@
         </div>
         <div class="rounded-container"><%= @location.price %></div>
         <div class="rounded-container"><%= "Rating: #{@location.rating}"%></div>
-          <a href="<%= new_third_space_path(params: { location_json: @location_json }) %>" class="rounded-button">Create a Third Space</a>
+        <a href="<%= new_third_space_path %>" class="rounded-button">Create a Third Space</a>
+
         <br>
       </div>
     </div>
