@@ -105,7 +105,7 @@ class UsersController < ApplicationController
   end
 
   def logout
-    session[:user_id] = nil
+    reset_session
     flash[:success] = "You have been logged out successfully."
     redirect_to "/"
   end
@@ -132,10 +132,12 @@ class UsersController < ApplicationController
 
   def filter_spaces_by_location(results, city, state)
     results.find_all do |space|
-      address_parts = space.address.split(',').map(&:strip)
-      space_city = address_parts[-2]
-      space_state = address_parts[-1]
-      space_city == city && space_state.include?(state)
+      if !space.address.nil?
+        address_parts = space.address.split(',').map(&:strip)
+        space_city = address_parts[-2]
+        space_state = address_parts[-1]
+        space_city == city && space_state.include?(state)
+      end
     end
   end
 
