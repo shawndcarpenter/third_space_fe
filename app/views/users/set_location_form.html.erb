@@ -6,14 +6,15 @@
     </div>
 
     <h3>Welcome, <%= @user.first_name %>! What is your mood today?</h3>
+    <h6>Allow ThirdSpace to acess your location for the nearby search to work. Alternatively, search by city and state.</h6>
     <nav class="navbar navbar-light bg-white">
   <form class="container-fluid d-flex justify-content-between">
-    <button class="btn btn-outline-success me-2" type="button">Happy</button>
-    <button class="btn btn-outline-success me-2" type="button">Studious</button>
-    <button class="btn btn-outline-success me-2" type="button">Sad</button>
-    <button class="btn btn-outline-success me-2" type="button">Social</button>
-    <button class="btn btn-outline-success me-2" type="button">Party!</button>
-    <button class="btn btn-outline-success me-2" type="button">Chill</button>
+    <%= link_to "Happy", dashboard_path(:mood => "happy"), data: {action: "geolocation#search"}, class: "btn btn-outline-success me-2", role: "button" %>
+    <%= link_to "Sad", dashboard_path(:mood => "sad"), data: {action: "geolocation#search"}, class: "btn btn-outline-success me-2", role: "button" %>
+    <%= link_to "Studious", dashboard_path(:mood => "studious"), data: {action: "geolocation#search"}, class: "btn btn-outline-success me-2", role: "button" %>
+    <%= link_to "Social", dashboard_path(:mood => "social"), data: {action: "geolocation#search"}, class: "btn btn-outline-success me-2", role: "button" %>
+    <%= link_to "Party!", dashboard_path(:mood => "party"), data: {action: "geolocation#search"}, class: "btn btn-outline-success me-2", role: "button" %>
+    <%= link_to "Chill", dashboard_path(:mood => "chill"), data: {action: "geolocation#search"}, class: "btn btn-outline-success me-2", role: "button" %>
   </form>
 </nav>
 

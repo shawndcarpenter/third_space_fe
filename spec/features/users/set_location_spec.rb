@@ -21,7 +21,15 @@ RSpec.describe 'Set Location Page', type: :feature do
       select 'MN', from: :state
       click_button "submit"
       expect(current_path).to eq(dashboard_path)
-      expect(page).to have_content("Search Location: Minneapolis, MN")
+      expect(page).to have_content("your location: Minneapolis, MN")
     end
   end
+
+  it "can use a user's location and mood attribute when button is selected" do
+    user_login_data
+    find("a.btn[role='button']", text: "Happy").click
+    expect(current_path).to eq(dashboard_path)
+    expect(current_url).to eq("http://www.example.com/dashboard?mood=happy")
+  end
+
 end
