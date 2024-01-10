@@ -1,15 +1,15 @@
 <div class="container mt-5">
   <div class="row justify-content-center mt-4">
-    <nav class="navbar navbar-light bg-light">
-      <div class="container-fluid">
+          <nav class="navbar navbar-light bg-light">
+        <div class="container-fluid">
 
-        <a class="navbar-brand" href="#" style="margin-right: 2rem;">
+          <a class="navbar-brand" href="#" style="margin-right: 2rem;">
             <%= image_tag 'temp_logo.png', style: "width: 200px; height: auto;", alt: "Logo" %> 
           </a>
 
           <div class="d-flex flex-grow-1">
             <form class="d-flex w-100" action="/third_spaces/search" method="get" name="name" id="name">
-              <input class="form-control me-2" id="name" value="search by name" name="name" type="text" placeholder="Search" name="name" id="name" aria-label="Search" style="flex-grow: 1;">
+              <input class="form-control me-2" id="name" name="name" type="text" placeholder="Search" name="name" id="name" aria-label="Search" style="flex-grow: 1;">
               <button class="btn btn-outline-success" type="submit"style="margin-right: 2rem;">Search</button>
             </form>
             </div>
@@ -23,9 +23,9 @@
               <li class="nav-item"><a class="nav-link active" href="#">dashboard</a></li>
               <!-- <li class="nav-item"><a class="nav-link" href="#">preferences</a></li> -->
               <li class="nav-item"><a class="nav-link" href="#">privacy & security</a></li>
-              <li class="nav-item"><a class="nav-link" href="<%=third_spaces_path%>">create a third space</a></li>
-              <li class="nav-item"><a class="nav-link" href="<%= new_contact_form_path %>">contact us</a></li>
+              <li class="nav-item"><a class="nav-link" href="#">create a third space</a></li>
               <li class="nav-item"><a class="nav-link" href="#">logout</a></li>
+              <li class="nav-item"><a class="nav-link" href="#">contact us</a></li>
             </ul>
           </div>
         </div>
@@ -43,15 +43,11 @@
       </form>
     </div>
 
-    <% if @search_location.present? %>
-      <p>your location: <%= @search_location.city %>, <%= @search_location.state %></p>
-    <% end %>
-
-    <h3>recommendations</h3>
+    <h3>Third Spaces matching your search terms</h3>
     <div class="scroll-box">
       <div class="d-flex">
-        <% if @recommended.any? %>
-          <% @recommended.each do |third_space_poro| %>
+        <% if @spaces.any? %>
+          <% @spaces.each do |third_space_poro| %>
             <div class="rounded-entry me-5">
               <h3><%= third_space_poro.name %></h3>
               <p><strong>Category:</strong> <%= third_space_poro.category %></p>
@@ -60,47 +56,6 @@
             </div>
           <% end %>
         <% else %>
-          No Third Spaces near you. <%= link_to "Add a location", locations_search_path %>.
+          No Third Spaces found with these search terms.
         <% end %>
       </div>
-    </div>
-
-
-
-    <h3>saved spaces</h3>
-    <div class="scroll-box">
-      <div class="d-flex">
-        <%# <% if @saved.any? %>
-          <%# <% @saved.each do |third_space_poro| %> 
-            <%# <div class="rounded-entry me-5"> %>
-              <%# <h3><%= third_space_poro.name %></h3> 
-              <%# <p><strong>Category:</strong> <%= third_space_poro.category %></p> 
-              <%# <p><strong>Address:</strong> <%= third_space_poro.address %></p> 
-              <%# <p><strong>Rating:</strong> <%= third_space_poro.rating %></p> 
-            <%# </div> %>
-          <%# <% end %> 
-        <%# <% else %> 
-          <%# You have nothing saved %>
-        <%# <% end %>  
-      </div>
-    </div>
-
-    <h3>recently visited</h3>
-    <div class="scroll-box">
-      <div class="d-flex">
-        <%# <% if @recently_visited.any? %> 
-          <%# <% @recently_visited.each do |third_space_poro| %> 
-            <%# <div class="rounded-entry me-5"> %>
-              <%# <h3><%= third_space_poro.name %></h3> 
-              <%# <p><strong>Category:</strong> <%= third_space_poro.category %></p> 
-              <%# <p><strong>Address:</strong> <%= third_space_poro.address %></p> 
-              <%# <p><strong>Rating:</strong> <%= third_space_poro.rating %></p> 
-            <%# </div> %>
-          <%# <% end %> 
-        <%# <% else %> 
-          <%# You haven't visited anywhere recently  %>
-        <%# <% end %> 
-      </div>
-    </div>
-  </div>
-</div>
