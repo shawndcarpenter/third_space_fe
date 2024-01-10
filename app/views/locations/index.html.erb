@@ -1,19 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!-- Add your head content like title, stylesheets, etc. -->
+</head>
 <body>
-  <div class="container-fluid d-flex justify-content-center align-items-center vh-100">
+  <div class="container-fluid">
     <div class="text-center">
-      <div class="mb-3">
+      <!-- Logo Section -->
+      <div class="mb-5">
         <%= image_tag 'temp_logo.png', class: "img-fluid", alt: "Logo" %>
       </div>
-      <h3>Locations</h3>
-      <div class="locations">
-        <% @location_results.each do |location| %>
-          <div id="location_result-<%= location.id %>" class="location-entry rounded-entry me-5">
-            <p class="fs-4 fw-bold"><%= link_to location.name, location_path(location.id) %></p>
-            <p class="fs-6"><%= location.address %></p>
-            <p class="fs-6"><%= location.category %></p>
-          </div>
-        <% end %>
+      <!-- Location Section -->
+      <div class="container-fluid">
+        <h3>Locations</h3>
+        <div class="row">
+          <% @location_results.each do |location| %>
+          <div class="col-md-4 mb-4">
+            <div id="location_result-<%= location.id %>" class="location-entry rounded-entry p-3 h-100 w-100">
+              <p class="fs-4 fw-bold text-wrap"><%= link_to location.name, location_path(location.id) %></p>
+              <p class="fs-6 text-wrap"><%= location.address %></p>
+              <p class="fs-6 text-wrap"><%= location.category %></p>
+            </div>
+            </div>
+          <% end %>
+        </div>
       </div>
     </div>
   </div>
 </body>
+</html>
