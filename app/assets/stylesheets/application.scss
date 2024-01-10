@@ -69,3 +69,24 @@
 }
 
 
+
+.google-sign-in-btn {
+  background-color: white; 
+  color: black;
+  padding: 10px 15px;
+  border: 3px solid #ccc;
+  text-align: left;
+  border-radius: 4px;
+  display: inline-flex;
+  align-items: center;
+}
+
+.google-sign-in-btn img {
+  margin-right: 10px;
+}
+
+.google-sign-in-btn:hover {
+  background-color: #f8f8f8; //make this change when we pick a color scheme
+}
+
+
