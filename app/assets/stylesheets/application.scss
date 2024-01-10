@@ -76,16 +76,35 @@
 //   flex-wrap: wrap; /* Allow items to wrap to the next line */
 // }
 
+
+.scroll-box {
+  overflow-x: auto;
+  white-space: nowrap;
+  height: 250px;
+  border: 1px solid #ccc;
+  margin: auto;
+  display: flex;
+  align-items: center;
+}
+
+
 .rounded-entry {
-  display: block;
-  width: 25%; /* Set the width to be a quarter of the page */
   border-radius: 8px;
   padding: 16px;
   background-color: #D7D5AC;
   border: 2px solid #D7D5AC;
-  margin-bottom: 16px;
-  box-sizing: border-box; /* Include padding and border in the total width */
+  margin-top: auto;
+  margin-bottom: auto;
+  box-sizing: border-box;
+  display: inline-flex;
+  flex-direction: column;
+  // width: 25%;
 }
+
+.rounded-entry > * {
+  flex-grow: 1;
+}
+
 
 
 
