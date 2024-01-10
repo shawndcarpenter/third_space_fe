@@ -13,6 +13,7 @@ class ThirdSpacePoro
   :category,
   :open_now
   :tags
+  :photos
 
 def initialize(data)
   @yelp_id = data[:yelp_id]
@@ -28,5 +29,6 @@ def initialize(data)
   @open_now = data[:open_now]
   @category = data[:category]
   @tags = data[:tags]
+  @photos = data[:photos]
 end
 end
