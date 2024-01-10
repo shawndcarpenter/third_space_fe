@@ -16,9 +16,8 @@ RSpec.describe "Find Locations", type: :feature do
       VCR.use_cassette("all_market_cassette") do
         user_login_data
         user_select_loc_data
-        sleep(0.3)
         click_link "here"
-        sleep(0.3)
+  
         fill_in :name, with: "Five Watt"
         fill_in :city, with: "Minneapolis"
         click_button "submit"
@@ -36,7 +35,6 @@ RSpec.describe "Find Locations", type: :feature do
     it "user can select name of business to go to the show page" do
       VCR.use_cassette("single_business_cassette") do
         user_login_data
-        sleep(0.3)
         user_select_loc_data
         click_link "here"
   
