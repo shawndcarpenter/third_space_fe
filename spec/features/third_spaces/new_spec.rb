@@ -2,26 +2,45 @@ require "rails_helper"
 
 RSpec.describe "New Third Space Form", type: :feature do 
   before :each do
-    user_login_data
-    user_select_loc_data
-    sleep(0.3)
-    click_link "here"
-    sleep(0.3)
+    # user_login_data
+    # user_select_loc_data
+    # sleep(0.3)
+    # click_link "here"
+    # sleep(0.3)
     
-    fill_in :name, with: "Five Watt"
-    fill_in :city, with: "Minneapolis"
-    click_button "submit"
-    sleep(0.3)
+    # fill_in :name, with: "Five Watt"
+    # fill_in :city, with: "Minneapolis"
+    # click_button "submit"
+    # sleep(0.3)
 
-    within("#location_result-5pWHnKN3_AIrXiyyqZ74pw") do
-      click_link "Five Watt"
-    end
+    # within("#location_result-5pWHnKN3_AIrXiyyqZ74pw") do
+    #   click_link "Five Watt"
+    # end
     
-    click_link("Create a Third Space")
+    # click_link("Create a Third Space")
   end
 
   describe "General Third Space details displayed", :vcr do 
     it "lists the the general details including name, category, address, section for tags" do
+      VCR.use_cassette("general info and tags") do
+        user_login_data
+        user_select_loc_data
+        sleep(0.3)
+        click_link "here"
+        sleep(0.3)
+        
+        fill_in :name, with: "Five Watt"
+        fill_in :city, with: "Minneapolis"
+        click_button "submit"
+        sleep(0.3)
+    
+        within("#location_result-5pWHnKN3_AIrXiyyqZ74pw") do
+          click_link "Five Watt"
+        end
+        
+        click_link("Create a Third Space")
+        
+        click_link("Create a Third Space")
       expect(page).to have_content("Five Watt Coffee")
       expect(page).to have_content("Coffee & Tea")
       expect(page).to have_content("3745 Nicollet Ave S, Minneapolis, MN 55409")
@@ -40,7 +59,7 @@ RSpec.describe "New Third Space Form", type: :feature do
       expect(page).to have_content('Staff responsiveness')
       expect(page).to have_content('Volume')
       expect(page).to have_content('Lighting')
-
+      end
     end
 
     xit "user can select tags for the submissions" do
