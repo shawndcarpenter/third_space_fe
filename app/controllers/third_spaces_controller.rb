@@ -47,6 +47,7 @@ class ThirdSpacesController < ApplicationController
     @tags = @space.tags
     if !@tags.nil?
       @tags = @space.tags.uniq.map{|t| t.gsub('_', ' ').titleize}
+      #separate moods and other
     else
       @tags = []
     end
@@ -89,7 +90,6 @@ class ThirdSpacesController < ApplicationController
     conn = Faraday.new(url: "http://localhost:3000/")
     response = conn.get("api/v1/third_spaces/#{yelp_id}")
     data = JSON.parse(response.body, symbolize_names: true)[:data]
-
     ThirdSpacePoro.new(data[:attributes])
   end
 end

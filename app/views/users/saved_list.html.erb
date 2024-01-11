@@ -1,43 +1,6 @@
-
-
-<!DOCTYPE html>
-<html>
-<head>
-  <!-- Add your head content like title, stylesheets, etc. -->
-</head>
-<body>
-  <div class="container mt-5">
-    <div class="row justify-content-center mt-4">
-      <nav class="navbar navbar-light bg-light">
-        <div class="container-fluid">
-
-          <a class="navbar-brand" href="#" style="margin-right: 2rem;">
-            <%= image_tag 'temp_logo.png', style: "width: 200px; height: auto;", alt: "Logo" %> 
-          </a>
-
-          <div class="d-flex flex-grow-1">
-            <form class="d-flex w-100">
-              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" style="flex-grow: 1;">
-              <button class="btn btn-outline-success" type="submit"style="margin-right: 2rem;">Search</button>
-            </form>
-            </div>
-
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-              <li class="nav-item"><a class="nav-link" href="#">dashboard</a></li>
-              <!-- <li class="nav-item"><a class="nav-link" href="#">preferences</a></li> -->
-              <li class="nav-item"><a class="nav-link" href="#">privacy & security</a></li>
-              <li class="nav-item"><a class="nav-link" href="#">create a third space</a></li>
-              <li class="nav-item"><a class="nav-link" href="#">logout</a></li>
-              <li class="nav-item"><a class="nav-link" href="#">contact us</a></li>
-            </ul>
-          </div>
-        </div>
-      </nav>
+<div class="container mt-5">
+  <div class="row justify-content-center mt-4">
+    <%= render partial: 'shared/navbar' %>
 
       <div class="container-fluid">
         <h3 class="text-center my-4">saved</h3>

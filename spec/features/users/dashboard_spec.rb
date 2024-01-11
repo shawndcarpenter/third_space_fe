@@ -58,8 +58,8 @@ RSpec.describe 'User Dashboard', type: :feature do
     visit dashboard_path
     expect(page).to have_link("Recommendations")
     click_link "Recommendations"
-    require 'pry'; binding.pry
     expect(current_path).to eq(recommendations_path)
     end
   end
+end
 end
