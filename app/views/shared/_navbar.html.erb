@@ -32,8 +32,7 @@
     </nav>
 
     <div class="navbar navbar-light bg-white border-bottom">
-      <h5>Your mood today is</h5>
-      <% binding.pry %>
+      <h5>Your mood today is <%= current_user.search_location.mood %></h5>
       <form class="container-fluid d-flex justify-content-between">
         <button class="btn btn-outline-success me-2" type="button">Happy</button>
         <button class="btn btn-outline-success me-2" type="button">Studious</button>
