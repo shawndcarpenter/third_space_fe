@@ -27,6 +27,13 @@ class ThirdSpacesController < ApplicationController
     # binding.pry
   end
 
+  def unfavorite
+    user_id = current_user.id
+    yelp_id = params[:yelp_id]
+    spaces = UnfavoriteSpaceFacade.new(user_id, yelp_id).spaces
+    redirect_to dashboard_path
+  end
+
   private
   def new_third_space_call(location, tags)
     conn = Faraday.new(url: "http://localhost:3000") do |faraday| 
