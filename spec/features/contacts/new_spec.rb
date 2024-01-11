@@ -1,14 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe 'Contact Support Form' do
-  before :each do
-    # user_login_data
-    # user_select_loc_data
-    # visit new_contact_form_path
-  end
-
-  xit 'successfully submits the contact form and redirects to dashboard' do
-    VCR.use_cassette("contact form w redirect") do
+  it 'successfully submits the contact form and redirects to dashboard' do
+    VCR.use_cassette("contact form w redirect", record: :new_episodes) do
       user_login_data
       user_select_loc_data
       visit new_contact_form_path
