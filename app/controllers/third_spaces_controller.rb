@@ -25,7 +25,8 @@ class ThirdSpacesController < ApplicationController
   def favorite
     user_id = current_user.id
     space_id = params[:yelp_id]
-    spaces = FavoriteSpaceFacade.new(user_id, space_id).spaces
+    facade = FavoriteSpaceFacade.new(user_id, space_id)
+    facade.spaces
 
     redirect_to dashboard_path
   end
@@ -33,9 +34,22 @@ class ThirdSpacesController < ApplicationController
   def unfavorite
     user_id = current_user.id
     yelp_id = params[:yelp_id]
-    spaces = UnfavoriteSpaceFacade.new(user_id, yelp_id).spaces
-
+    facade = UnfavoriteSpaceFacade.new(user_id, yelp_id)
+    facade.spaces
+    
     redirect_to dashboard_path
+  end
+
+  def show
+    yelp_id = params[:id]
+    @space = find_third_space(yelp_id)
+    @reviews = find_show_reviews(yelp_id)
+    @tags = @space.tags
+    if !@tags.nil?
+      @tags = @space.tags.uniq.map{|t| t.gsub('_', ' ').titleize}
+    else
+      @tags = []
+    end
   end
 
   private
@@ -69,5 +83,13 @@ class ThirdSpacesController < ApplicationController
       list << space.yelp_id
     end
     list
+  end
+
+  def find_third_space(yelp_id)
+    conn = Faraday.new(url: "http://localhost:3000/")
+    response = conn.get("api/v1/third_spaces/#{yelp_id}")
+    data = JSON.parse(response.body, symbolize_names: true)[:data]
+
+    ThirdSpacePoro.new(data[:attributes])
   end
 end

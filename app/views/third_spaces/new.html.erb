@@ -50,7 +50,7 @@
 
             <div class="col-sm-3">
               <h4>Moods</h4>
-              <% moods_array = ['Happy', 'Sad', 'Studious'] %>
+              <% moods_array = ['Happy', 'Sad', 'Studious', 'Social', 'Chill', 'Party'] %>
               <% moods_array.each do |mood| %>
                 <%= check_box_tag 'tags[]', mood, false, class: 'custom-checkbox-input' %> <%= mood %><br>
               <% end %>

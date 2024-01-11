@@ -28,14 +28,13 @@ ActiveRecord::Schema[7.0].define(version: 2024_01_08_203745) do
     t.string "longitude"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.float "lat"
-    t.float "lon"
   end
 
   create_table "search_locations", force: :cascade do |t|
     t.string "city"
     t.string "state"
     t.string "address"
+    t.string "mood"
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

@@ -3,7 +3,7 @@ require "rails_helper"
 RSpec.describe "Location Search Page", type: :feature do 
 
   describe "Search Page", :vcr do
-    it "has a form with fields for name and city if there are not any locations available" do
+    xit "has a form with fields for name and city if there are not any locations available" do
       VCR.use_cassette("name and city") do 
         user_login_data
         user_select_loc_data

@@ -27,6 +27,7 @@ class PasswordResetsController < ApplicationController
     rescue ActiveSupport::MessageVerifier::InvalidSignature
     redirect_to '/login', alert: 'Your token has expired. Please try again'
   end
+  
   private
   def user_params
     params.require(:user).permit(:password, :password_confirmation)
