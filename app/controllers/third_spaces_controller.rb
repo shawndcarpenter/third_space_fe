@@ -1,6 +1,7 @@
 class ThirdSpacesController < ApplicationController
 
   def new
+    # require 'pry'; binding.pry
     @json = params[:location_json]
     json_parse = JSON.parse(params[:location_json], symbolize_names: true)
     @location = DetailedLocation.new(json_parse)
