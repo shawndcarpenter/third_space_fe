@@ -16,6 +16,15 @@ class ThirdSpacesController < ApplicationController
 
   def search
     @spaces = ThirdSpacesFacade.new(params[:name]).spaces
+    binding.pry
+  end
+
+  def favorite
+    user_id = current_user.id
+    space_id = params[:yelp_id]
+    spaces = FavoriteSpaceFacade.new(user_id, space_id).spaces
+    redirect_to dashboard_path
+    # binding.pry
   end
 
   private

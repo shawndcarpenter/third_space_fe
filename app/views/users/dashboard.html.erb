@@ -9,7 +9,7 @@
 
           <div class="d-flex flex-grow-1">
             <form class="d-flex w-100" action="/third_spaces/search" method="get" name="name" id="name">
-              <input class="form-control me-2" id="name" value="search by name" name="name" type="text" placeholder="Search" name="name" id="name" aria-label="Search" style="flex-grow: 1;">
+              <input class="form-control me-2" id="name" value="search by name" name="name" type="text" placeholder="search by name" name="name" id="name" aria-label="Search" style="flex-grow: 1;">
               <button class="btn btn-outline-success" type="submit"style="margin-right: 2rem;">Search</button>
             </form>
             </div>
@@ -57,6 +57,16 @@
               <p><strong>Category:</strong> <%= third_space_poro.category %></p>
               <p><strong>Address:</strong> <%= third_space_poro.address %></p>
               <p><strong>Rating:</strong> <%= third_space_poro.rating %></p>
+              <% if @saved.include?(third_space_poro) %>
+                <form class="container-fluid d-flex justify-content-between" action="/third_spaces/unfavorite" method="delete" >
+                  <button class="btn btn-outline-success me-2" name="yelp_id" id="yelp_id" value="<%= third_space_poro.yelp_id %>" type="submit">Remove Favorite</button>
+                </form>
+              <% else %>
+                <form class="container-fluid d-flex justify-content-between" action="/third_spaces/favorite" method="post" >
+                  <button class="btn btn-outline-success me-2" name="yelp_id" id="yelp_id" value="<%= third_space_poro.yelp_id %>" type="submit">Favorite</button>
+                </form>
+              <% end %>
+
             </div>
           <% end %>
         <% else %>
@@ -76,7 +86,10 @@
               <h3><%= third_space_poro.name %></h3> 
               <p><strong>Category:</strong> <%= third_space_poro.category %></p> 
               <p><strong>Address:</strong> <%= third_space_poro.address %></p> 
-              <p><strong>Rating:</strong> <%= third_space_poro.rating %></p> 
+              <p><strong>Rating:</strong> <%= third_space_poro.rating %></p>
+                <form class="container-fluid d-flex justify-content-between" action="/third_spaces/unfavorite" method="delete" >
+                  <button class="btn btn-outline-success me-2" name="yelp_id" id="yelp_id" value="<%= third_space_poro.yelp_id %>" type="submit">Remove Favorite</button>
+                </form> 
             </div>
           <% end %> 
         <% else %> 

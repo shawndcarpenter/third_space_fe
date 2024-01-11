@@ -8,6 +8,7 @@ Rails.application.routes.draw do
 
   get "/locations/search", to: "locations#search"
   get "/third_spaces/search", to: "third_spaces#search"
+  post "/third_spaces/favorite", to: "third_spaces#favorite"
 
   resources :locations, only: [:index, :show, :new, :create]
   get '/locations/search', to: 'locations#search', as: 'location_search'
