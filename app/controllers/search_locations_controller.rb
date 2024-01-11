@@ -41,13 +41,13 @@ class SearchLocationsController < ApplicationController
 
   def geocode_location(lat, lon)
     results = Geocoder.search([lat, lon])
-    results.first.address
+    results.first.data["address"]["city"] + " " + results.first.data["address"]["state"]
   end
   
   def geolocation_parse(geolocation)
-    address_parts = geolocation.split(',').map(&:strip)
-    city = address_parts[4]
-    state = address_parts[6]
+    address_parts = geolocation.split(' ').map(&:strip)
+    city = address_parts[0]
+    state = address_parts[1]
     return geo_hash = { city: city, state: state_to_abv(state) } if state.length != 2
     geo_hash = { city: city, state: state }
   end
