@@ -28,7 +28,7 @@ class ThirdSpacesController < ApplicationController
     facade = FavoriteSpaceFacade.new(user_id, space_id)
     facade.spaces
 
-    redirect_to dashboard_path
+    redirect_back(fallback_location: dashboard_path)
   end
 
   def unfavorite
@@ -37,13 +37,17 @@ class ThirdSpacesController < ApplicationController
     facade = UnfavoriteSpaceFacade.new(user_id, yelp_id)
     facade.spaces
     
-    redirect_to dashboard_path
+    redirect_back(fallback_location: dashboard_path)
   end
 
   def show
+    @user = current_user
     yelp_id = params[:id]
     @space = find_third_space(yelp_id)
     @reviews = ThirdSpaceReviewsFacade.new(yelp_id).reviews
+    @saved = SavedSpacesFacade.new(@user.id).spaces
+    @saved_yelp_ids = saved_yelp_ids(@saved)
+
     if @reviews == []
       reviews = LocationReviewsFacade.new(yelp_id).reviews
       reviews.map do |review|
