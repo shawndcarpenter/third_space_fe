@@ -9,6 +9,7 @@ class UsersController < ApplicationController
     city = @search_location.city
     state = @search_location.state
     @saved = SavedSpacesFacade.new(@user.id).spaces
+    @saved_yelp_ids = saved_yelp_ids(@saved)
     @recommended = filter_spaces_by_location(find_spaces, city, state)
   end
 
@@ -120,6 +121,14 @@ class UsersController < ApplicationController
   private
   def users_params
     params.require(:user).permit(:email, :first_name, :last_name, :password, :password_confirmation)
+  end
+
+  def saved_yelp_ids(spaces)
+    list = []
+    spaces.map do |space|
+      list << space.yelp_id
+    end
+    list
   end
 
   def find_spaces

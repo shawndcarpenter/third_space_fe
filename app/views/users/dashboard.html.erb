@@ -57,7 +57,7 @@
               <p><strong>Category:</strong> <%= third_space_poro.category %></p>
               <p><strong>Address:</strong> <%= third_space_poro.address %></p>
               <p><strong>Rating:</strong> <%= third_space_poro.rating %></p>
-              <% if @saved.include?(third_space_poro) %>
+              <% if @saved_yelp_ids.include?(third_space_poro.yelp_id) %>
                 <form class="container-fluid d-flex justify-content-between" action="/third_spaces/unfavorite" method="delete" >
                   <button class="btn btn-outline-success me-2" name="yelp_id" id="yelp_id" value="<%= third_space_poro.yelp_id %>" type="submit">Remove Favorite</button>
                 </form>
@@ -74,7 +74,6 @@
         <% end %>
       </div>
     </div>
-
 
 
     <h3>saved spaces</h3>
