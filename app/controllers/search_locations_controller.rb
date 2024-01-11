@@ -1,5 +1,15 @@
 class SearchLocationsController < ApplicationController
   def create
+    if (session[:lat].nil? || session[:lon].nil?) && params[:mood].present?
+      flash[:error] = "Error fetching location. Please make sure you have granted permission to access your location."
+      redirect_to set_location_path
+    else
+      update_search_location
+      redirect_to dashboard_path
+    end
+  end
+
+  def update_search_location
     if current_user.search_location.nil? && params[:mood].present?
       geolocation = geocode_location(session[:lat], session[:lon])
       geo_hash = geolocation_parse(geolocation)
@@ -17,7 +27,6 @@ class SearchLocationsController < ApplicationController
     else
       current_user.search_location.update(search_params)
     end
-    redirect_to dashboard_path
   end
 
   def update

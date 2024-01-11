@@ -7,7 +7,7 @@ RSpec.describe 'User Dashboard', type: :feature do
     # visit dashboard_path
   end
   
-  xit 'allows the user to click the contact button and redirects to a form' do
+  it 'allows the user to click the contact button and redirects to a form' do
     VCR.use_cassette("contact w redirect") do
       user_login_data
       user_select_loc_data
@@ -17,10 +17,14 @@ RSpec.describe 'User Dashboard', type: :feature do
       expect(page).to have_content('User Dashboard')
       expect(page).to have_button('contact us')
 
-      click_button 'contact us'
+      expect(page).to have_link('contact us', href: new_contact_form_path)
 
-      expect(current_path).to eq(new_contact_form_path) 
     end
+  end
+
+  it 'expands the navbar on toggler click' do
+    find('.navbar-toggler').click
+    expect(page).to have_css('#navbarSupportedContent.show')
   end
 
   xit "if there are not any locations near the user, the page will recommend adding one" do
