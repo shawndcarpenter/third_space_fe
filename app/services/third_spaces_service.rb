@@ -4,6 +4,21 @@ class ThirdSpacesService
     # require 'pry'; binding.pry
   end
 
+  def create_third_space_reviews(review)
+    response = conn.post("/api/v1/third_spaces/#{review.yelp_id}/reviews") do |req|
+      req.params['yelp_id'] = review.yelp_id
+      req.params['name'] = review.name
+      req.params['rating'] = review.rating
+      req.params['text'] = review.text
+    end
+  end
+
+  def get_third_space_reviews(yelp_id)
+    response = conn.get("/api/v1/third_spaces/#{yelp_id}/reviews")
+
+    data = JSON.parse(response.body, symbolize_names: true)
+  end
+
   def get_spaces_by_name(name)
     response = conn.get("/api/v1/third_spaces/search_by_name") do |req|
       req.params['name'] = name

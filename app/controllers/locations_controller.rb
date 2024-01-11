@@ -4,6 +4,7 @@ class LocationsController < ApplicationController
   end
   
   def index
+    @third_space_yelp_ids = third_space_yelp_ids
     @location_results = find_locations
     ##Create error when data is NIL to make new entries
   end
@@ -22,6 +23,16 @@ class LocationsController < ApplicationController
   end
   
   private
+
+
+  def third_space_yelp_ids
+    spaces = ThirdSpacesFacade.new.spaces
+    list = []
+    spaces.map do |space|
+      list << space.yelp_id
+    end
+    list
+  end
 
   def find_locations
     conn = Faraday.new(url: "http://localhost:3000") do |faraday| 
