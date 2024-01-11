@@ -6,6 +6,7 @@ class SavedSpacesFacade
   def spaces
     service = SavedSpacesService.new
     json = service.get_user_spaces(@user_id)
+    # require 'pry'; binding.pry
     @spaces = json[:included].map do |space|
       ThirdSpacePoro.new(space[:attributes])
     end

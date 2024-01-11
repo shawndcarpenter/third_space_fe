@@ -7,6 +7,7 @@ class SearchLocationsController < ApplicationController
       update_search_location
       redirect_to dashboard_path
     end
+  end
 
   def update_search_location
     if current_user.search_location.nil? && params[:mood].present?
@@ -29,7 +30,6 @@ class SearchLocationsController < ApplicationController
   def geocode_location(lat, lon)
       results = Geocoder.search([lat, lon])
       results.first.address
-    end
   end
 
   def geolocation_parse(geolocation)

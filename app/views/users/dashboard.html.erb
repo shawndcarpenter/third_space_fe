@@ -1,142 +1,106 @@
 <div class="container mt-5">
   <div class="row justify-content-center mt-4">
-          <nav class="navbar navbar-light bg-light">
-        <div class="container-fluid">
+    <nav class="navbar navbar-light bg-light">
+      <div class="container-fluid">
 
-          <a class="navbar-brand" href="#" style="margin-right: 2rem;">
-            <%= image_tag 'temp_logo.png', style: "width: 200px; height: auto;", alt: "Logo" %> 
-          </a>
+        <a class="navbar-brand" href="#" style="margin-right: 2rem;">
+          <%= image_tag 'temp_logo.png', style: "width: 200px; height: auto;", alt: "Logo" %> 
+        </a>
 
-          <div class="d-flex flex-grow-1">
-            <form class="d-flex w-100" action="/third_spaces/search" method="get" name="name" id="name">
-              <input class="form-control me-2" id="name" name="name" type="text" placeholder="search by name" name="name" id="name" aria-label="Search" style="flex-grow: 1;">
-              <button class="btn btn-outline-success" type="submit"style="margin-right: 2rem;">Search</button>
-            </form>
-            </div>
-
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-              <li class="nav-item"><a class="nav-link active" href="#">dashboard</a></li>
-              <!-- <li class="nav-item"><a class="nav-link" href="#">preferences</a></li> -->
-              <li class="nav-item"><a class="nav-link" href="#">privacy & security</a></li>
-              <li class="nav-item"><a class="nav-link" href="#">create a third space</a></li>
-              <li class="nav-item"><a class="nav-link" href="#">logout</a></li>
-              <li class="nav-item"><a class="nav-link" href="#">contact us</a></li>
-            </ul>
-          </div>
+        <div class="d-flex flex-grow-1">
+          <form class="d-flex w-100" action="/third_spaces/search" method="get">
+            <input class="form-control me-2" type="text" placeholder="search by name" name="name" aria-label="Search" style="flex-grow: 1;">
+            <button class="btn btn-outline-success" type="submit" style="margin-right: 2rem;">Search</button>
+          </form>
         </div>
-      </nav>
 
-  
-<div class="row justify-content-center mt-4">
-  <nav class="navbar navbar-light bg-light">
-    <div class="container-fluid d-flex justify-content-start align-items-center">
-      <div class="dropdown me-3">
-        <a class="btn btn-secondary dropdown-toggle p-2" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
-          mood param
-        </a>
-        <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-          <li><a class="dropdown-item" href="#">happy</a></li>
-          <li><a class="dropdown-item" href="#">studious</a></li>
-          <li><a class="dropdown-item" href="#">sad</a></li>
-          <li><a class="dropdown-item" href="#">social</a></li>
-          <li><a class="dropdown-item" href="#">party</a></li>
-          <li><a class="dropdown-item" href="#">chill</a></li>
-        </ul>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+            <li class="nav-item"><a class="nav-link active" href="#">dashboard</a></li>
+            <li class="nav-item"><a class="nav-link" href="#">privacy & security</a></li>
+            <li class="nav-item"><a class="nav-link" href="#">create a third space</a></li>
+            <li class="nav-item"><a class="nav-link" href="#">logout</a></li>
+            <li class="nav-item"><a class="nav-link" href="#">contact us</a></li>
+          </ul>
+        </div>
       </div>
-      <% if @search_location.present? %>
-        <a class="btn btn-secondary p-2" href="<%= new_location_path %>" style="height: fit-content;">
-          <%= @search_location.city %>, <%= @search_location.state %>
-        </a>
-      <% end %>
-    </div>
-  </nav>
-</div>
+    </nav>
+  </div>
 
-
-    <%# <div class="navbar navbar-light bg-white">
-      <h5>Your mood today is</h5>
-      <form class="container-fluid d-flex justify-content-between">
-        <button class="btn btn-outline-success me-2" type="button">Happy</button>
-        <button class="btn btn-outline-success me-2" type="button">Studious</button>
-        <button class="btn btn-outline-success me-2" type="button">Sad</button>
-        <button class="btn btn-outline-success me-2" type="button">Social</button>
-        <button class="btn btn-outline-success me-2" type="button">Party!</button>
-        <button class="btn btn-outline-success me-2" type="button">Chill</button>
-      </form>
-    </div> %>
-
-
-    <h3><%= link_to 'Recommendations', recommendations_path(user.id) %></h3>
-    <div class="scroll-box">
-      <div class="d-flex">
-        <% if @recommended.any? %>
-          <% @recommended.each do |third_space_poro| %>
-            <div class="rounded-entry me-5">
-              <h3><%= third_space_poro.name %></h3>
-              <p><strong>Category:</strong> <%= third_space_poro.category %></p>
-              <p><strong>Address:</strong> <%= third_space_poro.address %></p>
-              <p><strong>Rating:</strong> <%= third_space_poro.rating %></p>
-              <% if @saved_yelp_ids.include?(third_space_poro.yelp_id) %>
-                <form class="container-fluid d-flex justify-content-between" action="/third_spaces/unfavorite" method="delete" >
-                  <button class="btn btn-outline-success me-2" name="yelp_id" id="yelp_id" value="<%= third_space_poro.yelp_id %>" type="submit">Remove Favorite</button>
-                </form>
-              <% else %>
-                <form class="container-fluid d-flex justify-content-between" action="/third_spaces/favorite" method="post" >
-                  <button class="btn btn-outline-success me-2" name="yelp_id" id="yelp_id" value="<%= third_space_poro.yelp_id %>" type="submit">Favorite</button>
-                </form>
-              <% end %>
-
-            </div>
-          <% end %>
-        <% else %>
-          No Third Spaces near you. <%= link_to "Add a location", locations_search_path %>.
+  <div class="row justify-content-center mt-4">
+    <nav class="navbar navbar-light">
+      <div class="container-fluid d-flex justify-content-start align-items-center">
+        <div class="dropdown me-3">
+          <a class="btn btn-secondary dropdown-toggle p-2" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+            mood param
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+            <li><a class="dropdown-item" href="#">happy</a></li>
+            <li><a class="dropdown-item" href="#">studious</a></li>
+            <li><a class="dropdown-item" href="#">sad</a></li>
+            <li><a class="dropdown-item" href="#">social</a></li>
+            <li><a class="dropdown-item" href="#">party</a></li>
+            <li><a class="dropdown-item" href="#">chill</a></li>
+          </ul>
+        </div>
+        <% if @search_location.present? %>
+          <a class="btn btn-secondary p-2" href="<%= set_location_path %>" style="height: fit-content;">
+            <%= @search_location.city %>, <%= @search_location.state %>
+          </a>
         <% end %>
       </div>
+    </nav>
+  </div>
+
+  <h3><%= link_to 'Recommendations', user_recommendation_path(@user.id) %></h3>
+  <div class="scroll-box">
+    <div class="d-flex">
+      <% if @recommended.any? %>
+        <% @recommended.each do |third_space_poro| %>
+          <div class="rounded-entry me-5">
+            <h3><%= third_space_poro.name %></h3>
+            <p><strong>Category:</strong> <%= third_space_poro.category %></p>
+            <p><strong>Address:</strong> <%= third_space_poro.address %></p>
+            <p><strong>Rating:</strong> <%= third_space_poro.rating %></p>
+            <% if @saved_yelp_ids.include?(third_space_poro.yelp_id) %>
+              <form action="/third_spaces/unfavorite" method="delete">
+                <button class="btn btn-outline-success me-2" name="yelp_id" value="<%= third_space_poro.yelp_id %>" type="submit">Remove Favorite</button>
+              </form>
+            <% else %>
+              <form action="/third_spaces/favorite" method="post">
+                <button class="btn btn-outline-success me-2" name="yelp_id" value="<%= third_space_poro.yelp_id %>" type="submit">Favorite</button>
+              </form>
+            <% end %>
+          </div>
+        <% end %>
+      <% else %>
+        No Third Spaces near you. <%= link_to "Add a location", locations_search_path %>.
+      <% end %>
     </div>
+  </div>
 
-
-    <h3>saved spaces</h3>
-    <div class="scroll-box">
-      <div class="d-flex">
-        <% if @saved.any? %>
-          <% @saved.each do |third_space_poro| %> 
-            <div class="rounded-entry me-5">
-              <h3><%= third_space_poro.name %></h3> 
-              <p><strong>Category:</strong> <%= third_space_poro.category %></p> 
-              <p><strong>Address:</strong> <%= third_space_poro.address %></p> 
-              <p><strong>Rating:</strong> <%= third_space_poro.rating %></p>
-                <form class="container-fluid d-flex justify-content-between" action="/third_spaces/unfavorite" method="delete" >
-                  <button class="btn btn-outline-success me-2" name="yelp_id" id="yelp_id" value="<%= third_space_poro.yelp_id %>" type="submit">Remove Favorite</button>
-                </form> 
-            </div>
-          <% end %> 
-        <% else %> 
-          You have nothing saved.
-        <% end %>  
-      </div>
-    </div>
-
-    <h3>recently visited</h3>
-    <div class="scroll-box">
-      <div class="d-flex">
-        <%# <% if @recently_visited.any? %> 
-          <%# <% @recently_visited.each do |third_space_poro| %> 
-            <%# <div class="rounded-entry me-5"> %>
-              <%# <h3><%= third_space_poro.name %></h3> 
-              <%# <p><strong>Category:</strong> <%= third_space_poro.category %></p> 
-              <%# <p><strong>Address:</strong> <%= third_space_poro.address %></p> 
-              <%# <p><strong>Rating:</strong> <%= third_space_poro.rating %></p> 
-            <%# </div> %>
-          <%# <% end %> 
-        <%# <% else %> 
-          <%# You haven't visited anywhere recently  %>
-        <%# <% end %> 
-      </div>
+  <h3><%= link_to 'saved spaces', user_saved_list_path(@user.id) %></h3>
+  <div class="scroll-box">
+    <div class="d-flex">
+      <% if @saved.any? %>
+        <% @saved.each do |third_space_poro| %> 
+          <div class="rounded-entry me-5">
+            <h3><%= third_space_poro.name %></h3> 
+            <p><strong>Category:</strong> <%= third_space_poro.category %></p> 
+            <p><strong>Address:</strong> <%= third_space_poro.address %></p> 
+            <p><strong>Rating:</strong> <%= third_space_poro.rating %></p>
+            <form action="/third_spaces/unfavorite" method="delete">
+              <button class="btn btn-outline-success me-2" name="yelp_id" value="<%= third_space_poro.yelp_id %>" type="submit">Remove Favorite</button>
+            </form> 
+          </div>
+        <% end %> 
+      <% else %> 
+        You have nothing saved.
+      <% end %>  
     </div>
   </div>
 </div>
