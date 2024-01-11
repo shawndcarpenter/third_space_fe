@@ -71,7 +71,7 @@
     </div> %>
 
 
-    <h3>recommendations</h3>
+    <h3><%= link_to 'Recommendations', recommendations_path(user.id) %></h3>
     <div class="scroll-box">
       <div class="d-flex">
         <% if @recommended.any? %>

@@ -63,6 +63,10 @@ class UsersController < ApplicationController
   def login_form
   end
 
+  def recommendations
+    require 'pry'; binding.pry
+  end
+
   def login
     user = User.find_by(email: params[:email])
     if user.nil?
