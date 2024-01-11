@@ -23,7 +23,7 @@ Rails.application.routes.draw do
 
   get '/contact', to: 'contacts#new', as: :new_contact_form
   post '/contact', to: 'contacts#create'
-  get '/privacy', to: 'users#privacy'
+  get '/privacy', to: 'users#privacy', as: 'privacy'
 
   get "/login", to: "users#login_form"
   post "/login", to: "users#login"
