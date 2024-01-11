@@ -24,7 +24,8 @@ class ThirdSpacesController < ApplicationController
   def favorite
     user_id = current_user.id
     space_id = params[:yelp_id]
-    spaces = FavoriteSpaceFacade.new(user_id, space_id).spaces
+    facade = FavoriteSpaceFacade.new(user_id, space_id)
+    facade.spaces
 
     redirect_to dashboard_path
   end
@@ -32,8 +33,9 @@ class ThirdSpacesController < ApplicationController
   def unfavorite
     user_id = current_user.id
     yelp_id = params[:yelp_id]
-    spaces = UnfavoriteSpaceFacade.new(user_id, yelp_id).spaces
-
+    facade = UnfavoriteSpaceFacade.new(user_id, yelp_id)
+    facade.spaces
+    
     redirect_to dashboard_path
   end
 
