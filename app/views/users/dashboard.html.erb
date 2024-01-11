@@ -15,7 +15,7 @@
     </div> %>
 
 
-  <h3><%= link_to 'recommendations', user_recommendation_path(@user.id) %></h3>
+  <h3><%= link_to 'recommendations.', user_recommendation_path(@user.id) %></h3>
     <div class="scroll-box">
       <div class="d-flex">
         <% if @recommended.any? %>
@@ -43,7 +43,7 @@
       </div>
     </div>
 
-  <h3><%= link_to 'saved spaces', user_saved_list_path(@user.id) %></h3>
+  <h3><%= link_to 'saved spaces.', user_saved_list_path(@user.id) %></h3>
   <div class="scroll-box">
     <div class="d-flex">
       <% if @saved.any? %>
