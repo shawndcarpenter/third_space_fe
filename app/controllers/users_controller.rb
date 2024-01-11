@@ -6,9 +6,8 @@ class UsersController < ApplicationController
     if params[:mood]
       @mood = params[:mood]
     end
-
     @search_location = @user.search_location
-    city = @search_location.city
+    city = @search_location.city.capitalize 
     state = @search_location.state
     @saved = SavedSpacesFacade.new(@user.id).spaces
     @saved_yelp_ids = saved_yelp_ids(@saved)
@@ -60,7 +59,33 @@ class UsersController < ApplicationController
     end
   end
 
+  def privacy
+    
+  end
+
   def login_form
+  end
+
+  def recommendations
+    @user = current_user
+    @search_location = @user.search_location
+    city = @search_location.city.capitalize
+    state = @search_location.state
+    @saved = SavedSpacesFacade.new(@user.id).spaces
+    @saved_yelp_ids = saved_yelp_ids(@saved)
+    spaces = ThirdSpacesFacade.new.spaces
+    @recommendation_results = filter_spaces_by_location(spaces, city, state)
+  end
+
+  def saved_list
+    @user = current_user
+    @search_location = @user.search_location
+    city = @search_location.city
+    state = @search_location.state
+    @saved = SavedSpacesFacade.new(@user.id).spaces
+    @saved_yelp_ids = saved_yelp_ids(@saved)
+    spaces = ThirdSpacesFacade.new.spaces
+    @recommended = filter_spaces_by_location(spaces, city, state)
   end
 
   def login
@@ -136,6 +161,7 @@ class UsersController < ApplicationController
 
   def filter_spaces_by_location(results, city, state)
     results.find_all do |space|
+      # require 'pry'; binding.pry
       if !space.address.nil?
         address_parts = space.address.split(',').map(&:strip)
         space_city = address_parts[-2]

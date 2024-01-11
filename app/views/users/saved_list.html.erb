@@ -1,0 +1,25 @@
+<div class="container mt-5">
+  <div class="row justify-content-center mt-4">
+    <%= render partial: 'shared/navbar' %>
+
+      <div class="container-fluid">
+        <h3 class="text-center my-4">saved</h3>
+        <% if @saved_list != nil %>
+        <div class="row">
+          <% @saved_list.each do |saved| %>
+            <div class="col-md-4 mb-4">
+              <div id="location_result-<%= saved.id %>" class="saved-entry rounded-entry p-3 h-100 w-100">
+                <p class="fs-4 text-center fw-bold text-wrap"><%= link_to saved.name, location_path(saved.yelp_id) %></p>
+                <p class="fs-6 text-center text-wrap"><%= saved.address %></p>
+                <p class="fs-6 text-center text-wrap"><%= saved.category %></p>
+              </div>
+            </div>
+          <% end %>
+          <% else %>
+          You don't have anything saved
+          <% end %>
+        </div>
+    </div>
+  </div>
+</body>
+</html>

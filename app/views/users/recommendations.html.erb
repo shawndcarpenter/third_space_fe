@@ -1,0 +1,22 @@
+<div class="container mt-5">
+  <div class="row justify-content-center mt-4">
+    <%= render partial: 'shared/navbar' %>
+
+      <div class="container-fluid">
+        <h3 class="text-center my-4">recommendations.</h3>
+        <div class="row">
+          <% @recommendation_results.each do |recommendation| %>
+            <div class="col-md-4 mb-4">
+              <div id="location_result-<%= recommendation.id %>" class="recommendation-entry rounded-entry p-3 h-100 w-100">
+                <p class="fs-4 text-center fw-bold text-wrap"><%= link_to recommendation.name, location_path(recommendation.yelp_id) %></p>
+                <p class="fs-6 text-center text-wrap"><%= recommendation.address %></p>
+                <p class="fs-6 text-center text-wrap"><%= recommendation.category %></p>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
