@@ -7,23 +7,16 @@ class UsersController < ApplicationController
       @mood = params[:mood]
     end
     @search_location = @user.search_location
-    city = @search_location.city.capitalize 
-    state = @search_location.state
     @saved = SavedSpacesFacade.new(@user.id).spaces
     @saved_yelp_ids = saved_yelp_ids(@saved)
     spaces = ThirdSpacesFacade.new.spaces
-    @recommended = filter_spaces_by_location(spaces, city, state)
+    location_recs = filter_spaces_by_location(spaces)
+    @mood_recs = filter_by_mood(location_recs)
+
+    @location_recs = location_recs.reject! do |location|
+      @mood_recs.any? { |mood_rec| location.name == mood_rec.name }
+    end
   end
-
-  # def make_
-  #   conn = Faraday.new(url: "http://localhost:3000") do |faraday|
-  #     faraday.params["api_key"] = Rails.application.credentials.yelp[:key]
-  #     faraday.params["name"] = Rails.application.credentials.yelp[:key]
-  #   end
-
-  #   response = conn.get("/api/v1/locations/search_locations")
-
-  # end
 
   def show
     current_user
@@ -66,15 +59,23 @@ class UsersController < ApplicationController
   def login_form
   end
 
-  def recommendations
+  def mood_recommendations_index
     @user = current_user
     @search_location = @user.search_location
-    city = @search_location.city.capitalize
-    state = @search_location.state
     @saved = SavedSpacesFacade.new(@user.id).spaces
     @saved_yelp_ids = saved_yelp_ids(@saved)
     spaces = ThirdSpacesFacade.new.spaces
-    @recommendation_results = filter_spaces_by_location(spaces, city, state)
+
+    @recommendation_results = @mood_recs = filter_by_mood(filter_spaces_by_location(spaces))
+  end
+
+  def loc_recommendations_index
+    @user = current_user
+    @search_location = @user.search_location
+    @saved = SavedSpacesFacade.new(@user.id).spaces
+    @saved_yelp_ids = saved_yelp_ids(@saved)
+    spaces = ThirdSpacesFacade.new.spaces
+    @recommendation_results = filter_spaces_by_location(spaces)
   end
 
   def saved_list
@@ -85,7 +86,7 @@ class UsersController < ApplicationController
     @saved = SavedSpacesFacade.new(@user.id).spaces
     @saved_yelp_ids = saved_yelp_ids(@saved)
     spaces = ThirdSpacesFacade.new.spaces
-    @recommended = filter_spaces_by_location(spaces, city, state)
+    @recommended = filter_spaces_by_location(spaces)
   end
 
   def login
@@ -159,15 +160,24 @@ class UsersController < ApplicationController
     list
   end
 
-  def filter_spaces_by_location(results, city, state)
+  def filter_spaces_by_location(results)
+    city = current_user.search_location.city
+    state = current_user.search_location.state
     results.find_all do |space|
-      # require 'pry'; binding.pry
       if !space.address.nil?
         address_parts = space.address.split(',').map(&:strip)
         space_city = address_parts[-2]
         space_state = address_parts[-1]
         space_city == city && space_state.include?(state)
       end
+    end
+  end
+
+  def filter_by_mood(results)
+    mood = current_user.search_location.mood
+    results.find_all do |space|
+      next if space.tags.nil?
+      space.tags.include?(mood)
     end
   end
 

@@ -22,11 +22,7 @@
 
         <div class="ml-auto dropdown me-3">
       <a class="btn btn-secondary dropdown-toggle p-2" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
-        <%
-=begin%>
- <%= current_user.search_location.mood %> 
-<%
-=end%>
+        <%= current_user.search_location.mood %> 
       </a>
       <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
         <li><a class="dropdown-item" href="#">happy</a></li>
@@ -49,7 +45,7 @@
         <li class="nav-item"><%= link_to 'privacy & security', privacy_path, class: 'nav-link' %></li>
         <li class="nav-item"><%= link_to 'create a third space', locations_search_path, class: 'nav-link' %></li>
         <li class="nav-item"><%= link_to 'log out', logout_path, class: 'nav-link' %></li>
-        <li class="nav-item"><%= link_to 'contact us', support_path, class: 'nav-link' %></li>
+        <li class="nav-item"><%= link_to 'contact us', new_contact_form_path, class: 'nav-link' %></li>
       </ul>
     </div>
     

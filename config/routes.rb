@@ -17,7 +17,8 @@ Rails.application.routes.draw do
   get "/register", to: "users#new"
   post "/register", to: "users#create"
   get "/users/support", to: "users#support", as: 'support'
-  get "/users/:id/recommendations", to: "users#recommendations", as: "user_recommendation"
+  get "/users/:id/recommendations/mood", to: "users#mood_recommendations_index", as: "mood_recommendations"
+  get "/users/:id/recommendations", to: "users#loc_recommendations_index", as: "recommendations"
   get "/users/:id/saved_list", to: "users#saved_list", as: "user_saved_list"
   get "/users/:user_id", to: "users#show"
   get "/dashboard", to: "users#dashboard"
