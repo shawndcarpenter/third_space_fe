@@ -49,7 +49,6 @@ RSpec.describe "New User Registration", type: :feature do
       fill_in "confirm_password", with: "test"
       click_button "create new account"
 
-      # Assuming the application renders a flash message for errors
       expect(page).to have_content("Last name can't be blank")
     end
   end
