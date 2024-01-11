@@ -31,7 +31,34 @@
         </div>
       </nav>
 
-    <div class="navbar navbar-light bg-white">
+  
+<div class="row justify-content-center mt-4">
+  <nav class="navbar navbar-light bg-light">
+    <div class="container-fluid d-flex justify-content-start align-items-center">
+      <div class="dropdown me-3">
+        <a class="btn btn-secondary dropdown-toggle p-2" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+          mood param
+        </a>
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+          <li><a class="dropdown-item" href="#">happy</a></li>
+          <li><a class="dropdown-item" href="#">studious</a></li>
+          <li><a class="dropdown-item" href="#">sad</a></li>
+          <li><a class="dropdown-item" href="#">social</a></li>
+          <li><a class="dropdown-item" href="#">party</a></li>
+          <li><a class="dropdown-item" href="#">chill</a></li>
+        </ul>
+      </div>
+      <% if @search_location.present? %>
+        <a class="btn btn-secondary p-2" href="<%= new_location_path %>" style="height: fit-content;">
+          <%= @search_location.city %>, <%= @search_location.state %>
+        </a>
+      <% end %>
+    </div>
+  </nav>
+</div>
+
+
+    <%# <div class="navbar navbar-light bg-white">
       <h5>Your mood today is</h5>
       <form class="container-fluid d-flex justify-content-between">
         <button class="btn btn-outline-success me-2" type="button">Happy</button>
@@ -41,11 +68,8 @@
         <button class="btn btn-outline-success me-2" type="button">Party!</button>
         <button class="btn btn-outline-success me-2" type="button">Chill</button>
       </form>
-    </div>
+    </div> %>
 
-    <% if @search_location.present? %>
-      <p>your location: <%= @search_location.city %>, <%= @search_location.state %></p>
-    <% end %>
 
     <h3>recommendations</h3>
     <div class="scroll-box">
