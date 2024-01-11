@@ -15,7 +15,10 @@ class ThirdSpacesController < ApplicationController
   end
 
   def search
+    @user = current_user
     @spaces = ThirdSpacesFacade.new(params[:name]).spaces
+    @saved = SavedSpacesFacade.new(@user.id).spaces
+    @saved_yelp_ids = saved_yelp_ids(@saved)
   end
 
   def favorite
@@ -30,7 +33,7 @@ class ThirdSpacesController < ApplicationController
     user_id = current_user.id
     yelp_id = params[:yelp_id]
     spaces = UnfavoriteSpaceFacade.new(user_id, yelp_id).spaces
-    
+
     redirect_to dashboard_path
   end
 
@@ -57,5 +60,13 @@ class ThirdSpacesController < ApplicationController
     end
 
     data = JSON.parse(response.body, symbolize_names: true)
+  end
+
+  def saved_yelp_ids(spaces)
+    list = []
+    spaces.map do |space|
+      list << space.yelp_id
+    end
+    list
   end
 end
