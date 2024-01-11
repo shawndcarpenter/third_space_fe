@@ -15,6 +15,13 @@ class ThirdSpacesController < ApplicationController
     redirect_to dashboard_path
   end
 
+  # def add_review
+  #   space = CreateThirdSpaceFacade.new(location, tags).space
+  #   review = ReviewPoro.new(name: @user.first_name, text: params[:text], rating: params[:rating], yelp_id: space[:data][:attributes][:yelp_id])
+    
+  #   @review = CreateSpaceReviewsFacade.new(review)
+  # end
+
   def search
     @user = current_user
     @spaces = ThirdSpacesByNameFacade.new(params[:name]).spaces

@@ -25,7 +25,7 @@
           <% elsif !@space.photos.include?("[") %>
                <%= image_tag @space.photos, width: "200" %>
           <% else %>
-            <% @space.photos.each do |photo_url| %>
+            <% JSON.parse(@space.photos).each do |photo_url| %>
               <%= image_tag photo_url, width: "200" %>
             <% end %>
           <% end %>
