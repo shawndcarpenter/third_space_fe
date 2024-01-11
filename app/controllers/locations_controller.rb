@@ -56,4 +56,6 @@ class LocationsController < ApplicationController
       ReviewPoro.new(d[:attributes])
     end
   end
+
+  
 end

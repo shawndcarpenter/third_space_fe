@@ -38,7 +38,8 @@ class ThirdSpacesController < ApplicationController
   end
 
   def show
-    binding.pry
+    yelp_id = params[:id]
+    @space = find_third_space(yelp_id)
   end
 
   private
@@ -72,5 +73,13 @@ class ThirdSpacesController < ApplicationController
       list << space.yelp_id
     end
     list
+  end
+
+  def find_third_space(yelp_id)
+    conn = Faraday.new(url: "http://localhost:3000/")
+    response = conn.get("api/v1/third_spaces/#{yelp_id}")
+    data = JSON.parse(response.body, symbolize_names: true)[:data]
+    
+    ThirdSpacePoro.new(data[:attributes])
   end
 end
