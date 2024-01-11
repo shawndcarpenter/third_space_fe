@@ -16,4 +16,11 @@ class SavedSpacesService
 
     data = JSON.parse(response.body, symbolize_names: true)
   end
+
+  def remove_user_space(user_id, yelp_id)
+    response = conn.delete("/api/v1/user_third_spaces") do |req|
+      req.params['user_id'] = user_id
+      req.params['third_space_id'] = yelp_id
+    end
+  end
 end
