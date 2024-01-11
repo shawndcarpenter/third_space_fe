@@ -8,7 +8,7 @@ class UsersController < ApplicationController
     @search_location = @user.search_location
     city = @search_location.city
     state = @search_location.state
-    
+    @saved = SavedSpacesFacade.new(@user.id).spaces
     @recommended = filter_spaces_by_location(find_spaces, city, state)
   end
 
