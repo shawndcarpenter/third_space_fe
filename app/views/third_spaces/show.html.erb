@@ -19,8 +19,11 @@
       <br>
       <div class="text-center">
         <% if !@space.photos.nil? %>
-          <% if @space.photos.class == String%>
+          <% if @space.photos.class == String && !@space.photos == "[]" %>
             <%= image_tag @space.photos, width: "200" %>
+          <% elsif @space.photos == "[]" %>
+          <% elsif !@space.photos.include?("[") %>
+               <%= image_tag @space.photos, width: "200" %>
           <% else %>
             <% @space.photos.each do |photo_url| %>
               <%= image_tag photo_url, width: "200" %>
