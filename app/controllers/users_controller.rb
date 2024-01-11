@@ -7,12 +7,11 @@ class UsersController < ApplicationController
       @mood = params[:mood]
     end
     @search_location = @user.search_location
-    city = @search_location.city.capitalize #this is state
-    state = @search_location.state #this is zip
+    city = @search_location.city.capitalize 
+    state = @search_location.state
     @saved = SavedSpacesFacade.new(@user.id).spaces
     @saved_yelp_ids = saved_yelp_ids(@saved)
     spaces = ThirdSpacesFacade.new.spaces
-    # require 'pry'; binding.pry
     @recommended = filter_spaces_by_location(spaces, city, state)
   end
 
@@ -66,12 +65,12 @@ class UsersController < ApplicationController
   def recommendations
     @user = current_user
     @search_location = @user.search_location
-    city = @search_location.city
+    city = @search_location.city.capitalize
     state = @search_location.state
     @saved = SavedSpacesFacade.new(@user.id).spaces
     @saved_yelp_ids = saved_yelp_ids(@saved)
     spaces = ThirdSpacesFacade.new.spaces
-    @recommended = filter_spaces_by_location(spaces, city, state)
+    @recommendation_results = filter_spaces_by_location(spaces, city, state)
   end
 
   def saved_list
@@ -157,8 +156,8 @@ class UsersController < ApplicationController
   end
 
   def filter_spaces_by_location(results, city, state)
-    # require 'pry'; binding.pry
     results.find_all do |space|
+      # require 'pry'; binding.pry
       if !space.address.nil?
         address_parts = space.address.split(',').map(&:strip)
         space_city = address_parts[-2]

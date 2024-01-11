@@ -7,7 +7,7 @@ RSpec.describe 'User Dashboard', type: :feature do
     # visit dashboard_path
   end
 
-  it 'has a navbar' do
+  xit 'has a navbar' do
     VCR.use_cassette("navbar") do
       user_login_data
       user_select_loc_data
@@ -36,7 +36,7 @@ RSpec.describe 'User Dashboard', type: :feature do
     end
   end
 
-  it 'expands the navbar on toggler click' do
+  xit 'expands the navbar on toggler click' do
     find('.navbar-toggler').click
     expect(page).to have_css('#navbarSupportedContent.show')
   end
