@@ -71,11 +71,7 @@ class UsersController < ApplicationController
     elsif user.authenticate(params[:password])
       session[:user_id] = user.id
       flash[:success] = "Welcome, #{user.email}!"
-      if user.admin?
-        redirect_to admin_dashboard_path
-      else
-        initiate_verification(user)
-      end
+      initiate_verification(user)
     else
       flash[:error] = "Sorry, your credentials are bad."
       render :login_form
@@ -88,23 +84,33 @@ class UsersController < ApplicationController
     user.save
     session[:code] = user.otp_code
     session[:otp_expires_at] = 5.minutes.from_now
+    session[:email] = user.email
     UserMailer.send_otp_email(user).deliver_now
     redirect_to validate_otp_path
   end
 
   def validate_otp
     entered_otp = params[:otp]
-    if session[:code] == entered_otp && session[:otp_expires_at] > Time.current
-      redirect_to set_location_path, notice: 'OTP verification successful!'
-      session.delete(:code)
-      session.delete(:otp_expires_at)
-      session[:user_id] = current_user.id
+    user = User.find_by_email(session[:email])
+    if session[:code] == entered_otp && session[:otp_expires_at] > Time.current && user.admin?
+      login_session_clear
+      redirect_to admin_dashboarda_path, notice: 'OTP verification successful!'
+    elsif session[:code] == entered_otp && session[:otp_expires_at] > Time.current
+        redirect_to set_location_path, notice: 'OTP verification successful!'
+        login_session_clear
     elsif session[:code] == entered_otp && session[:otp_expires_at] < Time.current
       redirect_to login_path, notice: 'OTP session has expired. Please try logging in again.'
     else
       flash[:alert] = 'Invalid OTP. Please try again.'
       redirect_to validate_otp_path
     end
+  end
+
+  def login_session_clear
+    session.delete(:code)
+    session.delete(:otp_expires_at)
+    session.delete(:email)
+    session[:user_id] = current_user.id
   end
 
   def validate_otp_form

@@ -36,7 +36,7 @@ Rails.application.routes.draw do
   resources :saved_locations, only: :index
   resources :search_locations, only: [:create, :update]
 
-  resources :third_spaces, only: [:new, :create, :index, :show] do
+  resources :third_spaces, only: [:new, :create, :index, :show, :delete] do
     get :create_third_space, on: :collection, as: :create_third_space
   end
 
@@ -49,4 +49,7 @@ Rails.application.routes.draw do
   get '/password/reset/edit', to: 'password_resets#edit'
   patch '/password/reset/edit', to: 'password_resets#update'
 
+  namespace :admin do
+    get "/dashboarda", to: "dashboarda#index"
+  end
 end
