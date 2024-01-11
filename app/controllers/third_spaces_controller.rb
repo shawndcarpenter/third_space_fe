@@ -44,6 +44,7 @@ class ThirdSpacesController < ApplicationController
     yelp_id = params[:id]
     @space = find_third_space(yelp_id)
     @reviews = find_show_reviews(yelp_id)
+    @tags = @space.tags
     if !@tags.nil?
       @tags = @space.tags.uniq.map{|t| t.gsub('_', ' ').titleize}
     else
