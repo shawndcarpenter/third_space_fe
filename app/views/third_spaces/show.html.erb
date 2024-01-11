@@ -20,13 +20,16 @@
       <br>
       <div class="text-center">
         <% if !@space.photos.nil? %>
-          <% @space.photos.each do |photo_url| %>
-            <%= image_tag photo_url, width: "200" %>
+          <% if @space.photos.class == String%>
+            <%= image_tag @space.photos, width: "200" %>
+          <% else %>
+            <% @space.photos.each do |photo_url| %>
+              <%= image_tag photo_url, width: "200" %>
+            <% end %>
           <% end %>
         <% end %>
 
         <br><br>
-        <%= image_tag 'coffee_logo.png', class: "img-fluid smaller-logo", alt: "Logo", style: "height: 75px; width: 104px" %>  
 
         <div class="rounded-container">
           <%= "Open Now" if @space.open_now %>
@@ -35,16 +38,19 @@
         <% if !@space.price.nil? %>
           <div class="rounded-container"><%= @space.price%></div>
         <% end %>
-        <div class="rounded-container"><%= "Rating: #{@space.rating}"%></div>
-          <a href="<%= new_third_space_path(location_json: @location_json) %>" class="rounded-button">Create a Third Space</a>
-          <br><br>
+        
+        <% @tags.each do |t| %>
+          <div class="rounded-container"><%= t %></div>
+        <% end %>
+        <br><br>
 
-          <% @reviews.each do |r| %>
-            <div class="rounded-highlight">
-              <%= r.text %> <br> - <%= r.name %> (Rating: <%= r.rating %>/5)
-            </div>
-            <br><br>
-          <% end %>
+        <% @reviews.each do |r| %>
+          <div class="rounded-highlight">
+            <%= r.text %> <br> - <%= r.name %> (Rating: <%= r.rating %>/5)
+          </div>
+          <br><br>
+        <% end %>
+
       </div>
     </div>
   </div>

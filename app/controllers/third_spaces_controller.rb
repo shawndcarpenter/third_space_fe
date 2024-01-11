@@ -41,6 +41,11 @@ class ThirdSpacesController < ApplicationController
     yelp_id = params[:id]
     @space = find_third_space(yelp_id)
     @reviews = find_show_reviews(yelp_id)
+    if !@tags.nil?
+      @tags = @space.tags.uniq.map{|t| t.gsub('_', ' ').titleize}
+    else
+      @tags = []
+    end
   end
 
   private
@@ -80,7 +85,7 @@ class ThirdSpacesController < ApplicationController
     conn = Faraday.new(url: "http://localhost:3000/")
     response = conn.get("api/v1/third_spaces/#{yelp_id}")
     data = JSON.parse(response.body, symbolize_names: true)[:data]
-    
+
     ThirdSpacePoro.new(data[:attributes])
   end
 end
