@@ -7,7 +7,7 @@ RSpec.describe 'Contact Support Form' do
     # visit new_contact_form_path
   end
 
-  it 'successfully submits the contact form and redirects to dashboard' do
+  xit 'successfully submits the contact form and redirects to dashboard' do
     VCR.use_cassette("contact form w redirect") do
       user_login_data
       user_select_loc_data

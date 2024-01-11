@@ -6,6 +6,7 @@ class CreateThirdSpaceFacade
   
   def space
     service = ThirdSpacesService.new
+    binding.pry
     json = service.create_third_space(@location, @tags)
   end
 end

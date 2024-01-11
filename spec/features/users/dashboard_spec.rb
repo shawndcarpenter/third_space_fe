@@ -36,12 +36,8 @@ RSpec.describe 'User Dashboard', type: :feature do
     end
   end
 
-  xit 'displays the logo' do
-    expect(page).to have_css('a.navbar-brand img[src*="temp_logo.png"]')
-  end
-
-  xit 'expands the navbar on toggler click' do
-    find('navbar-toggler').click
+  it 'expands the navbar on toggler click' do
+    find('.navbar-toggler').click
     expect(page).to have_css('#navbarSupportedContent.show')
   end
 
