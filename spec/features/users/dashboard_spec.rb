@@ -28,12 +28,10 @@ RSpec.describe 'User Dashboard', type: :feature do
       visit dashboard_path
       expect(current_path).to eq '/dashboard'
 
-      expect(page).to have_content('User Dashboard')
-      expect(page).to have_button('contact us')
+    expect(page).to have_content('User Dashboard')
+    expect(page).to have_button('contact us')
 
-      expect(page).to have_link('contact us', href: new_contact_form_path)
-
-    end
+    expect(page).to have_link('contact us', href: new_contact_form_path)
   end
 
   xit 'expands the navbar on toggler click' do

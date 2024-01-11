@@ -41,7 +41,7 @@ class SearchLocationsController < ApplicationController
 
   def geocode_location(lat, lon)
     results = Geocoder.search([lat, lon])
-    results.first.data["address"]["city"] + " " + results.first.data["address"]["state"]  
+    results.first.data["address"]["city"] + " " + results.first.data["address"]["state"]
   end
   
   def geolocation_parse(geolocation)
