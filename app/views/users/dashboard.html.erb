@@ -70,18 +70,18 @@
     <h3>saved spaces</h3>
     <div class="scroll-box">
       <div class="d-flex">
-        <%# <% if @saved.any? %>
-          <%# <% @saved.each do |third_space_poro| %> 
-            <%# <div class="rounded-entry me-5"> %>
-              <%# <h3><%= third_space_poro.name %></h3> 
-              <%# <p><strong>Category:</strong> <%= third_space_poro.category %></p> 
-              <%# <p><strong>Address:</strong> <%= third_space_poro.address %></p> 
-              <%# <p><strong>Rating:</strong> <%= third_space_poro.rating %></p> 
-            <%# </div> %>
-          <%# <% end %> 
-        <%# <% else %> 
-          <%# You have nothing saved %>
-        <%# <% end %>  
+        <% if @saved.any? %>
+          <% @saved.each do |third_space_poro| %> 
+            <div class="rounded-entry me-5">
+              <h3><%= third_space_poro.name %></h3> 
+              <p><strong>Category:</strong> <%= third_space_poro.category %></p> 
+              <p><strong>Address:</strong> <%= third_space_poro.address %></p> 
+              <p><strong>Rating:</strong> <%= third_space_poro.rating %></p> 
+            </div>
+          <% end %> 
+        <% else %> 
+          You have nothing saved.
+        <% end %>  
       </div>
     </div>
 
