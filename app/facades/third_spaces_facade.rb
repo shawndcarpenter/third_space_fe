@@ -8,5 +8,6 @@ class ThirdSpacesFacade
     @spaces = json[:data].map do |space|
       ThirdSpacePoro.new(space[:attributes])
     end
+    # require 'pry'; binding.pry
   end
 end

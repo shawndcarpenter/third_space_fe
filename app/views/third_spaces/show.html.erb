@@ -19,10 +19,13 @@
       <br>
       <div class="text-center">
         <% if !@space.photos.nil? %>
-          <% if @space.photos.class == String%>
+          <% if @space.photos.class == String && !@space.photos == "[]" %>
             <%= image_tag @space.photos, width: "200" %>
+          <% elsif @space.photos == "[]" %>
+          <% elsif !@space.photos.include?("[") %>
+               <%= image_tag @space.photos, width: "200" %>
           <% else %>
-            <% @space.photos.each do |photo_url| %>
+            <% JSON.parse(@space.photos).each do |photo_url| %>
               <%= image_tag photo_url, width: "200" %>
             <% end %>
           <% end %>
@@ -43,13 +46,15 @@
         <% end %>
 
         <br><br>
-        <form class="text-center" action="/third_spaces/favorite" method="post" >
-          <button class="btn btn-outline-success me-2" name="yelp_id" id="yelp_id" value="<%= @space.yelp_id %>" type="submit">Favorite</button>
-        </form>
-
-        <form class="text-center" action="/third_spaces/unfavorite" method="delete" >
-          <button class="btn btn-outline-success me-2" name="yelp_id" id="yelp_id" value="<%= @space.yelp_id %>" type="submit">Remove Favorite</button>
-        </form>
+        <% if @saved_yelp_ids.include?(@space.yelp_id) %>
+          <form class="container-fluid d-flex justify-content-between" action="/third_spaces/unfavorite" method="delete" >
+            <button class="btn btn-outline-success me-2" name="yelp_id" id="yelp_id" value="<%= @space.yelp_id %>" type="submit">Remove Favorite</button>
+          </form>
+        <% else %>
+          <form class="container-fluid d-flex justify-content-between" action="/third_spaces/favorite" method="post" >
+            <button class="btn btn-outline-success me-2" name="yelp_id" id="yelp_id" value="<%= @space.yelp_id %>" type="submit">Favorite</button>
+          </form>
+        <% end %>
         <br>
 
 

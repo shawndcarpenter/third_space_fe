@@ -1,6 +1,8 @@
 <body>
   <div class="logo-container">
-    <%= image_tag 'temp_logo.png', class: "img-fluid smaller-logo", alt: "Logo" %>
+    <%= link_to dashboard_path do %>
+      <%= image_tag 'temp_logo.png', class: "img-fluid smaller-logo", alt: "Logo" %>
+    <% end %>
   </div>
 
   <div class="container text-center mt-5">
@@ -47,6 +49,20 @@
             <div class="col-sm-2 rounded-highlight">
               Tags
             </div>
+
+<%
+=begin%>
+ 
+            <div class="col-sm-3">
+            <h4>Add A Review</h4>
+              <input class="form-control me-2" id="text" name="text" type="text" placeholder="review" aria-label="Review Text" style="flex-grow: 1;">
+                <% rating_numbers = ['1', '2', '3', '4', '5'] %>
+                <% rating_numbers.each do |rating| %>
+                  <%= radio_button_tag 'tags[]', rating, false, class: 'custom-radio-input' %> <%= rating %>
+                <% end %>
+            </div> 
+<%
+=end%>
 
             <div class="col-sm-3">
               <h4>Moods</h4>
