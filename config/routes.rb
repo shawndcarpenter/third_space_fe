@@ -44,4 +44,10 @@ Rails.application.routes.draw do
 
   get '/user/auth/google_oauth2/callback', to: 'sessions#create'
   post '/geolocation_storage/lat_lon_session', to: 'geolocation_storage#lat_lon_session'
+
+  get '/password/reset', to: 'password_resets#new'
+  post '/password/reset', to: 'password_resets#create'
+  get '/password/reset/edit', to: 'password_resets#edit'
+  patch '/password/reset/edit', to: 'password_resets#update'
+
 end
