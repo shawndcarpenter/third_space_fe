@@ -2,15 +2,18 @@ class UsersController < ApplicationController
 
   def dashboard
     @user = current_user
+
     if params[:mood]
       @mood = params[:mood]
     end
+
     @search_location = @user.search_location
     city = @search_location.city
     state = @search_location.state
     @saved = SavedSpacesFacade.new(@user.id).spaces
     @saved_yelp_ids = saved_yelp_ids(@saved)
-    @recommended = filter_spaces_by_location(find_spaces, city, state)
+    spaces = ThirdSpacesFacade.new.spaces
+    @recommended = filter_spaces_by_location(spaces, city, state)
   end
 
   # def make_
@@ -129,17 +132,6 @@ class UsersController < ApplicationController
       list << space.yelp_id
     end
     list
-  end
-
-  def find_spaces
-    conn = Faraday.new(url: "http://localhost:3000")
-    response = conn.get("/api/v1/third_spaces")
-    data = JSON.parse(response.body, symbolize_names: true)[:data]
-    return [] if data.nil?
-    
-    third_spaces = data.map do |d|
-      ThirdSpacePoro.new(d[:attributes])
-    end
   end
 
   def filter_spaces_by_location(results, city, state)
