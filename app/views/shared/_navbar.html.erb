@@ -20,7 +20,7 @@
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-            <li class="nav-item"><a class="nav-link active" href="#">dashboard</a></li>
+            <li class="nav-item <%= 'active-nav-item' if current_page?(dashboard_path) %>"><%= link_to 'dashboard', dashboard_path, class: 'nav-link' %></li>
             <!-- <li class="nav-item"><a class="nav-link" href="#">preferences</a></li> -->
             <li class="nav-item"><a class="nav-link" href="#">privacy & security</a></li>
             <li class="nav-item"><%= link_to 'create a third space', locations_search_path, class: 'nav-link' %></li>
@@ -33,6 +33,7 @@
 
     <div class="navbar navbar-light bg-white border-bottom">
       <h5>Your mood today is</h5>
+      <% binding.pry %>
       <form class="container-fluid d-flex justify-content-between">
         <button class="btn btn-outline-success me-2" type="button">Happy</button>
         <button class="btn btn-outline-success me-2" type="button">Studious</button>
