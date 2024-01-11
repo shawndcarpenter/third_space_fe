@@ -4,14 +4,17 @@
 
       <div class="container-fluid">
         <h3 class="text-center my-4">saved</h3>
-        <% if @saved_list != nil %>
+        <% if @saved != nil %>
         <div class="row">
-          <% @saved_list.each do |saved| %>
+          <% @saved.each do |saved| %>
             <div class="col-md-4 mb-4">
               <div id="location_result-<%= saved.id %>" class="saved-entry rounded-entry p-3 h-100 w-100">
                 <p class="fs-4 text-center fw-bold text-wrap"><%= link_to saved.name, location_path(saved.yelp_id) %></p>
                 <p class="fs-6 text-center text-wrap"><%= saved.address %></p>
                 <p class="fs-6 text-center text-wrap"><%= saved.category %></p>
+                <form action="/third_spaces/unfavorite" method="delete">
+                  <button class="btn btn-outline-success me-2" name="yelp_id" value="<%= saved.yelp_id %>" type="submit">Remove Favorite</button>
+                </form> 
               </div>
             </div>
           <% end %>
