@@ -10,7 +10,7 @@
       <div class="d-flex">
         <% if @recommended.any? %>
           <% @recommended.each do |third_space_poro| %>
-            <div class="rounded-entry me-5">
+            <div class="rounded-entry me-5" >
               <h3><%= link_to "#{third_space_poro.name}", third_space_path(third_space_poro.yelp_id) %></h3>
               <p><strong>Category:</strong> <%= third_space_poro.category %></p>
               <p><strong>Address:</strong> <%= third_space_poro.address %></p>
