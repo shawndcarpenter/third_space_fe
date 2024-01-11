@@ -59,6 +59,10 @@ class UsersController < ApplicationController
     end
   end
 
+  def privacy
+    
+  end
+
   def login_form
   end
 
