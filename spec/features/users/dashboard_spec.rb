@@ -6,12 +6,27 @@ RSpec.describe 'User Dashboard', type: :feature do
     # user_select_loc_data
     # visit dashboard_path
   end
+
+  xit 'has a navbar' do
+    VCR.use_cassette("navbar") do
+      user_login_data
+      user_select_loc_data
+      visit dashboard_path
+      # require 'pry'; binding.pry
+      expect(page).to have_css('.navbar.navbar-light.bg-light')
+      within('.navbar.navbar-light.bg-light') do
+        expect(page).to have_selector('form[action="/third_spaces/search"]')
+        expect(page).to have_button("Search")
+      end
+    end
+  end
   
-  xit 'allows the user to click the contact button and redirects to a form', :vcr do
-    user_login_data
-    user_select_loc_data
-    visit dashboard_path
-    expect(current_path).to eq '/dashboard'
+  xit 'allows the user to click the contact button and redirects to a form' do
+    VCR.use_cassette("contact w redirect") do
+      user_login_data
+      user_select_loc_data
+      visit dashboard_path
+      expect(current_path).to eq '/dashboard'
 
     expect(page).to have_content('User Dashboard')
     expect(page).to have_button('contact us')
@@ -35,4 +50,16 @@ RSpec.describe 'User Dashboard', type: :feature do
       expect(page).to have_link("here")
     end
   end
+
+  xit "links to recommendations index" do
+    VCR.use_cassette("recommendations index") do
+    user_login_data
+    user_select_loc_data
+    visit dashboard_path
+    expect(page).to have_link("Recommendations")
+    click_link "Recommendations"
+    expect(current_path).to eq(recommendations_path)
+    end
+  end
+end
 end
