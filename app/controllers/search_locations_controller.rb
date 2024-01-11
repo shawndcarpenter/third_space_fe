@@ -21,7 +21,7 @@ class SearchLocationsController < ApplicationController
   end
 
   def update
-    binding.pry
+    # binding.pry
   end
 
   

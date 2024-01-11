@@ -8,12 +8,12 @@
     <h3>Welcome, <%= @user.first_name %>! What is your mood today?</h3>
     <h6>Allow ThirdSpace to acess your location for the nearby search to work. Alternatively, search by city and state.</h6>
     <nav class="navbar navbar-light bg-white">
-    <%= button_to "Happy", search_location_path(current_user.search_location.id, :mood => "happy"), class: "btn btn-outline-success me-2", role: "button" %>
-    <%= button_to "Sad", search_location_path(:mood => "sad"), data: {action: "geolocation#search"}, class: "btn btn-outline-success me-2", role: "button" %>
-    <%= button_to "Studious", search_location_path(:mood => "studious"), data: {action: "geolocation#search"}, class: "btn btn-outline-success me-2", role: "button" %>
-    <%= button_to "Social", search_location_path(:mood => "social"), data: {action: "geolocation#search"}, class: "btn btn-outline-success me-2", role: "button" %>
-    <%= button_to "Party!", search_location_path(:mood => "party"), data: {action: "geolocation#search"}, class: "btn btn-outline-success me-2", role: "button" %>
-    <%= button_to "Chill", search_location_path(:mood => "chill"), data: {action: "geolocation#search"}, class: "btn btn-outline-success me-2", role: "button" %>
+    <%= button_to "Happy", search_locations_path(:mood => "happy"), class: "btn btn-outline-success me-2", role: "button" %>
+    <%= button_to "Sad", search_locations_path(:mood => "sad"), data: {action: "geolocation#search"}, class: "btn btn-outline-success me-2", role: "button" %>
+    <%= button_to "Studious", search_locations_path(:mood => "studious"), data: {action: "geolocation#search"}, class: "btn btn-outline-success me-2", role: "button" %>
+    <%= button_to "Social", search_locations_path(:mood => "social"), data: {action: "geolocation#search"}, class: "btn btn-outline-success me-2", role: "button" %>
+    <%= button_to "Party!", search_locations_path(:mood => "party"), data: {action: "geolocation#search"}, class: "btn btn-outline-success me-2", role: "button" %>
+    <%= button_to "Chill", search_locations_path(:mood => "chill"), data: {action: "geolocation#search"}, class: "btn btn-outline-success me-2", role: "button" %>
     </nav>
 
 
