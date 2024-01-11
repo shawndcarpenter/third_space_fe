@@ -16,8 +16,6 @@ class UsersController < ApplicationController
     @location_recs = location_recs.reject! do |location|
       @mood_recs.any? { |mood_rec| location.name == mood_rec.name }
     end
-
-    binding.pry
   end
 
   def show
@@ -61,15 +59,23 @@ class UsersController < ApplicationController
   def login_form
   end
 
-  def recommendations
+  def mood_recommendations_index
     @user = current_user
     @search_location = @user.search_location
-    city = @search_location.city.capitalize
-    state = @search_location.state
     @saved = SavedSpacesFacade.new(@user.id).spaces
     @saved_yelp_ids = saved_yelp_ids(@saved)
     spaces = ThirdSpacesFacade.new.spaces
-    @recommendation_results = filter_spaces_by_location(spaces, city, state)
+
+    @recommendation_results = @mood_recs = filter_by_mood(filter_spaces_by_location(spaces))
+  end
+
+  def loc_recommendations_index
+    @user = current_user
+    @search_location = @user.search_location
+    @saved = SavedSpacesFacade.new(@user.id).spaces
+    @saved_yelp_ids = saved_yelp_ids(@saved)
+    spaces = ThirdSpacesFacade.new.spaces
+    @recommendation_results = filter_spaces_by_location(spaces)
   end
 
   def saved_list
@@ -80,7 +86,7 @@ class UsersController < ApplicationController
     @saved = SavedSpacesFacade.new(@user.id).spaces
     @saved_yelp_ids = saved_yelp_ids(@saved)
     spaces = ThirdSpacesFacade.new.spaces
-    @recommended = filter_spaces_by_location(spaces, city, state)
+    @recommended = filter_spaces_by_location(spaces)
   end
 
   def login

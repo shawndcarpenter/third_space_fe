@@ -2,24 +2,39 @@
   <div class="row justify-content-center mt-4">
     <%= render partial: 'shared/navbar' %>
 
-    <%# <div class="navbar navbar-light bg-white">
-      <h5>Your mood today is</h5>
-      <form class="container-fluid d-flex justify-content-between">
-        <button class="btn btn-outline-success me-2" type="button">Happy</button>
-        <button class="btn btn-outline-success me-2" type="button">Studious</button>
-        <button class="btn btn-outline-success me-2" type="button">Sad</button>
-        <button class="btn btn-outline-success me-2" type="button">Social</button>
-        <button class="btn btn-outline-success me-2" type="button">Party!</button>
-        <button class="btn btn-outline-success me-2" type="button">Chill</button>
-      </form>
-    </div> %>
-
-
-  <h3><%= link_to 'recommendations.', user_recommendation_path(@user.id) %></h3>
+  <h3><%= link_to 'recommendations by mood.', user_recommendation_path(@user.id) %></h3>
     <div class="scroll-box">
       <div class="d-flex">
-        <% if @recommended.any? %>
-          <% @recommended.each do |third_space_poro| %>
+        <% if @mood_recs.any? %>
+          <% @mood_recs.each do |third_space_poro| %>
+            <div class="rounded-entry me-5" >
+              <h3><%= link_to "#{third_space_poro.name}", third_space_path(third_space_poro.yelp_id) %></h3>
+              <p><strong>Category:</strong> <%= third_space_poro.category %></p>
+              <p><strong>Address:</strong> <%= third_space_poro.address %></p>
+              <p><strong>Rating:</strong> <%= third_space_poro.rating %></p>
+              <% if @saved_yelp_ids.include?(third_space_poro.yelp_id) %>
+                <form class="container-fluid d-flex justify-content-between" action="/third_spaces/unfavorite" method="delete" >
+                  <button class="btn btn-outline-success me-2" name="yelp_id" id="yelp_id" value="<%= third_space_poro.yelp_id %>" type="submit">Remove Favorite</button>
+                </form>
+              <% else %>
+                <form class="container-fluid d-flex justify-content-between" action="/third_spaces/favorite" method="post" >
+                  <button class="btn btn-outline-success me-2" name="yelp_id" id="yelp_id" value="<%= third_space_poro.yelp_id %>" type="submit">Favorite</button>
+                </form>
+              <% end %>
+
+            </div>
+          <% end %>
+        <% else %>
+          No Third Spaces of that Mood near you. <%= link_to "Add a location", locations_search_path %>.
+        <% end %>
+      </div>
+    </div>
+
+      <h3><%= link_to 'recommendations near you.', user_recommendation_path(@user.id) %></h3>
+    <div class="scroll-box">
+      <div class="d-flex">
+        <% if @location_recs.any? %>
+          <% @location_recs.each do |third_space_poro| %>
             <div class="rounded-entry me-5" >
               <h3><%= link_to "#{third_space_poro.name}", third_space_path(third_space_poro.yelp_id) %></h3>
               <p><strong>Category:</strong> <%= third_space_poro.category %></p>
@@ -49,7 +64,7 @@
       <% if @saved.any? %>
         <% @saved.each do |third_space_poro| %> 
           <div class="rounded-entry me-5">
-            <h3><%= third_space_poro.name %></h3> 
+            <h3><%= link_to "#{third_space_poro.name}", third_space_path(third_space_poro.yelp_id) %></h3> 
             <p><strong>Category:</strong> <%= third_space_poro.category %></p> 
             <p><strong>Address:</strong> <%= third_space_poro.address %></p> 
             <p><strong>Rating:</strong> <%= third_space_poro.rating %></p>
