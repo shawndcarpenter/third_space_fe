@@ -8,8 +8,8 @@ class UsersController < ApplicationController
     end
 
     @search_location = @user.search_location
-    city = @search_location.city
-    state = @search_location.state
+    city = "Boulder"
+    state = "CO"
     @saved = SavedSpacesFacade.new(@user.id).spaces
     @saved_yelp_ids = saved_yelp_ids(@saved)
     spaces = ThirdSpacesFacade.new.spaces
