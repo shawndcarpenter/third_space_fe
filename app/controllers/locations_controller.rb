@@ -9,9 +9,10 @@ class LocationsController < ApplicationController
   end
   
   def show
+    location_id = params[:id]
     @location = find_show_details
     @location_json = @location.to_json
-    @reviews = find_show_reviews
+    @reviews = find_show_reviews(location_id)
   end
 
   def new
@@ -46,16 +47,16 @@ class LocationsController < ApplicationController
     DetailedLocation.new(json)
   end
 
-  def find_show_reviews
-    location_id = params[:id]
-    conn = Faraday.new(url: "http://localhost:3000/")
-    response = conn.get("api/v1/locations/#{location_id}/reviews")
-    data = JSON.parse(response.body, symbolize_names: true)[:data]
+  # def find_show_reviews
+  #   location_id = params[:id]
+  #   conn = Faraday.new(url: "http://localhost:3000/")
+  #   response = conn.get("api/v1/locations/#{location_id}/reviews")
+  #   data = JSON.parse(response.body, symbolize_names: true)[:data]
 
-    reviews = data.map do |d|
-      ReviewPoro.new(d[:attributes])
-    end
-  end
+  #   reviews = data.map do |d|
+  #     ReviewPoro.new(d[:attributes])
+  #   end
+  # end
 
   
 end

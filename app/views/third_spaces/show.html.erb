@@ -1,0 +1,51 @@
+<body>
+  <div class="container-fluid">
+    <div class="logo-container">
+      <%= image_tag 'temp_logo.png', class: "img-fluid smaller-logo", alt: "Logo" %>
+    </div>
+
+    <div class="container text-center mt-5">
+      <div class="text-center">
+        <div class="d-inline-block text-left">
+          <h2><%= @space.name %></h2>
+          <div class="rounded-highlight-b">
+            <%= @space.category %>
+          </div>
+          <div class="rounded-highlight-b">
+              <%= "Address: #{@space.address}"%>
+          </div>
+        </div>
+      </div>
+
+      <br>
+      <div class="text-center">
+        <% if !@space.photos.nil? %>
+          <% @space.photos.each do |photo_url| %>
+            <%= image_tag photo_url, width: "200" %>
+          <% end %>
+        <% end %>
+
+        <br><br>
+        <%= image_tag 'coffee_logo.png', class: "img-fluid smaller-logo", alt: "Logo", style: "height: 75px; width: 104px" %>  
+
+        <div class="rounded-container">
+          <%= "Open Now" if @space.open_now %>
+          <%= "Closed" if !@space.open_now %>
+        </div>
+        <% if !@space.price.nil? %>
+          <div class="rounded-container"><%= @space.price%></div>
+        <% end %>
+        <div class="rounded-container"><%= "Rating: #{@space.rating}"%></div>
+          <a href="<%= new_third_space_path(location_json: @location_json) %>" class="rounded-button">Create a Third Space</a>
+          <br><br>
+
+          <% @reviews.each do |r| %>
+            <div class="rounded-highlight">
+              <%= r.text %> <br> - <%= r.name %> (Rating: <%= r.rating %>/5)
+            </div>
+            <br><br>
+          <% end %>
+      </div>
+    </div>
+  </div>
+</body>
