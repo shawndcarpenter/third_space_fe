@@ -20,6 +20,10 @@ class SearchLocationsController < ApplicationController
     redirect_to dashboard_path
   end
 
+  def update
+    binding.pry
+  end
+
   
   private
   def search_params

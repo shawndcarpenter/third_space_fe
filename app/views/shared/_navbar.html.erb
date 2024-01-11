@@ -34,12 +34,12 @@
     <div class="navbar navbar-light bg-white border-bottom">
       <h5>Your mood today is <%= current_user.search_location.mood %></h5>
       <form class="container-fluid d-flex justify-content-between">
-        <button class="btn btn-outline-success me-2" type="button">Happy</button>
-        <button class="btn btn-outline-success me-2" type="button">Studious</button>
-        <button class="btn btn-outline-success me-2" type="button">Sad</button>
-        <button class="btn btn-outline-success me-2" type="button">Social</button>
-        <button class="btn btn-outline-success me-2" type="button">Party!</button>
-        <button class="btn btn-outline-success me-2" type="button">Chill</button>
+        <%= button_to "Happy", search_location_path(current_user.search_location.id, :mood => "happy"), data: {action: "geolocation#search"}, class: "btn btn-outline-success me-2", role: "button" %>
+        <%= button_to "Sad", search_location_path(current_user.search_location.id, :mood => "sad"), data: {action: "geolocation#search"}, class: "btn btn-outline-success me-2", role: "button" %>
+        <%= button_to "Studious", search_location_path(current_user.search_location.id, :mood => "studious"), data: {action: "geolocation#search"}, class: "btn btn-outline-success me-2", role: "button" %>
+        <%= button_to "Social", search_location_path(current_user.search_location.id, :mood => "social"), data: {action: "geolocation#search"}, class: "btn btn-outline-success me-2", role: "button" %>
+        <%= button_to "Party!", search_location_path(current_user.search_location.id, :mood => "party"), data: {action: "geolocation#search"}, class: "btn btn-outline-success me-2", role: "button" %>
+        <%= button_to "Chill", search_location_path(current_user.search_location.id, :mood => "chill"), data: {action: "geolocation#search"}, class: "btn btn-outline-success me-2", role: "button" %>
       </form>
     </div>
   </div>
