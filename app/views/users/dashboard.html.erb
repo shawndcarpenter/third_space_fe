@@ -2,7 +2,7 @@
   <div class="row justify-content-center mt-4">
     <%= render partial: 'shared/navbar' %>
 
-  <h3><%= link_to 'recommendations by mood.', user_recommendation_path(@user.id) %></h3>
+  <h3><%= link_to 'recommendations by mood.', mood_recommendations_path(@user.id) %></h3>
     <div class="scroll-box">
       <div class="d-flex">
         <% if @mood_recs.any? %>
@@ -30,7 +30,7 @@
       </div>
     </div>
 
-      <h3><%= link_to 'recommendations near you.', user_recommendation_path(@user.id) %></h3>
+      <h3><%= link_to 'recommendations near you.', recommendations_path(@user.id) %></h3>
     <div class="scroll-box">
       <div class="d-flex">
         <% if @location_recs.any? %>
