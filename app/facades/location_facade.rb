@@ -7,8 +7,6 @@ class LocationFacade
     service = LocationsService.new
     json = service.get_location(@yelp_id)
 
-    # @location = json.map do |review|
-      DetailedLocation.new(json[:attributes])
-    # end
+    DetailedLocation.new(json[:attributes])
   end
 end
