@@ -108,10 +108,10 @@ class UsersController < ApplicationController
     user.generate_otp_secret_key
     user.update(otp_code: user.generate_otp, otp_code_expires_at: 5.minutes.from_now)
     user.save
-    session[:code] = user.otp_code
+    @otp = session[:code] = user.otp_code #this needs to display 
     session[:otp_expires_at] = 5.minutes.from_now
     session[:email] = user.email
-    UserMailer.send_otp_email(user).deliver_now
+    # UserMailer.send_otp_email(user).deliver_now
     redirect_to validate_otp_path
   end
 
@@ -140,6 +140,7 @@ class UsersController < ApplicationController
   end
 
   def validate_otp_form
+    @otp = session[:code]
     # Render the page where users can enter the OTP
   end
 
