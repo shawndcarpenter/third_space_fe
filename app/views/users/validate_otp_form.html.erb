@@ -6,6 +6,7 @@
       <% end %>
     </div>
 <body>
+  For testing, your OTP is: <%= @otp %>
   <h1>Enter OTP</h1>
   <%= form_tag(validate_otp_path, method: :post, class: "mb-3") do %>
   <div class="form-group">
