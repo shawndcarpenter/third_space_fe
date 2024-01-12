@@ -14,7 +14,6 @@ class SearchLocationsController < ApplicationController
       geolocation = geocode_location(session[:lat], session[:lon])
       geo_hash = geolocation_parse(geolocation)
       search_location = current_user.build_search_location(geo_hash)
-      # binding.pry
       search_location.save
       search_location.update(mood: params[:mood])
     elsif current_user.search_location.nil?
@@ -31,13 +30,13 @@ class SearchLocationsController < ApplicationController
   end
 
   def update
-    # binding.pry
+    current_user.search_location.update(mood: params[:mood])
+    redirect_to dashboard_path
   end
-
   
   private
   def search_params
-    params.permit(:city, :state, :authenticity_token, :commit)
+    params.permit(:city, :state, :authenticity_token)
   end
 
   def geocode_location(lat, lon)

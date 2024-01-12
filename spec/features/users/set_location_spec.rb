@@ -14,14 +14,15 @@ RSpec.describe 'Set Location Page', type: :feature do
     # expect(page).to have_field('Address') ## Ignore for now, will be better with GeoLocator
   end
 
-  xit "user can submit a location and search" do
-    VCR.use_cassette("search location") do
+  xit "user can submit a location and search", vcr: { cassette_name: 'user_location_search' } do
+    VCR.use_cassette('user_location_search') do
       user_login_data
-      find('input[name="city"]').set("Minneapolis")
+      fill_in 'city', with: 'Minneapolis'
       select 'MN', from: :state
       click_button "submit"
       expect(current_path).to eq(dashboard_path)
-      expect(page).to have_content("your location: Minneapolis, MN")
+      save_and_open_page
+      expect(page).to have_content("Minneapolis, MN")
     end
   end
 
