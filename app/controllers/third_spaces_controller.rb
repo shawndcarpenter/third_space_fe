@@ -15,6 +15,24 @@ class ThirdSpacesController < ApplicationController
     redirect_to dashboard_path
   end
 
+  def edit
+    @user = current_user
+    yelp_id = params[:id]
+    @space = find_third_space(yelp_id)
+  end
+
+  def update
+    @user = current_user
+    yelp_id = params[:id]
+
+    @space = ThirdSpaceFacade.new(yelp_id).space
+
+    tags = params[:tags].map{|tag| tag.downcase.split.join("_")}
+    @space = UpdateSpaceTagsFacade.new(yelp_id, tags).space
+
+    redirect_to third_space_path(@space.yelp_id)
+  end
+
   # def add_review
   #   space = CreateThirdSpaceFacade.new(location, tags).space
   #   review = ReviewPoro.new(name: @user.first_name, text: params[:text], rating: params[:rating], yelp_id: space[:data][:attributes][:yelp_id])
@@ -69,6 +87,20 @@ class ThirdSpacesController < ApplicationController
       #separate moods and other
     else
       @tags = []
+    end
+  end
+
+  def destroy
+    yelp_id = params[:id]
+    url = "http://localhost:3000/api/v1/third_spaces/#{yelp_id}"
+    if response.success?
+      response = Faraday.delete(url)
+      json_response = JSON.parse(response.body)
+      message = json_response['message']
+      flash[:success] = message
+      redirect_to "/dashboard"
+    else
+      flash[:error] = "Failed to delete record. HTTP status: #{response.status}"
     end
   end
 
