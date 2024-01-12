@@ -1,0 +1,56 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: http://localhost:3000/api/v1/third_spaces?address=address&category=yummy&hours=%7B%7D&lat=123.4545&lon=123455.67&name=name&open_now=true&phone=555-555-5555&photos=%5B%5D&price=$$$&rating=5&tags=%5B%22happy%22%5D&yelp_id=f-m7-hyFzkf0HSEeQ2s-9A
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v2.8.1
+      Content-Length:
+      - '0'
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 201
+      message: Created
+    headers:
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - '0'
+      X-Content-Type-Options:
+      - nosniff
+      X-Download-Options:
+      - noopen
+      X-Permitted-Cross-Domain-Policies:
+      - none
+      Referrer-Policy:
+      - strict-origin-when-cross-origin
+      Content-Type:
+      - application/json; charset=utf-8
+      Vary:
+      - Accept
+      Etag:
+      - W/"3b53fe41ba36c316854a39309dbf6cbd"
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - cecc6c3b-22b8-457e-84b9-af036e6c7cc1
+      X-Runtime:
+      - '0.054939'
+      Server-Timing:
+      - start_processing.action_controller;dur=0.25, sql.active_record;dur=15.16,
+        process_action.action_controller;dur=41.46
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: '{"data":{"id":"176","type":"third_space","attributes":{"yelp_id":"f-m7-hyFzkf0HSEeQ2s-9A","name":"name","address":"address","rating":5.0,"phone":"555-555-5555","photos":"[]","lat":123.4545,"lon":123455.67,"price":"$$$","hours":"{}","category":"yummy","open_now":true,"tags":["happy"]}}}'
+  recorded_at: Fri, 12 Jan 2024 15:02:43 GMT
+recorded_with: VCR 6.2.0

@@ -1,0 +1,55 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://localhost:3000/api/v1/locations/f-m7-hyFzkf0HSEeQ2s-9A
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v2.8.1
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - '0'
+      X-Content-Type-Options:
+      - nosniff
+      X-Download-Options:
+      - noopen
+      X-Permitted-Cross-Domain-Policies:
+      - none
+      Referrer-Policy:
+      - strict-origin-when-cross-origin
+      Content-Type:
+      - application/json; charset=utf-8
+      Vary:
+      - Accept
+      Etag:
+      - W/"096d9d41a103846cbcdd07c64d935cfc"
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - 7ae7ce19-052a-4931-b9fc-33e041eab781
+      X-Runtime:
+      - '1.647985'
+      Server-Timing:
+      - start_processing.action_controller;dur=0.09, process_action.action_controller;dur=1643.52
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: '{"data":{"id":null,"type":"detailed_location","attributes":{"yelp_id":"f-m7-hyFzkf0HSEeQ2s-9A","name":"Fog
+        Harbor Fish House","address":"39 Pier, Ste 202A, San Francisco, CA 94133","rating":4.5,"phone":"(415)
+        969-2010","photos":["https://s3-media2.fl.yelpcdn.com/bphoto/by8Hh63BLPv_HUqRUdsp_w/o.jpg","https://s3-media2.fl.yelpcdn.com/bphoto/cc5tnzyd03couTo7ReDGgQ/o.jpg","https://s3-media3.fl.yelpcdn.com/bphoto/J5NJ8-gclvTMzVmp3OrckA/o.jpg"],"lat":37.80889,"lon":-122.41025,"price":"$$","hours":[{"open":[{"is_overnight":false,"start":"1100","end":"2100","day":0},{"is_overnight":false,"start":"1100","end":"2100","day":1},{"is_overnight":false,"start":"1100","end":"2100","day":2},{"is_overnight":false,"start":"1100","end":"2100","day":3},{"is_overnight":false,"start":"1100","end":"2100","day":4},{"is_overnight":false,"start":"1100","end":"2100","day":5},{"is_overnight":false,"start":"1100","end":"2100","day":6}],"hours_type":"REGULAR","is_open_now":false}],"category":"Seafood","open_now":false}}}'
+  recorded_at: Fri, 12 Jan 2024 16:41:19 GMT
+recorded_with: VCR 6.2.0

@@ -1,0 +1,54 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://localhost:3000/api/v1/third_spaces/f-m7-hyFzkf0HSEeQ2s-9A
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v2.8.1
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - '0'
+      X-Content-Type-Options:
+      - nosniff
+      X-Download-Options:
+      - noopen
+      X-Permitted-Cross-Domain-Policies:
+      - none
+      Referrer-Policy:
+      - strict-origin-when-cross-origin
+      Content-Type:
+      - application/json; charset=utf-8
+      Vary:
+      - Accept
+      Etag:
+      - W/"ba5f3ea40e95f49bce11942f375ebd38"
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - cade9112-abd0-492c-9458-4b34938f38bf
+      X-Runtime:
+      - '0.012616'
+      Server-Timing:
+      - start_processing.action_controller;dur=0.11, sql.active_record;dur=1.80, instantiation.active_record;dur=0.31,
+        process_action.action_controller;dur=5.33
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: '{"data":null}'
+  recorded_at: Fri, 12 Jan 2024 15:00:15 GMT
+recorded_with: VCR 6.2.0
