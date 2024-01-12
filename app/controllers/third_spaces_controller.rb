@@ -74,9 +74,16 @@ class ThirdSpacesController < ApplicationController
 
   def destroy
     yelp_id = params[:id]
-    @space = find_third_space(yelp_id)
-    @space.destroy
-    redirect_to "/dashboard"
+    url = "http://localhost:3000/api/v1/third_spaces/#{yelp_id}"
+    if response.success?
+      response = Faraday.delete(url)
+      json_response = JSON.parse(response.body)
+      message = json_response['message']
+      flash[:success] = message
+      redirect_to "/dashboard"
+    else
+      flash[:error] = "Failed to delete record. HTTP status: #{response.status}"
+    end
   end
 
   private
