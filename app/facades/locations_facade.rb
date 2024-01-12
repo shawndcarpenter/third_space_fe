@@ -6,10 +6,10 @@ class LocationsFacade
 
   def locations
     service = LocationsService.new
-    json = service.get_location_reviews(@name, @city)
+    json = service.get_location_results(@name, @city)
 
     @search_results = json.map do |search_result|
-      SearchResult.new(d[:attributes])
+      SearchResult.new(search_result[:attributes])
     end
   end
 end

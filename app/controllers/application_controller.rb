@@ -18,12 +18,6 @@ class ApplicationController < ActionController::Base
   end
 
   def find_show_reviews(yelp_id)
-    conn = Faraday.new(url: "http://localhost:3000/")
-    response = conn.get("api/v1/locations/#{yelp_id}/reviews")
-    data = JSON.parse(response.body, symbolize_names: true)[:data]
-
-    reviews = data.map do |d|
-      ReviewPoro.new(d[:attributes])
-    end
+    reviews = LocationReviewsFacade.new(yelp_id).reviews
   end  
 end

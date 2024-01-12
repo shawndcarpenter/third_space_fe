@@ -18,7 +18,7 @@ class ThirdSpacesController < ApplicationController
   def edit
     @user = current_user
     yelp_id = params[:id]
-    @space = find_third_space(yelp_id)
+    @space = ThirdSpaceFacade.new(yelp_id).space
   end
 
   def update
@@ -68,7 +68,7 @@ class ThirdSpacesController < ApplicationController
   def show
     @user = current_user
     yelp_id = params[:id]
-    @space = find_third_space(yelp_id)
+    @space = ThirdSpaceFacade.new(yelp_id).space
     @reviews = ThirdSpaceReviewsFacade.new(yelp_id).reviews
     @saved = SavedSpacesFacade.new(@user.id).spaces
     @saved_yelp_ids = saved_yelp_ids(@saved)
@@ -111,12 +111,5 @@ class ThirdSpacesController < ApplicationController
       list << space.yelp_id
     end
     list
-  end
-
-  def find_third_space(yelp_id)
-    conn = Faraday.new(url: "http://localhost:3000/")
-    response = conn.get("api/v1/third_spaces/#{yelp_id}")
-    data = JSON.parse(response.body, symbolize_names: true)[:data]
-    ThirdSpacePoro.new(data[:attributes])
   end
 end
