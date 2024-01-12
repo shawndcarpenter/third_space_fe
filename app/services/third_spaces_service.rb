@@ -65,4 +65,8 @@ class ThirdSpacesService
 
     data = JSON.parse(response.body, symbolize_names: true)
   end
+
+  def destroy_space(yelp_id)
+    response = conn.delete("/api/v1/third_spaces/#{yelp_id}")
+  end
 end
