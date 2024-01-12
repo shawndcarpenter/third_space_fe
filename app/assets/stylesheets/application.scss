@@ -15,6 +15,29 @@
  */
 @import "bootstrap";
 
+.dash-header {
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
+  transition: color 0.3s;
+}
+
+.dash-header:hover {
+  color: #99aad3 !important; /* Use !important to ensure it overrides other styles */
+}
+
+.space-link {
+  text-decoration: none;
+  color: rgb(35, 35, 35);
+  font-weight: bold;
+  transition: color 0.3s;
+}
+
+.space-link:hover {
+  color: #9a9292 !important; /* Use !important to ensure it overrides other styles */
+}
+
+
 .logo-container {
   position: absolute;
   top: 0;
@@ -213,8 +236,3 @@
 .rounded-entry > * {
   flex-grow: 1;
 }
-
-
-
-
-

@@ -21,15 +21,6 @@ ActiveRecord::Schema[7.0].define(version: 2024_01_08_203745) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "locations", force: :cascade do |t|
-    t.string "name"
-    t.string "address"
-    t.string "latitude"
-    t.string "longitude"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "search_locations", force: :cascade do |t|
     t.string "city"
     t.string "state"
@@ -39,15 +30,6 @@ ActiveRecord::Schema[7.0].define(version: 2024_01_08_203745) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_search_locations_on_user_id"
-  end
-
-  create_table "user_locations", force: :cascade do |t|
-    t.bigint "user_id", null: false
-    t.bigint "location_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["location_id"], name: "index_user_locations_on_location_id"
-    t.index ["user_id"], name: "index_user_locations_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -67,6 +49,4 @@ ActiveRecord::Schema[7.0].define(version: 2024_01_08_203745) do
   end
 
   add_foreign_key "search_locations", "users"
-  add_foreign_key "user_locations", "locations"
-  add_foreign_key "user_locations", "users"
 end

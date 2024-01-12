@@ -2,13 +2,17 @@
   <div class="row justify-content-center mt-4">
     <%= render partial: 'shared/navbar' %>
 
-  <h3><%= link_to 'recommendations by mood.', mood_recommendations_path(@user.id) %></h3>
+    <h3><%= link_to 'recommendations by mood.', mood_recommendations_path(@user.id), class: 'dash-header' %></h3>
     <div class="scroll-box">
       <div class="d-flex">
         <% if @mood_recs.any? %>
           <% @mood_recs.each do |third_space_poro| %>
             <div class="rounded-entry me-5" >
-              <h3><%= link_to "#{third_space_poro.name}", third_space_path(third_space_poro.yelp_id) %></h3>
+              <h3 class="space-link">
+                <%= link_to third_space_path(third_space_poro.yelp_id), class: "space-link" do %>
+                  <%= third_space_poro.name %>
+                <% end %>
+              </h3>
               <p><strong>Category:</strong> <%= third_space_poro.category %></p>
               <p><strong>Address:</strong> <%= third_space_poro.address %></p>
               <p><strong>Rating:</strong> <%= third_space_poro.rating %></p>
@@ -30,14 +34,18 @@
       </div>
     </div>
 
-      <h3><%= link_to 'recommendations near you.', recommendations_path(@user.id) %></h3>
+    <h3><%= link_to 'recommendations near you.', recommendations_path(@user.id), class: 'dash-header' %></h3>
     <div class="scroll-box">
       <div class="d-flex">
         <% if @location_recs.nil? %>
         <% elsif @location_recs.any? %>
           <% @location_recs.each do |third_space_poro| %>
             <div class="rounded-entry me-5" >
-              <h3><%= link_to "#{third_space_poro.name}", third_space_path(third_space_poro.yelp_id) %></h3>
+              <h3 class="space-link">
+                <%= link_to third_space_path(third_space_poro.yelp_id), class: "space-link" do %>
+                  <%= third_space_poro.name %>
+                <% end %>
+              </h3>
               <p><strong>Category:</strong> <%= third_space_poro.category %></p>
               <p><strong>Address:</strong> <%= third_space_poro.address %></p>
               <p><strong>Rating:</strong> <%= third_space_poro.rating %></p>
@@ -59,13 +67,17 @@
       </div>
     </div>
 
-  <h3><%= link_to 'saved spaces.', user_saved_list_path(@user.id) %></h3>
+  <h3><%= link_to 'saved spaces.', user_saved_list_path(@user.id), class: 'dash-header' %></h3>
   <div class="scroll-box">
     <div class="d-flex">
       <% if @saved.any? %>
         <% @saved.each do |third_space_poro| %> 
           <div class="rounded-entry me-5">
-            <h3><%= link_to "#{third_space_poro.name}", third_space_path(third_space_poro.yelp_id) %></h3> 
+              <h3 class="space-link">
+                <%= link_to third_space_path(third_space_poro.yelp_id), class: "space-link" do %>
+                  <%= third_space_poro.name %>
+                <% end %>
+              </h3>
             <p><strong>Category:</strong> <%= third_space_poro.category %></p> 
             <p><strong>Address:</strong> <%= third_space_poro.address %></p> 
             <p><strong>Rating:</strong> <%= third_space_poro.rating %></p>
