@@ -61,6 +61,7 @@ The user can also access a larger number of locations near them by clicking on "
 
 ### Adding Moods
 The most important part of this product is the ability to add moods to locations. When a user visits a page for a specific location, they are invited to add the moods that they experienced while in this location. Over time, the mood data will become more robust as more locations are reviewed. This application will organize the moods in order of the most commonly reported mood to least common. So, if 20 people experience a Relaxed mood and 2 experience a Loud mood, the Relaxed mood will be shown first. Given that there are no moods with more reports, Relaxed will be listed as the "Top Mood" for a location, and this will be displayed under the location name on all pages listing the location.
+
 <img width="548" alt="Screenshot 2024-01-12 at 12 54 23" src="https://github.com/shawndcarpenter/third_space_fe/assets/139706925/0da72ae4-3f06-4d4a-bfae-c895711ff8c3">
 
 ## Development setup
