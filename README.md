@@ -48,8 +48,9 @@ Third Space can provide a list of locations based on a number of criteria indica
 
 ### Landing/Log In
 
-Users can create an account using their email. This product includes 2 Factor Authentication via [XXX].
+Users can create an account using their email. This product includes 2 Factor Authentication via [rotp](https://github.com/mdp/rotp).
 Once an account has been made, the user will be able to login and see their User Dashboard.
+OmniAuth was utilized to allow for login through Google.
 
 ### User dashboard
 The user will find a Recommended Locations section, which lists a selection of the 5 closest locations that match the user's current mood/needs.
