@@ -13,6 +13,10 @@
           <div class="rounded-highlight-b">
               <%= "Address: #{@space.address}"%>
           </div>
+          <% if current_user.admin?%>
+          <% #binding.pry%>
+            <%= button_to "Delete Third Space", third_space_path(params[:id]), method: :delete %>
+          <% end %>
         </div>
       </div>
 

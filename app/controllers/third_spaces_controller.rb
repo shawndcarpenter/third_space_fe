@@ -73,7 +73,10 @@ class ThirdSpacesController < ApplicationController
   end
 
   def destroy
-    
+    yelp_id = params[:id]
+    @space = find_third_space(yelp_id)
+    @space.destroy
+    redirect_to "/dashboard"
   end
 
   private
