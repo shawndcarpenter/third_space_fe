@@ -25,7 +25,5 @@ class ApplicationController < ActionController::Base
     reviews = data.map do |d|
       ReviewPoro.new(d[:attributes])
     end
-  end
-
-  
+  end  
 end
