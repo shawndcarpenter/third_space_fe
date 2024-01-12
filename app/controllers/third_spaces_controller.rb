@@ -72,6 +72,10 @@ class ThirdSpacesController < ApplicationController
     end
   end
 
+  def destroy
+    
+  end
+
   private
   def saved_yelp_ids(spaces)
     list = []

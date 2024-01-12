@@ -1,0 +1,54 @@
+<h3> Existing Users </h3>
+
+<% @users.each do |user| %>
+  <%= link_to user.email, "/users/#{user.id}" %><br>
+<% end %>
+
+<div data-controller="geolocation"></div>
+<div class="container-fluid d-flex justify-content-center align-items-center vh-100">
+  <div class="text-center">
+    <div class="mb-3">
+      <%= image_tag 'temp_logo.png', class: "img-fluid", alt: "Logo" %>
+    </div>
+
+    <h3>Welcome, <%= @user.first_name %>! What is your mood today?</h3>
+    <h6>Allow ThirdSpace to acess your location for the nearby search to work. Alternatively, search by city and state.</h6>
+    <nav class="navbar navbar-light bg-white">
+    <%= button_to "Happy", search_locations_path(:mood => "happy"), class: "btn btn-outline-success me-2", role: "button" %>
+    <%= button_to "Sad", search_locations_path(:mood => "sad"), data: {action: "geolocation#search"}, class: "btn btn-outline-success me-2", role: "button" %>
+    <%= button_to "Studious", search_locations_path(:mood => "studious"), data: {action: "geolocation#search"}, class: "btn btn-outline-success me-2", role: "button" %>
+    <%= button_to "Social", search_locations_path(:mood => "social"), data: {action: "geolocation#search"}, class: "btn btn-outline-success me-2", role: "button" %>
+    <%= button_to "Party!", search_locations_path(:mood => "party"), data: {action: "geolocation#search"}, class: "btn btn-outline-success me-2", role: "button" %>
+    <%= button_to "Chill", search_locations_path(:mood => "chill"), data: {action: "geolocation#search"}, class: "btn btn-outline-success me-2", role: "button" %>
+    </nav>
+
+
+
+    <h3>Where would you like to search today?</h3><br>
+    
+    <%= form_with url: search_locations_path, method: :post, local: true do |form| %>
+    <div class="mb-3 d-flex align-items-center">
+      <div class="col-sm-2">
+        <%= form.label :city, "city", class: "form-label" %>
+      </div>
+      <div class="col-sm-10">
+        <%= form.text_field :city, class: "form-control" %>
+      </div>
+    </div>
+
+    <div class="mb-3 d-flex align-items-center">
+      <div class="col-sm-2">
+        <%= form.label :state, "state", class: "form-label" %>
+      </div>
+      <div class="col-sm-10">
+        <%= form.select :state, User::STATE_ACRONYMS, { prompt: 'Select a state' }, class: "form-control" %>
+      </div>
+    </div>
+
+    <div class="mb-3">
+      <%= form.submit "submit", class: "btn btn-primary" %>
+    </div>
+    <% end %>
+
+  </div>
+</div>
