@@ -1,10 +1,14 @@
+<h3> Existing Users </h3>
+
+<% @users.each do |user| %>
+  <%= link_to user.email, "/users/#{user.id}" %><br>
+<% end %>
+
 <div data-controller="geolocation"></div>
 <div class="container-fluid d-flex justify-content-center align-items-center vh-100">
   <div class="text-center">
     <div class="mb-3">
-      <%= link_to dashboard_path do %>
-        <%= image_tag 'temp_logo.png', class: "img-fluid", alt: "Logo" %>
-      <% end %>
+      <%= image_tag 'temp_logo.png', class: "img-fluid", alt: "Logo" %>
     </div>
 
     <h3>Welcome, <%= @user.first_name %>! What is your mood today?</h3>

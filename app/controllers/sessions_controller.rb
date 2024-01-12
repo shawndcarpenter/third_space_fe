@@ -3,7 +3,11 @@ class SessionsController < ApplicationController
     auth = request.env['omniauth.auth']
     if auth.present? && auth['provider'].present? && auth['uid'].present? && auth['info'].present?
       user = User.find_by(email: auth['info']['email'])
-      if user.present?
+      if user.present? && user.admin?
+        session[:user_id] = user.id
+        redirect_to admin__dashboarda_path
+      elsif
+        user.present?
         session[:user_id] = user.id
         redirect_to set_location_path
       else

@@ -7,7 +7,6 @@ class FavoriteSpaceFacade
   def spaces
     service = SavedSpacesService.new
     json = service.add_user_space(@user_id, @space_id)
-    # binding.pry
     unless json[:status] == 404
       @spaces = json[:included].map do |space|
         ThirdSpacePoro.new(space[:attributes])

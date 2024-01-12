@@ -10,6 +10,8 @@ Rails.application.routes.draw do
   get "/third_spaces/search", to: "third_spaces#search"
   post "/third_spaces/favorite", to: "third_spaces#favorite"
   delete "/third_spaces/unfavorite", to: "third_spaces#unfavorite"
+  get "/third_spaces/:id/edit", to: "third_spaces#edit"
+  patch "/third_spaces/:id", to: "third_spaces#update"
 
   resources :locations, only: [:index, :show, :new, :create]
   get '/locations/search', to: 'locations#search', as: 'location_search'
@@ -17,6 +19,9 @@ Rails.application.routes.draw do
   get "/register", to: "users#new"
   post "/register", to: "users#create"
   get "/users/support", to: "users#support", as: 'support'
+  get "/users/:id/recommendations/mood", to: "users#mood_recommendations_index", as: "mood_recommendations"
+  get "/users/:id/recommendations", to: "users#loc_recommendations_index", as: "recommendations"
+  get "/users/:id/saved_list", to: "users#saved_list", as: "user_saved_list"
   get "/users/:user_id", to: "users#show"
   get "/dashboard", to: "users#dashboard"
   get "/set_location", to: "users#set_location_form"
@@ -37,7 +42,7 @@ Rails.application.routes.draw do
   resources :saved_locations, only: :index
   resources :search_locations, only: [:create, :update]
 
-  resources :third_spaces, only: [:new, :create, :index, :show] do
+  resources :third_spaces, only: [:new, :create, :index, :show, :destroy] do
     get :create_third_space, on: :collection, as: :create_third_space
   end
 
@@ -50,4 +55,7 @@ Rails.application.routes.draw do
   get '/password/reset/edit', to: 'password_resets#edit'
   patch '/password/reset/edit', to: 'password_resets#update'
 
+  namespace :admin do
+    get "/dashboarda", to: "dashboarda#index"
+  end
 end
