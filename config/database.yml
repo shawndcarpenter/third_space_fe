@@ -85,7 +85,7 @@ production:
   # username: third_space_fe
   # password: <%= ENV["THIRD_SPACE_FE_DATABASE_PASSWORD"] %>
   host     : app-b157e346-81ad-4d43-8c63-095c11eb26e3-do-user-15582647-0.c.db.ondigitalocean.com
-  port     : 25060
+  port     : 25
   username : db
   password : AVNS_Ti_MZP6-dO0DoQUoSHk
   database : db
