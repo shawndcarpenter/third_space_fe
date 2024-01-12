@@ -257,4 +257,922 @@ http_interactions:
       encoding: UTF-8
       string: '{"data":{"id":"82","type":"user","relationships":{"third_spaces":{"data":[]}}},"included":[]}'
   recorded_at: Fri, 12 Jan 2024 05:45:51 GMT
+- request:
+    method: get
+    uri: http://localhost:3000/api/v1/users/56/third_spaces
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v2.8.1
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - '0'
+      X-Content-Type-Options:
+      - nosniff
+      X-Download-Options:
+      - noopen
+      X-Permitted-Cross-Domain-Policies:
+      - none
+      Referrer-Policy:
+      - strict-origin-when-cross-origin
+      Content-Type:
+      - application/json; charset=utf-8
+      Vary:
+      - Accept
+      Etag:
+      - W/"9d5053074cdc89638b39379acee43e6f"
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - 6f1aafee-5f87-4b80-b866-d491d09a178c
+      X-Runtime:
+      - '0.166937'
+      Server-Timing:
+      - start_processing.action_controller;dur=0.25, sql.active_record;dur=54.94,
+        instantiation.active_record;dur=0.09, process_action.action_controller;dur=138.93
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: '{"data":{"id":"56","type":"user","relationships":{"third_spaces":{"data":[]}}},"included":[]}'
+  recorded_at: Fri, 12 Jan 2024 14:43:48 GMT
+- request:
+    method: get
+    uri: http://localhost:3000/api/v1/users/56/third_spaces
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v2.8.1
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - '0'
+      X-Content-Type-Options:
+      - nosniff
+      X-Download-Options:
+      - noopen
+      X-Permitted-Cross-Domain-Policies:
+      - none
+      Referrer-Policy:
+      - strict-origin-when-cross-origin
+      Content-Type:
+      - application/json; charset=utf-8
+      Vary:
+      - Accept
+      Etag:
+      - W/"9d5053074cdc89638b39379acee43e6f"
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - d5443441-f5f4-4a53-8961-ecebd972d2bd
+      X-Runtime:
+      - '0.019406'
+      Server-Timing:
+      - start_processing.action_controller;dur=0.05, sql.active_record;dur=12.57,
+        instantiation.active_record;dur=0.19, process_action.action_controller;dur=14.65
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: '{"data":{"id":"56","type":"user","relationships":{"third_spaces":{"data":[]}}},"included":[]}'
+  recorded_at: Fri, 12 Jan 2024 14:43:48 GMT
+- request:
+    method: get
+    uri: http://localhost:3000/api/v1/users/57/third_spaces
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v2.8.1
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - '0'
+      X-Content-Type-Options:
+      - nosniff
+      X-Download-Options:
+      - noopen
+      X-Permitted-Cross-Domain-Policies:
+      - none
+      Referrer-Policy:
+      - strict-origin-when-cross-origin
+      Content-Type:
+      - application/json; charset=utf-8
+      Vary:
+      - Accept
+      Etag:
+      - W/"92cd30668507c78a12220d36ab5e2970"
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - 2f5966ce-0624-45a7-8f6d-67d2545304a9
+      X-Runtime:
+      - '0.037778'
+      Server-Timing:
+      - start_processing.action_controller;dur=0.06, sql.active_record;dur=20.65,
+        instantiation.active_record;dur=0.03, process_action.action_controller;dur=31.57
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: '{"data":{"id":"57","type":"user","relationships":{"third_spaces":{"data":[]}}},"included":[]}'
+  recorded_at: Fri, 12 Jan 2024 14:43:48 GMT
+- request:
+    method: get
+    uri: http://localhost:3000/api/v1/users/74/third_spaces
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v2.8.1
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - '0'
+      X-Content-Type-Options:
+      - nosniff
+      X-Download-Options:
+      - noopen
+      X-Permitted-Cross-Domain-Policies:
+      - none
+      Referrer-Policy:
+      - strict-origin-when-cross-origin
+      Content-Type:
+      - application/json; charset=utf-8
+      Vary:
+      - Accept
+      Etag:
+      - W/"5dd3e7764fe429e2bcb33c4e62909d62"
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - 7c457cd4-2c43-4b43-9386-6f6a912e2173
+      X-Runtime:
+      - '0.022003'
+      Server-Timing:
+      - start_processing.action_controller;dur=0.12, sql.active_record;dur=5.84, instantiation.active_record;dur=0.15,
+        process_action.action_controller;dur=13.56
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: '{"data":{"id":"74","type":"user","relationships":{"third_spaces":{"data":[]}}},"included":[]}'
+  recorded_at: Fri, 12 Jan 2024 14:53:38 GMT
+- request:
+    method: get
+    uri: http://localhost:3000/api/v1/users/74/third_spaces
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v2.8.1
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - '0'
+      X-Content-Type-Options:
+      - nosniff
+      X-Download-Options:
+      - noopen
+      X-Permitted-Cross-Domain-Policies:
+      - none
+      Referrer-Policy:
+      - strict-origin-when-cross-origin
+      Content-Type:
+      - application/json; charset=utf-8
+      Vary:
+      - Accept
+      Etag:
+      - W/"5dd3e7764fe429e2bcb33c4e62909d62"
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - 3c25ffd7-1561-4dce-a06e-ec5864e2927c
+      X-Runtime:
+      - '0.006024'
+      Server-Timing:
+      - start_processing.action_controller;dur=0.05, sql.active_record;dur=1.97, instantiation.active_record;dur=0.04,
+        process_action.action_controller;dur=3.25
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: '{"data":{"id":"74","type":"user","relationships":{"third_spaces":{"data":[]}}},"included":[]}'
+  recorded_at: Fri, 12 Jan 2024 14:53:38 GMT
+- request:
+    method: get
+    uri: http://localhost:3000/api/v1/users/75/third_spaces
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v2.8.1
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - '0'
+      X-Content-Type-Options:
+      - nosniff
+      X-Download-Options:
+      - noopen
+      X-Permitted-Cross-Domain-Policies:
+      - none
+      Referrer-Policy:
+      - strict-origin-when-cross-origin
+      Content-Type:
+      - application/json; charset=utf-8
+      Vary:
+      - Accept
+      Etag:
+      - W/"83742cfcb0c6171eb84ea4d6873ad07d"
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - c452bd7b-1227-4061-8232-f705c7292414
+      X-Runtime:
+      - '0.007752'
+      Server-Timing:
+      - start_processing.action_controller;dur=0.06, sql.active_record;dur=3.16, instantiation.active_record;dur=0.02,
+        process_action.action_controller;dur=4.49
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: '{"data":{"id":"75","type":"user","relationships":{"third_spaces":{"data":[]}}},"included":[]}'
+  recorded_at: Fri, 12 Jan 2024 14:53:38 GMT
+- request:
+    method: get
+    uri: http://localhost:3000/api/v1/users/92/third_spaces
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v2.8.1
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - '0'
+      X-Content-Type-Options:
+      - nosniff
+      X-Download-Options:
+      - noopen
+      X-Permitted-Cross-Domain-Policies:
+      - none
+      Referrer-Policy:
+      - strict-origin-when-cross-origin
+      Content-Type:
+      - application/json; charset=utf-8
+      Vary:
+      - Accept
+      Etag:
+      - W/"b97386f671ec98c1abeb88da4b87c58c"
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - 6fc8cfda-4cb3-4cbf-8d29-b49d5f76d911
+      X-Runtime:
+      - '0.022907'
+      Server-Timing:
+      - start_processing.action_controller;dur=0.11, sql.active_record;dur=8.34, instantiation.active_record;dur=0.14,
+        process_action.action_controller;dur=15.19
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: '{"data":{"id":"92","type":"user","relationships":{"third_spaces":{"data":[]}}},"included":[]}'
+  recorded_at: Fri, 12 Jan 2024 15:10:25 GMT
+- request:
+    method: get
+    uri: http://localhost:3000/api/v1/users/92/third_spaces
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v2.8.1
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - '0'
+      X-Content-Type-Options:
+      - nosniff
+      X-Download-Options:
+      - noopen
+      X-Permitted-Cross-Domain-Policies:
+      - none
+      Referrer-Policy:
+      - strict-origin-when-cross-origin
+      Content-Type:
+      - application/json; charset=utf-8
+      Vary:
+      - Accept
+      Etag:
+      - W/"b97386f671ec98c1abeb88da4b87c58c"
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - 398458e9-d897-4a70-89fa-fbba1b2a9238
+      X-Runtime:
+      - '0.022568'
+      Server-Timing:
+      - start_processing.action_controller;dur=0.06, sql.active_record;dur=18.40,
+        instantiation.active_record;dur=0.06, process_action.action_controller;dur=19.99
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: '{"data":{"id":"92","type":"user","relationships":{"third_spaces":{"data":[]}}},"included":[]}'
+  recorded_at: Fri, 12 Jan 2024 15:10:25 GMT
+- request:
+    method: get
+    uri: http://localhost:3000/api/v1/users/93/third_spaces
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v2.8.1
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - '0'
+      X-Content-Type-Options:
+      - nosniff
+      X-Download-Options:
+      - noopen
+      X-Permitted-Cross-Domain-Policies:
+      - none
+      Referrer-Policy:
+      - strict-origin-when-cross-origin
+      Content-Type:
+      - application/json; charset=utf-8
+      Vary:
+      - Accept
+      Etag:
+      - W/"61f56c5a5a34515ccc66528e899c99f8"
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - 6e4e7909-7b78-4cd7-baca-1c91e3644a62
+      X-Runtime:
+      - '0.010745'
+      Server-Timing:
+      - start_processing.action_controller;dur=0.06, sql.active_record;dur=5.01, instantiation.active_record;dur=0.02,
+        process_action.action_controller;dur=6.80
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: '{"data":{"id":"93","type":"user","relationships":{"third_spaces":{"data":[]}}},"included":[]}'
+  recorded_at: Fri, 12 Jan 2024 15:10:25 GMT
+- request:
+    method: get
+    uri: http://localhost:3000/api/v1/users/135/third_spaces
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v2.8.1
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - '0'
+      X-Content-Type-Options:
+      - nosniff
+      X-Download-Options:
+      - noopen
+      X-Permitted-Cross-Domain-Policies:
+      - none
+      Referrer-Policy:
+      - strict-origin-when-cross-origin
+      Content-Type:
+      - application/json; charset=utf-8
+      Vary:
+      - Accept
+      Etag:
+      - W/"3fa8c69554ec27db28b05bfd5ddea21b"
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - 4fd1bb6c-61ad-44a4-aeae-1be8669a62e6
+      X-Runtime:
+      - '0.019841'
+      Server-Timing:
+      - start_processing.action_controller;dur=0.09, sql.active_record;dur=9.79, instantiation.active_record;dur=0.06,
+        process_action.action_controller;dur=14.88
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: '{"data":{"id":"135","type":"user","relationships":{"third_spaces":{"data":[]}}},"included":[]}'
+  recorded_at: Fri, 12 Jan 2024 15:31:37 GMT
+- request:
+    method: get
+    uri: http://localhost:3000/api/v1/users/135/third_spaces
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v2.8.1
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - '0'
+      X-Content-Type-Options:
+      - nosniff
+      X-Download-Options:
+      - noopen
+      X-Permitted-Cross-Domain-Policies:
+      - none
+      Referrer-Policy:
+      - strict-origin-when-cross-origin
+      Content-Type:
+      - application/json; charset=utf-8
+      Vary:
+      - Accept
+      Etag:
+      - W/"3fa8c69554ec27db28b05bfd5ddea21b"
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - d16f14a4-f7f3-4236-99e5-7fc34977295b
+      X-Runtime:
+      - '0.005206'
+      Server-Timing:
+      - start_processing.action_controller;dur=0.04, sql.active_record;dur=1.68, instantiation.active_record;dur=0.04,
+        process_action.action_controller;dur=2.68
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: '{"data":{"id":"135","type":"user","relationships":{"third_spaces":{"data":[]}}},"included":[]}'
+  recorded_at: Fri, 12 Jan 2024 15:31:37 GMT
+- request:
+    method: get
+    uri: http://localhost:3000/api/v1/users/136/third_spaces
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v2.8.1
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - '0'
+      X-Content-Type-Options:
+      - nosniff
+      X-Download-Options:
+      - noopen
+      X-Permitted-Cross-Domain-Policies:
+      - none
+      Referrer-Policy:
+      - strict-origin-when-cross-origin
+      Content-Type:
+      - application/json; charset=utf-8
+      Vary:
+      - Accept
+      Etag:
+      - W/"6aaa7d8e8b465afe1cbef0e4024a320d"
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - 8f3a6cd4-f650-46b8-8bcd-0c821fa42228
+      X-Runtime:
+      - '0.011528'
+      Server-Timing:
+      - start_processing.action_controller;dur=0.07, sql.active_record;dur=7.29, instantiation.active_record;dur=0.02,
+        process_action.action_controller;dur=8.80
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: '{"data":{"id":"136","type":"user","relationships":{"third_spaces":{"data":[]}}},"included":[]}'
+  recorded_at: Fri, 12 Jan 2024 15:31:37 GMT
+- request:
+    method: get
+    uri: http://localhost:3000/api/v1/users/168/third_spaces
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v2.8.1
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - '0'
+      X-Content-Type-Options:
+      - nosniff
+      X-Download-Options:
+      - noopen
+      X-Permitted-Cross-Domain-Policies:
+      - none
+      Referrer-Policy:
+      - strict-origin-when-cross-origin
+      Content-Type:
+      - application/json; charset=utf-8
+      Vary:
+      - Accept
+      Etag:
+      - W/"69002c2f529c0c1afc22b623197eb246"
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - feed7baa-2147-4e42-938b-5fcd0deaec47
+      X-Runtime:
+      - '0.015551'
+      Server-Timing:
+      - start_processing.action_controller;dur=0.09, sql.active_record;dur=3.99, instantiation.active_record;dur=0.14,
+        process_action.action_controller;dur=9.00
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: '{"data":{"id":"168","type":"user","relationships":{"third_spaces":{"data":[]}}},"included":[]}'
+  recorded_at: Fri, 12 Jan 2024 15:42:35 GMT
+- request:
+    method: get
+    uri: http://localhost:3000/api/v1/users/168/third_spaces
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v2.8.1
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - '0'
+      X-Content-Type-Options:
+      - nosniff
+      X-Download-Options:
+      - noopen
+      X-Permitted-Cross-Domain-Policies:
+      - none
+      Referrer-Policy:
+      - strict-origin-when-cross-origin
+      Content-Type:
+      - application/json; charset=utf-8
+      Vary:
+      - Accept
+      Etag:
+      - W/"69002c2f529c0c1afc22b623197eb246"
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - dd66e5b8-9075-49f1-b71a-9bd24f264bd8
+      X-Runtime:
+      - '0.005376'
+      Server-Timing:
+      - start_processing.action_controller;dur=0.05, sql.active_record;dur=1.21, instantiation.active_record;dur=0.05,
+        process_action.action_controller;dur=2.28
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: '{"data":{"id":"168","type":"user","relationships":{"third_spaces":{"data":[]}}},"included":[]}'
+  recorded_at: Fri, 12 Jan 2024 15:42:36 GMT
+- request:
+    method: get
+    uri: http://localhost:3000/api/v1/users/169/third_spaces
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v2.8.1
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - '0'
+      X-Content-Type-Options:
+      - nosniff
+      X-Download-Options:
+      - noopen
+      X-Permitted-Cross-Domain-Policies:
+      - none
+      Referrer-Policy:
+      - strict-origin-when-cross-origin
+      Content-Type:
+      - application/json; charset=utf-8
+      Vary:
+      - Accept
+      Etag:
+      - W/"d8df128890c035d19a754220dfbedf6c"
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - 6b677866-0d9c-4b8c-8580-7a00dac4ff94
+      X-Runtime:
+      - '0.016077'
+      Server-Timing:
+      - start_processing.action_controller;dur=0.05, sql.active_record;dur=2.79, instantiation.active_record;dur=0.02,
+        process_action.action_controller;dur=6.14
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: '{"data":{"id":"169","type":"user","relationships":{"third_spaces":{"data":[]}}},"included":[]}'
+  recorded_at: Fri, 12 Jan 2024 15:42:36 GMT
+- request:
+    method: get
+    uri: http://localhost:3000/api/v1/users/190/third_spaces
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v2.8.1
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - '0'
+      X-Content-Type-Options:
+      - nosniff
+      X-Download-Options:
+      - noopen
+      X-Permitted-Cross-Domain-Policies:
+      - none
+      Referrer-Policy:
+      - strict-origin-when-cross-origin
+      Content-Type:
+      - application/json; charset=utf-8
+      Vary:
+      - Accept
+      Etag:
+      - W/"31362a20299ff5a811bdaade9c8a7ce5"
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - c35f50e5-7f74-4e21-a9b9-1cc4b9e99bd3
+      X-Runtime:
+      - '0.016776'
+      Server-Timing:
+      - start_processing.action_controller;dur=0.09, sql.active_record;dur=6.53, instantiation.active_record;dur=0.16,
+        process_action.action_controller;dur=11.36
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: '{"data":{"id":"190","type":"user","relationships":{"third_spaces":{"data":[]}}},"included":[]}'
+  recorded_at: Fri, 12 Jan 2024 15:44:29 GMT
+- request:
+    method: get
+    uri: http://localhost:3000/api/v1/users/190/third_spaces
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v2.8.1
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - '0'
+      X-Content-Type-Options:
+      - nosniff
+      X-Download-Options:
+      - noopen
+      X-Permitted-Cross-Domain-Policies:
+      - none
+      Referrer-Policy:
+      - strict-origin-when-cross-origin
+      Content-Type:
+      - application/json; charset=utf-8
+      Vary:
+      - Accept
+      Etag:
+      - W/"31362a20299ff5a811bdaade9c8a7ce5"
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - 1d0fa456-30d1-43f1-9acb-8adb37b6f68d
+      X-Runtime:
+      - '0.004891'
+      Server-Timing:
+      - start_processing.action_controller;dur=0.04, sql.active_record;dur=1.08, instantiation.active_record;dur=0.04,
+        process_action.action_controller;dur=2.39
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: '{"data":{"id":"190","type":"user","relationships":{"third_spaces":{"data":[]}}},"included":[]}'
+  recorded_at: Fri, 12 Jan 2024 15:44:29 GMT
+- request:
+    method: get
+    uri: http://localhost:3000/api/v1/users/191/third_spaces
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v2.8.1
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - '0'
+      X-Content-Type-Options:
+      - nosniff
+      X-Download-Options:
+      - noopen
+      X-Permitted-Cross-Domain-Policies:
+      - none
+      Referrer-Policy:
+      - strict-origin-when-cross-origin
+      Content-Type:
+      - application/json; charset=utf-8
+      Vary:
+      - Accept
+      Etag:
+      - W/"4a41ab0d43faa93acdc3bcdce8d97c2e"
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - a8788163-4eec-484a-8637-9f02e05b9fb0
+      X-Runtime:
+      - '0.006770'
+      Server-Timing:
+      - start_processing.action_controller;dur=0.05, sql.active_record;dur=2.34, instantiation.active_record;dur=0.02,
+        process_action.action_controller;dur=4.08
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: '{"data":{"id":"191","type":"user","relationships":{"third_spaces":{"data":[]}}},"included":[]}'
+  recorded_at: Fri, 12 Jan 2024 15:44:29 GMT
 recorded_with: VCR 6.2.0

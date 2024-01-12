@@ -1,0 +1,56 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: http://localhost:3000/api/v1/third_spaces/f-m7-hyFzkf0HSEeQ2s-9A/reviews?name=name&rating=5&text=text&yelp_id=f-m7-hyFzkf0HSEeQ2s-9A
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v2.8.1
+      Content-Length:
+      - '0'
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - '0'
+      X-Content-Type-Options:
+      - nosniff
+      X-Download-Options:
+      - noopen
+      X-Permitted-Cross-Domain-Policies:
+      - none
+      Referrer-Policy:
+      - strict-origin-when-cross-origin
+      Content-Type:
+      - application/json; charset=utf-8
+      Vary:
+      - Accept
+      Etag:
+      - W/"b2ff7166c293b9ceda165b60860ab5e5"
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - 6ca84225-0b14-48c0-bb6e-86e01f910e56
+      X-Runtime:
+      - '0.044777'
+      Server-Timing:
+      - start_processing.action_controller;dur=0.17, sql.active_record;dur=8.49, instantiation.active_record;dur=0.19,
+        process_action.action_controller;dur=35.92
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: '{"data":{"id":"44","type":"review_object","attributes":{"id":44,"rating":"5","text":"text","name":"name","yelp_id":"f-m7-hyFzkf0HSEeQ2s-9A"}}}'
+  recorded_at: Fri, 12 Jan 2024 15:07:47 GMT
+recorded_with: VCR 6.2.0

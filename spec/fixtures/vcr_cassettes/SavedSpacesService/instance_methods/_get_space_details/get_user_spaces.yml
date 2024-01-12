@@ -1,0 +1,54 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://localhost:3000/api/v1/users/12345/third_spaces
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v2.8.1
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - '0'
+      X-Content-Type-Options:
+      - nosniff
+      X-Download-Options:
+      - noopen
+      X-Permitted-Cross-Domain-Policies:
+      - none
+      Referrer-Policy:
+      - strict-origin-when-cross-origin
+      Content-Type:
+      - application/json; charset=utf-8
+      Vary:
+      - Accept
+      Etag:
+      - W/"45a7203e484d0cadecb87ba1caecaf8d"
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - b087e2ce-6b78-453f-9849-26223bbf959f
+      X-Runtime:
+      - '0.044913'
+      Server-Timing:
+      - start_processing.action_controller;dur=0.09, sql.active_record;dur=13.64,
+        instantiation.active_record;dur=0.17, process_action.action_controller;dur=38.43
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: '{"data":{"id":"12345","type":"user","relationships":{"third_spaces":{"data":[]}}},"included":[]}'
+  recorded_at: Fri, 12 Jan 2024 15:29:36 GMT
+recorded_with: VCR 6.2.0
