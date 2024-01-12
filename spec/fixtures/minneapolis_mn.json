@@ -1,0 +1,12 @@
+{
+  "data": {
+      "id": "322",
+      "type": "user",
+      "relationships": {
+          "third_spaces": {
+              "data": []
+          }
+      }
+  },
+  "included": []
+}

@@ -40,7 +40,8 @@ Rails.application.routes.draw do
   get '/validate_otp', to: 'users#validate_otp_form'
 
   resources :saved_locations, only: :index
-  resources :search_locations, only: [:create, :update]
+  get '/search_locations/update', to: 'search_locations#update', as: :update_search_location
+  resources :search_locations, only: [:create]
 
   resources :third_spaces, only: [:new, :create, :index, :show, :destroy] do
     get :create_third_space, on: :collection, as: :create_third_space
