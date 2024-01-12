@@ -31,3 +31,4 @@
 /config/master.key
 /coverage
 /config/credentials.yml.enc
+/db/migrate/seeds.rb
