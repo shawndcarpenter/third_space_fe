@@ -1,7 +1,15 @@
 class ThirdSpacesService
   def conn
     conn = Faraday.new(url: "http://localhost:3000")
-    # require 'pry'; binding.pry
+  end
+
+  def update_space_tags(yelp_id, tags)
+    response = conn.patch("/api/v1/third_spaces/#{yelp_id}") do |req|
+      req.params['yelp_id'] = yelp_id
+      req.params['tags'] = tags
+    end
+
+    data = JSON.parse(response.body, symbolize_names: true)
   end
 
   def create_third_space_reviews(review)
@@ -24,14 +32,18 @@ class ThirdSpacesService
       req.params['name'] = name
     end
     data = JSON.parse(response.body, symbolize_names: true)
-    # require 'pry'; binding.pry
   end
 
   def get_spaces
     response = conn.get("/api/v1/third_spaces")
 
     data = JSON.parse(response.body, symbolize_names: true)
-    # require 'pry'; binding.pry
+  end
+
+  def get_space(yelp_id)
+    response = conn.get("/api/v1/third_spaces/#{yelp_id}")
+
+    data = JSON.parse(response.body, symbolize_names: true)
   end
 
   def create_third_space(location, tags)
