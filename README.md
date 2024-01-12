@@ -100,7 +100,8 @@ Example of bootstrap code
 ```    <form class="d-flex w-50" action="/third_spaces/search" method="get" name="name" id="name">
       <input class="form-control me-2" id="name" name="name" type="text" placeholder="search by name" aria-label="Search" style="flex-grow: 1;">
       <button class="btn btn-outline-success" type="submit" style="margin-right: 2rem;">Search</button>
-    </form>```
+    </form>
+```
 
 ### Testing
 Our application includes extensive testing using the [Capybara gem](https://github.com/teamcapybara/capybara) to simulate user input and interaction.
