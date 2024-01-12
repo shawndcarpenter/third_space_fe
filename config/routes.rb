@@ -57,6 +57,6 @@ Rails.application.routes.draw do
   patch '/password/reset/edit', to: 'password_resets#update'
 
   namespace :admin do
-    get "/dashboarda", to: "dashboarda#index"
+    get "/dashboard", to: "dashboard#index"
   end
 end
