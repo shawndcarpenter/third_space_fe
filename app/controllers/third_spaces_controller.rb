@@ -86,7 +86,7 @@ class ThirdSpacesController < ApplicationController
   end
 
   def find_third_space(yelp_id)
-    conn = Faraday.new(url: "http://localhost:3000/")
+    conn = Faraday.new(url: "https://third-space-fe-uskie.ondigitalocean.app/third-space-be")
     response = conn.get("api/v1/third_spaces/#{yelp_id}")
     data = JSON.parse(response.body, symbolize_names: true)[:data]
     ThirdSpacePoro.new(data[:attributes])

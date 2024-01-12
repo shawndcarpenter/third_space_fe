@@ -1,6 +1,7 @@
 class SavedSpacesService
   def conn
-    conn = Faraday.new(url: "http://localhost:3000")
+    conn = Faraday.new(url: "https://third-space-fe-uskie.ondigitalocean.app/third-space-be")
+
   end
 
   def get_user_spaces(user_id)
