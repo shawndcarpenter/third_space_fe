@@ -2,9 +2,6 @@
 <html>
   <head>
     <title>ThirdSpaceFe</title>
-    <% if current_user %>
-      <%= link_to "Log Out", logout_path %>
-    <% end %>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -14,6 +11,8 @@
      
   </head>
   <body>
+  <br>
+   <%#= render partial: 'shared/navbar' %> 
     <% flash.each do |type, message| %>
       <p><%= message %></p>
     <% end %>

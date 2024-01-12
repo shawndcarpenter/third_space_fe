@@ -15,6 +15,24 @@ class ThirdSpacesController < ApplicationController
     redirect_to dashboard_path
   end
 
+  def edit
+    @user = current_user
+    yelp_id = params[:id]
+    @space = ThirdSpaceFacade.new(yelp_id).space
+  end
+
+  def update
+    @user = current_user
+    yelp_id = params[:id]
+
+    @space = ThirdSpaceFacade.new(yelp_id).space
+
+    tags = params[:tags].map{|tag| tag.downcase.split.join("_")}
+    @space = UpdateSpaceTagsFacade.new(yelp_id, tags).space
+
+    redirect_to third_space_path(@space.yelp_id)
+  end
+
   # def add_review
   #   space = CreateThirdSpaceFacade.new(location, tags).space
   #   review = ReviewPoro.new(name: @user.first_name, text: params[:text], rating: params[:rating], yelp_id: space[:data][:attributes][:yelp_id])
@@ -50,7 +68,7 @@ class ThirdSpacesController < ApplicationController
   def show
     @user = current_user
     yelp_id = params[:id]
-    @space = find_third_space(yelp_id)
+    @space = ThirdSpaceFacade.new(yelp_id).space
     @reviews = ThirdSpaceReviewsFacade.new(yelp_id).reviews
     @saved = SavedSpacesFacade.new(@user.id).spaces
     @saved_yelp_ids = saved_yelp_ids(@saved)
@@ -73,7 +91,11 @@ class ThirdSpacesController < ApplicationController
   end
 
   def destroy
-    
+    def destroy
+      yelp_id = params[:id]
+      DestroyThirdSpaceFacade.new(yelp_id).destroyed
+      redirect_to dashboard_path
+    end
   end
 
   private

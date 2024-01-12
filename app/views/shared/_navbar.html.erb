@@ -20,17 +20,17 @@
       <% end %>
     </div>
 
-        <div class="ml-auto dropdown me-3">
+    <div class="ml-auto dropdown me-3">
       <a class="btn btn-secondary dropdown-toggle p-2" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
         <%= current_user.search_location.mood %> 
       </a>
       <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-        <li><a class="dropdown-item" href="#">happy</a></li>
-        <li><a class="dropdown-item" href="#">studious</a></li>
-        <li><a class="dropdown-item" href="#">sad</a></li>
-        <li><a class="dropdown-item" href="#">social</a></li>
-        <li><a class="dropdown-item" href="#">party</a></li>
-        <li><a class="dropdown-item" href="#">chill</a></li>
+        <li><%= link_to 'happy', update_search_location_path(mood: 'happy'), class: 'dropdown-item' %></li>
+        <li><%= link_to 'studious', update_search_location_path(mood: 'studious'), class: 'dropdown-item' %></li>
+        <li><%= link_to 'sad', update_search_location_path(mood: 'sad'), class: 'dropdown-item' %></li>
+        <li><%= link_to 'social', update_search_location_path(mood: 'social'), class: 'dropdown-item' %></li>
+        <li><%= link_to 'party', update_search_location_path(mood: 'party'), class: 'dropdown-item' %></li>
+        <li><%= link_to 'chill', update_search_location_path(mood: 'chill'), class: 'dropdown-item' %></li>
       </ul>
     </div>
 

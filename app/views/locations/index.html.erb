@@ -21,32 +21,15 @@
                 <form class="container-fluid text-center" action="/third_spaces/<%=location.id %>" method="get" >
                     <button class="btn btn-outline-success me-2 text-center" name="yelp_id" id="yelp_id" value="<%= location.id %>" type="submit">Visit Third Space</button>
                 </form>
+                <form class="container-fluid text-center" action="/third_spaces/<%=location.id %>/edit" method="get" >
+                    <button class="btn btn-outline-success me-2 text-center" name="yelp_id" id="yelp_id" value="<%= location.id %>" type="submit">Update Third Space</button>
+                </form>
               <% else %>
                 <p class="fs-4 text-center fw-bold text-wrap"><%= link_to location.name, location_path(location.id) %></p>
                 <p class="fs-6 text-center text-wrap"><%= location.address %></p>
                 <p class="fs-6 text-center text-wrap"><%= location.category %></p>
               <% end %>
               </div>
-            </div>
-          <% end %>
-        </div>
-      </div>
-    </div>
-  </div>
-</body>
-</html>
-
-      <!-- Location Section -->
-      <div class="container-fluid">
-        <h3>Locations</h3>
-        <div class="row">
-          <% @location_results.each do |location| %>
-          <div class="col-md-4 mb-4">
-            <div id="location_result-<%= location.id %>" class="location-entry rounded-entry p-3 h-100 w-100">
-              <p class="fs-4 fw-bold text-wrap"><%= link_to location.name, location_path(location.id) %></p>
-              <p class="fs-6 text-wrap"><%= location.address %></p>
-              <p class="fs-6 text-wrap"><%= location.category %></p>
-            </div>
             </div>
           <% end %>
         </div>

@@ -5,15 +5,17 @@ class LocationsController < ApplicationController
   
   def index
     @third_space_yelp_ids = third_space_yelp_ids
-    @location_results = find_locations
+    name = params[:name]
+    city = params[:city]
+    @location_results = LocationsFacade.new(name, city).locations
     ##Create error when data is NIL to make new entries
   end
   
   def show
     location_id = params[:id]
-    @location = find_show_details
+    @location = LocationFacade.new(location_id).location
     @location_json = @location.to_json
-    @reviews = find_show_reviews(location_id)
+    @reviews = LocationReviewsFacade.new(location_id).reviews
   end
 
   def new

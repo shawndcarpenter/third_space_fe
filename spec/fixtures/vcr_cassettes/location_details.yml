@@ -1,0 +1,115 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://localhost:3000/api/v1/locations/4qFHQIs2Nux2EVP2EdfZHA
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v2.8.1
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - '0'
+      X-Content-Type-Options:
+      - nosniff
+      X-Download-Options:
+      - noopen
+      X-Permitted-Cross-Domain-Policies:
+      - none
+      Referrer-Policy:
+      - strict-origin-when-cross-origin
+      Content-Type:
+      - application/json; charset=utf-8
+      Vary:
+      - Accept
+      Etag:
+      - W/"e4df2700618fc85a8e19f05383f5cd7d"
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - 650710f7-eb5e-472f-bb15-9a5498af80d4
+      X-Runtime:
+      - '0.505606'
+      Server-Timing:
+      - start_processing.action_controller;dur=0.16, process_action.action_controller;dur=496.05
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: '{"data":{"id":null,"type":"detailed_location","attributes":{"yelp_id":"4qFHQIs2Nux2EVP2EdfZHA","name":"Costco
+        Wholesale","address":"900 S Harbor Blvd, Fullerton, CA 92832","rating":3.5,"phone":"(714)
+        738-7521","photos":["https://s3-media1.fl.yelpcdn.com/bphoto/FeNHrojXkfsPRwxHDaQWww/o.jpg","https://s3-media3.fl.yelpcdn.com/bphoto/vfCz4kBly2MWhogq9cXLfw/o.jpg","https://s3-media3.fl.yelpcdn.com/bphoto/WvsbRuSCp_a8TJ-y2NW0Dg/o.jpg"],"lat":33.862562727568914,"lon":-117.9238246,"price":null,"hours":[{"open":[{"is_overnight":false,"start":"1000","end":"2030","day":0},{"is_overnight":false,"start":"1000","end":"2030","day":1},{"is_overnight":false,"start":"1000","end":"2030","day":2},{"is_overnight":false,"start":"1000","end":"2030","day":3},{"is_overnight":false,"start":"1000","end":"2030","day":4},{"is_overnight":false,"start":"0930","end":"1800","day":5},{"is_overnight":false,"start":"1000","end":"1800","day":6}],"hours_type":"REGULAR","is_open_now":true}],"category":"Gas
+        Stations","open_now":true}}}'
+  recorded_at: Thu, 11 Jan 2024 23:08:48 GMT
+- request:
+    method: get
+    uri: http://localhost:3000/api/v1/locations/4qFHQIs2Nux2EVP2EdfZHA/reviews
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v2.8.1
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - '0'
+      X-Content-Type-Options:
+      - nosniff
+      X-Download-Options:
+      - noopen
+      X-Permitted-Cross-Domain-Policies:
+      - none
+      Referrer-Policy:
+      - strict-origin-when-cross-origin
+      Content-Type:
+      - application/json; charset=utf-8
+      Vary:
+      - Accept
+      Etag:
+      - W/"18cc9aaf54e2eedac6a061c287a03c1b"
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - 0d78794e-cd64-4062-9ad8-8ffef66256bc
+      X-Runtime:
+      - '0.377897'
+      Server-Timing:
+      - start_processing.action_controller;dur=0.10, process_action.action_controller;dur=373.16
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: '{"data":[{"id":"bAb_6f38kLB-0heGd6sdDw","type":"review","attributes":{"id":"bAb_6f38kLB-0heGd6sdDw","rating":5,"text":"Costco
+        Wholesale is an exceptional shopping destination. The membership benefits
+        alone are worth it, with access to a wide range of high-quality products at...","name":"Tony
+        M.","yelp_id":"4qFHQIs2Nux2EVP2EdfZHA"}},{"id":"PjFVQtEf7xTRza3cnwi_KA","type":"review","attributes":{"id":"PjFVQtEf7xTRza3cnwi_KA","rating":3,"text":"9:15am
+        gas on a Wednesday \nStill a wait of about 4 cars ahead in each lane \nI''d
+        suggest coming earlier in the day especially if you don''t have to shop","name":"Daniel
+        L.","yelp_id":"4qFHQIs2Nux2EVP2EdfZHA"}},{"id":"yj16wPDczWjHNsAvdOHTWQ","type":"review","attributes":{"id":"yj16wPDczWjHNsAvdOHTWQ","rating":1,"text":"If
+        I could give it a zero, I would. Ridiculous planning and traffic control for
+        this gas station. They have 2 barricades up for 2 lines when ultimately...","name":"Elle
+        K.","yelp_id":"4qFHQIs2Nux2EVP2EdfZHA"}}]}'
+  recorded_at: Thu, 11 Jan 2024 23:08:48 GMT
+recorded_with: VCR 6.2.0

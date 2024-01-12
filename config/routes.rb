@@ -10,6 +10,8 @@ Rails.application.routes.draw do
   get "/third_spaces/search", to: "third_spaces#search"
   post "/third_spaces/favorite", to: "third_spaces#favorite"
   delete "/third_spaces/unfavorite", to: "third_spaces#unfavorite"
+  get "/third_spaces/:id/edit", to: "third_spaces#edit"
+  patch "/third_spaces/:id", to: "third_spaces#update"
 
   resources :locations, only: [:index, :show, :new, :create]
   get '/locations/search', to: 'locations#search', as: 'location_search'
@@ -38,9 +40,10 @@ Rails.application.routes.draw do
   get '/validate_otp', to: 'users#validate_otp_form'
 
   resources :saved_locations, only: :index
-  resources :search_locations, only: [:create, :update]
+  get '/search_locations/update', to: 'search_locations#update', as: :update_search_location
+  resources :search_locations, only: [:create]
 
-  resources :third_spaces, only: [:new, :create, :index, :show, :delete] do
+  resources :third_spaces, only: [:new, :create, :index, :show, :destroy] do
     get :create_third_space, on: :collection, as: :create_third_space
   end
 
@@ -54,6 +57,6 @@ Rails.application.routes.draw do
   patch '/password/reset/edit', to: 'password_resets#update'
 
   namespace :admin do
-    get "/dashboarda", to: "dashboarda#index"
+    get "/dashboard", to: "dashboard#index"
   end
 end
