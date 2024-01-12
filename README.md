@@ -1,10 +1,5 @@
-# third_space_fe
 
-XXX NEED TO ADD:
-XXX MFA instructions
-XXX bootstrap instructions
-XXX Screenshots
-XXX OAuth Discussion
+![Screenshot 2024-01-12 at 12 52 17](https://github.com/shawndcarpenter/third_space_fe/assets/139706925/13ba53ac-448b-46f8-a100-7bac4f745461)
 
 # Third Space
 > This product aims to help users find locations for leisure activities near them which fit their mood and needs.
@@ -66,6 +61,7 @@ The user can also access a larger number of locations near them by clicking on "
 
 ### Adding Moods
 The most important part of this product is the ability to add moods to locations. When a user visits a page for a specific location, they are invited to add the moods that they experienced while in this location. Over time, the mood data will become more robust as more locations are reviewed. This application will organize the moods in order of the most commonly reported mood to least common. So, if 20 people experience a Relaxed mood and 2 experience a Loud mood, the Relaxed mood will be shown first. Given that there are no moods with more reports, Relaxed will be listed as the "Top Mood" for a location, and this will be displayed under the location name on all pages listing the location.
+<img width="548" alt="Screenshot 2024-01-12 at 12 54 23" src="https://github.com/shawndcarpenter/third_space_fe/assets/139706925/0da72ae4-3f06-4d4a-bfae-c895711ff8c3">
 
 ## Development setup
 Download both our [front end](https://github.com/shawndcarpenter/third_space_fe) and [back end](https://github.com/shawndcarpenter/third_space_be) applications.
@@ -93,7 +89,17 @@ bundle exec rspec
 ## Gem Information
 The front end repository handles most of what the user will interact with, including routing and page rendering. 
 
+[Geocoder](https://github.com/alexreisner/geocoder) was used to provide geolocation
+
+[Omniauth](https://github.com/omniauth/omniauth) was used for Oauth. 
+
 [Bootstrap](https://github.com/twbs/bootstrap-rubygem) was used extensively for design on the front end.
+
+Example of bootstrap code
+```    <form class="d-flex w-50" action="/third_spaces/search" method="get" name="name" id="name">
+      <input class="form-control me-2" id="name" name="name" type="text" placeholder="search by name" aria-label="Search" style="flex-grow: 1;">
+      <button class="btn btn-outline-success" type="submit" style="margin-right: 2rem;">Search</button>
+    </form>```
 
 ### Testing
 Our application includes extensive testing using the [Capybara gem](https://github.com/teamcapybara/capybara) to simulate user input and interaction.
