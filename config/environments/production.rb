@@ -65,7 +65,7 @@ Rails.application.configure do
   
   config.action_mailer.perform_caching = false
   config.action_mailer.delivery_method = :smtp
-  csmtp_credentials = Rails.application.credentials
+  smtp_credentials = Rails.application.credentials
 
   config.action_mailer.smtp_settings = {
     address: Rails.application.credentials[:smtp_address],
