@@ -96,7 +96,7 @@ class UsersController < ApplicationController
       redirect_to login_path
     elsif user.authenticate(params[:password])
       session[:user_id] = user.id
-      flash[:success] = "Welcome, #{user.email}!"
+      # flash[:success] = "Welcome, #{user.email}!"
       initiate_verification(user)
     else
       flash[:error] = "Sorry, your credentials are bad."
