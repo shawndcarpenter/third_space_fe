@@ -1,6 +1,6 @@
 class LocationsService
   def conn
-    conn = Faraday.new(url: "http://localhost:3000") do |faraday| 
+    conn = Faraday.new(url: "https://third-space-fe-uskie.ondigitalocean.app/third-space-be") do |faraday| 
     end
   end
 
