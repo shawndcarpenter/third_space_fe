@@ -47,6 +47,10 @@ Rails.application.routes.draw do
     get :create_third_space, on: :collection, as: :create_third_space
   end
 
+  resources :users, only: [] do
+    resources :third_spaces, only: [:index], controller: 'users/third_spaces'
+  end
+
 
   get '/user/auth/google_oauth2/callback', to: 'sessions#create'
   post '/geolocation_storage/lat_lon_session', to: 'geolocation_storage#lat_lon_session'
