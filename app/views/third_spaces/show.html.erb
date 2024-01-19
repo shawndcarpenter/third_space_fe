@@ -44,9 +44,43 @@
           <div class="rounded-container"><%= @space.price%></div>
         <% end %>
         
-        <% @tags.each do |t| %>
-          <div class="rounded-container"><%= t %></div>
+        
+        <h3>Top Moods</h3>
+        <% @mood_tags.each do |tag, freq| %>
+          <% if freq == 1 %>
+            Voted By <%= freq %> User: <div class="rounded-container"><%= tag %></div><br>
+          <% else %>
+            Voted By <%= freq %> Users: <div class="rounded-container"><%= tag %></div><br>
+          <% end %>
         <% end %>
+        <h3>Accessibility Tags</h3>
+
+        <p>
+          <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+            Show/Hide
+          </button>
+        </p>
+        <div class="collapse" id="collapseExample">
+          <div class="card card-body">
+            Light and Noise Levels: <div class="rounded-container"><%= @light_level %></div>
+            Staff Pushiness: <div class="rounded-container"><%= @staff_tags %></div>
+            Cost Factors: <div class="rounded-container"><%= @purchase_necessary %></div>
+            Sober Space: <div class="rounded-container"><%= @sober_tag %></div>
+            Restroom Needs: <div class="rounded-container"><%= @customer_restrooms %></div><div class="rounded-container"><%= @gn_restrooms %></div>
+            Transportation: <div class="rounded-container"><%= @parking_tag %></div><div class="rounded-container"><%= @transportion_tag %></div>
+            Wheelchair Accessibility: <div class="rounded-container"><%= @accessible_tags %></div>
+            Identity: <div class="rounded-container"><%= @bipoc_tag %></div><div class="rounded-container"><%= @lgbt_tag %></div><div class="rounded-container"><%= @gn_restrooms %></div>
+            Family Needs: <div class="rounded-container"><%= @child_friendly %></div>
+          </div>
+        </div>
+
+
+        <h3>All Tags</h3>
+        <% @tags_with_freq.each do |tag, freq| %>
+
+          <div class="rounded-container"><%= tag %></div>
+        <% end %>
+
 
         <br><br>
         <div class="text-center">
@@ -75,4 +109,7 @@
       </div>
     </div>
   </div>
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 </body>
