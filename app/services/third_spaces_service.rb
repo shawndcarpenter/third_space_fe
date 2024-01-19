@@ -1,6 +1,6 @@
 class ThirdSpacesService
   def conn
-    conn = Faraday.new(url: "http://localhost:3000")
+    conn = Faraday.new(url: "https://plankton-app-tavpa.ondigitalocean.app")
 
   end
 
