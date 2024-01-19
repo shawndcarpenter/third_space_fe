@@ -120,9 +120,11 @@ class UsersController < ApplicationController
     user = User.find_by_email(session[:email])
     if session[:code] == entered_otp && session[:otp_expires_at] > Time.current && user.admin?
       login_session_clear
-      redirect_to admin_dashboard_path, notice: 'OTP verification successful!'
+      redirect_to admin_dashboard_path
+      # redirect_to admin_dashboard_path, notice: 'OTP verification successful!'
     elsif session[:code] == entered_otp && session[:otp_expires_at] > Time.current
-        redirect_to set_location_path, notice: 'OTP verification successful!'
+        redirect_to set_location_path
+        # redirect_to set_location_path, notice: 'OTP verification successful!'
         login_session_clear
     elsif session[:code] == entered_otp && session[:otp_expires_at] < Time.current
       redirect_to login_path, notice: 'OTP session has expired. Please try logging in again.'
