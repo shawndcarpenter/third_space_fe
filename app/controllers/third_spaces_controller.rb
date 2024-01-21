@@ -8,7 +8,7 @@ class ThirdSpacesController < ApplicationController
   
   def create_third_space
     location = JSON.parse(params[:location_json], symbolize_names: true)
-    tags = params[:tags].map{|tag| tag.downcase.split.join("_")}
+    tags = params[:tags]
 
     CreateThirdSpaceFacade.new(location, tags).space
     
@@ -27,7 +27,7 @@ class ThirdSpacesController < ApplicationController
 
     @space = ThirdSpaceFacade.new(yelp_id).space
 
-    tags = params[:tags].map{|tag| tag.downcase.split.join("_")}
+    tags = params[:tags]
     @space = UpdateSpaceTagsFacade.new(yelp_id, tags).space
 
     redirect_to third_space_path(@space.yelp_id)
@@ -87,6 +87,7 @@ class ThirdSpacesController < ApplicationController
     @transportation_tag = find_transportation_tags(@space.tags).first.first
     @mood_tags = find_moods(@space.tags)
     @light_level = find_light_level(@space.tags).first.first
+    @noise_level = find_noise_level(@space.tags).first.first
     @staff_tags = find_staff_tags(@space.tags).first.first
     @purchase_necessary = find_purchase_necessary_tags(@space.tags).first.first
     @sober_tag = find_sober_tags(@space.tags).first.first
@@ -97,7 +98,6 @@ class ThirdSpacesController < ApplicationController
     @bipoc_tag = find_bipoc_tags(@space.tags).first.first
     @lgbt_tag = find_lgbt_tags(@space.tags).first.first
     @child_friendly = find_child_tags(@space.tags).first.first
-    # binding.pry
   end
 
   def destroy
@@ -130,25 +130,30 @@ class ThirdSpacesController < ApplicationController
       tag_frequency
     end
   end
-  def sort_if_not_empty
-
+  def find_noise_level(tags)
+    noise_tags = []
+    tags.map do |tag|
+      if tag == "Loud" || tag == "Quiet" || tag == "Average Noise Level"
+       noise_tags << tag
+      end
+    end
+    sort_tags_by_frequency(noise_tags)
   end
 
   def find_transportation_tags(tags)
     transportation_tags = []
     tags.map do |tag|
-      if tag == "transportation_nearby" || tag == "no_transportation_nearby"
+      if tag == "Transportation Nearby" || tag == "No Transporation Nearby"
        transportation_tags << tag
       end
     end
-    # binding.pry
-      sort_tags_by_frequency(transportation_tags)
+    sort_tags_by_frequency(transportation_tags)
   end
 
   def find_child_tags(tags)
     child_tags = []
     tags.map do |tag|
-      if tag == "child_friendly" || tag == "not_child_friendly"
+      if tag == "Child Friendly" || tag == "Not Child Friendly"
        child_tags << tag
       end
     end
@@ -158,7 +163,7 @@ class ThirdSpacesController < ApplicationController
   def find_bipoc_tags(tags)
     bipoc_tags = []
     tags.map do |tag|
-      if tag == "bipoc_friendly" || tag == "not_bipoc_friendly"
+      if tag == "BIPOC Friendly" || tag == "Not BIPOC Friendly"
        bipoc_tags << tag
       end
     end
@@ -168,7 +173,7 @@ class ThirdSpacesController < ApplicationController
   def find_lgbt_tags(tags)
     lgbt_tags = []
     tags.map do |tag|
-      if tag == "lgbt_friendly" || tag == "not_lgbt_friendly"
+      if tag == "Queer Friendly" || tag == "Not Queer Friendly"
        lgbt_tags << tag
       end
     end
@@ -178,7 +183,7 @@ class ThirdSpacesController < ApplicationController
   def find_accessible_tags(tags)
     accessible_tags = []
     tags.map do |tag|
-      if tag == "accessible" || tag == "non_accessible"
+      if tag == "Accessible" || tag == "Not Accessible"
        accessible_tags << tag
       end
     end
@@ -188,7 +193,7 @@ class ThirdSpacesController < ApplicationController
   def find_parking_tags(tags)
     parking_tags = []
     tags.map do |tag|
-      if tag == "parking" || tag == "no_parking"
+      if tag == "Parking" || tag == "No Parking"
        parking_tags << tag
       end
     end
@@ -198,7 +203,7 @@ class ThirdSpacesController < ApplicationController
   def find_gn_restroom_tags(tags)
     gn_restroom_tags = []
     tags.map do |tag|
-      if tag == "gender_neutral_restrooms" || tag == "no_gender_neutral_restrooms"
+      if tag == "Gender Neutral Restrooms" || tag == "No Gender Neutral Restrooms"
        gn_restroom_tags << tag
       end
     end
@@ -208,7 +213,7 @@ class ThirdSpacesController < ApplicationController
   def find_customer_restroom_tags(tags)
    customer_restroom_tags = []
     tags.map do |tag|
-      if tag == "customer_restrooms" || tag == "no_customer_restrooms"
+      if tag == "Customer Restrooms" || tag == "No Customer Restrooms"
        customer_restroom_tags << tag
       end
     end
@@ -218,7 +223,7 @@ class ThirdSpacesController < ApplicationController
   def find_sober_tags(tags)
     sober_tags = []
     tags.map do |tag|
-      if tag == "sober" || tag == "non_sober"
+      if tag == "Sober" || tag == "Non Sober"
         sober_tags << tag
       end
     end
@@ -228,7 +233,7 @@ class ThirdSpacesController < ApplicationController
   def find_purchase_necessary_tags(tags)
     purchase_tags = []
     tags.map do |tag|
-      if tag == "purchase_necessary" || tag == "no_purchase_necessary"
+      if tag == "Purchase Necessary" || tag == "No Purchase Necessary"
         purchase_tags << tag
       end
     end
@@ -238,7 +243,7 @@ class ThirdSpacesController < ApplicationController
   def find_staff_tags(tags)
     staff_tags = []
     tags.map do |tag|
-      if tag == "pushy" || tag == "helpful" || tag == "respectful"
+      if tag == "Pushy" || tag == "Helpful" || tag == "Respectful"
         staff_tags << tag
       end
     end
@@ -248,7 +253,7 @@ class ThirdSpacesController < ApplicationController
   def find_light_level(tags)
     light_tags = []
     tags.map do |tag|
-      if tag == "bright" || tag == "moody" || tag == "average_lighting"
+      if tag == "Bright" || tag == "Moody" || tag == "Average Lighting"
         light_tags << tag
       end
     end
@@ -258,7 +263,7 @@ class ThirdSpacesController < ApplicationController
   def find_moods(tags)
     mood_tags = []
     tags.map do |tag|
-      if tag == "happy" || tag == "studious" || tag == "sad" || tag == "social" || tag == "party" || tag == "chill"
+      if tag == "Happy" || tag == "Studious" || tag == "Sad" || tag == "Social" || tag == "Party" || tag == "Chill"
         mood_tags << tag
       end
     end
