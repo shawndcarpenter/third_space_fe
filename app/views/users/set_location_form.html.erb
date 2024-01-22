@@ -23,10 +23,10 @@
     <%= form_with url: search_locations_path, method: :post, local: true do |form| %>
     <div class="mb-3 d-flex align-items-center">
       <div class="col-sm-2">
-        <%= form.label :city, "city", class: "form-label" %>
+        <%= form.label :city, "city", class: "form-floating" %>
       </div>
       <div class="col-sm-10">
-        <%= form.text_field :city, class: "form-control" %>
+        <%= form.text_field :city, class: "form-control", id: "city" %>
       </div>
     </div>
 
