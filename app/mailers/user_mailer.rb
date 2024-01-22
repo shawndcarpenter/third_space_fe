@@ -1,9 +1,9 @@
 class UserMailer < ApplicationMailer
   default from: 'thirdspace2308@gmail.com' # Set your default sender email address
+  require 'sendgrid-ruby'
+include SendGrid
 
   def send_otp_email(user)
-    require 'sendgrid-ruby'
-include SendGrid
 
 sendgrid_api_key = Rails.application.credentials.dig(:sendgrid, :key)
 
