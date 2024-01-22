@@ -12,7 +12,7 @@ class UsersController < ApplicationController
     spaces = ThirdSpacesFacade.new.spaces
     location_recs = filter_spaces_by_location(spaces)
     @mood_recs = filter_by_mood(location_recs)
-
+    
     @location_recs = location_recs.reject! do |location|
       @mood_recs.any? { |mood_rec| location.name == mood_rec.name }
     end
@@ -167,15 +167,20 @@ class UsersController < ApplicationController
   end
 
   def filter_spaces_by_location(results)
-    city = current_user.search_location.city
+    city = current_user.search_location.city.capitalize
     state = current_user.search_location.state
+    locs = [] 
     results.find_all do |space|
       if !space.address.nil?
         address_parts = space.address.split(',').map(&:strip)
         space_city = address_parts[-2]
         space_state = address_parts[-1]
-        space_city == city && space_state.include?(state)
+        match = space_city.include?(city) && space_state.include?(state)
+        if match
+        locs << space 
+        end
       end
+      locs
     end
   end
 

@@ -36,7 +36,7 @@ class SearchLocationsController < ApplicationController
   
   private
   def search_params
-    params.permit(:city, :state, :authenticity_token)
+    params.permit(:city, :state)
   end
 
   def geocode_location(lat, lon)
