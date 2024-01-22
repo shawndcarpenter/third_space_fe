@@ -61,11 +61,17 @@ Rails.application.configure do
   # Use a real queuing backend for Active Job (and separate queues per environment).
   # config.active_job.queue_adapter     = :resque
   # config.active_job.queue_name_prefix = "third_space_fe_production"
-  config.action_mailer.default_url_options = { host: 'localhost:3000' }
-  
+  config.action_mailer.raise_delivery_errors = true
+  config.action_mailer.perform_deliveries = true
+
   config.action_mailer.perform_caching = false
+
+  #config.action_mailer.delivery_method = :letter_opener
+  config.action_mailer.default_url_options = { host: 'https://third-space-fe-uskie.ondigitalocean.app/' }
+
   config.action_mailer.delivery_method = :smtp
   smtp_credentials = Rails.application.credentials
+  smtp_credentials = smtp_credentials || {}
 
   config.action_mailer.smtp_settings = {
     address: Rails.application.credentials[:smtp_address],
@@ -76,6 +82,7 @@ Rails.application.configure do
     authentication: Rails.application.credentials[:smtp_authentication],
     enable_starttls_auto: Rails.application.credentials[:smtp_enable_starttls_auto]
   }
+
 
   # Ignore bad email addresses and do not raise email delivery errors.
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.
