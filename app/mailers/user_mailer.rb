@@ -4,13 +4,14 @@ class UserMailer < ApplicationMailer
 include SendGrid
 
   def send_otp_email(user)
+    @user = user
 
 sendgrid_api_key = Rails.application.credentials.dig(:sendgrid, :key)
 
-from = Email.new(email: 'test@example.com')
-to = Email.new(email: 'test@example.com')
-subject = 'Sending with SendGrid is Fun'
-content = Content.new(type: 'text/plain', value: 'and easy to do anywhere, even with Ruby')
+from = Email.new(email: 'thirdspace2308@gmail.com')
+to = Email.new(email: "#{@user.email}")
+subject = 'Your OTP'
+content = Content.new(type: 'text/plain', value: "#{@user.otp_code}")
 mail = Mail.new(from, subject, to, content)
 
 sg = SendGrid::API.new(api_key: sendgrid_api_key)
@@ -20,7 +21,6 @@ puts response.body
 puts response.headers
 
 
-    # @user = user
     # @otp = user.otp_code
 
     # mail(to: @user.email, subject: 'Your OTP for Two-Factor Authentication')
