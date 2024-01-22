@@ -15,6 +15,10 @@
  */
 @import "bootstrap";
 
+.form-control label {
+  text-transform: none;
+}
+
 .dash-header {
   text-decoration: none;
   color: black;

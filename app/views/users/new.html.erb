@@ -6,40 +6,36 @@
       <% end %>
     </div>
     <div class="mb-3">
-      <%= link_to "I already have an account", "/login", class: "btn btn-primary" %>
+      <%= link_to "i already have an account", "/login", class: "btn btn-primary" %>
     </div>
 
     <%= form_with(model: User.new, url: "/register", method: "post", local: true) do |f| %>
 
-      <div class="form-floating mb-3">
-
-          <%= f.text_field :first_name, class: "form-control", id: 'floatingFirstName', placeholder: 'first name', aria_describedby: "first-name" %>
+      <fieldset class="form-floating mb-3">
+        <%= f.text_field :first_name, class: "form-control", id: 'floatingFirstName', placeholder: 'first name', 'aria-describedby': "first-name" %>
         <%= f.label :first_name, for: 'floatingFirstName' %>
+      </fieldset>
 
-        </div>
-
-      <div class="form-floating mb-3">
-        <%= f.text_field :last_name, class: "form-control", id: 'floatingLastName', placeholder: 'last name', aria_describedby: "last-name" %>
+      <fieldset class="form-floating mb-3">
+        <%= f.text_field :last_name, class: "form-control", id: 'floatingLastName', placeholder: 'last name', 'aria-describedby': "last-name" %>
         <%= f.label :last_name, for: 'floatingLastName' %>
-        </div>
-      <%# </div> %>
+      </fieldset>
 
-
-      <div class="form-floating mb-3">
-        <%= f.email_field :email, class: "form-control", id: 'floatingEmail', placeholder: 'email', aria_describedby: "input-email" %>
+      <fieldset class="form-floating mb-3">
+        <%= f.email_field :email, class: "form-control", id: 'floatingEmail', placeholder: 'email', 'aria-describedby': "input-email" %>
         <%= f.label :email, for: 'floatingEmail' %>
         <div id="emailHelp" class="form-text">we'll never share your information</div>
-        </div>
+      </fieldset>
 
-      <div class="form-floating mb-3">
-          <%= f.password_field :password, class: "form-control", id: "floatingPassword", placeholder: 'password', aria_describedby: "input-password" %>
+      <fieldset class="form-floating mb-3">
+        <%= f.password_field :password, class: "form-control", id: "floatingPassword", placeholder: 'password', 'aria-describedby': "input-password" %>
         <%= f.label :password, for: "floatingPassword" %>
-      </div>
+      </fieldset>
 
-      <div class="form-floating mb-3">
-          <%= f.password_field :password_confirmation, class: "form-control", id: "floatingPasswordConfirm", placeholder: 'password confirmation', aria_describedby: "input-password-confirmation" %>
+      <fieldset class="form-floating mb-3">
+        <%= f.password_field :password_confirmation, class: "form-control", id: "floatingPasswordConfirm", placeholder: 'password confirmation', 'aria-describedby': "input-password-confirmation" %>
         <%= f.label :password_confirmation, for: "floatingPasswordConfirm" %>
-      </div>
+      </fieldset>
 
       <div class="mb-3">
         <%= f.submit "create new account", class: "btn btn-primary" %>

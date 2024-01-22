@@ -1,6 +1,9 @@
 class UsersController < ApplicationController
 
   def dashboard
+    if current_user.nil?
+      redirect_to root_path and return
+    end
     @user = current_user
 
     if params[:mood]
