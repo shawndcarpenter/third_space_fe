@@ -111,7 +111,7 @@ class UsersController < ApplicationController
     @otp = session[:code] = user.otp_code #this needs to display 
     session[:otp_expires_at] = 5.minutes.from_now
     session[:email] = user.email
-    # UserMailer.send_otp_email(user).deliver_now
+    UserMailer.send_otp_email(user).deliver_now
     redirect_to validate_otp_path
   end
 
