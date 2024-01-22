@@ -8,22 +8,13 @@
     <h3>What is the name and city of this third space?</h3><br>
     
     <%= form_with url: locations_path, method: :get, local: true do |form| %>
-      <div class="mb-3 d-flex align-items-center">
-        <div class="col-sm-2">
-          <%= form.label :name, "name", class: "form-label" %>
-        </div>
-        <div class="col-sm-10">
-          <%= text_field_tag :name, params[:name], class: "form-control" %>
-        </div>
+          <div class="form-floating mb-3">
+          <%= form.text_field :name, id: 'floatingInput', class: "form-control", placeholder: "name" %>
+          <%= form.label :name, "name", for: 'floatingInput', class: "form-label" %>
       </div>
-
-      <div class="mb-3 d-flex align-items-center">
-        <div class="col-sm-2">
-          <%= form.label :city, "city", class: "form-label" %>
-        </div>
-              <div class="col-sm-10">
-          <%= text_field_tag :city, params[:city], class: "form-control" %>
-        </div>
+          <div class="form-floating mb-3">
+          <%= form.text_field :city, id: 'floatingInput', class: "form-control", placeholder: "city" %>
+          <%= form.label :city, "city", for: 'floatingInput', class: "form-label" %>
       </div>
 
       <div class="mb-3">
