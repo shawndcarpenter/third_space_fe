@@ -33,12 +33,28 @@ class ThirdSpacesController < ApplicationController
     redirect_to third_space_path(@space.yelp_id)
   end
 
-  # def add_review
-  #   space = CreateThirdSpaceFacade.new(location, tags).space
-  #   review = ReviewPoro.new(name: @user.first_name, text: params[:text], rating: params[:rating], yelp_id: space[:data][:attributes][:yelp_id])
+  def add_review
+    @user = current_user
+    yelp_id = params[:id]
+    @space = ThirdSpaceFacade.new(yelp_id).space
+    #<ReviewPoro:0x000000011ff50828
+    # @name="Christina P.",
+    # @rating="5",
+    # @text=
+    #  "A solid 4.5 for Frasca. \nWe chose their tasting menu which made it super easy for us, and my partner opted for the wine pairing as well. \nWe really enjoyed...",
+    # @yelp_id="uGldOBewiKoJij_--_u8aQ">,
+  end
+
+  def save_review
+    @user = current_user
+    yelp_id = params[:id]
+    @space = ThirdSpaceFacade.new(yelp_id).space
+    binding.pry
+    #review = ReviewPoro.new(name: @user.first_name, text: params[:text], rating: params[:rating], yelp_id: space[:data][:attributes][:yelp_id])
     
-  #   @review = CreateSpaceReviewsFacade.new(review)
-  # end
+    #@review = CreateSpaceReviewsFacade.new(review).new_review
+    #@reviews = ThirdSpaceReviewsFacade.new(yelp_id).reviews
+  end
 
   def search
     @user = current_user
@@ -72,13 +88,13 @@ class ThirdSpacesController < ApplicationController
     @reviews = ThirdSpaceReviewsFacade.new(yelp_id).reviews
     @saved = SavedSpacesFacade.new(@user.id).spaces
     @saved_yelp_ids = saved_yelp_ids(@saved)
-
+    
     if @reviews == []
       reviews = LocationReviewsFacade.new(yelp_id).reviews
       reviews.map do |review|
         CreateSpaceReviewsFacade.new(review).new_review
       end
-
+      
       @reviews = ThirdSpaceReviewsFacade.new(yelp_id).reviews
     end
     @tags = @space.tags

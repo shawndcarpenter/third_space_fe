@@ -12,6 +12,8 @@ Rails.application.routes.draw do
   delete "/third_spaces/unfavorite", to: "third_spaces#unfavorite"
   get "/third_spaces/:id/edit", to: "third_spaces#edit"
   patch "/third_spaces/:id", to: "third_spaces#update"
+  get "/third_spaces/:id/add_review", to: "third_spaces#add_review"
+  patch "/third_spaces/:id/add_review", to: "third_spaces#save_review", as: "save_review_third_space"
 
   resources :locations, only: [:index, :show, :new, :create]
   get '/locations/search', to: 'locations#search', as: 'location_search'

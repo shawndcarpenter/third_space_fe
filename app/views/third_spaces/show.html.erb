@@ -62,6 +62,9 @@
           <form class="container-fluid d-flex justify-content-center align-items-center" action="/third_spaces/<%= @space.yelp_id %>/edit" method="get">
             <button class="btn btn-outline-success me-2" name="yelp_id" id="yelp_id" value="<%= @space.yelp_id %>" type="submit">Add More Tags</button>
           </form>
+          <form class="container-fluid d-flex justify-content-center align-items-center" action="/third_spaces/<%= @space.yelp_id %>/add_review" method="get">
+            <button class="btn btn-outline-success me-2" name="yelp_id" id="yelp_id" value="<%= @space.yelp_id %>" type="submit">Write A Review</button>
+          </form>
           <br>
         </div>
 
