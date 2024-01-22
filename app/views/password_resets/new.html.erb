@@ -1,17 +1,17 @@
 <div class="container-fluid d-flex justify-content-center align-items-center vh-100">
-  <div class="text-center">
+    <div class="text-center">
     <div class="mb-3">
-      <%= link_to dashboard_path do %>
+        <%= link_to dashboard_path do %>
         <%= image_tag 'temp_logo.png', class: "img-fluid", alt: "Logo" %>
-      <% end %>
+    <% end %>
     </div>
 
 <h2>Forgot your password?</h2>
 <%= form_with url: password_reset_path, local: true, html: { class: 'form-floating mb-3' } do |form| %>
     <div class="form-floating mb-3">
-              <%= form.text_field :email, id: 'floatingInput', class: "form-control", placeholder: "email" %>
-          <%= form.label :email, "email", for: 'floatingInput', class: "form-label" %>
-      </div>
+            <%= form.text_field :email, id: 'floatingInput', class: "form-control", placeholder: "email" %>
+        <%= form.label :email, "email", for: 'floatingInput', class: "form-label" %>
+    </div>
     <div class="mb-3">
         <%= form.submit "reset password", class: "btn btn-primary" %>
 <%end%>

@@ -20,23 +20,18 @@
 
     <h3>Where would you like to search today?</h3><br>
     
-    <%= form_with url: search_locations_path, method: :post, local: true do |form| %>
-    <div class="mb-3 d-flex align-items-center">
-      <div class="col-sm-2">
-        <%= form.label :city, "city", class: "form-floating" %>
-      </div>
-      <div class="col-sm-10">
-        <%= form.text_field :city, class: "form-control", id: "city" %>
-      </div>
+    <%= form_with url: search_locations_path, method: :post, local: true, html: { class: 'form-floating mb-3' } do |form| %>
+    <div class="form-floating mb-3">
+
+        <%= form.text_field :city, id: "floatingInput", class: "form-control", placeholder: "city" %>
+        <%= form.label :city, "city", for: 'floatingInput', class: "form-label" %>
+
     </div>
 
     <div class="mb-3 d-flex align-items-center">
-      <div class="col-sm-2">
-        <%= form.label :state, "state", class: "form-label" %>
-      </div>
-      <div class="col-sm-10">
+
         <%= form.select :state, User::STATE_ACRONYMS, { prompt: 'Select a state' }, class: "form-control" %>
-      </div>
+
     </div>
 
     <div class="mb-3">
