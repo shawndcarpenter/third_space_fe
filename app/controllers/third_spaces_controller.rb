@@ -1,3 +1,5 @@
+require 'date'
+
 class ThirdSpacesController < ApplicationController
 
   def new
@@ -33,12 +35,33 @@ class ThirdSpacesController < ApplicationController
     redirect_to third_space_path(@space.yelp_id)
   end
 
-  # def add_review
-  #   space = CreateThirdSpaceFacade.new(location, tags).space
-  #   review = ReviewPoro.new(name: @user.first_name, text: params[:text], rating: params[:rating], yelp_id: space[:data][:attributes][:yelp_id])
-    
-  #   @review = CreateSpaceReviewsFacade.new(review)
-  # end
+  def add_review
+    @user = current_user
+    yelp_id = params[:id]
+    @space = ThirdSpaceFacade.new(yelp_id).space
+  end
+
+  def save_review
+    @user = current_user
+    yelp_id = params[:id]
+    @space = ThirdSpaceFacade.new(yelp_id).space
+    name = @user.first_name + ' ' + @user.last_name.first + '.'
+    date = Date.today.strftime("%Y-%m-%d")
+    review_poro = ReviewPoro.new(name: name, text: params[:text], rating: params[:rating], date: date, yelp_id: yelp_id)
+    @review = CreateSpaceReviewsFacade.new(review_poro).new_review
+    redirect_to "/third_spaces/#{yelp_id}"
+    flash[:success] = "Review created successfully!"
+  end
+
+  def all_reviews
+    @user = current_user
+    yelp_id = params[:id]
+    @space = ThirdSpaceFacade.new(yelp_id).space
+    @reviews = ThirdSpaceReviewsFacade.new(yelp_id).reviews
+    unless @reviews.nil? || @reviews.empty?
+      avg_rating(@reviews)
+    end
+  end
 
   def search
     @user = current_user
@@ -79,13 +102,16 @@ class ThirdSpacesController < ApplicationController
     @reviews = ThirdSpaceReviewsFacade.new(yelp_id).reviews
     @saved = SavedSpacesFacade.new(@user.id).spaces
     @saved_yelp_ids = saved_yelp_ids(@saved)
-
+    if @reviews != []
+      avg_rating(@reviews)
+    end
+    
     if @reviews == []
       reviews = LocationReviewsFacade.new(yelp_id).reviews
       reviews.map do |review|
         CreateSpaceReviewsFacade.new(review).new_review
       end
-
+      
       @reviews = ThirdSpaceReviewsFacade.new(yelp_id).reviews
     end
     @tags_with_freq = format_tags(@space.tags)
@@ -285,4 +311,15 @@ class ThirdSpacesController < ApplicationController
     end
     list
   end
+
+  def avg_rating(reviews)
+    sum = 0.0
+    total_ratings = 0.0
+    iteration = @reviews.each do |r|
+      sum += r.rating.to_f
+      total_ratings += 1
+    end
+    @avg_rating = sum/total_ratings
+  end
+
 end
