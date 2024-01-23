@@ -42,7 +42,14 @@ class ThirdSpacesController < ApplicationController
 
   def search
     @user = current_user
-    @spaces = ThirdSpacesByNameFacade.new(params[:name]).spaces
+    if params[:name]
+      @spaces = ThirdSpacesByNameFacade.new(params[:name]).spaces
+    elsif params[:tags]
+      @spaces = ThirdSpacesByNameFacade.new(params[:name]).spaces
+      params[:tags].each do |tag|
+        @spaces.delete_if { |space| space.tags == nil || !space.tags.include?(tag) }
+      end
+    end
     @saved = SavedSpacesFacade.new(@user.id).spaces
     @saved_yelp_ids = saved_yelp_ids(@saved)
   end
