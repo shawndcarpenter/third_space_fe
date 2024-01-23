@@ -3,6 +3,7 @@ class ReviewPoro
   :yelp_id, 
   :rating,
   :text,
+  :date,
   :name
 
   def initialize(data)
@@ -10,5 +11,6 @@ class ReviewPoro
     @rating = data[:rating]
     @text = data[:text]
     @name = data[:name]
+    @date = data[:date]
   end
 end
