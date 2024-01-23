@@ -42,9 +42,9 @@
         <% end %>
 
         <% filtered_reviews = if selected_rating == 'all'
-                                @reviews.sort_by { |r| r.date }.reverse
+                                @reviews.reject { |r| r.date.nil? }.sort_by { |r| r.date }.reverse
                               else
-                                @reviews..sort_by { |r| r.date }.reverse.select { |r| r.rating.to_i == selected_rating.to_i }
+                                @reviews.reject { |r| r.date.nil? }.sort_by { |r| r.date }.reverse.select { |r| r.rating.to_i == selected_rating.to_i }
                               end %>
 
         <% filtered_reviews.each do |r| %>

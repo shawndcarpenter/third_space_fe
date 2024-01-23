@@ -58,7 +58,7 @@ class ThirdSpacesController < ApplicationController
     yelp_id = params[:id]
     @space = ThirdSpaceFacade.new(yelp_id).space
     @reviews = ThirdSpaceReviewsFacade.new(yelp_id).reviews
-    if @reviews != []
+    unless @reviews.nil? || @reviews.empty?
       avg_rating(@reviews)
     end
   end
