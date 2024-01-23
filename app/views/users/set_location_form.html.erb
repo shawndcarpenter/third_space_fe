@@ -1,18 +1,16 @@
 <div data-controller="geolocation"></div>
-<div class="container-fluid d-flex justify-content-center align-items-center vh-100">
-  <div class="text-center">
-    <div class="mb-3">
-    <%= link_to dashboard_path do %>
-      <%= image_tag 'temp_logo.png', class: "img-fluid", alt: "Logo" %>
-    <% end %>
-    </div>
+  <div class="container-fluid d-flex justify-content-center align-items-center vh-100">
+    <div class="text-center">
+      <div class="mb-3">
+      <%= link_to dashboard_path do %>
+        <%= image_tag 'temp_logo.png', class: "img-fluid", alt: "Logo" %>
+      <% end %>
+      </div>
 
-
-
-    <div class="container text-center">
-    <% if current_user.search_location.present? %>
-      <h4>Your current location is <%= current_user.search_location.city %>, <%= current_user.search_location.state %></h4>
-      <%= form_with url: search_locations_path, method: :post, local: true, html: { class: 'form-floating mb-3' } do |form| %>
+      <div class="container text-center">
+      <% if current_user.search_location.present? %>
+        <h4>Your current location is <%= current_user.search_location.city %>, <%= current_user.search_location.state %></h4>
+        <%= form_with url: search_locations_path, method: :post, local: true, html: { class: 'form-floating mb-3' } do |form| %>
         <div class="form-floating row">
           <div class="col-md-8 col-sm-12 mb-2">
           <%= form.text_field :city, id: "floatingInput", class: "form-control", placeholder: "Change location" %>
@@ -24,9 +22,8 @@
           <%= form.submit "Submit", class: "btn btn-primary w-100" %>
           </div>
         </div>
-      <% end %>
-    <% else %>
-    
+        <% end %>
+      <% else %>
       <h3>Where would you like to search today?</h3><br>
         <div class="form-floating row">
           <div class="col-md-8 col-sm-12 mb-2">
@@ -39,44 +36,34 @@
           <%= form.submit "Submit", class: "btn btn-primary w-100" %>
           </div>
         </div>
-    <h6>Allow ThirdSpace to acess your location for the nearby search to work. Alternatively, search by city and state.</h6>
-    <% end %>
-        </div>
+        <h6>Allow ThirdSpace to acess your location for the nearby search to work. Alternatively, search by city and state.</h6>
+        <% end %>
+      </div>
 
 
-<%# This works but I'm trying to make the appearance better %>
-    <div class="btn-group" role="group" aria-label="mood button group"> 
-    <%= button_to "Happy", search_locations_path(:mood => "Happy"), data: {action: "geolocation#search"}, class: "btn btn-outline-primary", role: "button" %>
-    <%= button_to "Sad", search_locations_path(:mood => "Sad"), data: {action: "geolocation#search"}, class: "btn btn-outline-primary", role: "button" %>
-    <%= button_to "Studious", search_locations_path(:mood => "Studious"), data: {action: "geolocation#search"}, class: "btn btn-outline-primary", role: "button" %> 
-    <%= button_to "Social", search_locations_path(:mood => "Social"), data: {action: "geolocation#search"}, class: "btn btn-outline-primary", role: "button" %>
-    <%= button_to "Party!", search_locations_path(:mood => "Party"), data: {action: "geolocation#search"}, class: "btn btn-outline-primary", role: "button" %>
-    <%= button_to "Chill", search_locations_path(:mood => "Chill"), data: {action: "geolocation#search"}, class: "btn btn-outline-primary", role: "button" %>
-    </div>
-</br>
-</br>
-</br>
-</br>
+
+
 <div class="btn-group" role="group" aria-label="mood button group">
-    <%= button_to "Happy", search_locations_path(:mood => "Happy"), data: {action: "geolocation#search"}, class: "btn-check", autocomplete: "off", role: "button", id: "btncheck1" %>
-    <label class="btn btn-outline-primary" for="btncheck1">Happy</label>
-    
-    <%= button_to "Sad", search_locations_path(:mood => "Sad"), data: {action: "geolocation#search"}, class: "btn-check", autocomplete: "off", role: "button", id: "btncheck2" %>
-    <label class="btn btn-outline-primary" for="btncheck2">Sad</label>
-
-    <%= button_to "Studious", search_locations_path(:mood => "Studious"), data: {action: "geolocation#search"}, class: "btn-check", autocomplete: "off", role: "button", id: "btncheck3" %>
-    <label class="btn btn-outline-primary" for="btncheck3">Studious</label>
-
-    <%= button_to "Social", search_locations_path(:mood => "Social"), data: {action: "geolocation#search"}, class: "btn-check", autocomplete: "off", role: "button", id: "btncheck4" %>
-    <label class="btn btn-outline-primary" for="btncheck4">Social</label>
-
-    <%= button_to "Party!", search_locations_path(:mood => "Party"), data: {action: "geolocation#search"}, class: "btn-check", autocomplete: "off", role: "button", id: "btncheck5" %>
-    <label class="btn btn-outline-primary" for="btncheck5">Party!</label>
-
-    <%= button_to "Chill", search_locations_path(:mood => "Chill"), data: {action: "geolocation#search"}, class: "btn-check", autocomplete: "off", role: "button", id: "btncheck6" %>
-    <label class="btn btn-outline-primary" for="btncheck6">Chill</label>
+    <%= button_to "Happy", search_locations_path(:mood => "Happy"), method: :post, data: {action: "geolocation#search"}, class: "btn btn-outline-primary", autocomplete: "off", role: "button", id: "btncheck1" %>
+    <%= button_to "Sad", search_locations_path(:mood => "Sad"), method: :post, data: {action: "geolocation#search"}, class: "btn btn-outline-primary", autocomplete: "off", role: "button", id: "btncheck2" %>
+    <%= button_to "Studious", search_locations_path(:mood => "Studious"), method: :post, data: {action: "geolocation#search"}, class: "btn btn-outline-primary", autocomplete: "off", role: "button", id: "btncheck3" %>
+    <%= button_to "Social", search_locations_path(:mood => "Social"), method: :post, data: {action: "geolocation#search"}, class: "btn btn-outline-primary", autocomplete: "off", role: "button", id: "btncheck4" %>
+    <%= button_to "Party!", search_locations_path(:mood => "Party"), method: :post, data: {action: "geolocation#search"}, class: "btn btn-outline-primary", autocomplete: "off", role: "button", id: "btncheck5" %>
+    <%= button_to "Chill", search_locations_path(:mood => "Chill"), method: :post, data: {action: "geolocation#search"}, class: "btn btn-outline-primary", autocomplete: "off", role: "button", id: "btncheck6" %>
 </div>
 
-    
+
+
+    </div>
   </div>
 </div>
+    <%# <div class="btn-group" role="group" aria-label="mood button group">  %>
+    <%# <%= button_to "Happy", search_locations_path(:mood => "Happy"), data: {action: "geolocation#search"}, class: "btn btn-outline-primary", role: "button" %> 
+    <%# <%= button_to "Sad", search_locations_path(:mood => "Sad"), data: {action: "geolocation#search"}, class: "btn btn-outline-primary", role: "button" %> 
+    <%# <%= button_to "Studious", search_locations_path(:mood => "Studious"), data: {action: "geolocation#search"}, class: "btn btn-outline-primary", role: "button" %>  
+    <%# <%= button_to "Social", search_locations_path(:mood => "Social"), data: {action: "geolocation#search"}, class: "btn btn-outline-primary", role: "button" %> 
+    <%# <%= button_to "Party!", search_locations_path(:mood => "Party"), data: {action: "geolocation#search"}, class: "btn btn-outline-primary", role: "button" %> 
+    <%# <%= button_to "Chill", search_locations_path(:mood => "Chill"), data: {action: "geolocation#search"}, class: "btn btn-outline-primary", role: "button" %> 
+    
+  <%# </div> %>
+

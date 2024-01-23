@@ -19,6 +19,45 @@
   text-transform: none;
 }
 
+.btn-group {
+  border-radius: 20px; /* This creates the pill shape */
+  border: 1px solid black; /* Border for the entire group */
+  background-color: white;
+  // overflow: hidden; /* Ensures the child buttons don't break the pill shape */
+  display: inline-flex; /* Align buttons in a row */
+}
+
+.btn-group .btn-outline-primary {
+  transition: none; /* Disables the transition */
+  border-radius: 20px; /* Keeps the border-radius consistent */
+  border: 0px;
+}
+// Add a closing curly brace here
+
+.btn-group .btn-outline-primary:hover, 
+.btn-group .btn-outline-primary:hover:focus {
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+}
+
+.btn-group-button {
+  border: none; /* Remove individual borders */
+  background-color: white; /* Background color for the buttons */
+  color: blue; /* Text color */
+  margin-left: -2px; /* Remove space between buttons */
+}
+
+.btn-group-button:first-child {
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+}
+
+.btn-group-button:last-child {
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+}
 
 
 .dash-header {
