@@ -1,3 +1,5 @@
+require 'date'
+
 class ThirdSpacesController < ApplicationController
 
   def new
@@ -44,10 +46,21 @@ class ThirdSpacesController < ApplicationController
     yelp_id = params[:id]
     @space = ThirdSpaceFacade.new(yelp_id).space
     name = @user.first_name + ' ' + @user.last_name.first + '.'
-    review_poro = ReviewPoro.new(name: name, text: params[:text], rating: params[:rating], yelp_id: yelp_id)
+    date = Date.today.strftime("%Y-%m-%d")
+    review_poro = ReviewPoro.new(name: name, text: params[:text], rating: params[:rating], date: date, yelp_id: yelp_id)
     @review = CreateSpaceReviewsFacade.new(review_poro).new_review
     redirect_to "/third_spaces/#{yelp_id}"
     flash[:success] = "Review created successfully!"
+  end
+
+  def all_reviews
+    @user = current_user
+    yelp_id = params[:id]
+    @space = ThirdSpaceFacade.new(yelp_id).space
+    @reviews = ThirdSpaceReviewsFacade.new(yelp_id).reviews
+    if @reviews != []
+      avg_rating(@reviews)
+    end
   end
 
   def search
@@ -82,6 +95,9 @@ class ThirdSpacesController < ApplicationController
     @reviews = ThirdSpaceReviewsFacade.new(yelp_id).reviews
     @saved = SavedSpacesFacade.new(@user.id).spaces
     @saved_yelp_ids = saved_yelp_ids(@saved)
+    if @reviews != []
+      avg_rating(@reviews)
+    end
     
     if @reviews == []
       reviews = LocationReviewsFacade.new(yelp_id).reviews
@@ -116,4 +132,15 @@ class ThirdSpacesController < ApplicationController
     end
     list
   end
+
+  def avg_rating(reviews)
+    sum = 0.0
+    total_ratings = 0.0
+    iteration = @reviews.each do |r|
+      sum += r.rating.to_f
+      total_ratings += 1
+    end
+    @avg_rating = sum/total_ratings
+  end
+
 end
