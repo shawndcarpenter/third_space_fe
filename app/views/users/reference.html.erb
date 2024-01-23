@@ -16,8 +16,6 @@
       </div>
 
 
-<br>
-<br>
 <div class="btn-group" role="group" aria-label="mood button group">
     <%= button_to "Happy", search_locations_path(:mood => "Happy"), method: :post, data: {action: "geolocation#search"}, class: "btn-group-button", autocomplete: "off", role: "button", id: "btncheck1" %>
     <%= button_to "Sad", search_locations_path(:mood => "Sad"), method: :post, data: {action: "geolocation#search"}, class: "btn-group-button", autocomplete: "off", role: "button", id: "btncheck2" %>
