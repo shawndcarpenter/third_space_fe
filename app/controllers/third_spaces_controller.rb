@@ -37,23 +37,17 @@ class ThirdSpacesController < ApplicationController
     @user = current_user
     yelp_id = params[:id]
     @space = ThirdSpaceFacade.new(yelp_id).space
-    #<ReviewPoro:0x000000011ff50828
-    # @name="Christina P.",
-    # @rating="5",
-    # @text=
-    #  "A solid 4.5 for Frasca. \nWe chose their tasting menu which made it super easy for us, and my partner opted for the wine pairing as well. \nWe really enjoyed...",
-    # @yelp_id="uGldOBewiKoJij_--_u8aQ">,
   end
 
   def save_review
     @user = current_user
     yelp_id = params[:id]
     @space = ThirdSpaceFacade.new(yelp_id).space
-    binding.pry
-    #review = ReviewPoro.new(name: @user.first_name, text: params[:text], rating: params[:rating], yelp_id: space[:data][:attributes][:yelp_id])
-    
-    #@review = CreateSpaceReviewsFacade.new(review).new_review
-    #@reviews = ThirdSpaceReviewsFacade.new(yelp_id).reviews
+    name = @user.first_name + ' ' + @user.last_name.first + '.'
+    review_poro = ReviewPoro.new(name: name, text: params[:text], rating: params[:rating], yelp_id: yelp_id)
+    @review = CreateSpaceReviewsFacade.new(review_poro).new_review
+    redirect_to "/third_spaces/#{yelp_id}"
+    flash[:success] = "Review created successfully!"
   end
 
   def search
