@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: http://localhost:3000/api/v1/locations/f-m7-hyFzkf0HSEeQ2s-9A
+    uri: https://plankton-app-tavpa.ondigitalocean.app/api/v1/locations/f-m7-hyFzkf0HSEeQ2s-9A
     body:
       encoding: US-ASCII
       string: ''
@@ -15,9 +15,17 @@ http_interactions:
       - "*/*"
   response:
     status:
-      code: 200
-      message: OK
+      code: 404
+      message: Not Found
     headers:
+      Date:
+      - Wed, 24 Jan 2024 04:56:12 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
       X-Frame-Options:
       - SAMEORIGIN
       X-Xss-Protection:
@@ -30,26 +38,30 @@ http_interactions:
       - none
       Referrer-Policy:
       - strict-origin-when-cross-origin
-      Content-Type:
-      - application/json; charset=utf-8
       Vary:
-      - Accept
-      Etag:
-      - W/"096d9d41a103846cbcdd07c64d935cfc"
+      - Accept, Accept-Encoding
       Cache-Control:
-      - max-age=0, private, must-revalidate
+      - no-cache
       X-Request-Id:
-      - 7ae7ce19-052a-4931-b9fc-33e041eab781
+      - 238957db-5852-4768-ba66-0f78253406a8
       X-Runtime:
-      - '1.647985'
-      Server-Timing:
-      - start_processing.action_controller;dur=0.09, process_action.action_controller;dur=1643.52
-      Transfer-Encoding:
-      - chunked
+      - '0.044829'
+      X-Do-App-Origin:
+      - 42daf057-993c-487d-b7a0-cf175a19f2a0
+      X-Do-Orig-Status:
+      - '404'
+      Cf-Cache-Status:
+      - MISS
+      Set-Cookie:
+      - __cf_bm=IkEw0vmBs4aErO6RnKRR4PPw5iFrbCSn0KMLhko_WRo-1706072172-1-ATohPk7zIdw7YrtdF0mwWrxBvmFXAnvo5babRMcPyHOmI6mvgknntK0RaairH2TXSssS3brLNzAVJRkuxjXCKjo=;
+        path=/; expires=Wed, 24-Jan-24 05:26:12 GMT; domain=.ondigitalocean.app; HttpOnly;
+        Secure; SameSite=None
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 84a5b0458f10518b-DEN
     body:
-      encoding: UTF-8
-      string: '{"data":{"id":null,"type":"detailed_location","attributes":{"yelp_id":"f-m7-hyFzkf0HSEeQ2s-9A","name":"Fog
-        Harbor Fish House","address":"39 Pier, Ste 202A, San Francisco, CA 94133","rating":4.5,"phone":"(415)
-        969-2010","photos":["https://s3-media2.fl.yelpcdn.com/bphoto/by8Hh63BLPv_HUqRUdsp_w/o.jpg","https://s3-media2.fl.yelpcdn.com/bphoto/cc5tnzyd03couTo7ReDGgQ/o.jpg","https://s3-media3.fl.yelpcdn.com/bphoto/J5NJ8-gclvTMzVmp3OrckA/o.jpg"],"lat":37.80889,"lon":-122.41025,"price":"$$","hours":[{"open":[{"is_overnight":false,"start":"1100","end":"2100","day":0},{"is_overnight":false,"start":"1100","end":"2100","day":1},{"is_overnight":false,"start":"1100","end":"2100","day":2},{"is_overnight":false,"start":"1100","end":"2100","day":3},{"is_overnight":false,"start":"1100","end":"2100","day":4},{"is_overnight":false,"start":"1100","end":"2100","day":5},{"is_overnight":false,"start":"1100","end":"2100","day":6}],"hours_type":"REGULAR","is_open_now":false}],"category":"Seafood","open_now":false}}}'
-  recorded_at: Fri, 12 Jan 2024 16:41:19 GMT
+      encoding: ASCII-8BIT
+      string: '{"errors":[{"detail":"The requested business could not be found."}]}'
+  recorded_at: Wed, 24 Jan 2024 04:56:12 GMT
 recorded_with: VCR 6.2.0

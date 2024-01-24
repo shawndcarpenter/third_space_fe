@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: http://localhost:3000/api/v1/locations/search_locations?city=Boulder&name=Starbucks
+    uri: https://plankton-app-tavpa.ondigitalocean.app/api/v1/locations/search_locations?city=Boulder&name=Starbucks
     body:
       encoding: US-ASCII
       string: ''
@@ -15,71 +15,41 @@ http_interactions:
       - "*/*"
   response:
     status:
-      code: 200
-      message: OK
+      code: 500
+      message: Internal Server Error
     headers:
-      X-Frame-Options:
-      - SAMEORIGIN
-      X-Xss-Protection:
-      - '0'
-      X-Content-Type-Options:
-      - nosniff
-      X-Download-Options:
-      - noopen
-      X-Permitted-Cross-Domain-Policies:
-      - none
-      Referrer-Policy:
-      - strict-origin-when-cross-origin
+      Date:
+      - Wed, 24 Jan 2024 04:56:12 GMT
       Content-Type:
-      - application/json; charset=utf-8
-      Vary:
-      - Accept
-      Etag:
-      - W/"b373c497120038e091499bf75393b32f"
-      Cache-Control:
-      - max-age=0, private, must-revalidate
-      X-Request-Id:
-      - eecefa54-fecd-4d8c-bafb-5d8d12b05792
-      X-Runtime:
-      - '0.546660'
-      Server-Timing:
-      - start_processing.action_controller;dur=0.15, process_action.action_controller;dur=536.36
+      - text/html; charset=UTF-8
       Transfer-Encoding:
       - chunked
+      Connection:
+      - keep-alive
+      X-Request-Id:
+      - cac7d7a3-7773-4bc1-8c25-84b7293d7eb9
+      X-Runtime:
+      - '0.054924'
+      X-Do-App-Origin:
+      - 42daf057-993c-487d-b7a0-cf175a19f2a0
+      Cache-Control:
+      - private
+      X-Do-Orig-Status:
+      - '500'
+      Cf-Cache-Status:
+      - MISS
+      Set-Cookie:
+      - __cf_bm=fDY0pnkxKq6fx3Ewp6snXtRZRcBDFwDDw.ujMA1YZQM-1706072172-1-AcZJWIRNYPh7Eqscx40EZCY+FN8mlCOY0kq14n5Gm9/LhkLL5xAhgA50oZcHvVtuFnLeAhETdPVN4gLeGW5vtm0=;
+        path=/; expires=Wed, 24-Jan-24 05:26:12 GMT; domain=.ondigitalocean.app; HttpOnly;
+        Secure; SameSite=None
+      Vary:
+      - Accept-Encoding
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 84a5b043e95851f7-DEN
     body:
       encoding: UTF-8
-      string: '{"data":[{"id":"8ODBEFHVV2Vi2kpNqu_iwQ","type":"search_result","attributes":{"id":"8ODBEFHVV2Vi2kpNqu_iwQ","name":"Starbucks","address":"2770
-        Pearl St, Ste B, Boulder, CO 80302","category":"Coffee \u0026 Tea"}},{"id":"7F1v-0oljyURDmNzYKw-VA","type":"search_result","attributes":{"id":"7F1v-0oljyURDmNzYKw-VA","name":"Starbucks","address":"2800
-        Pearl St, Target, Boulder, CO 80301","category":"Coffee \u0026 Tea"}},{"id":"POaYhrmLCSBfOpxem8CbpA","type":"search_result","attributes":{"id":"POaYhrmLCSBfOpxem8CbpA","name":"Starbucks","address":"3033
-        Arapahoe Ave, Boulder, CO 80303","category":"Coffee \u0026 Tea"}},{"id":"Gqhk31zaOcICgI4-1Spc4w","type":"search_result","attributes":{"id":"Gqhk31zaOcICgI4-1Spc4w","name":"Starbucks","address":"2798
-        Arapahoe Ave, Safeway, Boulder, CO 80302","category":"Coffee \u0026 Tea"}},{"id":"ZHO9v2Qp12Wi1ZXthXW8kw","type":"search_result","attributes":{"id":"ZHO9v2Qp12Wi1ZXthXW8kw","name":"Starbucks","address":"3325
-        28th St, Boulder, CO 80301","category":"Coffee \u0026 Tea"}},{"id":"4BXRC2rpQqiFCl6PufmzJQ","type":"search_result","attributes":{"id":"4BXRC2rpQqiFCl6PufmzJQ","name":"Starbucks","address":"1352
-        College Ave, Ste 115, Boulder, CO 80302","category":"Coffee \u0026 Tea"}},{"id":"Edg7rnz_X0Cdx3pEWizPlw","type":"search_result","attributes":{"id":"Edg7rnz_X0Cdx3pEWizPlw","name":"Starbucks","address":"2400
-        Baseline Rd, Boulder, CO 80305","category":"Coffee \u0026 Tea"}},{"id":"FJRN5AKHQWSES5CnXCgN_g","type":"search_result","attributes":{"id":"FJRN5AKHQWSES5CnXCgN_g","name":"Starbucks","address":"4800
-        E Baseline Rd, Safeway, Boulder, CO 80303","category":"Coffee \u0026 Tea"}},{"id":"1NyUzNMLEKFQAgx1iiJrhA","type":"search_result","attributes":{"id":"1NyUzNMLEKFQAgx1iiJrhA","name":"Starbucks","address":"3600
-        Table Mesa Dr, King Soopers - Boulder #33, Boulder, CO 80305","category":"Coffee
-        \u0026 Tea"}},{"id":"_WZ0KGIxj6hBn5-yZ4Vhfw","type":"search_result","attributes":{"id":"_WZ0KGIxj6hBn5-yZ4Vhfw","name":"Ozo
-        Coffee","address":"5340 Arapahoe Ave, Boulder, CO 80303","category":"Coffee
-        \u0026 Tea"}},{"id":"2lCxSl7o_aerkfohELHHrQ","type":"search_result","attributes":{"id":"2lCxSl7o_aerkfohELHHrQ","name":"Flatiron
-        Coffee","address":"2721 Arapahoe Ave, Boulder, CO 80302","category":"Coffee
-        \u0026 Tea"}},{"id":"rRHArpavyizzMENGTLREig","type":"search_result","attributes":{"id":"rRHArpavyizzMENGTLREig","name":"Red
-        Rock Coffeehouse","address":"3325 28th St, Unit 9, Boulder, CO 80301","category":"Coffee
-        \u0026 Tea"}},{"id":"J5nZ263tjkKNKmNYWpfL4A","type":"search_result","attributes":{"id":"J5nZ263tjkKNKmNYWpfL4A","name":"Ozo
-        Coffee","address":"1015 Pearl St, Boulder, CO 80302","category":"Coffee \u0026
-        Tea"}},{"id":"_iVjegwv4AtiRGm1w7_xMw","type":"search_result","attributes":{"id":"_iVjegwv4AtiRGm1w7_xMw","name":"Tod''s
-        Espresso Cafe","address":"6558 Lookout Rd, Boulder, CO 80301","category":"Coffee
-        \u0026 Tea"}},{"id":"Mau3LNQjV4TvOqRmGhad_w","type":"search_result","attributes":{"id":"Mau3LNQjV4TvOqRmGhad_w","name":"Trident
-        Booksellers and Cafe","address":"940 Pearl St, Boulder, CO 80302","category":"Coffee
-        \u0026 Tea"}},{"id":"wGRgAkzMFv6kgZqtCK2loA","type":"search_result","attributes":{"id":"wGRgAkzMFv6kgZqtCK2loA","name":"Gabee
-        Coffee","address":"3040 28th St, Boulder, CO 80301","category":"Coffee \u0026
-        Tea"}},{"id":"e8J43WycoSGzJHSOb_wlLg","type":"search_result","attributes":{"id":"e8J43WycoSGzJHSOb_wlLg","name":"Amante
-        Coffee","address":"1023 Walnut St, Boulder, CO 80302","category":"Coffee \u0026
-        Tea"}},{"id":"jovvMdBvazW4A2B3FI1qBA","type":"search_result","attributes":{"id":"jovvMdBvazW4A2B3FI1qBA","name":"Boxcar
-        Coffee Roasters","address":"1825 B Pearl St, Boulder, CO 80302","category":"Coffee
-        \u0026 Tea"}},{"id":"CcqVH46JymO8xfAq4Jkqmw","type":"search_result","attributes":{"id":"CcqVH46JymO8xfAq4Jkqmw","name":"Brewing
-        Market Coffee","address":"2610 Baseline Rd, Boulder, CO 80302","category":"Coffee
-        \u0026 Tea"}},{"id":"tQ7UdYAqvn7mm4qzAisJlw","type":"search_result","attributes":{"id":"tQ7UdYAqvn7mm4qzAisJlw","name":"OZO
-        Coffee Company","address":"1521 Pearl St, Boulder, CO 80302","category":"Coffee
-        \u0026 Tea"}}]}'
-  recorded_at: Fri, 12 Jan 2024 16:41:17 GMT
+      string: ''
+  recorded_at: Wed, 24 Jan 2024 04:56:12 GMT
 recorded_with: VCR 6.2.0
