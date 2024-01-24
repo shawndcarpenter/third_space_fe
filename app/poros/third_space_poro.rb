@@ -11,7 +11,6 @@ class ThirdSpacePoro
   :price, 
   :hours, 
   :category,
-  :open_now
   :photos
 
   attr_accessor :tags
@@ -27,7 +26,6 @@ class ThirdSpacePoro
     @lon = data[:lon]
     @price = data[:price]
     @hours = data[:hours]
-    @open_now = data[:open_now]
     @category = data[:category]
     @tags = data[:tags]
     @photos = data[:photos]
