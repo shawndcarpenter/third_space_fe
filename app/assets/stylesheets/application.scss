@@ -16,16 +16,23 @@
  */
  @import "bootstrap";
  
-.dash-header {
+ .dash-header {
   text-decoration: none;
   color: black;
   font-weight: bold;
-  transition: color 0.3s;
+  // transition: background-color 0.3s, color 0.3s, border-radius 0.3s;
+  border-radius: 5px; /* Adjust as needed for the desired rounded effect */
+  padding: 5px; /* Add padding to make the rounded corners noticeable */
+  display: inline-block; /* This helps in applying padding and border-radius */
+  margin-right: -5px; /* Negative margin to compensate for the padding */
+  margin-left: -5px; /* Negative margin to compensate for the padding */
 }
 
 .dash-header:hover {
-  color: #99aad3 !important; /* Use !important to ensure it overrides other styles */
+  background-color: rgb(240, 238, 238);
+  border-radius: 20px; 
 }
+
 
 .space-link {
   text-decoration: none;
