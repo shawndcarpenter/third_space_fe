@@ -1,6 +1,9 @@
 class UsersController < ApplicationController
 
   def dashboard
+    if current_user.nil?
+      redirect_to root_path and return
+    end
     @user = current_user
 
     if params[:mood]
@@ -170,15 +173,20 @@ class UsersController < ApplicationController
   end
 
   def filter_spaces_by_location(results)
-    city = current_user.search_location.city
+    city = current_user.search_location.city.capitalize
     state = current_user.search_location.state
+    locs = []
     results.find_all do |space|
       if !space.address.nil?
         address_parts = space.address.split(',').map(&:strip)
         space_city = address_parts[-2]
         space_state = address_parts[-1]
-        space_city == city && space_state.include?(state)
+        match = space_city.include?(city) && space_state.include?(state)
+        if match
+        locs << space 
+        end
       end
+      locs
     end
   end
 

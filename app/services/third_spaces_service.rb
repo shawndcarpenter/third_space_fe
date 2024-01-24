@@ -19,6 +19,7 @@ class ThirdSpacesService
       req.params['name'] = review.name
       req.params['rating'] = review.rating
       req.params['text'] = review.text
+      req.params['date'] = review.date
     end
   end
 
