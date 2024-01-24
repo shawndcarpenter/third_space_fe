@@ -1,16 +1,3 @@
-.button {
-  background: #428bca;
-  padding: 1em 2em;
-  color: #fff;
-  border: 0;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-.button:hover {
-  background: #3876ac;
-}
-
 .modal {
   display: none;
   position: fixed;
@@ -25,7 +12,8 @@
 
 .modal-content {
   margin: 10% auto;
-  width: 60%;
+  width: 50%;
+  max-width: 800px; 
   box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 7px 20px 0 rgba(0, 0, 0, 0.17);
   animation-name: modalopen;
   animation-duration: var(--modal-duration);
@@ -39,20 +27,20 @@
 .modal-header {
   background: var(--modal-color);
   padding: 15px;
-  color: #fff;
+  color: #black;
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
 }
 
 .modal-body {
   padding: 10px 20px;
-  background: #fff;
+  background: #black;
 }
 
 .modal-footer {
   background: var(--modal-color);
   padding: 10px;
-  color: #fff;
+  color: #black;
   text-align: center;
   border-bottom-left-radius: 5px;
   border-bottom-right-radius: 5px;
@@ -62,7 +50,7 @@
   color: #ccc;
   float: right;
   font-size: 30px;
-  color: #fff;
+  color: #black;
 }
 
 .close:hover,

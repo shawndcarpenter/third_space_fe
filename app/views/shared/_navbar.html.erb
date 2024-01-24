@@ -10,28 +10,44 @@
     <form class="d-flex w-50" action="/third_spaces/search" method="get" name="name" id="name">
       <input class="form-control me-2" id="name" name="name" type="text" placeholder="search by name" aria-label="Search" style="flex-grow: 1;">
       <button class="btn btn-outline-success" type="submit" style="margin-right: 2rem;">Search</button>
-      <button class="btn btn-outline-success" type="submit" style="margin-right: 2rem;">Advanced</button>
+      <%# <button class="btn btn-outline-success" type="submit" style="margin-right: 2rem;">Filter</button> %>
     </form>
 
-    <button id="modal-btn" class="button">Popup window</button>
+    <button id="modal-btn" class="btn btn-outline-success">Filter</button>
 
-      <div id="my-modal" class="modal">
+    <div id="my-modal" class="modal">
       <div class="modal-content">
-      <div class="modal-header">
-      <span class="close">×</span>
-      <h2>Popup window </h2>
-      </div>
-      <div class="modal-body">
-      <p>Popup</p>
-      <p>Popup window with css background dimming</p>
-      </div>
-      <div class="modal-footer">
-      <h3>Popup window with css background dimming
+        <div class="modal-header">
+          <span class="close">×</span>
+          <h2>Advanced Search Filter</h2>
+        </div>
+        <div class="modal-body">
+          <%= form_tag("/third_spaces/search", method: "get") do %>
+            <div class="form-group">
+              <% features_options = {
+                'Staff Responsiveness' => ['Pushy', 'Helpful', 'Respectful'],
+                'Volume' => ['Loud', 'Quiet', 'Average'],
+                'Lighting' => ['Bright', 'Moody', 'Average Lighting']
+              } %>
+              <% features_options.each do |feature, options| %>
+                <h4><%= label_tag feature, "#{feature.downcase}." %></h4>
+                <%= select_tag "tags[]", options_for_select(options), multiple: true, class: 'form-select' %><br>
+              <% end %>
+            </div>
 
-      </h3>
+            <div class="form-group">
+              <h4>accessibility & amenities.</h4>
+              <% labels_array = ['Accessible Entrance', 'BIPOC Friendly', 'Child Friendly', 'Customer Restrooms', 'Gender Neutral Restrooms', 'Parking', 'Purchase Necessary', 'Public Transportation Nearby', 'Queer Friendly', 'Sober'] %>
+              <% labels_array.each do |label| %>
+                <%= check_box_tag 'tags[]', label, false, class: 'form-check-input' %> <%= label_tag label %><br>
+              <% end %>
+            </div>
+
+            <%= submit_tag "Search", class: "btn btn-primary mt-3" %>
+          <% end %>
+        </div>
       </div>
-      </div>
-      </div>
+    </div>
 
     <div class="ml-auto">
       <% if current_user.search_location.present? %>
