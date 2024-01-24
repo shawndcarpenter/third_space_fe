@@ -50,7 +50,6 @@ describe ThirdSpacesService do
         price: "$$$",
         hours: {},
         category: "yummy",
-        open_now: true}
         tags = ["happy"]
         search = ThirdSpacesService.new.create_third_space(location, tags)
         expect(search).to be_a Hash
