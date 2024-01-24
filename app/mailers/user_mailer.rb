@@ -11,7 +11,8 @@ sendgrid_api_key = Rails.application.credentials.dig(:sendgrid, :key)
 from = Email.new(email: 'thirdspace2308@gmail.com')
 to = Email.new(email: "#{@user.email}")
 subject = 'Your OTP'
-content = Content.new(type: 'text/plain', value: "#{@user.otp_code}")
+content = Content.new(type: 'text/plain', value: "Your OTP for Two-Factor Authentication at third space.
+Your OTP code is: #{@user.otp_code}")
 mail = Mail.new(from, subject, to, content)
 
 sg = SendGrid::API.new(api_key: sendgrid_api_key)
