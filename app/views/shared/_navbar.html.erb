@@ -13,6 +13,26 @@
       <button class="btn btn-outline-success" type="submit" style="margin-right: 2rem;">Advanced</button>
     </form>
 
+    <button id="modal-btn" class="button">Popup window</button>
+
+      <div id="my-modal" class="modal">
+      <div class="modal-content">
+      <div class="modal-header">
+      <span class="close">×</span>
+      <h2>Popup window </h2>
+      </div>
+      <div class="modal-body">
+      <p>Popup</p>
+      <p>Popup window with css background dimming</p>
+      </div>
+      <div class="modal-footer">
+      <h3>Popup window with css background dimming
+
+      </h3>
+      </div>
+      </div>
+      </div>
+
     <div class="ml-auto">
       <% if current_user.search_location.present? %>
         <a class="btn btn-secondary p-2" href="<%= set_location_path %>" style="height: fit-content;">
