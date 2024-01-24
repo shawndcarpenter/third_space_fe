@@ -19,12 +19,12 @@ class ThirdSpacesService
       req.params['name'] = review.name
       req.params['rating'] = review.rating
       req.params['text'] = review.text
+      req.params['date'] = review.date
     end
   end
 
   def get_third_space_reviews(yelp_id)
     response = conn.get("/api/v1/third_spaces/#{yelp_id}/reviews")
-
     data = JSON.parse(response.body, symbolize_names: true)
   end
 
