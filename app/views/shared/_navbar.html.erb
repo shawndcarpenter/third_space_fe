@@ -19,7 +19,7 @@
       <div class="modal-content">
         <div class="modal-header">
           <span class="close">×</span>
-          <h2>Advanced Search Filter</h2>
+          <%# <h2>advanced search.</h2> %>
         </div>
         <div class="modal-body">
           <%= form_tag("/third_spaces/search", method: "get") do %>
@@ -35,11 +35,14 @@
               <% end %>
             </div>
 
-            <div class="form-group">
-              <h4>accessibility & amenities.</h4>
+            <h4>accessibility & amenities.</h4>
+            <div class="form-group two-column-grid">
               <% labels_array = ['Accessible Entrance', 'BIPOC Friendly', 'Child Friendly', 'Customer Restrooms', 'Gender Neutral Restrooms', 'Parking', 'Purchase Necessary', 'Public Transportation Nearby', 'Queer Friendly', 'Sober'] %>
               <% labels_array.each do |label| %>
-                <%= check_box_tag 'tags[]', label, false, class: 'form-check-input' %> <%= label_tag label %><br>
+                <div class="checkbox-item">
+                  <%= check_box_tag 'tags[]', label, false, class: 'form-check-input' %>
+                  <%= label_tag label %>
+                </div>
               <% end %>
             </div>
 
