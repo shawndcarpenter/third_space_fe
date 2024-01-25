@@ -26,7 +26,7 @@
             <%= image_tag @space.photos, width: "200" %>
           <% elsif @space.photos == "[]" %>
           <% elsif !@space.photos.include?("[") %>
-               <%= image_tag @space.photos, width: "200" %>
+                <%= image_tag @space.photos, width: "200" %>
           <% else %>
             <% JSON.parse(@space.photos).each do |photo_url| %>
               <%= image_tag photo_url, width: "200" %>
@@ -40,8 +40,7 @@
           <div class="rounded-container"><%= @space.price%></div>
         <% end %>
         
-        
-        <h3>Top Moods</h3>
+    <h3>Top Moods</h3>
         <%= render partial: 'top_moods' %>
 
 
@@ -51,12 +50,13 @@
           <div class="rounded-container"><%= tag %></div>
         <% end %>
 
-
-
+        
+        
+        
         <br>
         <br>
         <p>Average Rating: <%= @avg_rating %></p>
-        
+
         <div class="text-center">
           <% if @saved_yelp_ids.include?(@space.yelp_id) %>
             <form class="container-fluid d-flex justify-content-center align-items-center" action="/third_spaces/unfavorite" method="delete">
@@ -76,6 +76,7 @@
           <br>
         </div>
 
+        <% @reviews.reject { |r| r.date.nil? }.sort_by { |r| r.date }.reverse.first(20).each do |r| %>
         <% @reviews.reject { |r| r.date.nil? }.sort_by { |r| r.date }.reverse.first(20).each do |r| %>
           <div class="rounded-highlight">
             <%= r.text %> <br> - <%= r.name %> (Rating: <%= r.rating %>/5) <br> Date: <%= r.date %>

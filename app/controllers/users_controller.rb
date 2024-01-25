@@ -1,6 +1,12 @@
 class UsersController < ApplicationController
 
   def dashboard
+    if current_user.nil?
+      redirect_to root_path and return
+    end
+    if current_user.nil?
+      redirect_to root_path and return
+    end
     @user = current_user
 
     if params[:mood]
@@ -96,7 +102,7 @@ class UsersController < ApplicationController
       redirect_to login_path
     elsif user.authenticate(params[:password])
       session[:user_id] = user.id
-      flash[:success] = "Welcome, #{user.email}!"
+      # flash[:success] = "Welcome, #{user.email}!"
       initiate_verification(user)
     else
       flash[:error] = "Sorry, your credentials are bad."
@@ -108,7 +114,7 @@ class UsersController < ApplicationController
     user.generate_otp_secret_key
     user.update(otp_code: user.generate_otp, otp_code_expires_at: 5.minutes.from_now)
     user.save
-    session[:code] = user.otp_code
+    @otp = session[:code] = user.otp_code #this needs to display 
     session[:otp_expires_at] = 5.minutes.from_now
     session[:email] = user.email
     UserMailer.send_otp_email(user).deliver_now
@@ -120,9 +126,11 @@ class UsersController < ApplicationController
     user = User.find_by_email(session[:email])
     if session[:code] == entered_otp && session[:otp_expires_at] > Time.current && user.admin?
       login_session_clear
-      redirect_to admin_dashboard_path, notice: 'OTP verification successful!'
+      redirect_to admin_dashboard_path
+      # redirect_to admin_dashboard_path, notice: 'OTP verification successful!'
     elsif session[:code] == entered_otp && session[:otp_expires_at] > Time.current
-        redirect_to set_location_path, notice: 'OTP verification successful!'
+        redirect_to set_location_path
+        # redirect_to set_location_path, notice: 'OTP verification successful!'
         login_session_clear
     elsif session[:code] == entered_otp && session[:otp_expires_at] < Time.current
       redirect_to login_path, notice: 'OTP session has expired. Please try logging in again.'
@@ -140,6 +148,7 @@ class UsersController < ApplicationController
   end
 
   def validate_otp_form
+    @otp = session[:code]
     # Render the page where users can enter the OTP
   end
 
@@ -166,11 +175,42 @@ class UsersController < ApplicationController
     list
   end
 
+  # def filter_spaces_by_location(results)
+  #   city = current_user.search_location.city.capitalize
+  #   state = current_user.search_location.state
+  #   locs = []
+  #   results.find_all do |space|
+  #     if !space.address.nil?
+  #       address_parts = space.address.split(',').map(&:strip)
+  #       space_city = address_parts[-2]
+  #       space_state = address_parts[-1]
+  #       match = space_city.include?(city) && space_state.include?(state)
+  #       if match
+  #       locs << space 
+  #       end
+  #     end
+  #   end
+  #   locs
+  # end
+
   def filter_spaces_by_location(results)
-    city = current_user.search_location.city.capitalize
-    state = current_user.search_location.state
-    locs = results.find_all{|space| space.address.include?("#{city}, #{state}")}
+    # city = current_user.search_location.city.capitalize
+    # state = current_user.search_location.state
+    # locs = results.find_all{|space| space.address.include?("#{city}, #{state}")}
+    city = current_user.search_location.city.downcase
+    state = current_user.search_location.state.downcase
+  
+    results.select do |space|
+      next if space.address.nil?
+  
+      address_parts = space.address.split(',').map(&:strip).map(&:downcase)
+      space_city = address_parts[-2]
+      space_state = address_parts[-1]
+  
+      space_city&.include?(city) && space_state&.include?(state)
+    end
   end
+  
 
   def filter_by_mood(results)
     mood = current_user.search_location.mood

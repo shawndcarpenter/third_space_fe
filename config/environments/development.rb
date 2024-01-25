@@ -46,17 +46,17 @@ Rails.application.configure do
   config.action_mailer.default_url_options = { host: 'localhost:5000' }
 
   config.action_mailer.delivery_method = :smtp
-  smtp_credentials = Rails.application.credentials.smtp
+  smtp_credentials = Rails.application.credentials
   smtp_credentials = smtp_credentials || {}
 
   config.action_mailer.smtp_settings = {
-    address: smtp_credentials[:address],
-    port: smtp_credentials[:port],
-    domain: smtp_credentials[:domain],
-    user_name: smtp_credentials[:user_name],
-    password: smtp_credentials[:password],
-    authentication: smtp_credentials[:authentication],
-    enable_starttls_auto: smtp_credentials[:enable_starttls_auto]
+    address: Rails.application.credentials[:smtp_address],
+    port: Rails.application.credentials[:smtp_port],
+    domain: Rails.application.credentials[:smtp_domain],
+    user_name: Rails.application.credentials[:smtp_user_name],
+    password: Rails.application.credentials[:smtp_password],
+    authentication: Rails.application.credentials[:smtp_authentication],
+    enable_starttls_auto: Rails.application.credentials[:smtp_enable_starttls_auto]
   }
 
   # Print deprecation notices to the Rails logger.

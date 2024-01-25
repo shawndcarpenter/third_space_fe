@@ -49,8 +49,9 @@ describe ThirdSpacesService do
         lon: 123455.67,
         price: "$$$",
         hours: {},
-        category: "yummy",
-        tags: ["happy"]}
+        category: "yummy"
+      }
+        tags = ["happy"]
         search = ThirdSpacesService.new.create_third_space(location, tags)
         expect(search).to be_a Hash
       end
