@@ -4,11 +4,11 @@ RSpec.describe "2fa", type: :feature do
   describe 'basic functionality' do
     it 'requires 2fa for new user' do
       visit "/register"
-      fill_in "first_name", with: "a"
-      fill_in "last_name", with: "a"
+      fill_in "first name", with: "a"
+      fill_in "last name", with: "a"
       fill_in "email", with: "email@gmail.com"
       fill_in "password", with: "a"
-      fill_in "confirm_password", with: "a"
+      fill_in "password confirmation", with: "a"
       click_button "create new account"
       expect(current_path).to eq "/validate_otp"
     end
@@ -59,11 +59,11 @@ RSpec.describe "2fa", type: :feature do
 
     it 'wrong 2fa for new user' do
       visit "/register"
-      fill_in "first_name", with: "c"
-      fill_in "last_name", with: "c"
+      fill_in "first name", with: "c"
+      fill_in "last name", with: "c"
       fill_in "email", with: "cmail@gmail.com"
       fill_in "password", with: "c"
-      fill_in "confirm_password", with: "c"
+      fill_in "password confirmation", with: "c"
       click_button "create new account"
       fill_in "otp", with: 1
       click_button "submit"

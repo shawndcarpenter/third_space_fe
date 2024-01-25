@@ -15,7 +15,8 @@
 def user_login_data
   @user1 = User.create(id: 350, first_name: 'Candy', last_name: 'Land', email: 'shawncarpenter.co@gmail.com', password: 'test')
   visit '/login'
-  fill_in "email", with: "#{@user1.email}"
+  # fill_in "email", with: "#{@user1.email}"
+  fill_in "floatingInputEmail", with: "#{@user1.email}"
   fill_in "password", with: "#{@user1.password}"
   click_button 'log in'
   email = ActionMailer::Base.deliveries.last
