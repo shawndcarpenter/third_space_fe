@@ -1,7 +1,7 @@
 class LocationsService
   def conn
-    conn = Faraday.new(url: "http://localhost:3000") do |faraday| 
-    end
+    conn = Faraday.new(url: "http://localhost:3000") 
+    
   end
 
   def get_location_results(name, city)

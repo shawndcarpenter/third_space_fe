@@ -18,74 +18,36 @@ http_interactions:
       code: 404
       message: Not Found
     headers:
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - '0'
+      X-Content-Type-Options:
+      - nosniff
+      X-Download-Options:
+      - noopen
+      X-Permitted-Cross-Domain-Policies:
+      - none
+      Referrer-Policy:
+      - strict-origin-when-cross-origin
       Content-Type:
-      - application/json; charset=UTF-8
+      - application/json; charset=utf-8
+      Vary:
+      - Accept
+      Cache-Control:
+      - no-cache
       X-Request-Id:
-      - af19fb5c-c6d1-4102-b788-dbcb97d2773f
+      - 3a85ef81-e16b-4eae-8da3-f12d33e26fff
       X-Runtime:
-      - '0.009036'
+      - '0.013951'
       Server-Timing:
-      - ''
-      Content-Length:
-      - '6394'
+      - start_processing.action_controller;dur=0.06, sql.active_record;dur=1.70, instantiation.active_record;dur=0.06,
+        process_action.action_controller;dur=9.52
+      Transfer-Encoding:
+      - chunked
     body:
       encoding: UTF-8
-      string: '{"status":404,"error":"Not Found","exception":"#\u003cActionController::RoutingError:
-        No route matches [DELETE] \"/api/v1/user_third_spaces\"\u003e","traces":{"Application
-        Trace":[],"Framework Trace":[{"exception_object_id":394400,"id":0,"trace":"actionpack
-        (7.0.8) lib/action_dispatch/middleware/debug_exceptions.rb:32:in `call''"},{"exception_object_id":394400,"id":1,"trace":"actionpack
-        (7.0.8) lib/action_dispatch/middleware/show_exceptions.rb:29:in `call''"},{"exception_object_id":394400,"id":2,"trace":"railties
-        (7.0.8) lib/rails/rack/logger.rb:40:in `call_app''"},{"exception_object_id":394400,"id":3,"trace":"railties
-        (7.0.8) lib/rails/rack/logger.rb:25:in `block in call''"},{"exception_object_id":394400,"id":4,"trace":"activesupport
-        (7.0.8) lib/active_support/tagged_logging.rb:99:in `block in tagged''"},{"exception_object_id":394400,"id":5,"trace":"activesupport
-        (7.0.8) lib/active_support/tagged_logging.rb:37:in `tagged''"},{"exception_object_id":394400,"id":6,"trace":"activesupport
-        (7.0.8) lib/active_support/tagged_logging.rb:99:in `tagged''"},{"exception_object_id":394400,"id":7,"trace":"railties
-        (7.0.8) lib/rails/rack/logger.rb:25:in `call''"},{"exception_object_id":394400,"id":8,"trace":"actionpack
-        (7.0.8) lib/action_dispatch/middleware/remote_ip.rb:93:in `call''"},{"exception_object_id":394400,"id":9,"trace":"actionpack
-        (7.0.8) lib/action_dispatch/middleware/request_id.rb:26:in `call''"},{"exception_object_id":394400,"id":10,"trace":"rack
-        (2.2.8) lib/rack/runtime.rb:22:in `call''"},{"exception_object_id":394400,"id":11,"trace":"activesupport
-        (7.0.8) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in
-        `call''"},{"exception_object_id":394400,"id":12,"trace":"actionpack (7.0.8)
-        lib/action_dispatch/middleware/server_timing.rb:61:in `block in call''"},{"exception_object_id":394400,"id":13,"trace":"actionpack
-        (7.0.8) lib/action_dispatch/middleware/server_timing.rb:26:in `collect_events''"},{"exception_object_id":394400,"id":14,"trace":"actionpack
-        (7.0.8) lib/action_dispatch/middleware/server_timing.rb:60:in `call''"},{"exception_object_id":394400,"id":15,"trace":"actionpack
-        (7.0.8) lib/action_dispatch/middleware/executor.rb:14:in `call''"},{"exception_object_id":394400,"id":16,"trace":"actionpack
-        (7.0.8) lib/action_dispatch/middleware/static.rb:23:in `call''"},{"exception_object_id":394400,"id":17,"trace":"rack
-        (2.2.8) lib/rack/sendfile.rb:110:in `call''"},{"exception_object_id":394400,"id":18,"trace":"actionpack
-        (7.0.8) lib/action_dispatch/middleware/host_authorization.rb:138:in `call''"},{"exception_object_id":394400,"id":19,"trace":"railties
-        (7.0.8) lib/rails/engine.rb:530:in `call''"},{"exception_object_id":394400,"id":20,"trace":"puma
-        (5.6.7) lib/puma/configuration.rb:252:in `call''"},{"exception_object_id":394400,"id":21,"trace":"puma
-        (5.6.7) lib/puma/request.rb:77:in `block in handle_request''"},{"exception_object_id":394400,"id":22,"trace":"puma
-        (5.6.7) lib/puma/thread_pool.rb:340:in `with_force_shutdown''"},{"exception_object_id":394400,"id":23,"trace":"puma
-        (5.6.7) lib/puma/request.rb:76:in `handle_request''"},{"exception_object_id":394400,"id":24,"trace":"puma
-        (5.6.7) lib/puma/server.rb:443:in `process_client''"},{"exception_object_id":394400,"id":25,"trace":"puma
-        (5.6.7) lib/puma/thread_pool.rb:147:in `block in spawn_thread''"}],"Full Trace":[{"exception_object_id":394400,"id":0,"trace":"actionpack
-        (7.0.8) lib/action_dispatch/middleware/debug_exceptions.rb:32:in `call''"},{"exception_object_id":394400,"id":1,"trace":"actionpack
-        (7.0.8) lib/action_dispatch/middleware/show_exceptions.rb:29:in `call''"},{"exception_object_id":394400,"id":2,"trace":"railties
-        (7.0.8) lib/rails/rack/logger.rb:40:in `call_app''"},{"exception_object_id":394400,"id":3,"trace":"railties
-        (7.0.8) lib/rails/rack/logger.rb:25:in `block in call''"},{"exception_object_id":394400,"id":4,"trace":"activesupport
-        (7.0.8) lib/active_support/tagged_logging.rb:99:in `block in tagged''"},{"exception_object_id":394400,"id":5,"trace":"activesupport
-        (7.0.8) lib/active_support/tagged_logging.rb:37:in `tagged''"},{"exception_object_id":394400,"id":6,"trace":"activesupport
-        (7.0.8) lib/active_support/tagged_logging.rb:99:in `tagged''"},{"exception_object_id":394400,"id":7,"trace":"railties
-        (7.0.8) lib/rails/rack/logger.rb:25:in `call''"},{"exception_object_id":394400,"id":8,"trace":"actionpack
-        (7.0.8) lib/action_dispatch/middleware/remote_ip.rb:93:in `call''"},{"exception_object_id":394400,"id":9,"trace":"actionpack
-        (7.0.8) lib/action_dispatch/middleware/request_id.rb:26:in `call''"},{"exception_object_id":394400,"id":10,"trace":"rack
-        (2.2.8) lib/rack/runtime.rb:22:in `call''"},{"exception_object_id":394400,"id":11,"trace":"activesupport
-        (7.0.8) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in
-        `call''"},{"exception_object_id":394400,"id":12,"trace":"actionpack (7.0.8)
-        lib/action_dispatch/middleware/server_timing.rb:61:in `block in call''"},{"exception_object_id":394400,"id":13,"trace":"actionpack
-        (7.0.8) lib/action_dispatch/middleware/server_timing.rb:26:in `collect_events''"},{"exception_object_id":394400,"id":14,"trace":"actionpack
-        (7.0.8) lib/action_dispatch/middleware/server_timing.rb:60:in `call''"},{"exception_object_id":394400,"id":15,"trace":"actionpack
-        (7.0.8) lib/action_dispatch/middleware/executor.rb:14:in `call''"},{"exception_object_id":394400,"id":16,"trace":"actionpack
-        (7.0.8) lib/action_dispatch/middleware/static.rb:23:in `call''"},{"exception_object_id":394400,"id":17,"trace":"rack
-        (2.2.8) lib/rack/sendfile.rb:110:in `call''"},{"exception_object_id":394400,"id":18,"trace":"actionpack
-        (7.0.8) lib/action_dispatch/middleware/host_authorization.rb:138:in `call''"},{"exception_object_id":394400,"id":19,"trace":"railties
-        (7.0.8) lib/rails/engine.rb:530:in `call''"},{"exception_object_id":394400,"id":20,"trace":"puma
-        (5.6.7) lib/puma/configuration.rb:252:in `call''"},{"exception_object_id":394400,"id":21,"trace":"puma
-        (5.6.7) lib/puma/request.rb:77:in `block in handle_request''"},{"exception_object_id":394400,"id":22,"trace":"puma
-        (5.6.7) lib/puma/thread_pool.rb:340:in `with_force_shutdown''"},{"exception_object_id":394400,"id":23,"trace":"puma
-        (5.6.7) lib/puma/request.rb:76:in `handle_request''"},{"exception_object_id":394400,"id":24,"trace":"puma
-        (5.6.7) lib/puma/server.rb:443:in `process_client''"},{"exception_object_id":394400,"id":25,"trace":"puma
-        (5.6.7) lib/puma/thread_pool.rb:147:in `block in spawn_thread''"}]}}'
-  recorded_at: Fri, 12 Jan 2024 15:30:24 GMT
+      string: '{"errors":[{"detail":"No user_third_space with user_id=12345 AND third_space_id=152
+        exists"}]}'
+  recorded_at: Thu, 25 Jan 2024 03:18:00 GMT
 recorded_with: VCR 6.2.0

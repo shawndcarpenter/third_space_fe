@@ -3,6 +3,7 @@ http_interactions:
 - request:
     method: post
     uri: http://localhost:3000/api/v1/third_spaces?address=address&category=yummy&hours=%7B%7D&lat=123.4545&lon=123455.67&name=name&phone=555-555-5555&photos=%5B%5D&price=$$$&rating=5&tags=%5B%22happy%22%5D&yelp_id=f-m7-hyFzkf0HSEeQ2s-9A
+    uri: http://localhost:3000/api/v1/third_spaces?address=address&category=yummy&hours=%7B%7D&lat=123.4545&lon=123455.67&name=name&phone=555-555-5555&photos=%5B%5D&price=$$$&rating=5&tags=%5B%22happy%22%5D&yelp_id=f-m7-hyFzkf0HSEeQ2s-9A
     body:
       encoding: UTF-8
       string: ''

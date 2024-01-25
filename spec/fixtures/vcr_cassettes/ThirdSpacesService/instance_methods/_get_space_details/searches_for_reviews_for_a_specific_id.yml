@@ -35,19 +35,27 @@ http_interactions:
       Vary:
       - Accept
       Etag:
-      - W/"8fe32e407a1038ee38753b70e5374b3a"
+      - W/"728da08aa7797dc35fbe93b4d5bd311c"
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - 200ff7d8-d3f0-4f21-acc4-430cfcf833b6
+      - e6930cae-3a8f-4356-8bba-f249acdf7627
       X-Runtime:
-      - '0.028278'
+      - '0.453930'
       Server-Timing:
-      - start_processing.action_controller;dur=0.12, sql.active_record;dur=1.50, process_action.action_controller;dur=21.64
+      - start_processing.action_controller;dur=0.09, sql.active_record;dur=19.89,
+        process_action.action_controller;dur=436.62
       Transfer-Encoding:
       - chunked
     body:
       encoding: UTF-8
-      string: '{"data":[]}'
-  recorded_at: Fri, 12 Jan 2024 14:55:02 GMT
+      string: '{"data":[{"id":"SKejKH6BmHG8sL6fs9PeMg","type":"review_object","attributes":{"id":"SKejKH6BmHG8sL6fs9PeMg","rating":5,"text":"Very
+        tasty and yummy food there, Seared scallops \u0026Crab Risotto are highly
+        recommend.\nNice service! :) Bongjoy !","name":"Ash G.","date":"2023-12-26","yelp_id":"f-m7-hyFzkf0HSEeQ2s-9A"}},{"id":"E9EbR01n2aPPfXB2yMI6fQ","type":"review_object","attributes":{"id":"E9EbR01n2aPPfXB2yMI6fQ","rating":5,"text":"Tonight
+        my boyfriend and I decided to go to this fine establishment to celebrate our
+        anniversary \u0026 we had Luis as our server, Luis was so kind and very...","name":"Heaven
+        C.","date":"2024-01-07","yelp_id":"f-m7-hyFzkf0HSEeQ2s-9A"}},{"id":"ZpT1nPwEcwBZlAUTA_V8pQ","type":"review_object","attributes":{"id":"ZpT1nPwEcwBZlAUTA_V8pQ","rating":5,"text":"Awesome
+        service from Daniela!!\n\nGreat food, must get the clam chowder with crab
+        meat!!","name":"Phillip M.","date":"2023-12-25","yelp_id":"f-m7-hyFzkf0HSEeQ2s-9A"}}]}'
+  recorded_at: Thu, 25 Jan 2024 03:16:25 GMT
 recorded_with: VCR 6.2.0

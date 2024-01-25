@@ -7,6 +7,11 @@ const options = {
 };
 
 export default class extends Controller {
+  static values = {
+    city: String,
+    state: String,
+    searchLocationsPath: String
+  }
   success(pos) {
     const crd = pos.coords;
 
@@ -49,5 +54,34 @@ export default class extends Controller {
   search() {
     navigator.geolocation.getCurrentPosition(this.success, this.error, options);
   }
+  submitMood(event) {
+    event.preventDefault();
+    const mood = event.currentTarget.dataset.mood; 
+    const csrfToken = document.querySelector('meta[name="csrf-token"]').content;
+
+    fetch(this.searchLocationsPathValue, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'X-CSRF-Token': csrfToken
+      },
+      body: JSON.stringify({ 
+        mood: mood, 
+        city: this.cityValue, 
+        state: this.stateValue 
+      })
+    })
+    .then(response => {
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+      return response.json();
+    })
+    .then(data => {
+      console.log(data);
+    })
+    .catch(error => console.error('Error:', error));
+  }
 }
+
 
