@@ -25,7 +25,6 @@ class ThirdSpacesService
 
   def get_third_space_reviews(yelp_id)
     response = conn.get("/api/v1/third_spaces/#{yelp_id}/reviews")
-
     data = JSON.parse(response.body, symbolize_names: true)
   end
 
@@ -61,7 +60,6 @@ class ThirdSpacesService
       req.params['price'] = location[:price]
       req.params['hours'] = "#{location[:hours]}"
       req.params['category'] = location[:category]
-      req.params['open_now'] = location[:open_now]
       req.params['tags'] = "#{tags}"
     end
 

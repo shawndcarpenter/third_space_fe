@@ -105,12 +105,13 @@ class ThirdSpacesController < ApplicationController
     if @reviews != []
       avg_rating(@reviews)
     end
+    
     if @reviews == []
       reviews = LocationReviewsFacade.new(yelp_id).reviews
       reviews.map do |review|
         CreateSpaceReviewsFacade.new(review).new_review
       end
-
+      
       @reviews = ThirdSpaceReviewsFacade.new(yelp_id).reviews
     end
     @tags_with_freq = format_tags(@space.tags)
@@ -139,9 +140,8 @@ class ThirdSpacesController < ApplicationController
       redirect_to dashboard_path
     end
   end
-
+  
   private
-
   def format_tags(tags)
     if !tags.nil?
       tags = tags.map{ |tag| tag.gsub('_', ' ').titleize }
@@ -303,6 +303,7 @@ class ThirdSpacesController < ApplicationController
     sort_tags_by_frequency(mood_tags)
   end
 
+
   def saved_yelp_ids(spaces)
     list = []
     spaces.map do |space|
@@ -327,4 +328,15 @@ class ThirdSpacesController < ApplicationController
     data = JSON.parse(response.body, symbolize_names: true)[:data]
     ThirdSpacePoro.new(data[:attributes])
   end
+
+  def avg_rating(reviews)
+    sum = 0.0
+    total_ratings = 0.0
+    iteration = @reviews.each do |r|
+      sum += r.rating.to_f
+      total_ratings += 1
+    end
+    @avg_rating = sum/total_ratings
+  end
+
 end

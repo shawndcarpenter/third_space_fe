@@ -15,7 +15,7 @@ class UsersController < ApplicationController
     spaces = ThirdSpacesFacade.new.spaces
     location_recs = filter_spaces_by_location(spaces)
     @mood_recs = filter_by_mood(location_recs)
-
+    
     @location_recs = location_recs.reject! do |location|
       @mood_recs.any? { |mood_rec| location.name == mood_rec.name }
     end

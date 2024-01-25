@@ -47,7 +47,7 @@ Rails.application.routes.draw do
   get '/search_locations/update', to: 'search_locations#update', as: :update_search_location
   resources :search_locations, only: [:create]
 
-  resources :third_spaces, only: [:new, :create, :index, :show, :destroy] do
+  resources :third_spaces do
     get :create_third_space, on: :collection, as: :create_third_space
   end
 
