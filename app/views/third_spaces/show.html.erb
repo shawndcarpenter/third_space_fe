@@ -36,10 +36,6 @@
 
         <br><br>
 
-        <div class="rounded-container">
-          <%= "Open Now" if @space.open_now %>
-          <%= "Closed" if !@space.open_now %>
-        </div>
         <% if !@space.price.nil? %>
           <div class="rounded-container"><%= @space.price%></div>
         <% end %>

@@ -2,9 +2,9 @@
 <div class="container-fluid d-flex justify-content-center align-items-center vh-100">
   <div class="text-center">
     <div class="mb-3">
-      <%= link_to dashboard_path do %>
-        <%= image_tag 'temp_logo.png', class: "img-fluid", alt: "Logo" %>
-      <% end %>
+    <%= link_to dashboard_path do %>
+      <%= image_tag 'temp_logo.svg', class: "img-fluid", alt: "Logo" %>
+    <% end %>
     </div>
     <div class="container text-center">
       <% if current_user.search_location.present? %>

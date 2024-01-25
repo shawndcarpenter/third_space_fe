@@ -1,19 +1,19 @@
-<%# <div class="container-sm d-flex justify-content-center align-items-center"> %>
-  <%# <div class="text-center">
-  <div class="mb-3"> %>
-    <%# <%= link_to dashboard_path do %>  
-      <%# <%= image_tag 'temp_logo.png', class: "img-fluid", alt: "Logo" %>  
-    <%# <% end %>  
-  <%# </div> %>
-  <%# <div class="d-grid gap-4 d-md-flex justify-content-md-center"> %>
-      <%# <button href="/login_path" class="btn btn-primary">Login</button>  %>
-      <%# <button href="/new_user_path" class="btn btn-primary">New User</button> %>
-  <%# </div> %>
-<%# </div> %>
- <%# <%= button_to "Continue with Google", '/auth/google_oauth2', class: "google-sign-in-btn", data: { turbo: false }, id: "google-sign-in-btn" %> 
-<%# </div> %>
+<div class="container-sm d-flex justify-content-center align-items-center">
+  <div class="text-center">
+  <div class="mb-3">
+    <%= link_to dashboard_path do %>
+      <%= image_tag 'temp_logo.svg', class: "img-fluid", alt: "Logo" %>
+    <% end %>
+  </div>
+  <div class="d-grid gap-4 d-md-flex justify-content-md-center">
+      <button href="/login_path" class="btn btn-primary">Login</button> 
+      <button href="/new_user_path" class="btn btn-primary">New User</button>
+  </div>
+</div>
+ <%= button_to "Continue with Google", '/auth/google_oauth2', class: "google-sign-in-btn", data: { turbo: false }, id: "google-sign-in-btn" %>
+</div>
 
-<%# <script>
+<script>
   document.addEventListener("DOMContentLoaded", function() {
     var btn = document.getElementById('google-sign-in-btn');
     btn.style.backgroundImage = 'url(<%= asset_url("google_button.png") %>

@@ -10,8 +10,7 @@ class DetailedLocation
     :lon, 
     :price, 
     :hours, 
-    :category,
-    :open_now
+    :category
 
   def initialize(data)
     @yelp_id = data[:yelp_id]
@@ -24,7 +23,6 @@ class DetailedLocation
     @lon = data[:lon]
     @price = data[:price]
     @hours = data[:hours]
-    @open_now = data[:open_now]
     @category = data[:category]
   end
 end

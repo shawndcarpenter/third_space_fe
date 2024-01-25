@@ -194,6 +194,9 @@ class UsersController < ApplicationController
   # end
 
   def filter_spaces_by_location(results)
+    # city = current_user.search_location.city.capitalize
+    # state = current_user.search_location.state
+    # locs = results.find_all{|space| space.address.include?("#{city}, #{state}")}
     city = current_user.search_location.city.downcase
     state = current_user.search_location.state.downcase
   

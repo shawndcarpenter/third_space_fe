@@ -60,7 +60,6 @@ class ThirdSpacesService
       req.params['price'] = location[:price]
       req.params['hours'] = "#{location[:hours]}"
       req.params['category'] = location[:category]
-      req.params['open_now'] = location[:open_now]
       req.params['tags'] = "#{tags}"
     end
 
