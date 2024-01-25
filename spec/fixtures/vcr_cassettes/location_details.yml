@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://plankton-app-tavpa.ondigitalocean.app/api/v1/locations/4qFHQIs2Nux2EVP2EdfZHA
+    uri: http://localhost:3000/api/v1/locations/4qFHQIs2Nux2EVP2EdfZHA
     body:
       encoding: US-ASCII
       string: ''
@@ -15,17 +15,9 @@ http_interactions:
       - "*/*"
   response:
     status:
-      code: 404
-      message: Not Found
+      code: 200
+      message: OK
     headers:
-      Date:
-      - Wed, 24 Jan 2024 04:56:11 GMT
-      Content-Type:
-      - application/json; charset=utf-8
-      Transfer-Encoding:
-      - chunked
-      Connection:
-      - keep-alive
       X-Frame-Options:
       - SAMEORIGIN
       X-Xss-Protection:
@@ -38,30 +30,86 @@ http_interactions:
       - none
       Referrer-Policy:
       - strict-origin-when-cross-origin
+      Content-Type:
+      - application/json; charset=utf-8
       Vary:
-      - Accept, Accept-Encoding
+      - Accept
+      Etag:
+      - W/"af98d971e16e0044ebbe3166de3eef05"
       Cache-Control:
-      - no-cache
+      - max-age=0, private, must-revalidate
       X-Request-Id:
-      - 30c5464a-2e23-4cc0-a0b1-a158ea150e4a
+      - b1ebe8de-c147-493d-ac2b-18084a851e82
       X-Runtime:
-      - '0.068143'
-      X-Do-App-Origin:
-      - 42daf057-993c-487d-b7a0-cf175a19f2a0
-      X-Do-Orig-Status:
-      - '404'
-      Cf-Cache-Status:
-      - MISS
-      Set-Cookie:
-      - __cf_bm=JkE2GGpaYhxzASCJWCuUUPyL1CdqgB_PYeFTbnZ0VZM-1706072171-1-AVh4t7hm1frBL+hWN+Vii1VP8DRegmtQjiemRBb2d2gIeSe8yv2+qsHJPK/O77hB2/ECayhJI2qx2q7DSKeEOcg=;
-        path=/; expires=Wed, 24-Jan-24 05:26:11 GMT; domain=.ondigitalocean.app; HttpOnly;
-        Secure; SameSite=None
-      Server:
-      - cloudflare
-      Cf-Ray:
-      - 84a5b040dbd379a2-DEN
+      - '0.356045'
+      Server-Timing:
+      - start_processing.action_controller;dur=0.07, process_action.action_controller;dur=351.37
+      Transfer-Encoding:
+      - chunked
     body:
-      encoding: ASCII-8BIT
-      string: '{"errors":[{"detail":"The requested business could not be found."}]}'
-  recorded_at: Wed, 24 Jan 2024 04:56:11 GMT
+      encoding: UTF-8
+      string: '{"data":{"id":null,"type":"detailed_location","attributes":{"yelp_id":"4qFHQIs2Nux2EVP2EdfZHA","name":"Costco
+        Wholesale","address":"900 S Harbor Blvd, Fullerton, CA 92832","rating":3.5,"phone":"(714)
+        738-7521","photos":["https://s3-media1.fl.yelpcdn.com/bphoto/tC_YW8LDfwVFYTCnVWiKaw/o.jpg","https://s3-media1.fl.yelpcdn.com/bphoto/FeNHrojXkfsPRwxHDaQWww/o.jpg","https://s3-media3.fl.yelpcdn.com/bphoto/vfCz4kBly2MWhogq9cXLfw/o.jpg"],"lat":33.862562727568914,"lon":-117.9238246,"price":null,"hours":[{"open":[{"is_overnight":false,"start":"1000","end":"2030","day":0},{"is_overnight":false,"start":"1000","end":"2030","day":1},{"is_overnight":false,"start":"1000","end":"2030","day":2},{"is_overnight":false,"start":"1000","end":"2030","day":3},{"is_overnight":false,"start":"1000","end":"2030","day":4},{"is_overnight":false,"start":"0930","end":"1800","day":5},{"is_overnight":false,"start":"1000","end":"1800","day":6}],"hours_type":"REGULAR","is_open_now":true}],"category":"Gas
+        Stations","open_now":true}}}'
+  recorded_at: Thu, 25 Jan 2024 03:13:39 GMT
+- request:
+    method: get
+    uri: http://localhost:3000/api/v1/locations/4qFHQIs2Nux2EVP2EdfZHA/reviews
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v2.8.1
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - '0'
+      X-Content-Type-Options:
+      - nosniff
+      X-Download-Options:
+      - noopen
+      X-Permitted-Cross-Domain-Policies:
+      - none
+      Referrer-Policy:
+      - strict-origin-when-cross-origin
+      Content-Type:
+      - application/json; charset=utf-8
+      Vary:
+      - Accept
+      Etag:
+      - W/"f6820911a46544f884fa78ab713599e6"
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - e95c8e3a-02c1-421e-827d-629a4eaa0249
+      X-Runtime:
+      - '0.305625'
+      Server-Timing:
+      - start_processing.action_controller;dur=0.07, process_action.action_controller;dur=301.98
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: '{"data":[{"id":"SUKcq-HO48OYrDPYVjmrqA","type":"review","attributes":{"id":"SUKcq-HO48OYrDPYVjmrqA","rating":5,"text":"The
+        gas line was not too bad on Sunday at lunch time. It''s 15 cents cheaper than
+        the LA Habra location. I was in the area so what the\n\nHere on a Friday...","name":"Chalee
+        T.","date":"2024-01-21","yelp_id":"4qFHQIs2Nux2EVP2EdfZHA"}},{"id":"PjFVQtEf7xTRza3cnwi_KA","type":"review","attributes":{"id":"PjFVQtEf7xTRza3cnwi_KA","rating":3,"text":"9:15am
+        gas on a Wednesday \nStill a wait of about 4 cars ahead in each lane \nI''d
+        suggest coming earlier in the day especially if you don''t have to shop","name":"Daniel
+        L.","date":"2023-11-15","yelp_id":"4qFHQIs2Nux2EVP2EdfZHA"}},{"id":"yj16wPDczWjHNsAvdOHTWQ","type":"review","attributes":{"id":"yj16wPDczWjHNsAvdOHTWQ","rating":1,"text":"If
+        I could give it a zero, I would. Ridiculous planning and traffic control for
+        this gas station. They have 2 barricades up for 2 lines when ultimately...","name":"Elle
+        K.","date":"2023-09-17","yelp_id":"4qFHQIs2Nux2EVP2EdfZHA"}}]}'
+  recorded_at: Thu, 25 Jan 2024 03:13:39 GMT
 recorded_with: VCR 6.2.0

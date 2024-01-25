@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: delete
-    uri: https://plankton-app-tavpa.ondigitalocean.app/api/v1/user_third_spaces?third_space_id=f-m7-hyFzkf0HSEeQ2s-9A&user_id=12345
+    uri: http://localhost:3000/api/v1/user_third_spaces?third_space_id=f-m7-hyFzkf0HSEeQ2s-9A&user_id=12345
     body:
       encoding: US-ASCII
       string: ''
@@ -15,13 +15,9 @@ http_interactions:
       - "*/*"
   response:
     status:
-      code: 204
-      message: No Content
+      code: 404
+      message: Not Found
     headers:
-      Date:
-      - Wed, 24 Jan 2024 04:56:13 GMT
-      Connection:
-      - keep-alive
       X-Frame-Options:
       - SAMEORIGIN
       X-Xss-Protection:
@@ -34,30 +30,24 @@ http_interactions:
       - none
       Referrer-Policy:
       - strict-origin-when-cross-origin
+      Content-Type:
+      - application/json; charset=utf-8
       Vary:
       - Accept
       Cache-Control:
       - no-cache
       X-Request-Id:
-      - 3872c52f-eed0-48f2-a4fa-9ae3333fae20
+      - 3a85ef81-e16b-4eae-8da3-f12d33e26fff
       X-Runtime:
-      - '0.024183'
-      X-Do-App-Origin:
-      - 42daf057-993c-487d-b7a0-cf175a19f2a0
-      X-Do-Orig-Status:
-      - '204'
-      Cf-Cache-Status:
-      - DYNAMIC
-      Set-Cookie:
-      - __cf_bm=UGIf1XyUAa5VJQJRhG2N6WoQ5GuR98CcqnPnNDdamgM-1706072173-1-AW6s/u66FgDKiBx0T6SI4nzD7AGRLiBhcN4SgnNy27+rQ90ZnAOGZmT7cnMDLXS43zLGq5t4qoQzB1sAqd0W1mA=;
-        path=/; expires=Wed, 24-Jan-24 05:26:13 GMT; domain=.ondigitalocean.app; HttpOnly;
-        Secure; SameSite=None
-      Server:
-      - cloudflare
-      Cf-Ray:
-      - 84a5b0494fa15200-DEN
+      - '0.013951'
+      Server-Timing:
+      - start_processing.action_controller;dur=0.06, sql.active_record;dur=1.70, instantiation.active_record;dur=0.06,
+        process_action.action_controller;dur=9.52
+      Transfer-Encoding:
+      - chunked
     body:
       encoding: UTF-8
-      string: ''
-  recorded_at: Wed, 24 Jan 2024 04:56:13 GMT
+      string: '{"errors":[{"detail":"No user_third_space with user_id=12345 AND third_space_id=152
+        exists"}]}'
+  recorded_at: Thu, 25 Jan 2024 03:18:00 GMT
 recorded_with: VCR 6.2.0

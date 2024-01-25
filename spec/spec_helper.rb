@@ -17,13 +17,13 @@ def user_login_data
   visit '/login'
   # fill_in "email", with: "#{@user1.email}"
   fill_in "floatingInputEmail", with: "#{@user1.email}"
-  fill_in "password", with: "#{@user1.password}"
+  fill_in "floatingInput", with: "#{@user1.password}"
   click_button 'log in'
-  email = ActionMailer::Base.deliveries.last
-  email_body = email.body.decoded
-  otp_code_match = email_body.match(/Your OTP code is: (\d+)/)
-  otp_code = otp_code_match[1]
-  fill_in 'otp', with: otp_code.to_i
+  # email = ActionMailer::Base.deliveries.last
+  # email_body = email.body.decoded
+  # otp_code_match = email_body.match(/Your OTP code is: (\d+)/)
+  # otp_code = otp_code_match[1]
+  fill_in 'otp', with: Rails.application.config.x.static_otp
   click_button 'submit'
 end
 

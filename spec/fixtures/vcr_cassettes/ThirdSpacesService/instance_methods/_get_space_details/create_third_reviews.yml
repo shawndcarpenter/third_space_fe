@@ -17,17 +17,9 @@ http_interactions:
       - "*/*"
   response:
     status:
-      code: 500
-      message: Internal Server Error
+      code: 200
+      message: OK
     headers:
-      Date:
-      - Wed, 24 Jan 2024 04:56:14 GMT
-      Content-Type:
-      - application/json; charset=utf-8
-      Transfer-Encoding:
-      - chunked
-      Connection:
-      - keep-alive
       X-Frame-Options:
       - SAMEORIGIN
       X-Xss-Protection:
@@ -40,32 +32,25 @@ http_interactions:
       - none
       Referrer-Policy:
       - strict-origin-when-cross-origin
+      Content-Type:
+      - application/json; charset=utf-8
       Vary:
       - Accept
       Etag:
-      - W/"8c9b488ef78fd366c348be1d748ba97d"
+      - W/"d29ab077476a7f3ef4094ef01821deb2"
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - 90f5bef4-7016-42b8-a847-480bea6e1911
+      - 83190b35-00c8-4245-aed9-574dfee5079d
       X-Runtime:
-      - '0.034341'
-      X-Do-App-Origin:
-      - 42daf057-993c-487d-b7a0-cf175a19f2a0
-      X-Do-Orig-Status:
-      - '200'
-      Cf-Cache-Status:
-      - DYNAMIC
-      Set-Cookie:
-      - __cf_bm=l9nAaNC.JWHAS2K48fS_uLQxQuoP4EpKRT9Zd8Hy_LM-1706072174-1-AdbsIKt8K+P1XG8RHJTbVslzJgaA+EZzDoo7WxeKvFD8pKZ/A855cYUY65dpsW+ohdNryYu6/HcfHve6MEyNDM8=;
-        path=/; expires=Wed, 24-Jan-24 05:26:14 GMT; domain=.ondigitalocean.app; HttpOnly;
-        Secure; SameSite=None
-      Server:
-      - cloudflare
-      Cf-Ray:
-      - 84a5b0537ab651a6-DEN
+      - '0.023324'
+      Server-Timing:
+      - start_processing.action_controller;dur=0.06, sql.active_record;dur=5.55, instantiation.active_record;dur=0.07,
+        process_action.action_controller;dur=20.23
+      Transfer-Encoding:
+      - chunked
     body:
-      encoding: ASCII-8BIT
-      string: '{"data":{"id":"1","type":"review_object","attributes":{"id":1,"rating":"5","text":"text","name":"name","yelp_id":"f-m7-hyFzkf0HSEeQ2s-9A"}}}'
-  recorded_at: Wed, 24 Jan 2024 04:56:14 GMT
+      encoding: UTF-8
+      string: '{"data":{"id":"19","type":"review_object","attributes":{"id":19,"rating":"5","text":"text","name":"name","date":null,"yelp_id":"f-m7-hyFzkf0HSEeQ2s-9A"}}}'
+  recorded_at: Thu, 25 Jan 2024 03:16:26 GMT
 recorded_with: VCR 6.2.0

@@ -31,7 +31,7 @@ RSpec.describe "New User Registration", type: :feature do
       expect(current_path).to eq(login_path)
     end
 
-    it 'creates an account when valid data is submitted' do
+    it 'creates an account when valid data is submitted', :vcr do
       fill_in "first name", with: "Candy"
       fill_in "last name", with: "Land"
       fill_in "email", with: "shawncarpenter.co@gmail.com"

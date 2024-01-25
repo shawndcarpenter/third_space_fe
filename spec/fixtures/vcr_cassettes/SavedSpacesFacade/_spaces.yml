@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: post
-    uri: https://plankton-app-tavpa.ondigitalocean.app/api/v1/third_spaces?address=address&category=yummy&hours=%7B%7D&lat=123.4545&lon=123455.67&name=name&open_now=true&phone=555-555-5555&photos=%5B%5D&price=$$$&rating=5&tags=%5B%22happy%22%5D&yelp_id=f-m7-hyFzkf0HSEeQ2s-9A
+    uri: http://localhost:3000/api/v1/third_spaces?address=address&category=yummy&hours=%7B%7D&lat=123.4545&lon=123455.67&name=name&open_now=true&phone=555-555-5555&photos=%5B%5D&price=$$$&rating=5&tags=%5B%22happy%22%5D&yelp_id=f-m7-hyFzkf0HSEeQ2s-9A
     body:
       encoding: UTF-8
       string: ''
@@ -20,14 +20,6 @@ http_interactions:
       code: 201
       message: Created
     headers:
-      Date:
-      - Wed, 24 Jan 2024 04:56:10 GMT
-      Content-Type:
-      - application/json; charset=utf-8
-      Transfer-Encoding:
-      - chunked
-      Connection:
-      - keep-alive
       X-Frame-Options:
       - SAMEORIGIN
       X-Xss-Protection:
@@ -40,37 +32,29 @@ http_interactions:
       - none
       Referrer-Policy:
       - strict-origin-when-cross-origin
+      Content-Type:
+      - application/json; charset=utf-8
       Vary:
       - Accept
       Etag:
-      - W/"d60f7062ba1507ef23917efbcf63eaf3"
+      - W/"76497affebc55027a074674e19f65c20"
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - a84eed17-c117-480e-833c-54a65d2fa76b
+      - a1b0298c-fdfd-4a3c-8621-a11e77985338
       X-Runtime:
-      - '0.043038'
-      X-Do-App-Origin:
-      - 42daf057-993c-487d-b7a0-cf175a19f2a0
-      X-Do-Orig-Status:
-      - '201'
-      Cf-Cache-Status:
-      - DYNAMIC
-      Set-Cookie:
-      - __cf_bm=_rgH0MI39mnW9TE7dyYYDtNXuLONS8iR6K4ZXRCXavw-1706072170-1-AfL5E8QbVUJUwim3BVaV5N0bvUwKNqkoz9kKKff3LhHRe6fhL00C3O5HTG1tGEV6jBU/DRrDwa81gnf8MoCvJmM=;
-        path=/; expires=Wed, 24-Jan-24 05:26:10 GMT; domain=.ondigitalocean.app; HttpOnly;
-        Secure; SameSite=None
-      Server:
-      - cloudflare
-      Cf-Ray:
-      - 84a5b0384f4b5344-DEN
+      - '0.047657'
+      Server-Timing:
+      - start_processing.action_controller;dur=0.18, sql.active_record;dur=8.04, process_action.action_controller;dur=37.79
+      Transfer-Encoding:
+      - chunked
     body:
       encoding: UTF-8
-      string: '{"data":{"id":"301","type":"third_space","attributes":{"yelp_id":"f-m7-hyFzkf0HSEeQ2s-9A","name":"name","address":"address","rating":5.0,"phone":"555-555-5555","photos":"[]","lat":123.4545,"lon":123455.67,"price":"$$$","hours":"{}","category":"yummy","open_now":true,"tags":["happy"]}}}'
-  recorded_at: Wed, 24 Jan 2024 04:56:10 GMT
+      string: '{"data":{"id":"153","type":"third_space","attributes":{"yelp_id":"f-m7-hyFzkf0HSEeQ2s-9A","name":"name","address":"address","rating":5.0,"phone":"555-555-5555","photos":"[]","lat":123.4545,"lon":123455.67,"price":"$$$","hours":"{}","category":"yummy","open_now":true,"tags":["happy"]}}}'
+  recorded_at: Thu, 25 Jan 2024 04:27:15 GMT
 - request:
     method: post
-    uri: https://plankton-app-tavpa.ondigitalocean.app/api/v1/user_third_spaces?third_space_id=f-m7-hyFzkf0HSEeQ2s-9A&user_id=12345
+    uri: http://localhost:3000/api/v1/user_third_spaces?third_space_id=f-m7-hyFzkf0HSEeQ2s-9A&user_id=12345
     body:
       encoding: UTF-8
       string: ''
@@ -85,39 +69,91 @@ http_interactions:
       - "*/*"
   response:
     status:
-      code: 404
-      message: Not Found
+      code: 200
+      message: OK
     headers:
-      Date:
-      - Wed, 24 Jan 2024 04:56:10 GMT
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - '0'
+      X-Content-Type-Options:
+      - nosniff
+      X-Download-Options:
+      - noopen
+      X-Permitted-Cross-Domain-Policies:
+      - none
+      Referrer-Policy:
+      - strict-origin-when-cross-origin
       Content-Type:
-      - text/html; charset=UTF-8
+      - application/json; charset=utf-8
+      Vary:
+      - Accept
+      Etag:
+      - W/"0a0ae5d2f3ba770d47b8650154afd20d"
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - 65bf7609-83b7-41f9-82cd-d35151da4e59
+      X-Runtime:
+      - '0.017675'
+      Server-Timing:
+      - start_processing.action_controller;dur=0.07, sql.active_record;dur=9.05, instantiation.active_record;dur=0.17,
+        process_action.action_controller;dur=14.40
       Transfer-Encoding:
       - chunked
-      Connection:
-      - keep-alive
-      X-Request-Id:
-      - 6039d7b0-6653-4d46-9a5f-0640e68917b6
-      X-Runtime:
-      - '0.022459'
-      X-Do-App-Origin:
-      - 42daf057-993c-487d-b7a0-cf175a19f2a0
-      Cache-Control:
-      - private
-      X-Do-Orig-Status:
-      - '404'
-      Cf-Cache-Status:
-      - DYNAMIC
-      Set-Cookie:
-      - __cf_bm=IUssTAPKVhrD_kQ9N1z9TQq.GSjueurvkv6dIH9olds-1706072170-1-AS4/CPRrijcFGQ+qoz+CeZgTnAzYtLRq1588hJWqpjOHJq+UjVol+f0atPTa77i4v0bqjw87J3GIdxChEYoaciE=;
-        path=/; expires=Wed, 24-Jan-24 05:26:10 GMT; domain=.ondigitalocean.app; HttpOnly;
-        Secure; SameSite=None
-      Server:
-      - cloudflare
-      Cf-Ray:
-      - 84a5b039d91c5387-DEN
     body:
-      encoding: ASCII-8BIT
+      encoding: UTF-8
+      string: '{"data":{"id":"12345","type":"user","relationships":{"third_spaces":{"data":[{"id":"152","type":"third_space"}]}}},"included":[{"id":"152","type":"third_space","attributes":{"yelp_id":"f-m7-hyFzkf0HSEeQ2s-9A","name":"name","address":"address","rating":5.0,"phone":"555-555-5555","photos":"[]","lat":123.4545,"lon":123455.67,"price":"$$$","hours":"{}","category":"yummy","open_now":true,"tags":["happy"]}}]}'
+  recorded_at: Thu, 25 Jan 2024 04:27:15 GMT
+- request:
+    method: get
+    uri: http://localhost:3000/api/v1/users/12345/third_spaces
+    body:
+      encoding: US-ASCII
       string: ''
-  recorded_at: Wed, 24 Jan 2024 04:56:10 GMT
+    headers:
+      User-Agent:
+      - Faraday v2.8.1
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - '0'
+      X-Content-Type-Options:
+      - nosniff
+      X-Download-Options:
+      - noopen
+      X-Permitted-Cross-Domain-Policies:
+      - none
+      Referrer-Policy:
+      - strict-origin-when-cross-origin
+      Content-Type:
+      - application/json; charset=utf-8
+      Vary:
+      - Accept
+      Etag:
+      - W/"0a0ae5d2f3ba770d47b8650154afd20d"
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - e73946f5-f72a-440f-8ead-eefaa95fc765
+      X-Runtime:
+      - '0.006029'
+      Server-Timing:
+      - start_processing.action_controller;dur=0.06, sql.active_record;dur=2.16, instantiation.active_record;dur=0.03,
+        process_action.action_controller;dur=3.21
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: '{"data":{"id":"12345","type":"user","relationships":{"third_spaces":{"data":[{"id":"152","type":"third_space"}]}}},"included":[{"id":"152","type":"third_space","attributes":{"yelp_id":"f-m7-hyFzkf0HSEeQ2s-9A","name":"name","address":"address","rating":5.0,"phone":"555-555-5555","photos":"[]","lat":123.4545,"lon":123455.67,"price":"$$$","hours":"{}","category":"yummy","open_now":true,"tags":["happy"]}}]}'
+  recorded_at: Thu, 25 Jan 2024 04:27:15 GMT
 recorded_with: VCR 6.2.0
