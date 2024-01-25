@@ -1,0 +1,42 @@
+<div data-controller="geolocation">
+  <div class="container-fluid d-flex justify-content-center align-items-center vh-100">
+    <div class="text-center">
+      <div class="mb-3">
+        <%= link_to dashboard_path do %>
+          <%= image_tag 'temp_logo.svg', class: "img-fluid", alt: "Logo" %>
+        <% end %>
+      </div>
+      <div class="container text-center">
+        <% if current_user.search_location.present? %>
+          <%= form_with url: search_locations_path, method: :post, local: true, html: { class: 'form-floating mb-3' } do |form| %>
+            <%= form.hidden_field :city, value: current_user.search_location.city %>
+            <%= form.hidden_field :state, value: current_user.search_location.state %>
+            <h4>What is your mood today?</h4>
+            <div class="btn-group" role="group" aria-label="mood button group">
+              <%= button_tag type: 'submit', name: 'mood', value: 'Happy', class: 'btn btn-outline-primary', style: "border-radius: 20px;", id: 'btncheck1' do %>
+                happy
+              <% end %>
+              <%= button_tag type: 'submit', name: 'mood', value: 'Sad', class: 'btn btn-outline-primary', style: "border-radius: 20px;", id: 'btncheck2' do %>
+                sad
+              <% end %>
+              <%= button_tag type: 'submit', name: 'mood', value: 'Studious', class: 'btn btn-outline-primary', style: "border-radius: 20px;", id: 'btncheck3' do %>
+                studious
+              <% end %>
+              <%= button_tag type: 'submit', name: 'mood', value: 'Social', class: 'btn btn-outline-primary', style: "border-radius: 20px;", id: 'btncheck4' do %>
+                social
+              <% end %>
+              <%= button_tag type: 'submit', name: 'mood', value: 'Party!', class: 'btn btn-outline-primary', style: "border-radius: 20px;", id: 'btncheck5' do %>
+                party!
+              <% end %>
+              <%= button_tag type: 'submit', name: 'mood', value: 'Chill', class: 'btn btn-outline-primary', style: "border-radius: 20px;", id: 'btncheck6' do %>
+                chill
+              <% end %>
+            </div>
+          <% end %>
+        <% else %>
+          <% redirect_to set_location_path %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
