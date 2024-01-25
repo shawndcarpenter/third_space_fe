@@ -68,7 +68,10 @@ RSpec.describe "2fa", type: :feature do
       click_button "create new account"
       fill_in "otp", with: 1
       click_button "submit"
-      expect(page).to have_content("Invalid OTP. Please try again.")
+      within('#flash-messages') do
+        expect(page).to have_content("Invalid OTP. Please try again.")
+      end
+      # expect(page).to have_content("Invalid OTP. Please try again.")
       expect(current_path).to eq "/validate_otp"
     end
 
@@ -80,7 +83,9 @@ RSpec.describe "2fa", type: :feature do
       click_button "log in"
       fill_in "otp", with: 1
       click_button "submit"
-      expect(page).to have_content("Invalid OTP. Please try again.")
+      within('#flash-messages') do
+        expect(page).to have_content("Invalid OTP. Please try again.")
+      end
       expect(current_path).to eq "/validate_otp"
     end
 

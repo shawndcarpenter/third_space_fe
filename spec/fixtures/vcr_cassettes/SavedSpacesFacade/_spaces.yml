@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: post
-    uri: http://localhost:3000/api/v1/third_spaces?address=address&category=yummy&hours=%7B%7D&lat=123.4545&lon=123455.67&name=name&open_now=true&phone=555-555-5555&photos=%5B%5D&price=$$$&rating=5&tags=%5B%22happy%22%5D&yelp_id=f-m7-hyFzkf0HSEeQ2s-9A
+    uri: http://localhost:3000/api/v1/third_spaces?address=address&category=yummy&hours=%7B%7D&lat=123.4545&lon=123455.67&name=name&phone=555-555-5555&photos=%5B%5D&price=$$$&rating=5&tags=%5B%22happy%22%5D&yelp_id=f-m7-hyFzkf0HSEeQ2s-9A
     body:
       encoding: UTF-8
       string: ''
@@ -37,21 +37,22 @@ http_interactions:
       Vary:
       - Accept
       Etag:
-      - W/"76497affebc55027a074674e19f65c20"
+      - W/"6fdae3f6f120eb292c81d03555c62cb3"
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - a1b0298c-fdfd-4a3c-8621-a11e77985338
+      - b75d7696-9e76-46c0-989f-bd6f5489e581
       X-Runtime:
-      - '0.047657'
+      - '0.153622'
       Server-Timing:
-      - start_processing.action_controller;dur=0.18, sql.active_record;dur=8.04, process_action.action_controller;dur=37.79
+      - sql.active_record;dur=29.72, start_processing.action_controller;dur=0.16,
+        process_action.action_controller;dur=33.66
       Transfer-Encoding:
       - chunked
     body:
       encoding: UTF-8
-      string: '{"data":{"id":"153","type":"third_space","attributes":{"yelp_id":"f-m7-hyFzkf0HSEeQ2s-9A","name":"name","address":"address","rating":5.0,"phone":"555-555-5555","photos":"[]","lat":123.4545,"lon":123455.67,"price":"$$$","hours":"{}","category":"yummy","open_now":true,"tags":["happy"]}}}'
-  recorded_at: Thu, 25 Jan 2024 04:27:15 GMT
+      string: '{"data":{"id":"304","type":"third_space","attributes":{"yelp_id":"f-m7-hyFzkf0HSEeQ2s-9A","name":"name","address":"address","rating":5.0,"phone":"555-555-5555","photos":"[]","lat":123.4545,"lon":123455.67,"price":"$$$","hours":"{}","category":"yummy","open_now":null,"tags":["happy"]}}}'
+  recorded_at: Thu, 25 Jan 2024 16:04:18 GMT
 - request:
     method: post
     uri: http://localhost:3000/api/v1/user_third_spaces?third_space_id=f-m7-hyFzkf0HSEeQ2s-9A&user_id=12345
@@ -69,8 +70,8 @@ http_interactions:
       - "*/*"
   response:
     status:
-      code: 200
-      message: OK
+      code: 422
+      message: Unprocessable Entity
     headers:
       X-Frame-Options:
       - SAMEORIGIN
@@ -88,23 +89,22 @@ http_interactions:
       - application/json; charset=utf-8
       Vary:
       - Accept
-      Etag:
-      - W/"0a0ae5d2f3ba770d47b8650154afd20d"
       Cache-Control:
-      - max-age=0, private, must-revalidate
+      - no-cache
       X-Request-Id:
-      - 65bf7609-83b7-41f9-82cd-d35151da4e59
+      - 575df3ef-552c-48f3-b7ae-ba2b9a7e93e0
       X-Runtime:
-      - '0.017675'
+      - '0.025094'
       Server-Timing:
-      - start_processing.action_controller;dur=0.07, sql.active_record;dur=9.05, instantiation.active_record;dur=0.17,
-        process_action.action_controller;dur=14.40
+      - start_processing.action_controller;dur=0.06, sql.active_record;dur=12.10,
+        instantiation.active_record;dur=4.55, process_action.action_controller;dur=20.71
       Transfer-Encoding:
       - chunked
     body:
       encoding: UTF-8
-      string: '{"data":{"id":"12345","type":"user","relationships":{"third_spaces":{"data":[{"id":"152","type":"third_space"}]}}},"included":[{"id":"152","type":"third_space","attributes":{"yelp_id":"f-m7-hyFzkf0HSEeQ2s-9A","name":"name","address":"address","rating":5.0,"phone":"555-555-5555","photos":"[]","lat":123.4545,"lon":123455.67,"price":"$$$","hours":"{}","category":"yummy","open_now":true,"tags":["happy"]}}]}'
-  recorded_at: Thu, 25 Jan 2024 04:27:15 GMT
+      string: '{"errors":[{"detail":"Validation failed: user third_space association
+        between user with user_id=12345 and third_space_id=152 already exists"}]}'
+  recorded_at: Thu, 25 Jan 2024 16:04:19 GMT
 - request:
     method: get
     uri: http://localhost:3000/api/v1/users/12345/third_spaces
@@ -144,16 +144,16 @@ http_interactions:
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - e73946f5-f72a-440f-8ead-eefaa95fc765
+      - e283b5fd-1d73-4f77-b8c7-249f1579181c
       X-Runtime:
-      - '0.006029'
+      - '0.012904'
       Server-Timing:
-      - start_processing.action_controller;dur=0.06, sql.active_record;dur=2.16, instantiation.active_record;dur=0.03,
-        process_action.action_controller;dur=3.21
+      - start_processing.action_controller;dur=0.06, sql.active_record;dur=2.30, instantiation.active_record;dur=0.05,
+        process_action.action_controller;dur=10.02
       Transfer-Encoding:
       - chunked
     body:
       encoding: UTF-8
       string: '{"data":{"id":"12345","type":"user","relationships":{"third_spaces":{"data":[{"id":"152","type":"third_space"}]}}},"included":[{"id":"152","type":"third_space","attributes":{"yelp_id":"f-m7-hyFzkf0HSEeQ2s-9A","name":"name","address":"address","rating":5.0,"phone":"555-555-5555","photos":"[]","lat":123.4545,"lon":123455.67,"price":"$$$","hours":"{}","category":"yummy","open_now":true,"tags":["happy"]}}]}'
-  recorded_at: Thu, 25 Jan 2024 04:27:15 GMT
+  recorded_at: Thu, 25 Jan 2024 16:04:19 GMT
 recorded_with: VCR 6.2.0

@@ -1,4 +1,4 @@
-@import "bourbon";
+/* @import "bourbon";
 
 $heart_size: 15px;
 $heart_color: #c8c8c8;
@@ -53,4 +53,4 @@ $heart_color--hover: #ff5454;
     transform: rotate(45deg) scale(1);
     background: lighten($heart_color--hover, 5%);
   }
-}
+} */
