@@ -1,0 +1,28 @@
+<%# These are from set location and don't work as well, saving until I'm positive what is there works  %>
+
+      <div class="btn-group" role="group" aria-label="mood button group">
+        <%= button_to "Happy", search_locations_path(:mood => "Happy"), data: {action: "geolocation#search"}, class: "btn-check", autocomplete: "off", role: "button", id: "btncheck1" %>
+        <label class="btn btn-outline-primary" for="btncheck1">Happy</label>
+        <%= button_to "Sad", search_locations_path(:mood => "Sad"), data: {action: "geolocation#search"}, class: "btn-check", autocomplete: "off", role: "button", id: "btncheck2" %>
+        <label class="btn btn-outline-primary" for="btncheck2">Sad</label>
+        <%= button_to "Studious", search_locations_path(:mood => "Studious"), data: {action: "geolocation#search"}, class: "btn-check", autocomplete: "off", role: "button", id: "btncheck3" %>
+        <label class="btn btn-outline-primary" for="btncheck3">Studious</label>
+        <%= button_to "Social", search_locations_path(:mood => "Social"), data: {action: "geolocation#search"}, class: "btn-check", autocomplete: "off", role: "button", id: "btncheck4" %>
+        <label class="btn btn-outline-primary" for="btncheck4">Social</label>
+        <%= button_to "Party!", search_locations_path(:mood => "Party"), data: {action: "geolocation#search"}, class: "btn-check", autocomplete: "off", role: "button", id: "btncheck5" %>
+        <label class="btn btn-outline-primary" for="btncheck5">Party!</label>
+        <%= button_to "Chill", search_locations_path(:mood => "Chill"), data: {action: "geolocation#search"}, class: "btn-check", autocomplete: "off", role: "button", id: "btncheck6" %>
+        <label class="btn btn-outline-primary" for="btncheck6">Chill</label>
+      </div>
+
+
+<div class="btn-group" role="group" aria-label="mood button group">
+    <%= button_to "Happy", search_locations_path(:mood => "Happy"), method: :post, data: {action: "geolocation#search"}, class: "btn-group-button", autocomplete: "off", role: "button", id: "btncheck1" %>
+    <%= button_to "Sad", search_locations_path(:mood => "Sad"), method: :post, data: {action: "geolocation#search"}, class: "btn-group-button", autocomplete: "off", role: "button", id: "btncheck2" %>
+    <%= button_to "Studious", search_locations_path(:mood => "Studious"), method: :post, data: {action: "geolocation#search"}, class: "btn-group-button", autocomplete: "off", role: "button", id: "btncheck3" %>
+    <%= button_to "Social", search_locations_path(:mood => "Social"), method: :post, data: {action: "geolocation#search"}, class: "btn-group-button", autocomplete: "off", role: "button", id: "btncheck4" %>
+    <%= button_to "Party!", search_locations_path(:mood => "Party"), method: :post, data: {action: "geolocation#search"}, class: "btn-group-button", autocomplete: "off", role: "button", id: "btncheck5" %>
+    <%= button_to "Chill", search_locations_path(:mood => "Chill"), method: :post, data: {action: "geolocation#search"}, class: "btn-group-button", autocomplete: "off", role: "button", id: "btncheck6" %>
+</div>
+<br>
+<br>

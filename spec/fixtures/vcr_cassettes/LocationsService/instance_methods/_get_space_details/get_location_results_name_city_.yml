@@ -35,15 +35,15 @@ http_interactions:
       Vary:
       - Accept
       Etag:
-      - W/"b373c497120038e091499bf75393b32f"
+      - W/"e2a4db7c8cc9c62e41f2ce36f755021b"
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - eecefa54-fecd-4d8c-bafb-5d8d12b05792
+      - 90e5f5ab-2a6c-48c9-81a7-59a3cf06d5c6
       X-Runtime:
-      - '0.546660'
+      - '0.626310'
       Server-Timing:
-      - start_processing.action_controller;dur=0.15, process_action.action_controller;dur=536.36
+      - start_processing.action_controller;dur=0.08, process_action.action_controller;dur=620.89
       Transfer-Encoding:
       - chunked
     body:
@@ -68,18 +68,18 @@ http_interactions:
         Coffee","address":"1015 Pearl St, Boulder, CO 80302","category":"Coffee \u0026
         Tea"}},{"id":"_iVjegwv4AtiRGm1w7_xMw","type":"search_result","attributes":{"id":"_iVjegwv4AtiRGm1w7_xMw","name":"Tod''s
         Espresso Cafe","address":"6558 Lookout Rd, Boulder, CO 80301","category":"Coffee
-        \u0026 Tea"}},{"id":"Mau3LNQjV4TvOqRmGhad_w","type":"search_result","attributes":{"id":"Mau3LNQjV4TvOqRmGhad_w","name":"Trident
-        Booksellers and Cafe","address":"940 Pearl St, Boulder, CO 80302","category":"Coffee
         \u0026 Tea"}},{"id":"wGRgAkzMFv6kgZqtCK2loA","type":"search_result","attributes":{"id":"wGRgAkzMFv6kgZqtCK2loA","name":"Gabee
         Coffee","address":"3040 28th St, Boulder, CO 80301","category":"Coffee \u0026
-        Tea"}},{"id":"e8J43WycoSGzJHSOb_wlLg","type":"search_result","attributes":{"id":"e8J43WycoSGzJHSOb_wlLg","name":"Amante
+        Tea"}},{"id":"Mau3LNQjV4TvOqRmGhad_w","type":"search_result","attributes":{"id":"Mau3LNQjV4TvOqRmGhad_w","name":"Trident
+        Booksellers and Cafe","address":"940 Pearl St, Boulder, CO 80302","category":"Coffee
+        \u0026 Tea"}},{"id":"e8J43WycoSGzJHSOb_wlLg","type":"search_result","attributes":{"id":"e8J43WycoSGzJHSOb_wlLg","name":"Amante
         Coffee","address":"1023 Walnut St, Boulder, CO 80302","category":"Coffee \u0026
         Tea"}},{"id":"jovvMdBvazW4A2B3FI1qBA","type":"search_result","attributes":{"id":"jovvMdBvazW4A2B3FI1qBA","name":"Boxcar
         Coffee Roasters","address":"1825 B Pearl St, Boulder, CO 80302","category":"Coffee
         \u0026 Tea"}},{"id":"CcqVH46JymO8xfAq4Jkqmw","type":"search_result","attributes":{"id":"CcqVH46JymO8xfAq4Jkqmw","name":"Brewing
-        Market Coffee","address":"2610 Baseline Rd, Boulder, CO 80302","category":"Coffee
+        Market Coffee","address":"2610 Baseline Rd, Boulder, CO 80305","category":"Coffee
         \u0026 Tea"}},{"id":"tQ7UdYAqvn7mm4qzAisJlw","type":"search_result","attributes":{"id":"tQ7UdYAqvn7mm4qzAisJlw","name":"OZO
         Coffee Company","address":"1521 Pearl St, Boulder, CO 80302","category":"Coffee
         \u0026 Tea"}}]}'
-  recorded_at: Fri, 12 Jan 2024 16:41:17 GMT
+  recorded_at: Thu, 25 Jan 2024 03:18:36 GMT
 recorded_with: VCR 6.2.0

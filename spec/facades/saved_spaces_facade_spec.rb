@@ -13,8 +13,9 @@ RSpec.describe SavedSpacesFacade do
     lon: 123455.67,
     price: "$$$",
     hours: {},
-    category: "yummy"}
-    tags = ["happy"]
+    category: "yummy"
+}
+    tags = ["happy"] 
     search = ThirdSpacesService.new.create_third_space(location, tags)
     user = User.create(first_name: 'Candy', last_name: 'Land', email: 'shawncarpenter.co@gmail.com', password: 'test')
     user.update!(id: "12345")

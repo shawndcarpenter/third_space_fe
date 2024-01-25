@@ -18,7 +18,7 @@ RSpec.describe 'Location details page', type: :feature, vcr: true do
   end
 
   it 'displays the reviews for the location' do
-    expect(page).to have_content('Costco Wholesale is an exceptional shopping destination. The membership benefits alone are worth it')
+    expect(page).to have_content('If I could give it a zero, I would. Ridiculous planning and traffic control for this gas station. They have 2 barricades up for 2 lines when ultimately...')
   end
 
   it 'provides a link to create a third space' do

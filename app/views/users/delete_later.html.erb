@@ -1,0 +1,22 @@
+          <%= button_to "Sad", search_locations_path(:mood => "Sad"), method: :post, data: {action: "geolocation#search"}, class: "btn btn-outline-primary", autocomplete: "off", role: "button", id: "btncheck2" %>
+          <%= button_to "Studious", search_locations_path(:mood => "Studious"), method: :post, data: {action: "geolocation#search"}, class: "btn btn-outline-primary", autocomplete: "off", role: "button", id: "btncheck3" %>
+          <%= button_to "Social", search_locations_path(:mood => "Social"), method: :post, data: {action: "geolocation#search"}, class: "btn btn-outline-primary", autocomplete: "off", role: "button", id: "btncheck4" %>
+          <%= button_to "Party!", search_locations_path(:mood => "Party"), method: :post, data: {action: "geolocation#search"}, class: "btn btn-outline-primary", autocomplete: "off", role: "button", id: "btncheck5" %>
+          <%= button_to "Chill", search_locations_path(:mood => "Chill"), method: :post, data: {action: "geolocation#search"}, class: "btn btn-outline-primary", autocomplete: "off", role: "button", id: "btncheck6" %>
+
+
+
+          <div class="btn-group" role="group" aria-label="mood button group">
+        <div data-controller="geolocation"
+          data-geolocation-city-value="<%= current_user.search_location.city %>"
+          data-geolocation-state-value="<%= current_user.search_location.state %>"
+          data-geolocation-search-locations-path-value="<%= search_locations_path %>">
+          <%= button_to "Happy", search_locations_path, method: :post, data: { action: "geolocation#submitMood", mood: "Happy" }, class: "btn btn-outline-primary", role: "button", id: "btncheck1" %>
+          <%= button_to "Sad", search_locations_path, method: :post, data: { action: "geolocation#submitMood", mood: "Sad" }, class: "btn btn-outline-primary", role: "button", id: "btncheck2" %>
+          <%= button_to "Studious", search_locations_path, method: :post, data: { action: "geolocation#submitMood", mood: "Studious" }, class: "btn btn-outline-primary", role: "button", id: "btncheck3" %>
+          <%= button_to "Social", search_locations_path, method: :post, data: { action: "geolocation#submitMood", mood: "Social" }, class: "btn btn-outline-primary", role: "button", id: "btncheck4" %>
+          <%= button_to "Party!", search_locations_path, method: :post, data: { action: "geolocation#submitMood", mood: "Party!" }, class: "btn btn-outline-primary", role: "button", id: "btncheck5" %>
+          <%= button_to "Chill", search_locations_path, method: :post, data: { action: "geolocation#submitMood", mood: "Chill" }, class: "btn btn-outline-primary", role: "button", id: "btncheck6" %>
+
+        </div>
+      </div>

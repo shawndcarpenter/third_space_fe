@@ -14,18 +14,86 @@
  *= require_self
  *= require filterwindow
  */
- @import "bootstrap";
- 
- .dash-header {
+@import "bootstrap";
+
+.btn-group {
+  border-radius: 20px;
+  border: 1px solid black; 
+  background-color: white;
+  display: inline-flex;
+}
+
+.btn-outline-primary:hover {
+  background-color: #007bff; /* Example hover background color */
+  color: white; /* Example hover text color */
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+}
+
+.btn-group .btn-outline-primary {
+  transition: 0.3s; 
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+  border: 0px;
+  display: inline-flex;
+}
+.btn-group > .btn-outline-primary:hover {
+// .btn-group .btn-outline-primary:hover:focus {
+  transition: 0.3s; 
+  border-radius: 20px;
+
+  border: 0px;
+  display: inline-flex;
+}
+
+
+.btn-group .btn-btn-outline-primary:hover, 
+.btn-group .btn-btn-outline-primary:hover:focus {
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+}
+
+// .btn-group-button {
+//   border: none;
+//   background-color: white;
+//   color: blue;
+//   margin-left: -2px;
+// }
+
+.btn-group-button:first-child {
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+}
+
+.btn-group-button:last-child {
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+}
+
+.dash-header {
   text-decoration: none;
   color: black;
   font-weight: bold;
-  // transition: background-color 0.3s, color 0.3s, border-radius 0.3s;
+
   border-radius: 5px; /* Adjust as needed for the desired rounded effect */
   padding: 5px; /* Add padding to make the rounded corners noticeable */
   display: inline-block; /* This helps in applying padding and border-radius */
   margin-right: -5px; /* Negative margin to compensate for the padding */
   margin-left: -5px; /* Negative margin to compensate for the padding */
+}
+
+.form-control label {
+  text-transform: none;
+}
+
+.form-control label {
+  text-transform: none;
 }
 
 .dash-header:hover {
