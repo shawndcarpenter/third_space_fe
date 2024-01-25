@@ -15,39 +15,55 @@
  */
 @import "bootstrap";
 
-.form-control label {
-  text-transform: none;
-}
-
 .btn-group {
-  border-radius: 20px; /* This creates the pill shape */
-  border: 1px solid black; /* Border for the entire group */
+  border-radius: 20px;
+  border: 1px solid black; 
   background-color: white;
-  // overflow: hidden; /* Ensures the child buttons don't break the pill shape */
-  display: inline-flex; /* Align buttons in a row */
+  display: inline-flex;
 }
 
-.btn-group .btn-outline-primary {
-  transition: none; /* Disables the transition */
-  border-radius: 20px; /* Keeps the border-radius consistent */
-  border: 0px;
-}
-// Add a closing curly brace here
-
-.btn-group .btn-outline-primary:hover, 
-.btn-group .btn-outline-primary:hover:focus {
+.btn-outline-primary:hover {
+  background-color: #007bff; /* Example hover background color */
+  color: white; /* Example hover text color */
   border-top-right-radius: 20px;
   border-bottom-right-radius: 20px;
   border-top-left-radius: 20px;
   border-bottom-left-radius: 20px;
 }
 
-.btn-group-button {
-  border: none; /* Remove individual borders */
-  background-color: white; /* Background color for the buttons */
-  color: blue; /* Text color */
-  margin-left: -2px; /* Remove space between buttons */
+.btn-group .btn-outline-primary {
+  transition: 0.3s; 
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+  border: 0px;
+  display: inline-flex;
 }
+.btn-group > .btn-outline-primary:hover {
+// .btn-group .btn-outline-primary:hover:focus {
+  transition: 0.3s; 
+  border-radius: 20px;
+
+  border: 0px;
+  display: inline-flex;
+}
+
+
+.btn-group .btn-btn-outline-primary:hover, 
+.btn-group .btn-btn-outline-primary:hover:focus {
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+}
+
+// .btn-group-button {
+//   border: none;
+//   background-color: white;
+//   color: blue;
+//   margin-left: -2px;
+// }
 
 .btn-group-button:first-child {
   border-top-left-radius: 20px;
@@ -59,12 +75,15 @@
   border-bottom-right-radius: 20px;
 }
 
-
 .dash-header {
   text-decoration: none;
   color: black;
   font-weight: bold;
   transition: color 0.3s;
+}
+
+.form-control label {
+  text-transform: none;
 }
 
 .dash-header:hover {

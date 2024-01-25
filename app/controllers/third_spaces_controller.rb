@@ -105,7 +105,6 @@ class ThirdSpacesController < ApplicationController
     if @reviews != []
       avg_rating(@reviews)
     end
-    
     if @reviews == []
       reviews = LocationReviewsFacade.new(yelp_id).reviews
       reviews.map do |review|
@@ -142,6 +141,7 @@ class ThirdSpacesController < ApplicationController
   end
   
   private
+
   def format_tags(tags)
     if !tags.nil?
       tags = tags.map{ |tag| tag.gsub('_', ' ').titleize }
@@ -303,7 +303,6 @@ class ThirdSpacesController < ApplicationController
     sort_tags_by_frequency(mood_tags)
   end
 
-
   def saved_yelp_ids(spaces)
     list = []
     spaces.map do |space|
@@ -322,4 +321,10 @@ class ThirdSpacesController < ApplicationController
     @avg_rating = sum/total_ratings
   end
 
+  def find_third_space(yelp_id)
+    conn = Faraday.new(url: "https://third-space-fe-uskie.ondigitalocean.app/third-space-be")
+    response = conn.get("api/v1/third_spaces/#{yelp_id}")
+    data = JSON.parse(response.body, symbolize_names: true)[:data]
+    ThirdSpacePoro.new(data[:attributes])
+  end
 end

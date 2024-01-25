@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: http://localhost:3000/api/v1/users/12345/third_spaces
+    uri: https://plankton-app-tavpa.ondigitalocean.app/api/v1/users/12345/third_spaces
     body:
       encoding: US-ASCII
       string: ''
@@ -18,6 +18,14 @@ http_interactions:
       code: 200
       message: OK
     headers:
+      Date:
+      - Wed, 24 Jan 2024 04:56:12 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
       X-Frame-Options:
       - SAMEORIGIN
       X-Xss-Protection:
@@ -30,25 +38,32 @@ http_interactions:
       - none
       Referrer-Policy:
       - strict-origin-when-cross-origin
-      Content-Type:
-      - application/json; charset=utf-8
       Vary:
-      - Accept
+      - Accept, Accept-Encoding
       Etag:
       - W/"45a7203e484d0cadecb87ba1caecaf8d"
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - b087e2ce-6b78-453f-9849-26223bbf959f
+      - bb1087d0-42a5-4c35-940f-0ab7568ed07b
       X-Runtime:
-      - '0.044913'
-      Server-Timing:
-      - start_processing.action_controller;dur=0.09, sql.active_record;dur=13.64,
-        instantiation.active_record;dur=0.17, process_action.action_controller;dur=38.43
-      Transfer-Encoding:
-      - chunked
+      - '0.026314'
+      X-Do-App-Origin:
+      - 42daf057-993c-487d-b7a0-cf175a19f2a0
+      X-Do-Orig-Status:
+      - '200'
+      Cf-Cache-Status:
+      - MISS
+      Set-Cookie:
+      - __cf_bm=oBa1rbOeqSyXPT6ecWKP9XwRw8NBNeE_i3b8jL_qsgw-1706072172-1-AQk2mNdrvZkLMs/oiNlJGe6k0iHs8JEBGi/vnaug8RhXbqDV5/pny3r2ZwPgG5mkZqiHvP40DlCZQu9VIxRHzvM=;
+        path=/; expires=Wed, 24-Jan-24 05:26:12 GMT; domain=.ondigitalocean.app; HttpOnly;
+        Secure; SameSite=None
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 84a5b046e9b55387-DEN
     body:
-      encoding: UTF-8
+      encoding: ASCII-8BIT
       string: '{"data":{"id":"12345","type":"user","relationships":{"third_spaces":{"data":[]}}},"included":[]}'
-  recorded_at: Fri, 12 Jan 2024 15:29:36 GMT
+  recorded_at: Wed, 24 Jan 2024 04:56:12 GMT
 recorded_with: VCR 6.2.0
