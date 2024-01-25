@@ -3,6 +3,7 @@ http_interactions:
 - request:
     method: post
     uri: http://localhost:3000/api/v1/third_spaces?address=address&category=yummy&hours=%7B%7D&lat=123.4545&lon=123455.67&name=name&phone=555-555-5555&photos=%5B%5D&price=$$$&rating=5&tags=%5B%22happy%22%5D&yelp_id=f-m7-hyFzkf0HSEeQ2s-9A
+    uri: http://localhost:3000/api/v1/third_spaces?address=address&category=yummy&hours=%7B%7D&lat=123.4545&lon=123455.67&name=name&phone=555-555-5555&photos=%5B%5D&price=$$$&rating=5&tags=%5B%22happy%22%5D&yelp_id=f-m7-hyFzkf0HSEeQ2s-9A
     body:
       encoding: UTF-8
       string: ''
@@ -37,19 +38,20 @@ http_interactions:
       Vary:
       - Accept
       Etag:
-      - W/"33ed2d8fda68be5637af154d0911d616"
+      - W/"88f8429492dc0d16a64a15afa9c20ee0"
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - 389607f6-e65c-421f-a78e-c63c0bff7d7a
+      - 92475e57-27e7-4161-981b-14ca10dfd4d5
       X-Runtime:
-      - '0.010531'
+      - '0.029988'
       Server-Timing:
-      - start_processing.action_controller;dur=0.08, sql.active_record;dur=3.49, process_action.action_controller;dur=6.13
+      - start_processing.action_controller;dur=0.13, sql.active_record;dur=15.91,
+        process_action.action_controller;dur=21.65
       Transfer-Encoding:
       - chunked
     body:
       encoding: UTF-8
-      string: '{"data":{"id":"305","type":"third_space","attributes":{"yelp_id":"f-m7-hyFzkf0HSEeQ2s-9A","name":"name","address":"address","rating":5.0,"phone":"555-555-5555","photos":"[]","lat":123.4545,"lon":123455.67,"price":"$$$","hours":"{}","category":"yummy","open_now":null,"tags":["happy"]}}}'
-  recorded_at: Thu, 25 Jan 2024 16:04:35 GMT
+      string: '{"data":{"id":"155","type":"third_space","attributes":{"yelp_id":"f-m7-hyFzkf0HSEeQ2s-9A","name":"name","address":"address","rating":5.0,"phone":"555-555-5555","photos":"[]","lat":123.4545,"lon":123455.67,"price":"$$$","hours":"{}","category":"yummy","tags":["happy"]}}}'
+  recorded_at: Thu, 25 Jan 2024 00:48:01 GMT
 recorded_with: VCR 6.2.0

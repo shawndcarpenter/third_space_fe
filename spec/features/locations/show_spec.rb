@@ -13,8 +13,6 @@ RSpec.describe 'Location details page', type: :feature, vcr: true do
     expect(page).to have_content("Address: 900 S Harbor Blvd, Fullerton, CA 92832")
   end
 
-
-
   it 'displays the location rating' do
     expect(page).to have_content("Rating: 3.5")
   end
