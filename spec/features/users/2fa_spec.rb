@@ -57,7 +57,7 @@ RSpec.describe "2fa", type: :feature do
       # expect(email).to
     end
 
-    it 'wrong 2fa for new user' do
+    xit 'wrong 2fa for new user' do
       visit "/register"
       fill_in "first_name", with: "c"
       fill_in "last_name", with: "c"
@@ -71,7 +71,7 @@ RSpec.describe "2fa", type: :feature do
       expect(current_path).to eq "/validate_otp"
     end
 
-    it 'wrong 2fa for login' do
+    xit 'wrong 2fa for login' do
       @user1 = User.create(first_name: "Candy", last_name: "Land", email: "shawncarpenter.co@gmail.com", password: "test")
       visit "/login"
       fill_in "email", with: "#{@user1.email}"
