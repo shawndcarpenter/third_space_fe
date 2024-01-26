@@ -8,7 +8,7 @@ class SearchLocationsController < ApplicationController
       redirect_to set_location_path
     else
       update_search_location
-      redirect_to dashboard_path
+      redirect_to search_locations_set_mood_path
     end
   end
 
