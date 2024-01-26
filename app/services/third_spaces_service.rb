@@ -35,6 +35,13 @@ class ThirdSpacesService
     data = JSON.parse(response.body, symbolize_names: true)
   end
 
+  def get_spaces_by_tags(tags)
+    response = conn.get("/api/v1/third_spaces/search_by_tags") do |req|
+      req.params['tags'] = tags
+    end
+    data = JSON.parse(response.body, symbolize_names: true)
+  end
+
   def get_spaces
     response = conn.get("/api/v1/third_spaces")
 

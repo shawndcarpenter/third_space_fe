@@ -68,7 +68,7 @@ class ThirdSpacesController < ApplicationController
     if params[:name]
       @spaces = ThirdSpacesByNameFacade.new(params[:name]).spaces
     elsif params[:tags]
-      @spaces = ThirdSpacesByNameFacade.new(params[:name]).spaces
+      @spaces = ThirdSpacesByTagsFacade.new(params[:tags]).spaces
       params[:tags].each do |tag|
         @spaces.delete_if { |space| space.tags == nil || !space.tags.include?(tag) }
       end
