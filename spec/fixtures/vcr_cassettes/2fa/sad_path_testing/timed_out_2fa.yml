@@ -15,7 +15,7 @@ http_interactions:
       User-Agent:
       - sendgrid/6.7.0;ruby
       Authorization:
-      - Bearer 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
+      - Bearer <SENDGRID_API_KEY>
       Content-Type:
       - application/json
   response:
@@ -26,13 +26,13 @@ http_interactions:
       Server:
       - nginx
       Date:
-      - Thu, 25 Jan 2024 04:29:44 GMT
+      - Fri, 26 Jan 2024 15:33:16 GMT
       Content-Length:
       - '0'
       Connection:
       - keep-alive
       X-Message-Id:
-      - ooBoDoYPSPmOR3QxZ606Jw
+      - iBKyotBBT6CaPyZ_Do_nDQ
       Access-Control-Allow-Origin:
       - https://sendgrid.api-docs.io
       Access-Control-Allow-Methods:
@@ -48,5 +48,5 @@ http_interactions:
     body:
       encoding: UTF-8
       string: ''
-  recorded_at: Thu, 25 Jan 2024 04:29:44 GMT
+  recorded_at: Fri, 26 Jan 2024 15:33:16 GMT
 recorded_with: VCR 6.2.0
