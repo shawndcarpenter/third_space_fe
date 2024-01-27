@@ -12,22 +12,27 @@
       <%# <button class="btn btn-outline-success" type="submit" style="margin-right: 2rem;">Filter</button> %>
     </form>
 
-    <button id="modal-btn" class="btn btn-secondary p-2">
+
+
+    
+
+<button id="modal-btn" class="btn btn-secondary p-2" data-bs-toggle="modal" data-bs-target="#my-modal">
         <span class="img-btn-wrapper">
           <%= image_tag 'filter.svg', alt: "Location", style: "margin-right: 5px;" %> Filter
         </span>
-    </button>
+      </button>
 
-    <div id="my-modal" class="modal">
-      <div class="modal-content">
-        <div class="modal-header">
-          <span class="close">×</span>
-          <%# <h2>advanced search.</h2> %>
-        </div>
-        <div class="modal-body">
-          <%= form_tag("/third_spaces/search", method: "get") do %>
-
-            <div class="form-group">
+      <div class="modal fade" id="my-modal" tabindex="-1" aria-labelledby="filter-modal" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="my-modal-label">Filter</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <%= form_tag("/third_spaces/search", method: "get") do %>
+                <div class="form-group">
+                              <div class="form-group">
               <% features_options = {
                 'Mood' => ['Happy', 'Sad', 'Studious', 'Social', 'Party', 'Chill'],
                 'Staff Responsiveness' => ['Pushy', 'Helpful', 'Respectful'],
@@ -50,13 +55,15 @@
                 </div>
               <% end %>
             </div>
-            <div class="container-fluid d-flex justify-content-center align-items-center pt-3">
-              <%= submit_tag "Search", class: "btn btn-secondary p-2" %>
+                </div>
+                <div class="container-fluid d-flex justify-content-center align-items-center pt-3">
+                  <%= submit_tag "Search", class: "btn btn-secondary p-2" %>
+                </div>
+              <% end %>
             </div>
-          <% end %>
+          </div>
         </div>
       </div>
-    </div>
 
     <div class="ml-auto">
       <% if current_user.search_location.present? %>
