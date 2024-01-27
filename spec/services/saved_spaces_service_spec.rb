@@ -29,7 +29,7 @@ describe SavedSpacesService do
         user.update!(id: "12345")
         space_id = "f-m7-hyFzkf0HSEeQ2s-9A"
         search = SavedSpacesService.new.remove_user_space(user.id, space_id)
-        data = JSON.parse(search.body, symbolize_names: true)
+        expect(search.body).to eq("")
       end
     end
   end

@@ -1,6 +1,33 @@
-# require 'rails_helper'
+require 'rails_helper'
 
-# RSpec.describe 'User Dashboard', type: :feature do
+RSpec.describe 'User Dashboard', type: :feature do
+  it 'redirects if nil' do
+    visit dashboard_path
+    expect(current_path).to eq(root_path)
+  end
+  it 'keeps track of params', :vcr do
+    user_login_data
+    user_select_loc_data
+    visit dashboard_path(params: "happy")
+    expect(current_path).to eq(dashboard_path)
+  end
+  it 'admin user can login', :vcr do
+    admin_user = User.create(first_name: "Mono", last_name: "Poly", email: "ntrautenberg23@turing.edu", password: "sett", role: 1)
+    visit '/login'
+    fill_in "floatingInputEmail", with: "#{admin_user.email}"
+    fill_in "floatingInput", with: "#{admin_user.password}"
+    click_button 'log in'
+  end
+
+  it 'default user can login', :vcr do
+    default_user = User.create(first_name: "Candy", last_name: "Land", email: "test@test.test", password: "test")
+    visit '/login'
+
+    fill_in "floatingInputEmail", with: "#{default_user.email}"
+    fill_in "floatingInput", with: "#{default_user.password}"
+    click_button 'log in'
+  end
+end
 #   before :each do
 #     # user_login_data
 #     # user_select_loc_data

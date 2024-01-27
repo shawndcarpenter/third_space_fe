@@ -4,9 +4,6 @@ class UsersController < ApplicationController
     if current_user.nil?
       redirect_to root_path and return
     end
-    if current_user.nil?
-      redirect_to root_path and return
-    end
     @user = current_user
 
     if params[:mood]
