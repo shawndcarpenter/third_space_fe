@@ -66,16 +66,5 @@ RSpec.describe ApplicationController, type: :controller do
       # Route for mock controller's action
       routes.draw { get 'test_find_show_reviews' => 'anonymous#test_find_show_reviews' }
     end
-
-    xit "fetches reviews for a given location" do
-      # Mock the external HTTP request
-      yelp_id = "Ovrji3x2PMuY8G0rOcrrNA"
-      stub_request(:get, "http://localhost:3000/api/v1/locations/#{yelp_id}/reviews")
-        .to_return(status: 200, body: { data: [{ attributes: { content: "Great place!" } }] }.to_json)
-
-      get :test_find_show_reviews, params: { yelp_id: yelp_id }
-
-      expect(response.body).to include "Great place!"
-    end
   end
 end

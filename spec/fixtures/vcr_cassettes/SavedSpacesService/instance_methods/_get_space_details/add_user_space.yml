@@ -8,7 +8,7 @@ http_interactions:
       string: ''
     headers:
       User-Agent:
-      - Faraday v2.8.1
+      - Faraday v2.9.0
       Content-Length:
       - '0'
       Accept-Encoding:
@@ -37,20 +37,20 @@ http_interactions:
       Vary:
       - Accept
       Etag:
-      - W/"0a0ae5d2f3ba770d47b8650154afd20d"
+      - W/"cef2a3f0b55c8ebcac97a78194d6f143"
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - 419fa2b0-1932-48f9-bfe7-52bbe24332df
+      - 2e00bb38-015d-4b64-b79b-a4839fde4cd2
       X-Runtime:
-      - '0.024137'
+      - '0.033389'
       Server-Timing:
-      - start_processing.action_controller;dur=0.06, sql.active_record;dur=15.27,
-        instantiation.active_record;dur=0.16, process_action.action_controller;dur=20.81
+      - start_processing.action_controller;dur=0.06, sql.active_record;dur=24.46,
+        instantiation.active_record;dur=0.15, process_action.action_controller;dur=30.27
       Transfer-Encoding:
       - chunked
     body:
       encoding: UTF-8
-      string: '{"data":{"id":"12345","type":"user","relationships":{"third_spaces":{"data":[{"id":"152","type":"third_space"}]}}},"included":[{"id":"152","type":"third_space","attributes":{"yelp_id":"f-m7-hyFzkf0HSEeQ2s-9A","name":"name","address":"address","rating":5.0,"phone":"555-555-5555","photos":"[]","lat":123.4545,"lon":123455.67,"price":"$$$","hours":"{}","category":"yummy","open_now":true,"tags":["happy"]}}]}'
-  recorded_at: Thu, 25 Jan 2024 03:17:08 GMT
+      string: '{"data":{"id":"12345","type":"user","relationships":{"third_spaces":{"data":[{"id":"151","type":"third_space"}]}}},"included":[{"id":"151","type":"third_space","attributes":{"yelp_id":"f-m7-hyFzkf0HSEeQ2s-9A","name":"name","address":"address","rating":5.0,"phone":"555-555-5555","photos":"[]","lat":123.4545,"lon":123455.67,"price":"$$$","hours":"{}","category":"yummy","tags":["happy"]}}]}'
+  recorded_at: Sat, 27 Jan 2024 17:17:47 GMT
 recorded_with: VCR 6.2.0

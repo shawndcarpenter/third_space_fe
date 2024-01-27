@@ -8,7 +8,7 @@ http_interactions:
       string: ''
     headers:
       User-Agent:
-      - Faraday v2.8.1
+      - Faraday v2.9.0
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
       Accept:
@@ -39,12 +39,11 @@ http_interactions:
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - e6930cae-3a8f-4356-8bba-f249acdf7627
+      - b0473727-3bf6-4a9d-b589-1f8820e2319b
       X-Runtime:
-      - '0.453930'
+      - '0.285706'
       Server-Timing:
-      - start_processing.action_controller;dur=0.09, sql.active_record;dur=19.89,
-        process_action.action_controller;dur=436.62
+      - start_processing.action_controller;dur=0.06, sql.active_record;dur=1.56, process_action.action_controller;dur=282.44
       Transfer-Encoding:
       - chunked
     body:
@@ -57,5 +56,5 @@ http_interactions:
         C.","date":"2024-01-07","yelp_id":"f-m7-hyFzkf0HSEeQ2s-9A"}},{"id":"ZpT1nPwEcwBZlAUTA_V8pQ","type":"review_object","attributes":{"id":"ZpT1nPwEcwBZlAUTA_V8pQ","rating":5,"text":"Awesome
         service from Daniela!!\n\nGreat food, must get the clam chowder with crab
         meat!!","name":"Phillip M.","date":"2023-12-25","yelp_id":"f-m7-hyFzkf0HSEeQ2s-9A"}}]}'
-  recorded_at: Thu, 25 Jan 2024 03:16:25 GMT
+  recorded_at: Sat, 27 Jan 2024 17:17:47 GMT
 recorded_with: VCR 6.2.0

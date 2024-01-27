@@ -8,7 +8,7 @@ http_interactions:
       string: ''
     headers:
       User-Agent:
-      - Faraday v2.8.1
+      - Faraday v2.9.0
       Content-Length:
       - '0'
       Accept-Encoding:
@@ -37,20 +37,20 @@ http_interactions:
       Vary:
       - Accept
       Etag:
-      - W/"d29ab077476a7f3ef4094ef01821deb2"
+      - W/"cf45459ed1af349137a8c1135baa866d"
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - 83190b35-00c8-4245-aed9-574dfee5079d
+      - dd016a8f-f0ac-41ac-b36e-523911631659
       X-Runtime:
-      - '0.023324'
+      - '0.014787'
       Server-Timing:
-      - start_processing.action_controller;dur=0.06, sql.active_record;dur=5.55, instantiation.active_record;dur=0.07,
-        process_action.action_controller;dur=20.23
+      - start_processing.action_controller;dur=0.08, sql.active_record;dur=6.82, instantiation.active_record;dur=0.09,
+        process_action.action_controller;dur=11.39
       Transfer-Encoding:
       - chunked
     body:
       encoding: UTF-8
-      string: '{"data":{"id":"19","type":"review_object","attributes":{"id":19,"rating":"5","text":"text","name":"name","date":null,"yelp_id":"f-m7-hyFzkf0HSEeQ2s-9A"}}}'
-  recorded_at: Thu, 25 Jan 2024 03:16:26 GMT
+      string: '{"data":{"id":"1","type":"review_object","attributes":{"id":1,"rating":"5","text":"text","name":"name","date":null,"yelp_id":"f-m7-hyFzkf0HSEeQ2s-9A"}}}'
+  recorded_at: Sat, 27 Jan 2024 17:17:48 GMT
 recorded_with: VCR 6.2.0

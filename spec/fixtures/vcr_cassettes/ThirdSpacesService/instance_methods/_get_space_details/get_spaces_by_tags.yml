@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: http://localhost:3000/api/v1/third_spaces/search_by_name?name=name
+    uri: http://localhost:3000/api/v1/third_spaces/search_by_tags?tags%5B%5D=quiet&tags%5B%5D=studious
     body:
       encoding: US-ASCII
       string: ''
@@ -35,20 +35,20 @@ http_interactions:
       Vary:
       - Accept
       Etag:
-      - W/"31fa2ad946c394a0b1e07beb383a735f"
+      - W/"8fe32e407a1038ee38753b70e5374b3a"
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - 0ee28b66-f2af-460c-9df2-d9b011a9dc19
+      - efc0ecf7-b355-4080-a501-8f78b6ee2dc8
       X-Runtime:
-      - '0.005494'
+      - '0.042375'
       Server-Timing:
-      - start_processing.action_controller;dur=0.06, sql.active_record;dur=1.76, instantiation.active_record;dur=0.03,
-        process_action.action_controller;dur=2.47
+      - start_processing.action_controller;dur=0.12, sql.active_record;dur=12.70,
+        process_action.action_controller;dur=34.98
       Transfer-Encoding:
       - chunked
     body:
       encoding: UTF-8
-      string: '{"data":[{"id":"151","type":"third_space","attributes":{"yelp_id":"f-m7-hyFzkf0HSEeQ2s-9A","name":"name","address":"address","rating":5.0,"phone":"555-555-5555","photos":"[]","lat":123.4545,"lon":123455.67,"price":"$$$","hours":"{}","category":"yummy","tags":["happy","happy"]}}]}'
-  recorded_at: Sat, 27 Jan 2024 17:17:48 GMT
+      string: '{"data":[]}'
+  recorded_at: Sat, 27 Jan 2024 17:30:11 GMT
 recorded_with: VCR 6.2.0

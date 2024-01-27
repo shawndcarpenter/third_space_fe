@@ -8,7 +8,7 @@ http_interactions:
       string: ''
     headers:
       User-Agent:
-      - Faraday v2.8.1
+      - Faraday v2.9.0
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
       Accept:
@@ -35,21 +35,21 @@ http_interactions:
       Vary:
       - Accept
       Etag:
-      - W/"009aa8eadc1d8544803d75b566ca70fe"
+      - W/"5830d28318f236ff968e232703c41d76"
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - f153211b-998b-429a-bed6-63c350e5a4d1
+      - c9faea2d-3a4d-4552-b9fc-e10613f4526c
       X-Runtime:
-      - '1.714698'
+      - '1.897056'
       Server-Timing:
-      - start_processing.action_controller;dur=0.07, process_action.action_controller;dur=1711.46
+      - start_processing.action_controller;dur=0.07, process_action.action_controller;dur=1891.09
       Transfer-Encoding:
       - chunked
     body:
       encoding: UTF-8
       string: '{"data":{"id":null,"type":"detailed_location","attributes":{"yelp_id":"f-m7-hyFzkf0HSEeQ2s-9A","name":"Fog
         Harbor Fish House","address":"39 Pier, Ste 202A, San Francisco, CA 94133","rating":4.5,"phone":"(415)
-        969-2010","photos":["https://s3-media2.fl.yelpcdn.com/bphoto/by8Hh63BLPv_HUqRUdsp_w/o.jpg","https://s3-media2.fl.yelpcdn.com/bphoto/cc5tnzyd03couTo7ReDGgQ/o.jpg","https://s3-media3.fl.yelpcdn.com/bphoto/J5NJ8-gclvTMzVmp3OrckA/o.jpg"],"lat":37.80889,"lon":-122.41025,"price":"$$","hours":[{"open":[{"is_overnight":false,"start":"1100","end":"2100","day":0},{"is_overnight":false,"start":"1100","end":"2100","day":1},{"is_overnight":false,"start":"1100","end":"2100","day":2},{"is_overnight":false,"start":"1100","end":"2100","day":3},{"is_overnight":false,"start":"1100","end":"2100","day":4},{"is_overnight":false,"start":"1100","end":"2100","day":5},{"is_overnight":false,"start":"1100","end":"2100","day":6}],"hours_type":"REGULAR","is_open_now":true}],"category":"Seafood","open_now":true}}}'
-  recorded_at: Thu, 25 Jan 2024 03:18:38 GMT
+        969-2010","photos":["https://s3-media2.fl.yelpcdn.com/bphoto/by8Hh63BLPv_HUqRUdsp_w/o.jpg","https://s3-media2.fl.yelpcdn.com/bphoto/cc5tnzyd03couTo7ReDGgQ/o.jpg","https://s3-media3.fl.yelpcdn.com/bphoto/J5NJ8-gclvTMzVmp3OrckA/o.jpg"],"lat":37.80889,"lon":-122.41025,"price":"$$","hours":[{"open":[{"is_overnight":false,"start":"1100","end":"2100","day":0},{"is_overnight":false,"start":"1100","end":"2100","day":1},{"is_overnight":false,"start":"1100","end":"2100","day":2},{"is_overnight":false,"start":"1100","end":"2100","day":3},{"is_overnight":false,"start":"1100","end":"2100","day":4},{"is_overnight":false,"start":"1100","end":"2100","day":5},{"is_overnight":false,"start":"1100","end":"2100","day":6}],"hours_type":"REGULAR","is_open_now":false}],"category":"Seafood"}}}'
+  recorded_at: Sat, 27 Jan 2024 17:17:47 GMT
 recorded_with: VCR 6.2.0

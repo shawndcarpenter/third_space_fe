@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: delete
-    uri: http://localhost:3000/api/v1/user_third_spaces?third_space_id=f-m7-hyFzkf0HSEeQ2s-9A&user_id=12345
+    uri: http://localhost:3000/api/v1/third_spaces/f-m7-hyFzkf0HSEeQ2s-9A
     body:
       encoding: US-ASCII
       string: ''
@@ -35,14 +35,14 @@ http_interactions:
       Cache-Control:
       - no-cache
       X-Request-Id:
-      - 93dd9014-2f00-4999-8ed2-7e77d080f733
+      - e6636b5f-b2a8-4baa-936a-eb75ceab277a
       X-Runtime:
-      - '0.006897'
+      - '0.022530'
       Server-Timing:
-      - start_processing.action_controller;dur=0.07, sql.active_record;dur=1.88, instantiation.active_record;dur=0.07,
-        process_action.action_controller;dur=3.54
+      - start_processing.action_controller;dur=0.13, sql.active_record;dur=8.97, instantiation.active_record;dur=0.27,
+        process_action.action_controller;dur=15.03
     body:
       encoding: UTF-8
       string: ''
-  recorded_at: Sat, 27 Jan 2024 17:17:47 GMT
+  recorded_at: Sat, 27 Jan 2024 17:33:35 GMT
 recorded_with: VCR 6.2.0

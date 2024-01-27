@@ -5,7 +5,7 @@ http_interactions:
     uri: https://api.sendgrid.com/v3/mail/send
     body:
       encoding: UTF-8
-      string: '{"from":{"email":"thirdspace2308@gmail.com"},"subject":"Your OTP","personalizations":[{"to":[{"email":"shawncarpenter.co@gmail.com"}]}],"content":[{"type":"text/plain","value":"Your
+      string: '{"from":{"email":"thirdspace2308@gmail.com"},"subject":"Your OTP","personalizations":[{"to":[{"email":"test@test.test"}]}],"content":[{"type":"text/plain","value":"Your
         OTP for Two-Factor Authentication at third space.\nYour OTP code is: 123456"}]}'
     headers:
       Accept-Encoding:
@@ -15,7 +15,7 @@ http_interactions:
       User-Agent:
       - sendgrid/6.7.0;ruby
       Authorization:
-      - Bearer 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
+      - Bearer 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
       Content-Type:
       - application/json
   response:
@@ -26,13 +26,13 @@ http_interactions:
       Server:
       - nginx
       Date:
-      - Thu, 25 Jan 2024 04:25:30 GMT
+      - Sat, 27 Jan 2024 17:17:44 GMT
       Content-Length:
       - '0'
       Connection:
       - keep-alive
       X-Message-Id:
-      - o3C2MKWFTrGzmehAviKzYg
+      - ojIG-4xBTt-zItDrNgJLog
       Access-Control-Allow-Origin:
       - https://sendgrid.api-docs.io
       Access-Control-Allow-Methods:
@@ -48,5 +48,5 @@ http_interactions:
     body:
       encoding: UTF-8
       string: ''
-  recorded_at: Thu, 25 Jan 2024 04:25:30 GMT
+  recorded_at: Sat, 27 Jan 2024 17:17:44 GMT
 recorded_with: VCR 6.2.0
