@@ -34,7 +34,7 @@ RSpec.describe "New User Registration", type: :feature do
     it 'creates an account when valid data is submitted', :vcr do
       fill_in "first name", with: "Candy"
       fill_in "last name", with: "Land"
-      fill_in "email", with: "shawncarpenter.co@gmail.com"
+      fill_in "email", with: "test@test.test"
       fill_in "password", with: "test"
       fill_in "password confirmation", with: "test"
       click_button "create new account"   
@@ -44,7 +44,7 @@ RSpec.describe "New User Registration", type: :feature do
     it 'shows error message when required fields are missing' do
       # Fill in all fields except last_name
       fill_in "first name", with: "Candy"
-      fill_in "email", with: "shawncarpenter.co@gmail.com"
+      fill_in "email", with: "test@test.test"
       fill_in "password", with: "test"
       fill_in "password confirmation", with: "test"
       click_button "create new account"

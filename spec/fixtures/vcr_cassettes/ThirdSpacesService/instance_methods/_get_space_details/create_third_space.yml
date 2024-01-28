@@ -3,13 +3,12 @@ http_interactions:
 - request:
     method: post
     uri: http://localhost:3000/api/v1/third_spaces?address=address&category=yummy&hours=%7B%7D&lat=123.4545&lon=123455.67&name=name&phone=555-555-5555&photos=%5B%5D&price=$$$&rating=5&tags=%5B%22happy%22%5D&yelp_id=f-m7-hyFzkf0HSEeQ2s-9A
-    uri: http://localhost:3000/api/v1/third_spaces?address=address&category=yummy&hours=%7B%7D&lat=123.4545&lon=123455.67&name=name&phone=555-555-5555&photos=%5B%5D&price=$$$&rating=5&tags=%5B%22happy%22%5D&yelp_id=f-m7-hyFzkf0HSEeQ2s-9A
     body:
       encoding: UTF-8
       string: ''
     headers:
       User-Agent:
-      - Faraday v2.8.1
+      - Faraday v2.9.0
       Content-Length:
       - '0'
       Accept-Encoding:
@@ -38,20 +37,19 @@ http_interactions:
       Vary:
       - Accept
       Etag:
-      - W/"88f8429492dc0d16a64a15afa9c20ee0"
+      - W/"4918d3d233a388442140393bb2c417b2"
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - 92475e57-27e7-4161-981b-14ca10dfd4d5
+      - 6b4e8265-84c2-4c35-9021-d678b8144491
       X-Runtime:
-      - '0.029988'
+      - '0.010930'
       Server-Timing:
-      - start_processing.action_controller;dur=0.13, sql.active_record;dur=15.91,
-        process_action.action_controller;dur=21.65
+      - start_processing.action_controller;dur=0.08, sql.active_record;dur=4.70, process_action.action_controller;dur=7.33
       Transfer-Encoding:
       - chunked
     body:
       encoding: UTF-8
-      string: '{"data":{"id":"155","type":"third_space","attributes":{"yelp_id":"f-m7-hyFzkf0HSEeQ2s-9A","name":"name","address":"address","rating":5.0,"phone":"555-555-5555","photos":"[]","lat":123.4545,"lon":123455.67,"price":"$$$","hours":"{}","category":"yummy","tags":["happy"]}}}'
-  recorded_at: Thu, 25 Jan 2024 00:48:01 GMT
+      string: '{"data":{"id":"152","type":"third_space","attributes":{"yelp_id":"f-m7-hyFzkf0HSEeQ2s-9A","name":"name","address":"address","rating":5.0,"phone":"555-555-5555","photos":"[]","lat":123.4545,"lon":123455.67,"price":"$$$","hours":"{}","category":"yummy","tags":["happy"]}}}'
+  recorded_at: Sat, 27 Jan 2024 17:17:48 GMT
 recorded_with: VCR 6.2.0

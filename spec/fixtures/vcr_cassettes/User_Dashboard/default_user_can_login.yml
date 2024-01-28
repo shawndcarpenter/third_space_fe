@@ -1,0 +1,52 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://api.sendgrid.com/v3/mail/send
+    body:
+      encoding: UTF-8
+      string: '{"from":{"email":"thirdspace2308@gmail.com"},"subject":"Your OTP","personalizations":[{"to":[{"email":"test@test.test"}]}],"content":[{"type":"text/plain","value":"Your
+        OTP for Two-Factor Authentication at third space.\nYour OTP code is: 123456"}]}'
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - application/json
+      User-Agent:
+      - sendgrid/6.7.0;ruby
+      Authorization:
+      - Bearer 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
+      Content-Type:
+      - application/json
+  response:
+    status:
+      code: 202
+      message: Accepted
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Sat, 27 Jan 2024 19:20:52 GMT
+      Content-Length:
+      - '0'
+      Connection:
+      - keep-alive
+      X-Message-Id:
+      - aogAnCC5TAS19siF9X3iDw
+      Access-Control-Allow-Origin:
+      - https://sendgrid.api-docs.io
+      Access-Control-Allow-Methods:
+      - POST
+      Access-Control-Allow-Headers:
+      - Authorization, Content-Type, On-behalf-of, x-sg-elas-acl
+      Access-Control-Max-Age:
+      - '600'
+      X-No-Cors-Reason:
+      - https://sendgrid.com/docs/Classroom/Basics/API/cors.html
+      Strict-Transport-Security:
+      - max-age=600; includeSubDomains
+    body:
+      encoding: UTF-8
+      string: ''
+  recorded_at: Sat, 27 Jan 2024 19:20:52 GMT
+recorded_with: VCR 6.2.0

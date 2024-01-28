@@ -8,7 +8,7 @@ http_interactions:
       string: ''
     headers:
       User-Agent:
-      - Faraday v2.8.1
+      - Faraday v2.9.0
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
       Accept:
@@ -39,11 +39,11 @@ http_interactions:
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - 90e5f5ab-2a6c-48c9-81a7-59a3cf06d5c6
+      - b28b47f4-f1fa-4b32-8149-25b70e7c9989
       X-Runtime:
-      - '0.626310'
+      - '0.510086'
       Server-Timing:
-      - start_processing.action_controller;dur=0.08, process_action.action_controller;dur=620.89
+      - start_processing.action_controller;dur=2.86, process_action.action_controller;dur=502.06
       Transfer-Encoding:
       - chunked
     body:
@@ -81,5 +81,5 @@ http_interactions:
         \u0026 Tea"}},{"id":"tQ7UdYAqvn7mm4qzAisJlw","type":"search_result","attributes":{"id":"tQ7UdYAqvn7mm4qzAisJlw","name":"OZO
         Coffee Company","address":"1521 Pearl St, Boulder, CO 80302","category":"Coffee
         \u0026 Tea"}}]}'
-  recorded_at: Thu, 25 Jan 2024 03:18:36 GMT
+  recorded_at: Sat, 27 Jan 2024 17:17:45 GMT
 recorded_with: VCR 6.2.0

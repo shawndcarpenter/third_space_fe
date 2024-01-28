@@ -13,8 +13,8 @@ RSpec.describe "2fa", type: :feature do
       expect(current_path).to eq "/validate_otp"
     end
 
-    xit 'requires 2fa for login', :vcr do
-      @user1 = User.create(first_name: "Candy", last_name: "Land", email: "shawncarpenter.co@gmail.com", password: "test")
+    it 'requires 2fa for login', :vcr do
+      @user1 = User.create(first_name: "Candy", last_name: "Land", email: "test@test.test", password: "test")
       visit "/login"
       fill_in "email", with: "#{@user1.email}"
       fill_in "password", with: "#{@user1.password}"
@@ -22,8 +22,8 @@ RSpec.describe "2fa", type: :feature do
       expect(current_path).to eq "/validate_otp"
     end
 
-    xit '2fa works and can be validated', :vcr do
-      @user1 = User.create(first_name: "Candy", last_name: "Land", email: "shawncarpenter.co@gmail.com", password: "test")
+    it '2fa works and can be validated', :vcr do
+      @user1 = User.create(first_name: "Candy", last_name: "Land", email: "test@test.test", password: "test")
       visit "/login"
       fill_in "email", with: "#{@user1.email}"
       fill_in "password", with: "#{@user1.password}"
@@ -38,27 +38,27 @@ RSpec.describe "2fa", type: :feature do
       expect(current_path).to eq "/set_location"
     end
 
-    xit 'mailer mails email', :vcr do #figure out better way to test
-      @user1 = User.create(first_name: "Candy", last_name: "Land", email: "shawncarpenter.co@gmail.com", password: "test")
-      visit "/login"
-      fill_in "email", with: "#{@user1.email}"
-      fill_in "password", with: "#{@user1.password}"
-      click_button "log in"
-      expect(ActionMailer::Base.deliveries.count).to eq(1)
-    end
-  end
-  describe 'sad path testing' do
-    #can't figure out how to get this to work because delivery status occurs in log after submission attempt
-    xit 'mailer error' do
-      #@user = User.create(first_name: "Candy", last_name: "Land", email: "d.co@z.com", password: "test", otp_code: 123456, otp_code_expires_at:5.minutes.from_now)
-      #UserMailer.send_otp_email(@user).deliver_now
-      # expect(ActionMailer::Base.deliveries.count).to eq(0)
-      # email = ActionMailer::Base.deliveries.last
-      binding.pry
-      # expect(email).to
-    end
+    # xit 'mailer mails email', :vcr do #figure out better way to test
+    #   @user1 = User.create(first_name: "Candy", last_name: "Land", email: "test@test.test", password: "test")
+    #   visit "/login"
+    #   fill_in "email", with: "#{@user1.email}"
+    #   fill_in "password", with: "#{@user1.password}"
+    #   click_button "log in"
+    #   expect(ActionMailer::Base.deliveries.count).to eq(1)
+  #   end
+  # end
+  # describe 'sad path testing' do
+  #   #can't figure out how to get this to work because delivery status occurs in log after submission attempt
+  #   xit 'mailer error' do
+  #     #@user = User.create(first_name: "Candy", last_name: "Land", email: "d.co@z.com", password: "test", otp_code: 123456, otp_code_expires_at:5.minutes.from_now)
+  #     #UserMailer.send_otp_email(@user).deliver_now
+  #     # expect(ActionMailer::Base.deliveries.count).to eq(0)
+  #     # email = ActionMailer::Base.deliveries.last
+  #     binding.pry
+  #     # expect(email).to
+    # end
 
-    xit 'wrong 2fa for new user', :vcr  do
+    it 'wrong 2fa for new user', :vcr  do
       visit "/register"
       fill_in "first name", with: "c"
       fill_in "last name", with: "c"
@@ -75,8 +75,8 @@ RSpec.describe "2fa", type: :feature do
       expect(current_path).to eq "/validate_otp"
     end
 
-    xit 'wrong 2fa for login', :vcr  do
-      @user1 = User.create(first_name: "Candy", last_name: "Land", email: "shawncarpenter.co@gmail.com", password: "test")
+    it 'wrong 2fa for login', :vcr  do
+      @user1 = User.create(first_name: "Candy", last_name: "Land", email: "test@test.test", password: "test")
       visit "/login"
       fill_in "email", with: "#{@user1.email}"
       fill_in "password", with: "#{@user1.password}"
@@ -89,8 +89,8 @@ RSpec.describe "2fa", type: :feature do
       expect(current_path).to eq "/validate_otp"
     end
 
-    xit 'timed out 2fa', :vcr  do
-      @user1 = User.create(first_name: "Candy", last_name: "Land", email: "shawncarpenter.co@gmail.com", password: "test")
+    it 'timed out 2fa', :vcr  do
+      @user1 = User.create(first_name: "Candy", last_name: "Land", email: "test@test.test", password: "test")
       visit "/login"
       fill_in "email", with: "#{@user1.email}"
       fill_in "password", with: "#{@user1.password}"
