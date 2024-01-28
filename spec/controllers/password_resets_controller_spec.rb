@@ -7,10 +7,8 @@ RSpec.describe PasswordResetsController, type: :controller do
     let(:user) { create(:user, email: 'user@example.com') }
     context "when user exists" do
       it "sends a password reset email and redirects to login with a notice" do
-        # Extend the mock_response to include .headers
         mock_response = double("Response", status_code: 202, body: 'email sent', headers: {})
 
-        # Stub the SendGrid API call within the mailer and return the mock_response
         allow_any_instance_of(SendGrid::API).to receive_message_chain(:client, :mail, :_, :post).and_return(mock_response)
 
         expect {
