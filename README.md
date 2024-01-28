@@ -117,10 +117,13 @@ The [SimpleCov Gem](https://github.com/simplecov-ruby/simplecov) provides test c
 
 The [FactoryBot](https://github.com/thoughtbot/factory_bot) and [Faker Gems](https://github.com/faker-ruby/faker) was used to create large amounts of data for testing. 
 
+The [Rails Controller Testing](https://github.com/rails/rails-controller-testing) gem was used to test some controller actions, such as `assign` to access instance variables  and `assert` to make sure certain templates were rendered
 
 The back end handles API calls to the TomTom API as well as accepts post requests from the user for location moods. It simulates API calls using the [WebMock gem](https://github.com/bblimke/webmock) and the [VCR gem](https://github.com/vcr/vcr).
 
 Both use the [Pry gem](https://github.com/pry/pry) and [RSpec Rails](https://github.com/rspec/rspec-rails) within the testing environment for unit and feature testing.
+
+In the testing environment, a static OTP code was used. 
 
 ## Staff
 
