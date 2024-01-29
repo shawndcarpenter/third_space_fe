@@ -2,7 +2,7 @@
   <div class="container-fluid">
     <div class="logo-container">
       <%= link_to dashboard_path do %>
-        <%= image_tag 'temp_logo.png', class: "img-fluid smaller-logo", alt: "Logo" %>
+        <%= image_tag 'temp_logo.svg', class: "img-fluid smaller-logo", alt: "Logo" %>
       <% end %>
     </div>
 
@@ -25,12 +25,9 @@
           <%= image_tag photo_url, width: "200" %>
         <% end %>
 
-        <br><br>
+        <br>
+        <br>
 
-        <div class="rounded-container">
-          <%= "Open Now" if @location.open_now %>
-          <%= "Closed" if !@location.open_now %>
-        </div>
         <% if !@location.price.nil? %>
           <div class="rounded-container"><%= @location.price%></div>
         <% end %>

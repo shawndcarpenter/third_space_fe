@@ -2,26 +2,21 @@
   <div class="text-center">
     <div class="mb-3">
       <%= link_to dashboard_path do %>
-        <%= image_tag 'temp_logo.png', class: "img-fluid", alt: "Logo" %>
+        <%= image_tag 'temp_logo.svg', class: "img-fluid", alt: "Logo" %>
       <% end %>
     </div>
-<body>
+  <body>
   For testing, your OTP is: <%= @otp %>
   <h1>Enter OTP</h1>
   <%= form_tag(validate_otp_path, method: :post, class: "mb-3") do %>
   <div class="form-group">
     <%= text_field_tag :otp, nil, class: "form-control", id: "otp" %>
-    </div>
-    <div style="margin-top: 15px;">
-    <%= submit_tag 'submit', class: "btn btn-primary" %>
-    </div>
+  </div>
+  <div style="margin-top: 15px;">
+  <%= submit_tag 'submit', class: "btn btn-primary" %>
+  </div>
   <% end %>
 
-  <% if flash[:alert] %>
-  <div class="alert alert-danger" role="alert">
-    <%= flash[:alert] %>
 
-  </div>  
-  <% end %>
 </body>
 </html>
