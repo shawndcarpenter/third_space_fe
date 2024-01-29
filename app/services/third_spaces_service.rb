@@ -1,6 +1,6 @@
 class ThirdSpacesService
   def conn
-    conn = Faraday.new(url: "https://plankton-app-tavpa.ondigitalocean.app")
+    conn = Faraday.new(url: "http://localhost:3000")
 
   end
 
@@ -25,13 +25,19 @@ class ThirdSpacesService
 
   def get_third_space_reviews(yelp_id)
     response = conn.get("/api/v1/third_spaces/#{yelp_id}/reviews")
-
     data = JSON.parse(response.body, symbolize_names: true)
   end
 
   def get_spaces_by_name(name)
     response = conn.get("/api/v1/third_spaces/search_by_name") do |req|
       req.params['name'] = name
+    end
+    data = JSON.parse(response.body, symbolize_names: true)
+  end
+
+  def get_spaces_by_tags(tags)
+    response = conn.get("/api/v1/third_spaces/search_by_tags") do |req|
+      req.params['tags'] = tags
     end
     data = JSON.parse(response.body, symbolize_names: true)
   end
@@ -61,7 +67,6 @@ class ThirdSpacesService
       req.params['price'] = location[:price]
       req.params['hours'] = "#{location[:hours]}"
       req.params['category'] = location[:category]
-      req.params['open_now'] = location[:open_now]
       req.params['tags'] = "#{tags}"
     end
 

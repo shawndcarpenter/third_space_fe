@@ -13,11 +13,11 @@ RSpec.describe SavedSpacesFacade do
     lon: 123455.67,
     price: "$$$",
     hours: {},
-    category: "yummy",
-    open_now: true}
-    tags = ["happy"]
+    category: "yummy"
+}
+    tags = ["happy"] 
     search = ThirdSpacesService.new.create_third_space(location, tags)
-    user = User.create(first_name: 'Candy', last_name: 'Land', email: 'shawncarpenter.co@gmail.com', password: 'test')
+    user = User.create(first_name: 'Candy', last_name: 'Land', email: 'test@test.test', password: 'test')
     user.update!(id: "12345")
     
     user_space = SavedSpacesService.new.add_user_space(user.id, search[:data][:attributes][:yelp_id])
@@ -27,6 +27,7 @@ RSpec.describe SavedSpacesFacade do
       expect(space.address).to be_a(String)
       expect(space.category).to be_a(String)
       expect(space.name).to be_a(String)
+      expect(space).to be_instance_of(ThirdSpacePoro)
     end
   end
 end

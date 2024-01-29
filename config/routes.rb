@@ -14,7 +14,6 @@ Rails.application.routes.draw do
   patch "/third_spaces/:id", to: "third_spaces#update"
   get "/third_spaces/:id/add_review", to: "third_spaces#add_review"
   patch "/third_spaces/:id/add_review", to: "third_spaces#save_review", as: "save_review_third_space"
-  get "/third_spaces/:id", to: "third_spaces#show"
   get "/third_spaces/:id/all_reviews", to: "third_spaces#all_reviews"
 
   resources :locations, only: [:index, :show, :new, :create]
@@ -47,7 +46,7 @@ Rails.application.routes.draw do
   get '/search_locations/update', to: 'search_locations#update', as: :update_search_location
   resources :search_locations, only: [:create]
 
-  resources :third_spaces, only: [:new, :create, :index, :show, :destroy] do
+  resources :third_spaces do
     get :create_third_space, on: :collection, as: :create_third_space
   end
 

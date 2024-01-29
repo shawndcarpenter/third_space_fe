@@ -4,6 +4,7 @@ class LocationsController < ApplicationController
   end
   
   def index
+
     @third_space_yelp_ids = third_space_yelp_ids
     name = params[:name]
     city = params[:city]

@@ -6,38 +6,94 @@
       <%= image_tag 'temp_logo.png', style: "width: 200px; height: auto;", alt: "Logo" %> 
     </a>
 
-
     <form class="d-flex w-50" action="/third_spaces/search" method="get" name="name" id="name">
       <input class="form-control me-2" id="name" name="name" type="text" placeholder="search by name" aria-label="Search" style="flex-grow: 1;">
       <button class="btn btn-outline-success" type="submit" style="margin-right: 2rem;">Search</button>
-    <button class="btn btn-outline-success" type="submit" style="margin-right: 2rem;">Advanced</button>
+      <%# <button class="btn btn-outline-success" type="submit" style="margin-right: 2rem;">Filter</button> %>
     </form>
+
+
+
+    
+
+<button id="modal-btn" class="btn btn-secondary p-2" data-bs-toggle="modal" data-bs-target="#my-modal">
+        <span class="img-btn-wrapper">
+          <%= image_tag 'filter.svg', alt: "Location", style: "margin-right: 5px;" %> Filter
+        </span>
+      </button>
+
+      <div class="modal fade" id="my-modal" tabindex="-1" aria-labelledby="filter-modal" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="my-modal-label">Filter</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <%= form_tag("/third_spaces/search", method: "get") do %>
+                <div class="form-group">
+                              <div class="form-group">
+              <% features_options = {
+                'Mood' => ['Happy', 'Sad', 'Studious', 'Social', 'Party', 'Chill'],
+                'Staff Responsiveness' => ['Pushy', 'Helpful', 'Respectful'],
+                'Volume' => ['Loud', 'Quiet', 'Average Noise'],
+                'Lighting' => ['Bright', 'Moody', 'Average Lighting']
+              } %>
+              <% features_options.each do |feature, options| %>
+                <h4><%= label_tag feature, "#{feature.downcase}." %></h4>
+                <%= select_tag "tags[]", options_for_select(options), multiple: true, class: 'form-select' %><br>
+              <% end %>
+            </div>
+
+            <h4>accessibility & amenities.</h4>
+            <div class="form-group two-column-grid">
+              <% labels_array = ['Accessible Entrance', 'BIPOC Friendly', 'Child Friendly', 'Customer Restrooms', 'Gender Neutral Restrooms', 'Parking', 'Purchase Necessary', 'Public Transportation Nearby', 'Queer Friendly', 'Sober'] %>
+              <% labels_array.each do |label| %>
+                <div class="checkbox-item">
+                  <%= check_box_tag 'tags[]', label, false, class: 'form-check-input' %>
+                  <%= label_tag label %>
+                </div>
+              <% end %>
+            </div>
+                </div>
+                <div class="container-fluid d-flex justify-content-center align-items-center pt-3">
+                  <%= submit_tag "Search", class: "btn btn-secondary p-2" %>
+                </div>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
 
     <div class="ml-auto">
       <% if current_user.search_location.present? %>
-        <a class="btn btn-secondary p-2" href="<%= set_location_path %>" style="height: fit-content;">
-          <%= current_user.search_location.city %>, <%= current_user.search_location.state %>
+        <a class="btn btn-secondary p-2" href="<%= set_location_path %>" style="height: fit-content; display: flex; align-items: center;">
+          <span class="img-btn-wrapper">
+            <%= image_tag 'location.svg', alt: "Location", style: "margin-right: 5px;" %> 
+            <%= current_user.search_location.city %>, <%= current_user.search_location.state %>
+          </span>
         </a>
       <% end %>
     </div>
 
-    <div class="ml-auto dropdown me-3">
-      <a class="btn btn-secondary dropdown-toggle p-2" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
-        <%= current_user.search_location.mood %> 
-      </a>
+      <div class="ml-auto dropdown me-3">
+        <a class="btn btn-secondary dropdown-toggle p-2" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+          <%= current_user.search_location.mood %> 
+        </a>
       <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-        <li><%= link_to 'Happy', update_search_location_path(mood: 'Happy'), class: 'dropdown-item' %></li>
-        <li><%= link_to 'Studious', update_search_location_path(mood: 'Studious'), class: 'dropdown-item' %></li>
-        <li><%= link_to 'Sad', update_search_location_path(mood: 'Sad'), class: 'dropdown-item' %></li>
-        <li><%= link_to 'Social', update_search_location_path(mood: 'Social'), class: 'dropdown-item' %></li>
-        <li><%= link_to 'Party', update_search_location_path(mood: 'Party'), class: 'dropdown-item' %></li>
-        <li><%= link_to 'Chill', update_search_location_path(mood: 'Chill'), class: 'dropdown-item' %></li>
+        <li><%= link_to 'happy', update_search_location_path(mood: 'Happy'), class: 'dropdown-item' %></li>
+        <li><%= link_to 'studious', update_search_location_path(mood: 'Studious'), class: 'dropdown-item' %></li>
+        <li><%= link_to 'sad', update_search_location_path(mood: 'Sad'), class: 'dropdown-item' %></li>
+        <li><%= link_to 'social', update_search_location_path(mood: 'Social'), class: 'dropdown-item' %></li>
+        <li><%= link_to 'party', update_search_location_path(mood: 'Party'), class: 'dropdown-item' %></li>
+        <li><%= link_to 'chill', update_search_location_path(mood: 'Chill'), class: 'dropdown-item' %></li>
       </ul>
     </div>
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" style="order: 2;">
       <span class="navbar-toggler-icon"></span>
     </button>
+    
 
     <div class="ml-auto collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mb-2 mb-lg-0">

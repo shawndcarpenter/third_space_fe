@@ -2,20 +2,22 @@
   <div class="text-center">
     <div class="mb-3">
       <%= link_to dashboard_path do %>
-        <%= image_tag 'temp_logo.png', class: "img-fluid", alt: "Logo" %>
+        <%= image_tag 'temp_logo.svg', class: "img-fluid", alt: "Logo" %>
       <% end %>
     </div>
-
+    
     <%= form_with url: login_path, method: :post, local: true, html: { class: 'form-floating mb-3' } do |form| %>
       <div class="form-floating mb-3">
-          <%= form.text_field :email, id: 'floatingInput', class: "form-control", placeholder: "email" %>
-          <%= form.label :email, "email", for: 'floatingInput', class: "form-label" %>
+          <%= form.text_field :email, id: 'floatingInputEmail', class: "form-control", placeholder: "email" %>
+          <%= form.label :email, "email", for: 'floatingInputEmail', class: "form-label" %>
       </div>
 
       <div class="form-floating mb-3">
           <%= form.text_field :password, id: 'floatingInput', class: "form-control", placeholder: "password" %>
           <%= form.label :password, "password", for: 'floatingInput', class: "form-label" %>
+
       </div>
+          
 
       <div class="mb-3">
         <%= form.submit "log in", class: "btn btn-primary" %>

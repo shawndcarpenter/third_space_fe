@@ -2,13 +2,13 @@
 http_interactions:
 - request:
     method: post
-    uri: https://plankton-app-tavpa.ondigitalocean.app/api/v1/third_spaces?address=address&category=yummy&hours=%7B%7D&lat=123.4545&lon=123455.67&name=name&open_now=true&phone=555-555-5555&photos=%5B%5D&price=$$$&rating=5&tags=%5B%22happy%22%5D&yelp_id=f-m7-hyFzkf0HSEeQ2s-9A
+    uri: http://localhost:3000/api/v1/third_spaces?address=address&category=yummy&hours=%7B%7D&lat=123.4545&lon=123455.67&name=name&phone=555-555-5555&photos=%5B%5D&price=$$$&rating=5&tags=%5B%22happy%22%5D&yelp_id=f-m7-hyFzkf0HSEeQ2s-9A
     body:
       encoding: UTF-8
       string: ''
     headers:
       User-Agent:
-      - Faraday v2.8.1
+      - Faraday v2.9.0
       Content-Length:
       - '0'
       Accept-Encoding:
@@ -20,14 +20,6 @@ http_interactions:
       code: 201
       message: Created
     headers:
-      Date:
-      - Wed, 24 Jan 2024 04:56:10 GMT
-      Content-Type:
-      - application/json; charset=utf-8
-      Transfer-Encoding:
-      - chunked
-      Connection:
-      - keep-alive
       X-Frame-Options:
       - SAMEORIGIN
       X-Xss-Protection:
@@ -40,43 +32,36 @@ http_interactions:
       - none
       Referrer-Policy:
       - strict-origin-when-cross-origin
+      Content-Type:
+      - application/json; charset=utf-8
       Vary:
       - Accept
       Etag:
-      - W/"d60f7062ba1507ef23917efbcf63eaf3"
+      - W/"3627ad1dc4a06ebea3675db3e69e0e5f"
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - a84eed17-c117-480e-833c-54a65d2fa76b
+      - b809c0b4-2162-4d67-b497-d4d49c0f9752
       X-Runtime:
-      - '0.043038'
-      X-Do-App-Origin:
-      - 42daf057-993c-487d-b7a0-cf175a19f2a0
-      X-Do-Orig-Status:
-      - '201'
-      Cf-Cache-Status:
-      - DYNAMIC
-      Set-Cookie:
-      - __cf_bm=_rgH0MI39mnW9TE7dyYYDtNXuLONS8iR6K4ZXRCXavw-1706072170-1-AfL5E8QbVUJUwim3BVaV5N0bvUwKNqkoz9kKKff3LhHRe6fhL00C3O5HTG1tGEV6jBU/DRrDwa81gnf8MoCvJmM=;
-        path=/; expires=Wed, 24-Jan-24 05:26:10 GMT; domain=.ondigitalocean.app; HttpOnly;
-        Secure; SameSite=None
-      Server:
-      - cloudflare
-      Cf-Ray:
-      - 84a5b0384f4b5344-DEN
+      - '0.057071'
+      Server-Timing:
+      - start_processing.action_controller;dur=0.14, sql.active_record;dur=42.21,
+        process_action.action_controller;dur=50.35
+      Transfer-Encoding:
+      - chunked
     body:
       encoding: UTF-8
-      string: '{"data":{"id":"301","type":"third_space","attributes":{"yelp_id":"f-m7-hyFzkf0HSEeQ2s-9A","name":"name","address":"address","rating":5.0,"phone":"555-555-5555","photos":"[]","lat":123.4545,"lon":123455.67,"price":"$$$","hours":"{}","category":"yummy","open_now":true,"tags":["happy"]}}}'
-  recorded_at: Wed, 24 Jan 2024 04:56:10 GMT
+      string: '{"data":{"id":"153","type":"third_space","attributes":{"yelp_id":"f-m7-hyFzkf0HSEeQ2s-9A","name":"name","address":"address","rating":5.0,"phone":"555-555-5555","photos":"[]","lat":123.4545,"lon":123455.67,"price":"$$$","hours":"{}","category":"yummy","tags":["happy"]}}}'
+  recorded_at: Sat, 27 Jan 2024 17:38:49 GMT
 - request:
     method: post
-    uri: https://plankton-app-tavpa.ondigitalocean.app/api/v1/user_third_spaces?third_space_id=f-m7-hyFzkf0HSEeQ2s-9A&user_id=12345
+    uri: http://localhost:3000/api/v1/user_third_spaces?third_space_id=f-m7-hyFzkf0HSEeQ2s-9A&user_id=12345
     body:
       encoding: UTF-8
       string: ''
     headers:
       User-Agent:
-      - Faraday v2.8.1
+      - Faraday v2.9.0
       Content-Length:
       - '0'
       Accept-Encoding:
@@ -85,39 +70,194 @@ http_interactions:
       - "*/*"
   response:
     status:
-      code: 404
-      message: Not Found
+      code: 200
+      message: OK
     headers:
-      Date:
-      - Wed, 24 Jan 2024 04:56:10 GMT
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - '0'
+      X-Content-Type-Options:
+      - nosniff
+      X-Download-Options:
+      - noopen
+      X-Permitted-Cross-Domain-Policies:
+      - none
+      Referrer-Policy:
+      - strict-origin-when-cross-origin
       Content-Type:
-      - text/html; charset=UTF-8
+      - application/json; charset=utf-8
+      Vary:
+      - Accept
+      Etag:
+      - W/"8bd4c6a9c5c78fa5020a279758609a6c"
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - cc115c60-7439-4e41-b1eb-d22a6750a822
+      X-Runtime:
+      - '0.061020'
+      Server-Timing:
+      - start_processing.action_controller;dur=0.17, sql.active_record;dur=24.01,
+        instantiation.active_record;dur=0.42, process_action.action_controller;dur=51.13
       Transfer-Encoding:
       - chunked
-      Connection:
-      - keep-alive
-      X-Request-Id:
-      - 6039d7b0-6653-4d46-9a5f-0640e68917b6
-      X-Runtime:
-      - '0.022459'
-      X-Do-App-Origin:
-      - 42daf057-993c-487d-b7a0-cf175a19f2a0
-      Cache-Control:
-      - private
-      X-Do-Orig-Status:
-      - '404'
-      Cf-Cache-Status:
-      - DYNAMIC
-      Set-Cookie:
-      - __cf_bm=IUssTAPKVhrD_kQ9N1z9TQq.GSjueurvkv6dIH9olds-1706072170-1-AS4/CPRrijcFGQ+qoz+CeZgTnAzYtLRq1588hJWqpjOHJq+UjVol+f0atPTa77i4v0bqjw87J3GIdxChEYoaciE=;
-        path=/; expires=Wed, 24-Jan-24 05:26:10 GMT; domain=.ondigitalocean.app; HttpOnly;
-        Secure; SameSite=None
-      Server:
-      - cloudflare
-      Cf-Ray:
-      - 84a5b039d91c5387-DEN
     body:
-      encoding: ASCII-8BIT
+      encoding: UTF-8
+      string: '{"data":{"id":"12345","type":"user","relationships":{"third_spaces":{"data":[{"id":"152","type":"third_space"}]}}},"included":[{"id":"152","type":"third_space","attributes":{"yelp_id":"f-m7-hyFzkf0HSEeQ2s-9A","name":"name","address":"address","rating":5.0,"phone":"555-555-5555","photos":"[]","lat":123.4545,"lon":123455.67,"price":"$$$","hours":"{}","category":"yummy","tags":["happy"]}}]}'
+  recorded_at: Sat, 27 Jan 2024 17:39:15 GMT
+- request:
+    method: get
+    uri: http://localhost:3000/api/v1/users/12345/third_spaces
+    body:
+      encoding: US-ASCII
       string: ''
-  recorded_at: Wed, 24 Jan 2024 04:56:10 GMT
+    headers:
+      User-Agent:
+      - Faraday v2.9.0
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - '0'
+      X-Content-Type-Options:
+      - nosniff
+      X-Download-Options:
+      - noopen
+      X-Permitted-Cross-Domain-Policies:
+      - none
+      Referrer-Policy:
+      - strict-origin-when-cross-origin
+      Content-Type:
+      - application/json; charset=utf-8
+      Vary:
+      - Accept
+      Etag:
+      - W/"8bd4c6a9c5c78fa5020a279758609a6c"
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - 01f9d921-4207-4aa3-9e7c-0d61c2088a23
+      X-Runtime:
+      - '0.174088'
+      Server-Timing:
+      - start_processing.action_controller;dur=0.08, sql.active_record;dur=125.03,
+        instantiation.active_record;dur=0.22, process_action.action_controller;dur=168.75
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: '{"data":{"id":"12345","type":"user","relationships":{"third_spaces":{"data":[{"id":"152","type":"third_space"}]}}},"included":[{"id":"152","type":"third_space","attributes":{"yelp_id":"f-m7-hyFzkf0HSEeQ2s-9A","name":"name","address":"address","rating":5.0,"phone":"555-555-5555","photos":"[]","lat":123.4545,"lon":123455.67,"price":"$$$","hours":"{}","category":"yummy","tags":["happy"]}}]}'
+  recorded_at: Sat, 27 Jan 2024 17:39:28 GMT
+- request:
+    method: post
+    uri: http://localhost:3000/api/v1/user_third_spaces?third_space_id=f-m7-hyFzkf0HSEeQ2s-9A&user_id=12345
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v2.9.0
+      Content-Length:
+      - '0'
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 422
+      message: Unprocessable Entity
+    headers:
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - '0'
+      X-Content-Type-Options:
+      - nosniff
+      X-Download-Options:
+      - noopen
+      X-Permitted-Cross-Domain-Policies:
+      - none
+      Referrer-Policy:
+      - strict-origin-when-cross-origin
+      Content-Type:
+      - application/json; charset=utf-8
+      Vary:
+      - Accept
+      Cache-Control:
+      - no-cache
+      X-Request-Id:
+      - d93ad3c3-e5e2-4350-b5de-d8c8386a5827
+      X-Runtime:
+      - '0.041714'
+      Server-Timing:
+      - start_processing.action_controller;dur=0.17, sql.active_record;dur=4.32, instantiation.active_record;dur=0.80,
+        process_action.action_controller;dur=32.13
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: '{"errors":[{"detail":"Validation failed: user third_space association
+        between user with user_id=12345 and third_space_id=152 already exists"}]}'
+  recorded_at: Sat, 27 Jan 2024 17:40:14 GMT
+- request:
+    method: get
+    uri: http://localhost:3000/api/v1/users/12345/third_spaces
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v2.9.0
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - '0'
+      X-Content-Type-Options:
+      - nosniff
+      X-Download-Options:
+      - noopen
+      X-Permitted-Cross-Domain-Policies:
+      - none
+      Referrer-Policy:
+      - strict-origin-when-cross-origin
+      Content-Type:
+      - application/json; charset=utf-8
+      Vary:
+      - Accept
+      Etag:
+      - W/"8bd4c6a9c5c78fa5020a279758609a6c"
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - 61dadac0-cf31-431a-8bc9-86fc9ed98e8d
+      X-Runtime:
+      - '0.007519'
+      Server-Timing:
+      - start_processing.action_controller;dur=0.06, sql.active_record;dur=2.59, instantiation.active_record;dur=0.05,
+        process_action.action_controller;dur=4.45
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: '{"data":{"id":"12345","type":"user","relationships":{"third_spaces":{"data":[{"id":"152","type":"third_space"}]}}},"included":[{"id":"152","type":"third_space","attributes":{"yelp_id":"f-m7-hyFzkf0HSEeQ2s-9A","name":"name","address":"address","rating":5.0,"phone":"555-555-5555","photos":"[]","lat":123.4545,"lon":123455.67,"price":"$$$","hours":"{}","category":"yummy","tags":["happy"]}}]}'
+  recorded_at: Sat, 27 Jan 2024 17:40:14 GMT
 recorded_with: VCR 6.2.0

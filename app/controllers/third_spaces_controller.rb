@@ -68,7 +68,7 @@ class ThirdSpacesController < ApplicationController
     if params[:name]
       @spaces = ThirdSpacesByNameFacade.new(params[:name]).spaces
     elsif params[:tags]
-      @spaces = ThirdSpacesByNameFacade.new(params[:name]).spaces
+      @spaces = ThirdSpacesByTagsFacade.new(params[:tags]).spaces
       params[:tags].each do |tag|
         @spaces.delete_if { |space| space.tags == nil || !space.tags.include?(tag) }
       end
@@ -110,7 +110,7 @@ class ThirdSpacesController < ApplicationController
       reviews.map do |review|
         CreateSpaceReviewsFacade.new(review).new_review
       end
-
+      
       @reviews = ThirdSpaceReviewsFacade.new(yelp_id).reviews
     end
     @tags_with_freq = format_tags(@space.tags)
@@ -139,7 +139,7 @@ class ThirdSpacesController < ApplicationController
       redirect_to dashboard_path
     end
   end
-
+  
   private
 
   def format_tags(tags)

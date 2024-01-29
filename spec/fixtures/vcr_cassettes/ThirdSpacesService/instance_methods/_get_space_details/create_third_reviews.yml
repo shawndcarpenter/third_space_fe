@@ -2,13 +2,13 @@
 http_interactions:
 - request:
     method: post
-    uri: https://plankton-app-tavpa.ondigitalocean.app/api/v1/third_spaces/f-m7-hyFzkf0HSEeQ2s-9A/reviews?date&name=name&rating=5&text=text&yelp_id=f-m7-hyFzkf0HSEeQ2s-9A
+    uri: http://localhost:3000/api/v1/third_spaces/f-m7-hyFzkf0HSEeQ2s-9A/reviews?date&name=name&rating=5&text=text&yelp_id=f-m7-hyFzkf0HSEeQ2s-9A
     body:
       encoding: UTF-8
       string: ''
     headers:
       User-Agent:
-      - Faraday v2.8.1
+      - Faraday v2.9.0
       Content-Length:
       - '0'
       Accept-Encoding:
@@ -20,14 +20,6 @@ http_interactions:
       code: 200
       message: OK
     headers:
-      Date:
-      - Wed, 24 Jan 2024 04:56:14 GMT
-      Content-Type:
-      - application/json; charset=utf-8
-      Transfer-Encoding:
-      - chunked
-      Connection:
-      - keep-alive
       X-Frame-Options:
       - SAMEORIGIN
       X-Xss-Protection:
@@ -40,32 +32,25 @@ http_interactions:
       - none
       Referrer-Policy:
       - strict-origin-when-cross-origin
+      Content-Type:
+      - application/json; charset=utf-8
       Vary:
       - Accept
       Etag:
-      - W/"8c9b488ef78fd366c348be1d748ba97d"
+      - W/"cf45459ed1af349137a8c1135baa866d"
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - 90f5bef4-7016-42b8-a847-480bea6e1911
+      - dd016a8f-f0ac-41ac-b36e-523911631659
       X-Runtime:
-      - '0.034341'
-      X-Do-App-Origin:
-      - 42daf057-993c-487d-b7a0-cf175a19f2a0
-      X-Do-Orig-Status:
-      - '200'
-      Cf-Cache-Status:
-      - DYNAMIC
-      Set-Cookie:
-      - __cf_bm=l9nAaNC.JWHAS2K48fS_uLQxQuoP4EpKRT9Zd8Hy_LM-1706072174-1-AdbsIKt8K+P1XG8RHJTbVslzJgaA+EZzDoo7WxeKvFD8pKZ/A855cYUY65dpsW+ohdNryYu6/HcfHve6MEyNDM8=;
-        path=/; expires=Wed, 24-Jan-24 05:26:14 GMT; domain=.ondigitalocean.app; HttpOnly;
-        Secure; SameSite=None
-      Server:
-      - cloudflare
-      Cf-Ray:
-      - 84a5b0537ab651a6-DEN
+      - '0.014787'
+      Server-Timing:
+      - start_processing.action_controller;dur=0.08, sql.active_record;dur=6.82, instantiation.active_record;dur=0.09,
+        process_action.action_controller;dur=11.39
+      Transfer-Encoding:
+      - chunked
     body:
-      encoding: ASCII-8BIT
-      string: '{"data":{"id":"1","type":"review_object","attributes":{"id":1,"rating":"5","text":"text","name":"name","yelp_id":"f-m7-hyFzkf0HSEeQ2s-9A"}}}'
-  recorded_at: Wed, 24 Jan 2024 04:56:14 GMT
+      encoding: UTF-8
+      string: '{"data":{"id":"1","type":"review_object","attributes":{"id":1,"rating":"5","text":"text","name":"name","date":null,"yelp_id":"f-m7-hyFzkf0HSEeQ2s-9A"}}}'
+  recorded_at: Sat, 27 Jan 2024 17:17:48 GMT
 recorded_with: VCR 6.2.0
