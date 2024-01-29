@@ -3,19 +3,14 @@
   <div class="container-fluid d-flex align-items-center">
 
     <a class="navbar-brand" href="<%= dashboard_path %>" style="margin-right: 2rem;">
-      <%= image_tag 'temp_logo.png', style: "width: 200px; height: auto;", alt: "Logo" %> 
+      <%= image_tag 'temp_logo.svg', style: "width: 200px; height: auto;", alt: "Logo" %> 
     </a>
 
     <form class="d-flex w-50" action="/third_spaces/search" method="get" name="name" id="name">
       <input class="form-control me-2" id="name" name="name" type="text" placeholder="search by name" aria-label="Search" style="flex-grow: 1;">
       <button class="btn btn-outline-success" type="submit" style="margin-right: 2rem;">Search</button>
-      <%# <button class="btn btn-outline-success" type="submit" style="margin-right: 2rem;">Filter</button> %>
+    <%# <button class="btn btn-outline-success" type="submit" style="margin-right: 2rem;">Advanced</button> %>
     </form>
-
-
-
-    
-
 <button id="modal-btn" class="btn btn-secondary p-2" data-bs-toggle="modal" data-bs-target="#my-modal">
         <span class="img-btn-wrapper">
           <%= image_tag 'filter.svg', alt: "Location", style: "margin-right: 5px;" %> Filter
@@ -64,7 +59,6 @@
           </div>
         </div>
       </div>
-
     <div class="ml-auto">
       <% if current_user.search_location.present? %>
         <a class="btn btn-secondary p-2" href="<%= set_location_path %>" style="height: fit-content; display: flex; align-items: center;">
@@ -80,7 +74,17 @@
         <a class="btn btn-secondary dropdown-toggle p-2" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
           <%= current_user.search_location.mood %> 
         </a>
+      <div class="ml-auto dropdown me-3">
+        <a class="btn btn-secondary dropdown-toggle p-2" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+          <%= current_user.search_location.mood %> 
+        </a>
       <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+        <li><%= link_to 'happy', update_search_location_path(mood: 'Happy'), class: 'dropdown-item' %></li>
+        <li><%= link_to 'studious', update_search_location_path(mood: 'Studious'), class: 'dropdown-item' %></li>
+        <li><%= link_to 'sad', update_search_location_path(mood: 'Sad'), class: 'dropdown-item' %></li>
+        <li><%= link_to 'social', update_search_location_path(mood: 'Social'), class: 'dropdown-item' %></li>
+        <li><%= link_to 'party', update_search_location_path(mood: 'Party'), class: 'dropdown-item' %></li>
+        <li><%= link_to 'chill', update_search_location_path(mood: 'Chill'), class: 'dropdown-item' %></li>
         <li><%= link_to 'happy', update_search_location_path(mood: 'Happy'), class: 'dropdown-item' %></li>
         <li><%= link_to 'studious', update_search_location_path(mood: 'Studious'), class: 'dropdown-item' %></li>
         <li><%= link_to 'sad', update_search_location_path(mood: 'Sad'), class: 'dropdown-item' %></li>

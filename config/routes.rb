@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   patch "/third_spaces/:id", to: "third_spaces#update"
   get "/third_spaces/:id/add_review", to: "third_spaces#add_review"
   patch "/third_spaces/:id/add_review", to: "third_spaces#save_review", as: "save_review_third_space"
+
   get "/third_spaces/:id/all_reviews", to: "third_spaces#all_reviews"
 
   resources :locations, only: [:index, :show, :new, :create]

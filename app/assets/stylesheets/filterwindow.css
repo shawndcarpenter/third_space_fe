@@ -27,20 +27,20 @@
 .modal-header {
   background: var(--modal-color);
   padding: 15px;
-  color: #black;
+  color: black;
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
 }
 
 .modal-body {
   padding: 10px 20px;
-  background: #black;
+  background: black;
 }
 
 .modal-footer {
   background: var(--modal-color);
   padding: 10px;
-  color: #black;
+  color: black;
   text-align: center;
   border-bottom-left-radius: 5px;
   border-bottom-right-radius: 5px;
@@ -50,7 +50,7 @@
   color: #ccc;
   float: right;
   font-size: 30px;
-  color: #black;
+  color: black;
 }
 
 .close:hover,

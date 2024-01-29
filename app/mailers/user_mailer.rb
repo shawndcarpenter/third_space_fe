@@ -14,7 +14,7 @@ class UserMailer < ApplicationMailer
     content = Content.new(type: 'text/plain', value: "Your OTP for Two-Factor Authentication at third space.
     Your OTP code is: #{@user.otp_code}")
     mail = Mail.new(from, subject, to, content)
-      
+
     sg = SendGrid::API.new(api_key: sendgrid_api_key)
     response = sg.client.mail._('send').post(request_body: mail.to_json)
     puts response.status_code

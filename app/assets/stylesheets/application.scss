@@ -80,12 +80,11 @@
   text-decoration: none;
   color: black;
   font-weight: bold;
-
-  border-radius: 5px; /* Adjust as needed for the desired rounded effect */
-  padding: 5px; /* Add padding to make the rounded corners noticeable */
-  display: inline-block; /* This helps in applying padding and border-radius */
-  margin-right: -5px; /* Negative margin to compensate for the padding */
-  margin-left: -5px; /* Negative margin to compensate for the padding */
+  border-radius: 5px; 
+  padding: 5px; 
+  display: inline-block; 
+  margin-right: -5px; 
+  margin-left: -5px; 
 }
 
 .form-control label {
@@ -306,7 +305,6 @@
   box-sizing: border-box;
   display: inline-flex;
   flex-direction: column;
-  // width: 25%;
 }
 
 .rounded-entry > * {
@@ -319,8 +317,11 @@
 }
 
 .img-btn-wrapper img {
-  margin-right: 5px; /* Adjust spacing between the image and text */
+  margin-right: 5px;
 }
+
+
+
 
 .rounded-nav-btn {
   border-radius: 33px;

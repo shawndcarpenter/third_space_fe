@@ -21,8 +21,36 @@
               <%= form.submit "Submit", class: "btn btn-primary w-100" %>
             </div>
           </div>
+          <div class="form-floating row">
+            <div class="col-md-8 col-sm-12 mb-2">
+              <%= form.text_field :city, id: "floatingInput", class: "form-control", placeholder: "Change location" %>
+            </div>
+            <div class="col-md-2 col-sm-6 mb-2"> 
+              <%= form.select :state, User::STATE_ACRONYMS, { prompt: 'State' }, class: "form-control" %>
+            </div>
+            <div class="col-md-2 col-sm-6">
+              <%= form.submit "Submit", class: "btn btn-primary w-100" %>
+            </div>
+          </div>
         <% end %>
       <% else %>
+        <h3>Where would you like to search today?</h3><br>
+        <%= form_with url: search_locations_path, method: :post, local: true, html: { class: 'form-floating mb-3' } do |form| %>
+          <div class="form-floating row">
+            <div class="col-md-8 col-sm-12 mb-2">
+              <%= form.text_field :city, id: "floatingInput", class: "form-control", placeholder: "Change location" %>
+            </div>
+            <div class="col-md-2 col-sm-6 mb-2"> 
+              <%= form.select :state, User::STATE_ACRONYMS, { prompt: 'State' }, class: "form-control" %>
+            </div>
+            <div class="col-md-2 col-sm-6">
+              <%= form.submit "Submit", class: "btn btn-primary w-100" %>
+            </div>
+          </div>
+          <h6>Allow ThirdSpace to access your location for the nearby search to work. Alternatively, search by city and state.</h6>
+        <% end %>
+      <% end %>
+    </div>
         <h3>Where would you like to search today?</h3><br>
         <%= form_with url: search_locations_path, method: :post, local: true, html: { class: 'form-floating mb-3' } do |form| %>
           <div class="form-floating row">
@@ -46,7 +74,32 @@
       <%= form.hidden_field :city, value: current_user.search_location.city %>
       <%= form.hidden_field :state, value: current_user.search_location.state %>
       <% end %>
+    <%= form_with url: search_locations_path, method: :post, local: true, html: { class: 'form-floating mb-3' } do |form| %>
+    <% if current_user.search_location.present? %>
+      <%= form.hidden_field :city, value: current_user.search_location.city %>
+      <%= form.hidden_field :state, value: current_user.search_location.state %>
+      <% end %>
       <div class="btn-group" role="group" aria-label="mood button group">
+        <%= button_tag type: 'submit', name: 'mood', value: 'Happy', class: 'btn btn-outline-primary', style: "border-radius: 20px;", id: 'btncheck1' do %>
+          happy
+        <% end %>
+        <%= button_tag type: 'submit', name: 'mood', value: 'Sad', class: 'btn btn-outline-primary', style: "border-radius: 20px;", id: 'btncheck2' do %>
+          sad
+        <% end %>
+        <%= button_tag type: 'submit', name: 'mood', value: 'Studious', class: 'btn btn-outline-primary', style: "border-radius: 20px;", id: 'btncheck3' do %>
+          studious
+        <% end %>
+        <%= button_tag type: 'submit', name: 'mood', value: 'Social', class: 'btn btn-outline-primary', style: "border-radius: 20px;", id: 'btncheck4' do %>
+          social
+        <% end %>
+        <%= button_tag type: 'submit', name: 'mood', value: 'Party!', class: 'btn btn-outline-primary', style: "border-radius: 20px;", id: 'btncheck5' do %>
+          party!
+        <% end %>
+        <%= button_tag type: 'submit', name: 'mood', value: 'Chill', class: 'btn btn-outline-primary', style: "border-radius: 20px;", id: 'btncheck6' do %>
+          chill
+        <% end %>
+      </div>
+    <% end %>
         <%= button_tag type: 'submit', name: 'mood', value: 'Happy', class: 'btn btn-outline-primary', style: "border-radius: 20px;", id: 'btncheck1' do %>
           happy
         <% end %>

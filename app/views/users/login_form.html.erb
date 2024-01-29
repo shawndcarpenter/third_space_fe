@@ -19,12 +19,12 @@
       </div>
           
 
+
       <div class="mb-3">
         <%= form.submit "log in", class: "btn btn-primary" %>
         <a href="/register" class="btn btn-primary">new user</a>
       </div>
     <% end %>
-
     <div style="margin-top: 15px;">
       <%= button_to '/auth/google_oauth2', class: "google-sign-in-btn gsi-material-button", data: { turbo: false }, id: "google-sign-in-btn", form_class: "google-auth-form" do %>
         <div class="gsi-material-button-content-wrapper">
@@ -41,7 +41,6 @@
         </div>
       <% end %>
     </div>
-
     <br>
     <div class="mb-3">
       <%= link_to "Forgot your password?", password_reset_path, class: "btn btn-primary" %>
