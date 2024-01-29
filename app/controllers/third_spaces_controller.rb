@@ -318,7 +318,7 @@ class ThirdSpacesController < ApplicationController
       sum += r.rating.to_f
       total_ratings += 1
     end
-    @avg_rating = sum/total_ratings
+    @avg_rating = (sum/total_ratings).round(1)
   end
 
   def find_third_space(yelp_id)
