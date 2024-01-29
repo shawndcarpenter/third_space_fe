@@ -1,102 +1,60 @@
-<% @mood_tags.each do |tag, freq| %>
-          <% if freq == 1 %>
-            Voted By <%= freq %> User: <div class="rounded-container"><%= tag %></div><br>
-          <% else %>
-            Voted By <%= freq %> Users: <div class="rounded-container"><%= tag %></div><br>
+<div class="logo-container">
+  <%= link_to dashboard_path do %>
+    <%= image_tag 'temp_logo.svg', class: "img-fluid smaller-logo", alt: "Logo" %>
+  <% end %>
+</div>
+
+<div class="container text-center mt-5">
+  <div class="mb-3">
+    <h3>Write a Review for <%= @space.name %></h3><br>
+
+    <div class="text-center">
+      <% if !@space.photos.nil? %>
+        <% if @space.photos.class == String && !@space.photos == "[]" %>
+          <%= image_tag @space.photos, width: "200" %>
+        <% elsif @space.photos == "[]" %>
+        <% elsif !@space.photos.include?("[") %>
+          <%= image_tag @space.photos, width: "200" %>
+        <% else %>
+          <% JSON.parse(@space.photos).each do |photo_url| %>
+            <%= image_tag photo_url, width: "200" %>
           <% end %>
         <% end %>
-        <h3>Accessibility Tags</h3>
+      <% end %>
+    </div>
+    <br>
 
-        <p>
-          <button class="btn btn-outline-success me-2" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
-            Show/Hide
-          </button>
-        </p>
-        <div class="collapse" id="collapseExample">
-          <div class="align-self-center card card-body">
+    <div class="rounded-highlight-b">
+      <%= "Address: #{@space.address}" %>
+    </div>
+  </div>
 
-            Light and Noise Levels:
-            <% if @light_level.nil?  && @noise_level.nil? %>
-              No information available. <%= link_to "Edit this space", "/third_spaces/#{@space.yelp_id}/edit" %>
-            <% else %>
-              <% if !@light_level.nil? %>
-                <div class="rounded-container" style="width: 200px"><%= @light_level %></div>
-              <% end %>
-              <% if !@noise_level.nil? %>
-                <div class="rounded-container" style="width: 200px"><%= @noise_level %></div>
-              <% end %>
-            <% end %>
-
-            Staff Pushiness:
-            <% if @staff_tags.nil? %>
-              No information available. <%= link_to "Edit this space", "/third_spaces/#{@space.yelp_id}/edit" %>
-            <% else %>
-              <div class="rounded-container" style="width: 200px"><%= @staff_tags %></div>
-            <% end %>
-
-            Cost Factors:
-            <% if @purchase_necessary.nil? %>
-              No information available. <%= link_to "Edit this space", "/third_spaces/#{@space.yelp_id}/edit" %>
-            <% else %>
-               <div class="rounded-container" style="width: 200px"><%= @purchase_necessary %></div>
-            <% end %>
-
-            Sober Space:
-            <% if @sober_tag.nil? %>
-              No information available. <%= link_to "Edit this space", "/third_spaces/#{@space.yelp_id}/edit" %>
-            <% else %>
-               <div class="rounded-container" style="width: 200px"><%= @sober_tag %></div>
-            <% end %>
-
-            Restroom Needs:
-            <% if @customer_restrooms.nil? && @gn_restrooms.nil? %>
-              No information available. <%= link_to "Edit this space", "/third_spaces/#{@space.yelp_id}/edit" %>
-            <% else %>
-              <% if !@customer_restrooms.nil? %>
-                <div class="rounded-container" style="width: 200px"><%= @customer_restrooms %></div> 
-              <% end %>
-              <% if !@gn_restrooms.nil? %>
-                <div class="rounded-container" style="width: 200px"><%= @gn_restrooms %></div>
-              <% end %>
-            <% end %>
-
-            Transportation:
-            <% if @parking_tag.nil? && @transportion_tag.nil? %>
-              No information available. <%= link_to "Edit this space", "/third_spaces/#{@space.yelp_id}/edit" %>
-            <% else %>
-              <% if !@parking_tag.nil? %>
-               <div class="rounded-container" style="width: 200px"><%= @parking_tag %></div>   
-              <% end %>
-              <% if !@transportion_tag.nil? %>
-               <div class="rounded-container" style="width: 200px"><%= @transportion_tag %></div>
-              <% end %>
-            <% end %>
-
-            Wheelchair Accessibility:
-            <% if @accessible_tags.nil? %>
-              No information available. <%= link_to "Edit this space", "/third_spaces/#{@space.yelp_id}/edit" %>
-            <% else %>
-               <div class="rounded-container" style="width: 200px"><%= @accessible_tags %></div>
-            <% end %>
-
-            Identity:
-            <% if @bipoc_tag.nil? && @lgbt_tag.nil? && @gn_restrooms.nil? %>
-              No information available. <%= link_to "Edit this space", "/third_spaces/#{@space.yelp_id}/edit" %>
-            <% else %>
-              <% if !@bipoc_tag.nil? %>
-                <div class="rounded-container" style="width: 200px"><%= @bipoc_tag %></div> 
-              <% end %>
-              <% if !@lgbt_tag.nil? %>
-                <div class="rounded-container" style="width: 200px"><%= @lgbt_tag %></div>
-              <% end %>
-            <% end %>
-
-            Family Needs:
-              <% if @child_friendly.nil? %>
-                No information available. <%= link_to "Edit this space", "/third_spaces/#{@space.yelp_id}/edit" %>
-              <% else %>
-                 <div class="rounded-container" style="width: 200px"><%= @child_friendly %></div>
-              <% end %>
-
-            </div>
+  <%= form_tag(save_review_third_space_path(@space.yelp_id), method: "patch") do %>  
+    <div class="mb-3 d-flex align-items-center justify-content-center">
+      <div class="col-sm-9">
+        <div class="row">
+          <div class="col-md-4">
+            <p class="mb-0">Rating:</p>
+          </div>
+          <div class="col-sm-1">
+            <%= select_tag 'rating', options_for_select((1..5).map { |n| [n, n] }), class: 'form-control' %>
+          </div>
         </div>
+      </div>
+    </div>
+
+    <div class="mb-3 d-flex align-items-center justify-content-center">
+      <div class="col-sm-9">
+        <%= text_area_tag 'text', nil, class: 'form-control', id: 'text', rows: 10, style: 'width: 100%' %>
+      </div>
+    </div>
+
+    <%= hidden_field_tag 'location_json', @json %>
+
+    <div class="row mt-3">
+      <div class="col-sm-12 text-center">
+        <%= submit_tag "Publish", class: "btn btn-primary" %>
+      </div>
+    </div>
+  <% end %>
+</div>
