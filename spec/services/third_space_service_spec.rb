@@ -26,6 +26,12 @@ describe ThirdSpacesService do
         expect(search).to be_a Hash
       end
 
+      it "get_spaces_by_tags", :vcr do
+        tags = ["studious", "quiet"]
+        search = ThirdSpacesService.new.get_spaces_by_tags(tags)
+        expect(search).to be_a Hash
+      end
+
       it "get_spaces", :vcr do
         search = ThirdSpacesService.new.get_spaces
         expect(search).to be_a Hash
@@ -66,6 +72,12 @@ describe ThirdSpacesService do
         search = ThirdSpacesService.new.create_third_space_reviews(review)
         data = JSON.parse(search.body, symbolize_names: true)
         expect(data).to be_a Hash
+      end
+
+      it "destroys a third space", :vcr do
+        yelp_id = "f-m7-hyFzkf0HSEeQ2s-9A"
+        destroy_space = ThirdSpacesService.new.destroy_space(yelp_id)
+        expect(destroy_space.status).to eq(204)
       end
     end
   end

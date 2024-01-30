@@ -13,7 +13,7 @@
 # the additional setup, and require it from the spec files that actually need
 # it.
 def user_login_data
-  @user1 = User.create(id: 350, first_name: 'Candy', last_name: 'Land', email: 'shawncarpenter.co@gmail.com', password: 'test')
+  @user1 = User.create(id: 350, first_name: 'Candy', last_name: 'Land', email: 'test@test.test', password: 'test')
   visit '/login'
   # fill_in "email", with: "#{@user1.email}"
   fill_in "floatingInputEmail", with: "#{@user1.email}"

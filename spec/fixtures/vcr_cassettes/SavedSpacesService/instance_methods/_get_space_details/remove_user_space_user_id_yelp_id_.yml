@@ -8,15 +8,15 @@ http_interactions:
       string: ''
     headers:
       User-Agent:
-      - Faraday v2.8.1
+      - Faraday v2.9.0
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
       Accept:
       - "*/*"
   response:
     status:
-      code: 404
-      message: Not Found
+      code: 204
+      message: No Content
     headers:
       X-Frame-Options:
       - SAMEORIGIN
@@ -30,24 +30,19 @@ http_interactions:
       - none
       Referrer-Policy:
       - strict-origin-when-cross-origin
-      Content-Type:
-      - application/json; charset=utf-8
       Vary:
       - Accept
       Cache-Control:
       - no-cache
       X-Request-Id:
-      - 3a85ef81-e16b-4eae-8da3-f12d33e26fff
+      - e267990b-7759-4972-b45c-7b59a4d56002
       X-Runtime:
-      - '0.013951'
+      - '0.052305'
       Server-Timing:
-      - start_processing.action_controller;dur=0.06, sql.active_record;dur=1.70, instantiation.active_record;dur=0.06,
-        process_action.action_controller;dur=9.52
-      Transfer-Encoding:
-      - chunked
+      - start_processing.action_controller;dur=0.14, sql.active_record;dur=14.73,
+        instantiation.active_record;dur=3.11, process_action.action_controller;dur=43.13
     body:
       encoding: UTF-8
-      string: '{"errors":[{"detail":"No user_third_space with user_id=12345 AND third_space_id=152
-        exists"}]}'
-  recorded_at: Thu, 25 Jan 2024 03:18:00 GMT
+      string: ''
+  recorded_at: Sat, 27 Jan 2024 19:26:10 GMT
 recorded_with: VCR 6.2.0

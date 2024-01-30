@@ -7,6 +7,7 @@ require_relative '../config/environment'
 # Prevent database truncation if the environment is production
 abort("The Rails environment is running in production mode!") if Rails.env.production?
 require 'rspec/rails'
+require 'rails-controller-testing'
 # Add additional requires below this line. Rails is not loaded until this point!
 
 # Requires supporting ruby files with custom matchers and macros, etc, in
@@ -68,9 +69,9 @@ end
 VCR.configure do |config|
   config.cassette_library_dir = "spec/fixtures/vcr_cassettes"
   config.hook_into :webmock
-  # config.filter_sensitive_data("<yelp>") {
-  #   Rails.application.credentials.yelp[:key]
-  # }
+  config.filter_sensitive_data("<sendgrid_api_key>") {
+    Rails.application.credentials.dig(:sendgrid, :key)
+  }
   config.configure_rspec_metadata!
   config.default_cassette_options = { re_record_interval: 365.days}
 end
@@ -80,4 +81,9 @@ Shoulda::Matchers.configure do |config|
     with.test_framework :rspec
     with.library :rails
   end
+end
+
+RSpec.configure do |config|
+  config.include Rails::Controller::Testing::TemplateAssertions, type: :controller
+  config.include Rails::Controller::Testing::Integration, type: :request
 end

@@ -8,7 +8,7 @@ http_interactions:
       string: ''
     headers:
       User-Agent:
-      - Faraday v2.8.1
+      - Faraday v2.9.0
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
       Accept:
@@ -35,24 +35,24 @@ http_interactions:
       Vary:
       - Accept
       Etag:
-      - W/"af98d971e16e0044ebbe3166de3eef05"
+      - W/"c78a8372519728fd2dab79ebda04d75a"
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - b1ebe8de-c147-493d-ac2b-18084a851e82
+      - c76346a8-f9a7-45cc-9dc8-2a1bce82f379
       X-Runtime:
-      - '0.356045'
+      - '0.386809'
       Server-Timing:
-      - start_processing.action_controller;dur=0.07, process_action.action_controller;dur=351.37
+      - start_processing.action_controller;dur=0.70, process_action.action_controller;dur=380.44
       Transfer-Encoding:
       - chunked
     body:
       encoding: UTF-8
       string: '{"data":{"id":null,"type":"detailed_location","attributes":{"yelp_id":"4qFHQIs2Nux2EVP2EdfZHA","name":"Costco
         Wholesale","address":"900 S Harbor Blvd, Fullerton, CA 92832","rating":3.5,"phone":"(714)
-        738-7521","photos":["https://s3-media1.fl.yelpcdn.com/bphoto/tC_YW8LDfwVFYTCnVWiKaw/o.jpg","https://s3-media1.fl.yelpcdn.com/bphoto/FeNHrojXkfsPRwxHDaQWww/o.jpg","https://s3-media3.fl.yelpcdn.com/bphoto/vfCz4kBly2MWhogq9cXLfw/o.jpg"],"lat":33.862562727568914,"lon":-117.9238246,"price":null,"hours":[{"open":[{"is_overnight":false,"start":"1000","end":"2030","day":0},{"is_overnight":false,"start":"1000","end":"2030","day":1},{"is_overnight":false,"start":"1000","end":"2030","day":2},{"is_overnight":false,"start":"1000","end":"2030","day":3},{"is_overnight":false,"start":"1000","end":"2030","day":4},{"is_overnight":false,"start":"0930","end":"1800","day":5},{"is_overnight":false,"start":"1000","end":"1800","day":6}],"hours_type":"REGULAR","is_open_now":true}],"category":"Gas
-        Stations","open_now":true}}}'
-  recorded_at: Thu, 25 Jan 2024 03:13:39 GMT
+        738-7521","photos":["https://s3-media1.fl.yelpcdn.com/bphoto/tC_YW8LDfwVFYTCnVWiKaw/o.jpg","https://s3-media1.fl.yelpcdn.com/bphoto/FeNHrojXkfsPRwxHDaQWww/o.jpg","https://s3-media3.fl.yelpcdn.com/bphoto/vfCz4kBly2MWhogq9cXLfw/o.jpg"],"lat":33.86249779351977,"lon":-117.92212737506368,"price":null,"hours":[{"open":[{"is_overnight":false,"start":"1000","end":"2030","day":0},{"is_overnight":false,"start":"1000","end":"2030","day":1},{"is_overnight":false,"start":"1000","end":"2030","day":2},{"is_overnight":false,"start":"1000","end":"2030","day":3},{"is_overnight":false,"start":"1000","end":"2030","day":4},{"is_overnight":false,"start":"0930","end":"1800","day":5},{"is_overnight":false,"start":"1000","end":"1800","day":6}],"hours_type":"REGULAR","is_open_now":false}],"category":"Gas
+        Stations"}}}'
+  recorded_at: Sat, 27 Jan 2024 17:17:42 GMT
 - request:
     method: get
     uri: http://localhost:3000/api/v1/locations/4qFHQIs2Nux2EVP2EdfZHA/reviews
@@ -61,7 +61,7 @@ http_interactions:
       string: ''
     headers:
       User-Agent:
-      - Faraday v2.8.1
+      - Faraday v2.9.0
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
       Accept:
@@ -92,11 +92,11 @@ http_interactions:
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - e95c8e3a-02c1-421e-827d-629a4eaa0249
+      - 3f476b6b-4ce5-498a-a17d-343d4d45c125
       X-Runtime:
-      - '0.305625'
+      - '0.281711'
       Server-Timing:
-      - start_processing.action_controller;dur=0.07, process_action.action_controller;dur=301.98
+      - start_processing.action_controller;dur=0.07, process_action.action_controller;dur=277.63
       Transfer-Encoding:
       - chunked
     body:
@@ -111,5 +111,5 @@ http_interactions:
         I could give it a zero, I would. Ridiculous planning and traffic control for
         this gas station. They have 2 barricades up for 2 lines when ultimately...","name":"Elle
         K.","date":"2023-09-17","yelp_id":"4qFHQIs2Nux2EVP2EdfZHA"}}]}'
-  recorded_at: Thu, 25 Jan 2024 03:13:39 GMT
+  recorded_at: Sat, 27 Jan 2024 17:17:42 GMT
 recorded_with: VCR 6.2.0

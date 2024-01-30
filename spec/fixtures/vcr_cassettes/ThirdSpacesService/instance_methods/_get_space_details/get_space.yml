@@ -8,7 +8,7 @@ http_interactions:
       string: ''
     headers:
       User-Agent:
-      - Faraday v2.8.1
+      - Faraday v2.9.0
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
       Accept:
@@ -35,20 +35,20 @@ http_interactions:
       Vary:
       - Accept
       Etag:
-      - W/"ba5f3ea40e95f49bce11942f375ebd38"
+      - W/"8c27725601ee84f6a6c9f551906a8495"
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - 8ef0d8a3-be51-46a5-8a2c-b89e1d5cd3ce
+      - 39edbb6f-729a-4cf7-959a-a15a2c9dc6ad
       X-Runtime:
-      - '0.004625'
+      - '0.004428'
       Server-Timing:
-      - start_processing.action_controller;dur=0.08, sql.active_record;dur=0.56, instantiation.active_record;dur=0.01,
-        process_action.action_controller;dur=1.17
+      - start_processing.action_controller;dur=0.06, sql.active_record;dur=0.66, instantiation.active_record;dur=0.03,
+        process_action.action_controller;dur=1.42
       Transfer-Encoding:
       - chunked
     body:
       encoding: UTF-8
-      string: '{"data":null}'
-  recorded_at: Thu, 25 Jan 2024 03:16:25 GMT
+      string: '{"data":{"id":"151","type":"third_space","attributes":{"yelp_id":"f-m7-hyFzkf0HSEeQ2s-9A","name":"name","address":"address","rating":5.0,"phone":"555-555-5555","photos":"[]","lat":123.4545,"lon":123455.67,"price":"$$$","hours":"{}","category":"yummy","tags":["happy","happy"]}}}'
+  recorded_at: Sat, 27 Jan 2024 17:17:48 GMT
 recorded_with: VCR 6.2.0
