@@ -5,4 +5,4 @@ import "controllers"
 
 import "bootstrap"
 
-import './modules/popupModule'
+// import './modules/popupModule'
