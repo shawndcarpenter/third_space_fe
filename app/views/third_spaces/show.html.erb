@@ -77,7 +77,6 @@
         </div>
 
         <% @reviews.reject { |r| r.date.nil? }.sort_by { |r| r.date }.reverse.first(20).each do |r| %>
-        <% @reviews.reject { |r| r.date.nil? }.sort_by { |r| r.date }.reverse.first(20).each do |r| %>
           <div class="rounded-highlight">
             <%= r.text %> <br> - <%= r.name %> (Rating: <%= r.rating %>/5) <br> Date: <%= r.date %>
           </div>
