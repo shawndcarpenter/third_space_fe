@@ -44,7 +44,7 @@ Rails.application.routes.draw do
 
   resources :saved_locations, only: :index
   resources :search_locations, only: [:create]
-  get '/search_locations/update', to: 'search_locations#update', as: :update_search_location
+  patch '/search_locations/update', to: 'search_locations#update', as: :update_search_location
   get "/search_locations/set_mood", to: "users#set_mood"
   patch '/search_locations/update_loc', to: 'search_locations#update_search_location', as: :update_location_param
 

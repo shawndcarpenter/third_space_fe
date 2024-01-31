@@ -7,9 +7,7 @@
         <% end %>
       </div>
       <div class="container text-center">
-          <%= form_with url: search_locations_path, method: :post, local: true, html: { class: 'form-floating mb-3' } do |form| %>
-            <%= form.hidden_field :city, value: current_user.search_location.city %>
-            <%= form.hidden_field :state, value: current_user.search_location.state %>
+          <%= form_with url: update_search_location_path, method: :patch, local: true, html: { class: 'form-floating mb-3' } do |form| %>
             <h4>What is your mood today?</h4>
             <div class="btn-group" role="group" aria-label="mood button group">
               <%= button_tag type: 'submit', name: 'mood', value: 'Happy', class: 'btn btn-outline-primary', style: "border-radius: 20px;", id: 'btncheck1' do %>
