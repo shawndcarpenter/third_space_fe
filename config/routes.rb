@@ -14,7 +14,6 @@ Rails.application.routes.draw do
   patch "/third_spaces/:id", to: "third_spaces#update"
   get "/third_spaces/:id/add_review", to: "third_spaces#add_review"
   patch "/third_spaces/:id/add_review", to: "third_spaces#save_review", as: "save_review_third_space"
-
   get "/third_spaces/:id/all_reviews", to: "third_spaces#all_reviews"
 
   resources :locations, only: [:index, :show, :new, :create]
@@ -44,7 +43,6 @@ Rails.application.routes.draw do
   get '/validate_otp', to: 'users#validate_otp_form'
 
   resources :saved_locations, only: :index
-  get '/search_locations/update', to: 'search_locations#update', as: :update_search_location
   resources :search_locations, only: [:create]
   patch '/search_locations/update', to: 'search_locations#update', as: :update_search_location
   get "/search_locations/set_mood", to: "users#set_mood"
@@ -70,4 +68,5 @@ Rails.application.routes.draw do
   namespace :admin do
     get "/dashboard", to: "dashboard#index"
   end
+
 end
