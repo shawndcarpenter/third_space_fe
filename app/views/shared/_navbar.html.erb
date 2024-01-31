@@ -76,17 +76,17 @@
       <% end %>
     </div>
 
-      <div class="ml-auto dropdown me-3">
-        <a class="btn btn-secondary dropdown-toggle p-2" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
-          <%= current_user.search_location.mood %> 
-        </a>
+    <div class="ml-auto dropdown me-3">
+      <a class="btn btn-secondary dropdown-toggle p-2" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+        <%= current_user.search_location.mood %> 
+      </a>
       <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-        <li><%= link_to 'happy', update_search_location_path(mood: 'Happy'), class: 'dropdown-item' %></li>
-        <li><%= link_to 'studious', update_search_location_path(mood: 'Studious'), class: 'dropdown-item' %></li>
-        <li><%= link_to 'sad', update_search_location_path(mood: 'Sad'), class: 'dropdown-item' %></li>
-        <li><%= link_to 'social', update_search_location_path(mood: 'Social'), class: 'dropdown-item' %></li>
-        <li><%= link_to 'party', update_search_location_path(mood: 'Party'), class: 'dropdown-item' %></li>
-        <li><%= link_to 'chill', update_search_location_path(mood: 'Chill'), class: 'dropdown-item' %></li>
+        <li><%= link_to 'happy', update_search_location_path(mood: 'Happy'), class: 'dropdown-item', method: :patch %></li>
+        <li><%= link_to 'studious', update_search_location_path(mood: 'Studious'), class: 'dropdown-item', method: :patch %></li>
+        <li><%= link_to 'sad', update_search_location_path(mood: 'Sad'), class: 'dropdown-item', method: :patch %></li>
+        <li><%= link_to 'social', update_search_location_path(mood: 'Social'), class: 'dropdown-item', method: :patch %></li>
+        <li><%= link_to 'party', update_search_location_path(mood: 'Party'), class: 'dropdown-item', method: :patch %></li>
+        <li><%= link_to 'chill', update_search_location_path(mood: 'Chill'), class: 'dropdown-item', method: :patch %></li>
       </ul>
     </div>
 
