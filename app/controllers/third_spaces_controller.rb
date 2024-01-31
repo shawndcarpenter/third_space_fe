@@ -118,7 +118,6 @@ class ThirdSpacesController < ApplicationController
 
     if @space.tags.nil? 
       @transportation_tag, @mood_tags, @light_level, @noise_level, @staff_tags, @purchase_necessary, @sober_tag, @customer_restrooms, @gn_restrooms, @parking_tag, @accessible_tags, @bipoc_tag, @lgbt_tag, @child_friendly  = {}
-
     else
       @transportation_tag = find_transportation_tags(@space.tags).first.first
       @mood_tags = find_moods(@space.tags)

@@ -3,88 +3,75 @@
     <%= render partial: 'shared/navbar' %>
 
     <div class="container text-center">
-      <div class="row justify-content-center align-items-center my-4">
-        <div class="col-md-3 text-md-end"> 
+      <div class="row justify-content-center align-items-center my-3">
+        <div class="col-md-4 text-end"> 
           <h2><%= @space.name %></h2>
         </div>
-        <div class="col-md-2"> 
+        <div class="col-md-2 d-flex justify-content-center"> 
           <div class="rounded-highlight-b">
             <%= @space.category %>
           </div>
         </div>
-        <div class="col-md-3 text-md-start"> 
+        <div class="col-md-4 text-start"> 
           <% if @saved_yelp_ids.include?(@space.yelp_id) %>
-            <form class="d-flex justify-content-start align-items-left" action="/third_spaces/unfavorite" method="delete">
+            <form class="d-flex justify-content-end align-items-center" action="/third_spaces/unfavorite" method="delete">
               <button class="btn btn-outline-success" name="yelp_id" id="yelp_id" value="<%= @space.yelp_id %>" type="submit">Remove Favorite</button>
             </form>
           <% else %>
-            <form class="d-flex justify-content-start align-items-left" action="/third_spaces/favorite" method="post">
+            <form class="d-flex justify-content-end align-items-center" action="/third_spaces/favorite" method="post">
               <button class="btn btn-outline-success" name="yelp_id" id="yelp_id" value="<%= @space.yelp_id %>" type="submit">Favorite</button>
             </form>
           <% end %>
+          </div>
         </div>
       </div>
     </div>
-  </div>
 
-  <div class="text-center">
-    <% if !@space.photos.nil? %>
-      <% if @space.photos.class == String && !@space.photos == "[]" %>
-        <%= image_tag @space.photos, width: "400", height: "350", class: "rounded-image" %>
-      <% elsif @space.photos == "[]" %>
-      <% elsif !@space.photos.include?("[") %>
-        <%= image_tag @space.photos, width: "400", height: "350", class: "rounded-image" %>
-      <% else %>
-        <% JSON.parse(@space.photos).each do |photo_url| %>
-          <%= image_tag photo_url, width: "400", height: "350", class: "rounded-image" %>
+    <div class="text-center">
+      <% if !@space.photos.nil? %>
+        <% if @space.photos.class == String && !@space.photos == "[]" %>
+          <%= image_tag @space.photos, width: "400", height: "350", class: "rounded-image" %>
+        <% elsif @space.photos == "[]" %>
+        <% elsif !@space.photos.include?("[") %>
+          <%= image_tag @space.photos, width: "400", height: "350", class: "rounded-image" %>
+        <% else %>
+          <% JSON.parse(@space.photos).each do |photo_url| %>
+            <%= image_tag photo_url, width: "400", height: "350", class: "rounded-image" %>
+          <% end %>
         <% end %>
       <% end %>
+    </div>
+
+    <div class="container text-center">
+
+      <% if current_user.admin? %>
+        <%= button_to "Delete Third Space", third_space_path(params[:id]), method: :delete %>
+      <% end %>
+        
+      <br>
+      <div class="rounded-highlight-b">
+      <%= image_tag 'purple_location.svg', alt: "Purple Location Icon", style: "margin-right: 5px;" %><%= @space.address %>
+      </div>
+      <br><br>
+
+      <% if !@space.price.nil? %>
+        <div class="rounded-container"><%= @space.price%></div>
+      <% end %>
+      <div class="rounded-container">Average Rating: <%= @avg_rating.round(1) %></div>
+          
+      <h3>Top Moods</h3>
+      <%= render partial: 'top_moods' %>
+    </div>
+
+    <% @reviews.reject { |r| r.date.nil? }.sort_by { |r| r.date }.reverse.first(20).each do |r| %>
+      <div class="rounded-highlight-custom">
+        <%= r.text %> <br> - <%= r.name %> (Rating: <%= r.rating %>/5) <br> Date: <%= r.date %>
+      </div>
+      <br><br>
     <% end %>
   </div>
+</div>
 
-      <br>
-      <br>
-        <div class="rounded-highlight-b">
-    <%= "Address: #{@space.address}" %>
-  </div>
-  <% if current_user.admin? %>
-    <%= button_to "Delete Third Space", third_space_path(params[:id]), method: :delete %>
-  <% end %>
-
-        <br><br>
-
-        <% if !@space.price.nil? %>
-          <div class="rounded-container"><%= @space.price%></div>
-        <% end %>
-        <div class="rounded-container">Average Rating: <%= @avg_rating.round(1) %></div>
-        
-    <h3>Top Moods</h3>
-        <%= render partial: 'top_moods' %>
-
-
-        <h3>All Tags</h3>
-        <% @tags_with_freq.each do |tag, freq| %>
-
-          <div class="rounded-highlight-b mx-auto" style="width: 300px; margin-bottom: 10px;"><%= tag %></div>
-        <% end %>
-        
-        <br>
-
-          <form class="container-fluid d-flex justify-content-center align-items-center" action="/third_spaces/<%= @space.yelp_id %>/edit" method="get">
-            <button class="btn btn-outline-success me-2" name="yelp_id" id="yelp_id" value="<%= @space.yelp_id %>" type="submit">Add More Tags</button>
-          </form>
-
-          <br>
-        </div>
-
-        <% @reviews.reject { |r| r.date.nil? }.sort_by { |r| r.date }.reverse.first(20).each do |r| %>
-          <div class="rounded-highlight-custom">
-            <%= r.text %> <br> - <%= r.name %> (Rating: <%= r.rating %>/5) <br> Date: <%= r.date %>
-          </div>
-          <br><br>
-        <% end %>
-      </div>
-    </div>
 <div class="container-fluid text-center">
   <div class="d-flex justify-content-center align-items-center">
     <form class="me-2" action="/third_spaces/<%= @space.yelp_id %>/add_review" method="get">

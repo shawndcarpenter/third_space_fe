@@ -62,3 +62,11 @@
     </div>
   </div>
   <% end %>
+
+
+### All Tags
+
+<h3>All Tags</h3>
+<% @tags_with_freq.each do |tag, freq| %>
+  <div class="rounded-highlight-b mx-auto" style="width: 300px; margin-bottom: 10px;"><%= tag %></div>
+<% end %>
