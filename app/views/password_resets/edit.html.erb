@@ -1,21 +1,22 @@
-<div class="container-fluid d-flex justify-content-center align-items-center vh-100">
-  <div class="text-center">
-    <div class="mb-3">
-      <%= link_to dashboard_path do %>
-        <%= image_tag 'temp_logo.svg', class: "img-fluid", alt: "Logo" %>
-      <% end %>
+<body style="background-color: #C8C991;">
+  <div class="container-fluid d-flex justify-content-center align-items-center vh-100">
+    <div class="text-center">
+      <div class="mb-3">
+        <%= link_to dashboard_path do %>
+          <%= image_tag 'temp_logo.svg', class: "img-fluid", alt: "Logo" %>
+        <% end %>
+      </div>
+
+  <h2>Reset your password</h2>
+  <%= form_with model: @user, url: password_reset_edit_path(token: params[:token]), html: { class: 'form-floating mb-3' } do |form| %>
+    <div class="form-floating mb-3">
+      <%= form.password_field :password, id: 'floatingInputPasswordReset', class: "form-control", placeholder: 'new password' %>
+      <%= form.label :password, 'new password', for: 'floatingInputPasswordReset', class: 'form-label' %>
     </div>
-
-
-<h2>Reset your password</h2>
-<%= form_with model: @user, url: password_reset_edit_path(token: params[:token]), html: { class: 'form-floating mb-3' } do |form| %>
-  <div class="form-floating mb-3">
-    <%= form.password_field :password, id: 'floatingInputPasswordReset', class: "form-control", placeholder: 'new password' %>
-    <%= form.label :password, 'new password', for: 'floatingInputPasswordReset', class: 'form-label' %>
-  </div>
-  <div class="form-floating mb-3">
-    <%= form.password_field :password_confirmation, id: 'floatingInputPasswordConfirmationReset', class: "form-control", placeholder: 'confirm new password' %>
-    <%= form.label :password_confirmation, 'confirm new password', for: 'floatingInputPasswordConfirmationReset', class: 'form-label' %>
-  </div>
-  <%= form.submit 'Reset Password', class: "btn btn-primary" %>
-<%end%>
+    <div class="form-floating mb-3">
+      <%= form.password_field :password_confirmation, id: 'floatingInputPasswordConfirmationReset', class: "form-control", placeholder: 'confirm new password' %>
+      <%= form.label :password_confirmation, 'confirm new password', for: 'floatingInputPasswordConfirmationReset', class: 'form-label' %>
+    </div>
+    <%= form.submit 'Reset Password', class: "initial-button" %>
+  <% end %>
+</body>

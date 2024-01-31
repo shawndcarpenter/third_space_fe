@@ -2,9 +2,7 @@
   <div class="container-fluid d-flex justify-content-center align-items-center vh-100">
     <div class="text-center">
       <div class="mb-3">
-        <%= link_to dashboard_path do %>
-          <%= image_tag 'temp_logo.svg', class: "img-fluid", alt: "Logo" %>
-        <% end %>
+        <%= image_tag 'temp_logo.svg', class: "img-fluid", alt: "Logo" %>
       </div>
       
       <%= form_with url: login_path, method: :post, local: true, html: { class: 'form-floating mb-3' } do |form| %>
@@ -45,7 +43,7 @@
 
       <br>
       <div class="mb-3">
-        <%= link_to "Forgot your password?", password_reset_path, class: "btn btn-primary" %>
+        <%= link_to "Forgot your password?", password_reset_path, class: "dash-header" %>
       </div>
     </div>
   </div>

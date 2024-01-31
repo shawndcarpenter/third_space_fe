@@ -99,6 +99,7 @@
 .dash-header:hover {
   background-color: #F5F5F5;
   border-radius: 20px; 
+  padding: 5px;
 }
 
 
@@ -376,4 +377,34 @@
 .initial-button:hover {
   border: 2px solid #A499EC;
   background-color: #A499EC;
+}
+
+.location-button {
+  display: inline-block;
+  height: 50px;
+  padding: 8px !important;
+  border: 2px solid #ACABE3;
+  background-color: #ACABE3;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  text-decoration: none;
+  color: #black; /* Set font color to white */
+  text-align: center;
+  line-height: 34px;
+  font-size: 20px; /* Adjust font size to be smaller, e.g., 16px */
+}
+
+/* Hover state */
+.location-button:hover {
+  border: 2px solid #A499EC;
+  background-color: #A499EC;
+}
+
+.city-input-spacing {
+  margin-right: 15px; /* Adjust this value as needed */
+}
+
+.state-select-spacing {
+  margin-right: 15px; /* Adjust this value as needed */
 }
