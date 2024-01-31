@@ -46,14 +46,22 @@ class SearchLocationsController < ApplicationController
   def geocode_location(lat, lon)
     results = Geocoder.search([lat, lon])
     city_state = []
-    if !results.first.data["address"]["city"]
-      city_state << results.first.data["address"]["county"]
-      city_state << results.first.data["address"]["state"]
-    else
-      city_state << results.first.data["address"]["city"]
-      city_state << results.first.data["address"]["state"]
+  
+    if results.present? && results.first.present?
+      address = results.first.data["address"]
+  
+      if address["city"].present?
+        city_state << address["city"]
+      elsif address["county"].present?
+        city_state << address["county"]
+      end
+  
+      city_state << address["state"] if address["state"].present?
     end
+  
+    city_state
   end
+  
   
   def geolocation_parse(geolocation)
     # address_parts = geolocation.split(' ').map(&:strip)
