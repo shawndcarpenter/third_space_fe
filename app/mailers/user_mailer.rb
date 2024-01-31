@@ -1,5 +1,5 @@
 class UserMailer < ApplicationMailer
-  default from: 'thirdspace2308@gmail.com' # Set your default sender email address
+  default from: 'thirdspace2308@gmail.com'
   require 'sendgrid-ruby'
   include SendGrid
 

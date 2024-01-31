@@ -22,14 +22,6 @@ class User < ApplicationRecord
     'OR', 'PA', 'RI', 'SC', 'SD', 'TN', 'TX', 'UT', 'VT', 'VA', 'WA', 'WV', 'WI', 'WY'
   ]
 
-  # def generate_otp_secret_key
-  #   self.otp_secret_key = ROTP::Base32.random(6)
-  #   save
-  # end
-
-  # def generate_otp
-  #   ROTP::TOTP.new(otp_secret_key).now
-  # end
   def generate_otp_secret_key
     self.otp_secret_key = ROTP::Base32.random(6) unless Rails.env.test?
     save
