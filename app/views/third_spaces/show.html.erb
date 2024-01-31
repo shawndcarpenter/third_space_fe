@@ -42,46 +42,62 @@
       <% end %>
     </div>
 
-    <div class="container text-center">
+  <div class="container text-center">
+    <% if current_user.admin? %>
+      <%= button_to "Delete Third Space", third_space_path(params[:id]), method: :delete %>
+    <% end %>
 
-      <% if current_user.admin? %>
-        <%= button_to "Delete Third Space", third_space_path(params[:id]), method: :delete %>
-      <% end %>
-        
-      <br>
-      <div class="rounded-highlight-b">
-      <%= image_tag 'purple_location.svg', alt: "Purple Location Icon", style: "margin-right: 5px;" %><%= @space.address %>
+    <div class="row justify-content-center my-3">
+      <div class="col-md-auto">
+        <div class="d-inline rounded-highlight-b">
+          <%= image_tag 'purple_location.svg', alt: "Purple Location Icon", style: "margin-right: 5px;" %><%= @space.address %>
+        </div>
       </div>
-      <br><br>
+
+      <div class="col-md-auto">
+        <div class="d-inline rounded-highlight-b">
+          <% @avg_rating.round(1).to_s.split('')[0].to_i.times do %>
+            <%= image_tag 'full-star.svg', alt: "Full Star", style: "margin-right: 5px;" %>
+          <% end %>
+          <% if @avg_rating.round(1).to_s.split('')[2].to_i >= 5 %>
+            <%= image_tag 'half-star.svg', alt: "Half Star", style: "margin-right: 5px;" %>
+          <% end %>
+          <%= @avg_rating.round(1) %>
+        </div>
+      </div>
 
       <% if !@space.price.nil? %>
-        <div class="rounded-container"><%= @space.price%></div>
+        <div class="col-md-auto">
+          <div class="d-inline rounded-highlight-b">
+            <%= @space.price %>
+          </div>
+        </div>
       <% end %>
-      <div class="rounded-container">Average Rating: <%= @avg_rating.round(1) %></div>
-          
-      <h3>Top Moods</h3>
-      <%= render partial: 'top_moods' %>
     </div>
 
-    <% @reviews.reject { |r| r.date.nil? }.sort_by { |r| r.date }.reverse.first(20).each do |r| %>
-      <div class="rounded-highlight-custom">
-        <%= r.text %> <br> - <%= r.name %> (Rating: <%= r.rating %>/5) <br> Date: <%= r.date %>
-      </div>
-      <br><br>
-    <% end %>
+    <h3>Top Moods</h3>
+    <%= render partial: 'top_moods' %>
   </div>
-</div>
 
-<div class="container-fluid text-center">
-  <div class="d-flex justify-content-center align-items-center">
-    <form class="me-2" action="/third_spaces/<%= @space.yelp_id %>/add_review" method="get">
-      <button class="btn btn-outline-success" name="yelp_id" id="yelp_id" value="<%= @space.yelp_id %>" type="submit">Write A Review</button>
-    </form>
-    <%= link_to "See All Reviews", "/third_spaces/#{params[:id]}/all_reviews", class: "btn btn-outline-success" %>
+      <% @reviews.reject { |r| r.date.nil? }.sort_by { |r| r.date }.reverse.first(20).each do |r| %>
+        <div class="justify-content-center rounded-highlight-custom text-center">
+          <%= r.text %> <br> - <%= r.name %> (Rating: <%= r.rating %>/5) <br> Date: <%= r.date %>
+        </div>
+      <% end %>
+    </div>
   </div>
-</div>
 
+  <div class="container-fluid text-center">
+    <div class="d-flex justify-content-center align-items-center">
+      <form action="/third_spaces/<%= @space.yelp_id %>/add_review" method="get">
+        <button class="btn btn-outline-success" name="yelp_id" id="yelp_id" value="<%= @space.yelp_id %>" type="submit">Write A Review</button>
+      </form>
+      <%= link_to "See All Reviews", "/third_spaces/#{params[:id]}/all_reviews", class: "btn btn-outline-success" %>
+    </div>
+  </div>
+  
+  <br><br>
   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 </body>
