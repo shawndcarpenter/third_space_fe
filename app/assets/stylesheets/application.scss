@@ -355,3 +355,23 @@
 .rounded-image {
   border-radius: 21px;
 }
+
+.initial-button {
+  display: inline-block;
+  width: 148px; /* Set the width */
+  height: 50px; /* Set the height */
+  padding: 8px !important;
+  background-color: #ACABE3;
+  font-weight: bold;
+  cursor: pointer; /* Show a pointer cursor on hover */
+  transition: background-color 0.3s; /* Smooth transition for background color change */
+  text-decoration: none; /* Remove underline from hyperlink */
+  color: inherit;
+  text-align: center !important; /* Ensure text is horizontally centered */
+  font-size: 25px; 
+}
+
+/* Hover state */
+.initial-button:hover {
+  background-color: #A499EC;
+}
