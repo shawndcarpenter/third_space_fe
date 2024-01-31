@@ -12,7 +12,6 @@ class LocationsService
       data = JSON.parse(response.body, symbolize_names: true)[:data]
     else
       { error: "Service temporarily unavailable. Please try again later." }
-
     end
   end
 
