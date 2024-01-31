@@ -104,7 +104,7 @@
 
 
 .space-link {
-  text-decoration: none;
+  text-decoration: none !important;
   color: rgb(35, 35, 35);
   font-weight: bold;
   transition: color 0.3s;
@@ -145,6 +145,18 @@
   background-color: #D7D5AC;
   border: 2px solid #D7D5AC;
   font-weight: bold;
+}
+
+.rounded-highlight-b-ext {
+  display: inline-flex; /* Use flexbox */
+  align-items: center; /* Vertically center the content */
+  justify-content: center; /* Horizontally center the content */
+  border-radius: 33px;
+  padding: 5px 20px;
+  background-color: #D7D5AC;
+  border: 2px solid #D7D5AC;
+  font-weight: bold;
+  font-size: 20px;
 }
 
 .rounded-highlight {
