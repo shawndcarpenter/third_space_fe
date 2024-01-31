@@ -9,8 +9,12 @@ class LocationsService
       req.params["name"] = name
       req.params["city"] = city
     end
+    if response.success?
+      data = JSON.parse(response.body, symbolize_names: true)[:data]
+    else
+      { error: "Service temporarily unavailable. Please try again later." }
 
-    data = JSON.parse(response.body, symbolize_names: true)[:data]
+    end
   end
 
   def get_location(yelp_id)
