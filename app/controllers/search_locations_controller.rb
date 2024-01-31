@@ -38,6 +38,7 @@ class SearchLocationsController < ApplicationController
   def search_params
     params.permit(:city, :state)
   end
+
   def search_location_params
     params.require(:search_location).permit(:city, :state, :mood)
   end
@@ -53,7 +54,7 @@ class SearchLocationsController < ApplicationController
       city_state << results.first.data["address"]["state"]
     end
   end
-
+  
   def geolocation_parse(geolocation)
     # address_parts = geolocation.split(' ').map(&:strip)
     city = geolocation[0]
@@ -61,6 +62,7 @@ class SearchLocationsController < ApplicationController
     return geo_hash = { city: city, state: state_to_abv(state) } if state.length != 2
     geo_hash = { city: city, state: state }
   end
+
   def state_to_abv(state_name)
     state_abbreviations = {
                           'Alabama' => 'AL',
