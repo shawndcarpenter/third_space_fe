@@ -13,6 +13,7 @@ class LocationsFacade
   #   end
   # end
   def locations
+    # require 'pry'; binding.pry
     service = LocationsService.new
     json = service.get_location_results(@name, @city)
   
