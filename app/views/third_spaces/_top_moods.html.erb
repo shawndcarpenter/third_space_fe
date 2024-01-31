@@ -1,12 +1,24 @@
-<% @mood_tags.sort_by { |tag, freq| freq }.reverse.each do |tag, freq| %>
-  <% if freq == 1 %>
-    <div class="rounded-highlight-b mx-auto" style="width: 300px; margin-bottom: 10px;">
-      Voted By <%= freq %> User: <%= tag %>
-    </div>
-  <% else %>
-    <div class="rounded-highlight-b mx-auto" style="width: 300px; margin-bottom: 10px;">
-      Voted By <%= freq %> Users: <%= tag %>
-    </div>
+<% if @mood_tags.nil? %>
+  <h5>No information available</h5>
+<% else %>
+  <% @mood_tags.sort_by { |tag, freq| freq }.reverse.each do |tag, freq| %>
+    <% if freq == 1 %>
+      <div class="rounded-highlight-b mx-auto" style="width: 300px; margin-bottom: 10px; display: flex; align-items: center; justify-content: space-between;">
+        <span><%= tag %></span>
+        <span style="display: flex; align-items: center;">
+          <%= image_tag 'vote_icon.svg', alt: "Vote Icon", style: "margin-right: 5px;" %>
+          <span><%= freq %></span>
+        </span>
+      </div>
+    <% else %>
+      <div class="rounded-highlight-b mx-auto" style="width: 300px; margin-bottom: 10px; display: flex; align-items: center; justify-content: space-between;">
+        <span><%= tag %></span>
+        <span style="display: flex; align-items: center;">
+          <%= image_tag 'vote_icon.svg', alt: "Vote Icon", style: "margin-right: 5px;" %>
+          <span><%= freq %></span>
+        </span>
+      </div>
+    <% end %>
   <% end %>
 <% end %>
 
