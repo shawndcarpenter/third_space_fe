@@ -358,9 +358,8 @@
 
 .initial-button {
   display: inline-block;
-  width: 148px; /* Set the width */
   height: 50px; /* Set the height */
-  padding: 8px !important;
+  padding: 8px 20px !important; /* Top and bottom padding 8px, left and right padding 20px */
   border: 2px solid #ACABE3;
   background-color: #ACABE3;
   font-weight: bold;
@@ -370,9 +369,8 @@
   color: inherit;
   text-align: center; /* Ensure text is horizontally centered */
   line-height: 27px; /* Vertically center the text */
-  font-size: 25px; 
+  font-size: 25px;
 }
-
 
 /* Hover state */
 .initial-button:hover {

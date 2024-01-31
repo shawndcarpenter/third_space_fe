@@ -9,7 +9,7 @@ RSpec.describe "2fa", type: :feature do
       fill_in "email", with: "email@gmail.com"
       fill_in "password", with: "a"
       fill_in "password confirmation", with: "a"
-      click_button "Create New Account"
+      click_button "create new account"
       expect(current_path).to eq "/validate_otp"
     end
 
@@ -65,7 +65,7 @@ RSpec.describe "2fa", type: :feature do
       fill_in "email", with: "cmail@gmail.com"
       fill_in "password", with: "c"
       fill_in "password confirmation", with: "c"
-      click_button "Create New Account"
+      click_button "create new account"
       fill_in "otp", with: 1
       click_button "submit"
       within('#flash-messages') do
