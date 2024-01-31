@@ -1,7 +1,7 @@
 class SearchLocationsController < ApplicationController
   def create
     if (params["city"].present? && params["state"].present?)
-      search_location = current_user.build_search_location(city: params["city"], state: params["state"])
+      search_location = current_user.build_search_location(city: params["city"].titleize, state: params["state"])
       search_location.save
       redirect_to search_locations_set_mood_path
     elsif params[:geo]
@@ -20,7 +20,7 @@ class SearchLocationsController < ApplicationController
 
   def update_search_location
     if params[:city] && params[:state]
-      current_user.search_location.update(city: search_params[:city], state: search_params[:state])
+      current_user.search_location.update(city: search_params[:city].titleize, state: search_params[:state])
     else params[:geo]
       geolocation = geocode_location(session[:lat], session[:lon])
       geo_hash = geolocation_parse(geolocation)
