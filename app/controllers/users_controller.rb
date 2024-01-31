@@ -159,6 +159,10 @@ class UsersController < ApplicationController
     @user = current_user
   end
 
+  def set_mood
+    
+  end
+
   private
   def users_params
     params.require(:user).permit(:email, :first_name, :last_name, :password, :password_confirmation)

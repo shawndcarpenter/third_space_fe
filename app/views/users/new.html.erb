@@ -6,7 +6,7 @@
       <% end %>
     </div>
     <div class="mb-3">
-      <%= link_to "i already have an account", "/login", class: "btn btn-primary" %>
+      <%= link_to "Already Have an Account", "/login", class: "btn btn-primary" %>
     </div>
 
     <%= form_with(model: User.new, url: "/register", method: "post", local: true) do |f| %>
@@ -24,7 +24,7 @@
       <fieldset class="form-floating mb-3">
         <%= f.email_field :email, class: "form-control", id: 'floatingEmail', placeholder: 'email', 'aria-describedby': "input-email" %>
         <%= f.label :email, for: 'floatingEmail' %>
-        <div id="emailHelp" class="form-text">we'll never share your information</div>
+        <div id="emailHelp" class="form-text">We'll never share your information.</div>
       </fieldset>
 
       <fieldset class="form-floating mb-3">
@@ -38,7 +38,7 @@
       </fieldset>
 
       <div class="mb-3">
-        <%= f.submit "create new account", class: "btn btn-primary" %>
+        <%= f.submit "Create New Account", class: "btn btn-primary" %>
       </div>
     <% end %>
   </div>
