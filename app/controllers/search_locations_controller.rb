@@ -1,37 +1,26 @@
 class SearchLocationsController < ApplicationController
   def create
-    if (params["city"].present? && params["state"].present?) && params[:mood].present?
-      current_user.search_location.update(city: params["city"], state: params["state"], mood: params["mood"])
-      redirect_to dashboard_path 
-    elsif (session[:lat].nil? || session[:lon].nil?) && params[:mood].present?
+    if (params["city"].present? && params["state"].present?)
+      search_location = current_user.build_search_location(city: params["city"], state: params["state"])
+      search_location.save
+      redirect_to search_locations_set_mood_path
+    elsif (session[:lat].nil? || session[:lon].nil?)
       flash[:error] = "Error fetching location. Please make sure you have granted permission to access your location."
       redirect_to set_location_path
     else
       update_search_location
-      redirect_to search_locations_set_mood_path
     end
   end
 
   def update_search_location
-    if current_user.search_location.nil? && params[:mood].present?
-
-      geolocation = geocode_location(session[:lat], session[:lon])
-      geo_hash = geolocation_parse(geolocation)
-      search_location = current_user.build_search_location(geo_hash)
-      search_location.save
-      search_location.update(mood: params[:mood])
-    elsif current_user.search_location.nil?
-      search_location = current_user.build_search_location(search_params)
-      search_location.save
-    elsif !current_user.search_location.nil? && params[:mood].present?
-      # require 'pry'; binding.pry
-      geolocation = geocode_location(session[:lat], session[:lon])
-      geo_hash = geolocation_parse(geolocation)
-      current_user.search_location.update(geo_hash)
-      current_user.search_location.update(mood: params[:mood])
-    else
+    if params[:city] && params[:state]
       current_user.search_location.update(city: search_params[:city], state: search_params[:state])
+    else params[:geo]
+      geolocation = geocode_location(session[:lat], session[:lon])
+      geo_hash = geolocation_parse(geolocation)
+      search_location = current_user.search_location.update(geo_hash)
     end
+    redirect_to dashboard_path
   end
 
   def update
@@ -50,13 +39,20 @@ class SearchLocationsController < ApplicationController
 
   def geocode_location(lat, lon)
     results = Geocoder.search([lat, lon])
-    results.first.data["address"]["city"] + " " + results.first.data["address"]["state"]
+    city_state = []
+    if !results.first.data["address"]["city"]
+      city_state << results.first.data["address"]["county"]
+      city_state << results.first.data["address"]["state"]
+    else
+      city_state << results.first.data["address"]["city"]
+      city_state << results.first.data["address"]["state"]
+    end
   end
   
   def geolocation_parse(geolocation)
-    address_parts = geolocation.split(' ').map(&:strip)
-    city = address_parts[0]
-    state = address_parts[1]
+    # address_parts = geolocation.split(' ').map(&:strip)
+    city = geolocation[0]
+    state = geolocation[1]
     return geo_hash = { city: city, state: state_to_abv(state) } if state.length != 2
     geo_hash = { city: city, state: state }
   end

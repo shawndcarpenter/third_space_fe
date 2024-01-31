@@ -7,7 +7,6 @@
         <% end %>
       </div>
       <div class="container text-center">
-        <% if current_user.search_location.present? %>
           <%= form_with url: search_locations_path, method: :post, local: true, html: { class: 'form-floating mb-3' } do |form| %>
             <%= form.hidden_field :city, value: current_user.search_location.city %>
             <%= form.hidden_field :state, value: current_user.search_location.state %>
@@ -33,9 +32,6 @@
               <% end %>
             </div>
           <% end %>
-        <% else %>
-          <% redirect_to set_location_path %>
-        <% end %>
       </div>
     </div>
   </div>
