@@ -3,6 +3,6 @@ import "@hotwired/turbo-rails"
 import "popper"
 import "controllers"
 
-import './modules/popupModule'
+// import './modules/popupModule'
 
 import "bootstrap"
