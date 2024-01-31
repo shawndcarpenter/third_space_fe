@@ -361,17 +361,21 @@
   width: 148px; /* Set the width */
   height: 50px; /* Set the height */
   padding: 8px !important;
+  border: 2px solid #ACABE3;
   background-color: #ACABE3;
   font-weight: bold;
   cursor: pointer; /* Show a pointer cursor on hover */
   transition: background-color 0.3s; /* Smooth transition for background color change */
   text-decoration: none; /* Remove underline from hyperlink */
   color: inherit;
-  text-align: center !important; /* Ensure text is horizontally centered */
+  text-align: center; /* Ensure text is horizontally centered */
+  line-height: 27px; /* Vertically center the text */
   font-size: 25px; 
 }
 
+
 /* Hover state */
 .initial-button:hover {
+  border: 2px solid #A499EC;
   background-color: #A499EC;
 }
