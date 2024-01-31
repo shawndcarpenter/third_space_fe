@@ -19,10 +19,10 @@
                 <p class="fs-6 text-center text-wrap"><%= location.address %></p>
                 <p class="fs-6 text-center text-wrap"><%= location.category %></p>
                 <form class="container-fluid text-center" action="/third_spaces/<%=location.id %>" method="get" >
-                    <button class="btn btn-outline-success me-2 text-center" name="yelp_id" id="yelp_id" value="<%= location.id %>" type="submit">Visit Third Space</button>
+                    <button class="small-default-button me-2 text-center" name="yelp_id" id="yelp_id" value="<%= location.id %>" type="submit">Visit Third Space</button>
                 </form>
                 <form class="container-fluid text-center" action="/third_spaces/<%=location.id %>/edit" method="get" >
-                    <button class="btn btn-outline-success me-2 text-center" name="yelp_id" id="yelp_id" value="<%= location.id %>" type="submit">Update Third Space</button>
+                    <button class="small-default-button me-2 text-center" name="yelp_id" id="yelp_id" value="<%= location.id %>" type="submit">Update Third Space</button>
                 </form>
               <% else %>
                 <p class="fs-4 text-center fw-bold text-wrap"><%= link_to location.name, location_path(location.id) %></p>
