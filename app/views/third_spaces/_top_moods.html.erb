@@ -1,102 +1,140 @@
-<% @mood_tags.each do |tag, freq| %>
-          <% if freq == 1 %>
-            Voted By <%= freq %> User: <div class="rounded-container"><%= tag %></div><br>
-          <% else %>
-            Voted By <%= freq %> Users: <div class="rounded-container"><%= tag %></div><br>
-          <% end %>
-        <% end %>
-        <h3>Accessibility Tags</h3>
+<% @mood_tags.sort_by { |tag, freq| freq }.reverse.each do |tag, freq| %>
+  <% if freq == 1 %>
+    <div class="rounded-highlight-b mx-auto" style="width: 300px; margin-bottom: 10px;">
+      Voted By <%= freq %> User: <%= tag %>
+    </div>
+  <% else %>
+    <div class="rounded-highlight-b mx-auto" style="width: 300px; margin-bottom: 10px;">
+      Voted By <%= freq %> Users: <%= tag %>
+    </div>
+  <% end %>
+<% end %>
 
-        <p>
-          <button class="btn btn-outline-success me-2" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
-            Show/Hide
-          </button>
-        </p>
-        <div class="collapse" id="collapseExample">
-          <div class="align-self-center card card-body">
+<h3>Accessibility Tags</h3>
 
-            Light and Noise Levels:
-            <% if @light_level.nil?  && @noise_level.nil? %>
-              No information available. <%= link_to "Edit this space", "/third_spaces/#{@space.yelp_id}/edit" %>
-            <% else %>
-              <% if !@light_level.nil? %>
-                <div class="rounded-container" style="width: 200px"><%= @light_level %></div>
-              <% end %>
-              <% if !@noise_level.nil? %>
-                <div class="rounded-container" style="width: 200px"><%= @noise_level %></div>
-              <% end %>
-            <% end %>
+<p>
+  <button class="btn btn-outline-success btn-sm me-2" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+    Show/Hide
+  </button>
+</p>
 
-            Staff Pushiness:
-            <% if @staff_tags.nil? %>
-              No information available. <%= link_to "Edit this space", "/third_spaces/#{@space.yelp_id}/edit" %>
-            <% else %>
-              <div class="rounded-container" style="width: 200px"><%= @staff_tags %></div>
-            <% end %>
+<div class="collapse" id="collapseExample">
+  <div class="align-self-center card card-body">
 
-            Cost Factors:
-            <% if @purchase_necessary.nil? %>
-              No information available. <%= link_to "Edit this space", "/third_spaces/#{@space.yelp_id}/edit" %>
-            <% else %>
-               <div class="rounded-container" style="width: 200px"><%= @purchase_necessary %></div>
-            <% end %>
-
-            Sober Space:
-            <% if @sober_tag.nil? %>
-              No information available. <%= link_to "Edit this space", "/third_spaces/#{@space.yelp_id}/edit" %>
-            <% else %>
-               <div class="rounded-container" style="width: 200px"><%= @sober_tag %></div>
-            <% end %>
-
-            Restroom Needs:
-            <% if @customer_restrooms.nil? && @gn_restrooms.nil? %>
-              No information available. <%= link_to "Edit this space", "/third_spaces/#{@space.yelp_id}/edit" %>
-            <% else %>
-              <% if !@customer_restrooms.nil? %>
-                <div class="rounded-container" style="width: 200px"><%= @customer_restrooms %></div> 
-              <% end %>
-              <% if !@gn_restrooms.nil? %>
-                <div class="rounded-container" style="width: 200px"><%= @gn_restrooms %></div>
-              <% end %>
-            <% end %>
-
-            Transportation:
-            <% if @parking_tag.nil? && @transportion_tag.nil? %>
-              No information available. <%= link_to "Edit this space", "/third_spaces/#{@space.yelp_id}/edit" %>
-            <% else %>
-              <% if !@parking_tag.nil? %>
-               <div class="rounded-container" style="width: 200px"><%= @parking_tag %></div>   
-              <% end %>
-              <% if !@transportion_tag.nil? %>
-               <div class="rounded-container" style="width: 200px"><%= @transportion_tag %></div>
-              <% end %>
-            <% end %>
-
-            Wheelchair Accessibility:
-            <% if @accessible_tags.nil? %>
-              No information available. <%= link_to "Edit this space", "/third_spaces/#{@space.yelp_id}/edit" %>
-            <% else %>
-               <div class="rounded-container" style="width: 200px"><%= @accessible_tags %></div>
-            <% end %>
-
-            Identity:
-            <% if @bipoc_tag.nil? && @lgbt_tag.nil? && @gn_restrooms.nil? %>
-              No information available. <%= link_to "Edit this space", "/third_spaces/#{@space.yelp_id}/edit" %>
-            <% else %>
-              <% if !@bipoc_tag.nil? %>
-                <div class="rounded-container" style="width: 200px"><%= @bipoc_tag %></div> 
-              <% end %>
-              <% if !@lgbt_tag.nil? %>
-                <div class="rounded-container" style="width: 200px"><%= @lgbt_tag %></div>
-              <% end %>
-            <% end %>
-
-            Family Needs:
-              <% if @child_friendly.nil? %>
-                No information available. <%= link_to "Edit this space", "/third_spaces/#{@space.yelp_id}/edit" %>
-              <% else %>
-                 <div class="rounded-container" style="width: 200px"><%= @child_friendly %></div>
-              <% end %>
-
-            </div>
+    <h4>Light and Noise Levels</h4>
+    <% if @light_level.nil?  && @noise_level.nil? %>
+            <h5>No information available</h5>
+      <div class="d-flex justify-content-center align-items-center">
+        <%= link_to "Edit this space", "/third_spaces/#{@space.yelp_id}/edit", class: "btn btn-outline-success btn-sm me-2 mt-2" %>
         </div>
+    <% else %>
+      <% if !@light_level.nil? %>
+        <div class="rounded-highlight-b mx-auto" style="width: 300px; margin-bottom: 10px;"><%= @light_level %></div>
+      <% end %>
+
+      <% if !@noise_level.nil? %>
+        <div class="rounded-highlight-b mx-auto" style="width: 300px; margin-bottom: 10px;"><%= @noise_level %></div>
+      <% end %>
+    <% end %>
+
+    <h4>Staff Pushiness</h4>
+    <% if @staff_tags.nil? %>
+            <h5>No information available 
+      <div class="d-flex justify-content-center align-items-center">
+        <%= link_to "Edit this space", "/third_spaces/#{@space.yelp_id}/edit", class: "btn btn-outline-success btn-sm me-2 mt-2" %>
+        </div>
+    <% else %>
+      <div class="rounded-highlight-b mx-auto" style="width: 300px; margin-bottom: 10px;"><%= @staff_tags %></div>
+    <% end %>
+
+    <h4>Cost Factors</h4>
+    <% if @purchase_necessary.nil? %>
+            <h5>No information available 
+      <div class="d-flex justify-content-center align-items-center">
+        <%= link_to "Edit this space", "/third_spaces/#{@space.yelp_id}/edit", class: "btn btn-outline-success btn-sm me-2 mt-2" %>
+        </div>
+    <% else %>
+      <div class="rounded-highlight-b mx-auto" style="width: 300px; margin-bottom: 10px;"><%= @purchase_necessary %></div>
+    <% end %>
+
+    <h4>Sober Space</h4>
+    <% if @sober_tag.nil? %>
+            <h5>No information available 
+      <div class="d-flex justify-content-center align-items-center">
+        <%= link_to "Edit this space", "/third_spaces/#{@space.yelp_id}/edit", class: "btn btn-outline-success btn-sm me-2 mt-2" %>
+        </div>
+    <% else %>
+      <div class="rounded-highlight-b mx-auto" style="width: 300px; margin-bottom: 10px;"><%= @sober_tag %></div>
+    <% end %>
+
+    <h4>Restroom Needs</h4>
+    <% if @customer_restrooms.nil? && @gn_restrooms.nil? %>
+            <h5>No information available 
+      <div class="d-flex justify-content-center align-items-center">
+        <%= link_to "Edit this space", "/third_spaces/#{@space.yelp_id}/edit", class: "btn btn-outline-success btn-sm me-2 mt-2" %>
+        </div>
+    <% else %>
+      <% if !@customer_restrooms.nil? %>
+        <div class="rounded-highlight-b mx-auto" style="width: 300px; margin-bottom: 10px;"><%= @customer_restrooms %></div>
+      <% end %>
+
+      <% if !@gn_restrooms.nil? %>
+        <div class="rounded-highlight-b mx-auto" style="width: 300px; margin-bottom: 10px;"><%= @gn_restrooms %></div>
+      <% end %>
+    <% end %>
+
+    <h4>Transportation</h4>
+    <% if @parking_tag.nil? && @transportion_tag.nil? %>
+            <h5>No information available 
+      <div class="d-flex justify-content-center align-items-center">
+        <%= link_to "Edit this space", "/third_spaces/#{@space.yelp_id}/edit", class: "btn btn-outline-success btn-sm me-2 mt-2" %>
+        </div>
+    <% else %>
+      <% if !@parking_tag.nil? %>
+        <div class="rounded-highlight-b mx-auto" style="width: 300px; margin-bottom: 10px;"><%= @parking_tag %></div>
+      <% end %>
+
+      <% if !@transportion_tag.nil? %>
+        <div class="rounded-highlight-b mx-auto" style="width: 300px; margin-bottom: 10px;"><%= @transportion_tag %></div>
+      <% end %>
+    <% end %>
+
+    <h4>Wheelchair Accessibility</h4>
+    <% if @accessible_tags.nil? %>
+            <h5>No information available 
+      <div class="d-flex justify-content-center align-items-center">
+        <%= link_to "Edit this space", "/third_spaces/#{@space.yelp_id}/edit", class: "btn btn-outline-success btn-sm me-2 mt-2" %>
+        </div>
+    <% else %>
+      <div class="rounded-highlight-b mx-auto" style="width: 300px; margin-bottom: 10px;"><%= @accessible_tags %></div>
+    <% end %>
+
+    <h4>Identity</h4>
+    <% if @bipoc_tag.nil? && @lgbt_tag.nil? && @gn_restrooms.nil? %>
+            <h5>No information available 
+      <div class="d-flex justify-content-center align-items-center">
+        <%= link_to "Edit this space", "/third_spaces/#{@space.yelp_id}/edit", class: "btn btn-outline-success btn-sm me-2 mt-2" %>
+        </div>
+    <% else %>
+      <% if !@bipoc_tag.nil? %>
+        <div class="rounded-highlight-b mx-auto" style="width: 300px; margin-bottom: 10px;"><%= @bipoc_tag %></div>
+      <% end %>
+
+      <% if !@lgbt_tag.nil? %>
+        <div class="rounded-highlight-b mx-auto" style="width: 300px; margin-bottom: 10px;"><%= @lgbt_tag %></div>
+      <% end %>
+    <% end %>
+
+    <h4>Family Needs</h4>
+    <% if @child_friendly.nil? %>
+      <h5>No information available 
+      <div class="d-flex justify-content-center align-items-center">
+        <%= link_to "Edit this space", "/third_spaces/#{@space.yelp_id}/edit", class: "btn btn-outline-success btn-sm me-2 mt-2" %>
+        </div>
+    <% else %>
+
+      <div class="rounded-highlight-b mx-auto" style="width: 300px; margin-bottom: 10px;"><%= @child_friendly %></div>
+    <% end %>
+
+  </div>
+</div>

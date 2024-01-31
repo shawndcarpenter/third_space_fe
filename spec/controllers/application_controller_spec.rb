@@ -62,20 +62,26 @@ RSpec.describe ApplicationController, type: :controller do
   end
 
   describe "#find_show_reviews" do
+  let(:yelp_id) { "some-yelp-id" }
+  let(:mock_reviews) { [double("Review", content: "Great place!")] } 
     before do
       # Route for mock controller's action
       routes.draw { get 'test_find_show_reviews' => 'anonymous#test_find_show_reviews' }
+      allow_any_instance_of(LocationReviewsFacade).to receive(:reviews).and_return(mock_reviews)
     end
-
-    xit "fetches reviews for a given location" do
-      # Mock the external HTTP request
-      yelp_id = "Ovrji3x2PMuY8G0rOcrrNA"
-      stub_request(:get, "http://localhost:3000/api/v1/locations/#{yelp_id}/reviews")
-        .to_return(status: 200, body: { data: [{ attributes: { content: "Great place!" } }] }.to_json)
-
+    it "returns reviews for a given Yelp ID" do
       get :test_find_show_reviews, params: { yelp_id: yelp_id }
-
-      expect(response.body).to include "Great place!"
+      expect(response.body).to eq mock_reviews.to_json
+    end
+    describe "rescue in #current_user" do
+    before do
+      routes.draw { get 'test_current_user' => 'anonymous#test_current_user' }
+    end
+    it "resets session if user is not found" do
+      session[:user_id] = 11111111111111111
+      expect { get :test_current_user }.to change { session[:user_id] }.from(11111111111111111).to(nil)
+      expect(response.body).to eq "false"
+    end
     end
   end
 end

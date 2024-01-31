@@ -2,7 +2,7 @@ class ThirdSpacesByTagsFacade
   def initialize(tags)
     @tags = tags
   end
-
+  
   def spaces
     service = ThirdSpacesService.new
     json = service.get_spaces_by_tags(@tags)

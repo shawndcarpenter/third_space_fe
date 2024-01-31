@@ -1,5 +1,5 @@
 <body>
-
+  
   <div class="container-fluid">
     <%= render partial: 'shared/navbar' %>
 
@@ -33,17 +33,20 @@
         <br><br>
 
         <p>Average Rating: <%= @avg_rating %></p>
-
+          
         <% selected_rating = params[:rating] || 'all' %>
+
         <%= form_tag("/third_spaces/#{params[:id]}/all_reviews", method: 'get') do %>
           <%= select_tag 'rating', options_for_select({ 'All Ratings' => 'all', '1 Star' => '1', '2 Stars' => '2', '3 Stars' => '3', '4 Stars' => '4', '5 Stars' => '5' }, selected_rating) %>
           <%= submit_tag 'Filter' %>
         <% end %>
+
         <% filtered_reviews = if selected_rating == 'all'
                                 @reviews.reject { |r| r.date.nil? }.sort_by { |r| r.date }.reverse
                               else
                                 @reviews.reject { |r| r.date.nil? }.sort_by { |r| r.date }.reverse.select { |r| r.rating.to_i == selected_rating.to_i }
                               end %>
+
         <% filtered_reviews.each do |r| %>
           <div class="rounded-highlight">
             <%= r.text %> <br> - <%= r.name %> (Rating: <%= r.rating %>/5) <br> Date: <%= r.date %>

@@ -2,13 +2,13 @@
 http_interactions:
 - request:
     method: get
-    uri: https://plankton-app-tavpa.ondigitalocean.app/api/v1/third_spaces/f-m7-hyFzkf0HSEeQ2s-9A/reviews
+    uri: http://localhost:3000/api/v1/third_spaces/f-m7-hyFzkf0HSEeQ2s-9A/reviews
     body:
       encoding: US-ASCII
       string: ''
     headers:
       User-Agent:
-      - Faraday v2.8.1
+      - Faraday v2.9.0
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
       Accept:
@@ -18,14 +18,6 @@ http_interactions:
       code: 200
       message: OK
     headers:
-      Date:
-      - Wed, 24 Jan 2024 04:56:13 GMT
-      Content-Type:
-      - application/json; charset=utf-8
-      Transfer-Encoding:
-      - chunked
-      Connection:
-      - keep-alive
       X-Frame-Options:
       - SAMEORIGIN
       X-Xss-Protection:
@@ -38,32 +30,31 @@ http_interactions:
       - none
       Referrer-Policy:
       - strict-origin-when-cross-origin
+      Content-Type:
+      - application/json; charset=utf-8
       Vary:
-      - Accept, Accept-Encoding
+      - Accept
       Etag:
-      - W/"8fe32e407a1038ee38753b70e5374b3a"
+      - W/"728da08aa7797dc35fbe93b4d5bd311c"
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - a8a74ee0-93f6-4896-acc4-125cbb37ead8
+      - b0473727-3bf6-4a9d-b589-1f8820e2319b
       X-Runtime:
-      - '0.012277'
-      X-Do-App-Origin:
-      - 42daf057-993c-487d-b7a0-cf175a19f2a0
-      X-Do-Orig-Status:
-      - '200'
-      Cf-Cache-Status:
-      - MISS
-      Set-Cookie:
-      - __cf_bm=fHBPt9vtJKHMMXR0_Jj30msIrH_4nY6I.3xUq3L.FK0-1706072173-1-Afi9a9GAY9llFaFtWLlNL/RQvp5mOJSiPvLDj3L6QcVh6Bvc+PjtnGhiQyUn5ChYslqL9RiNo6FrF9R9rxDr3ic=;
-        path=/; expires=Wed, 24-Jan-24 05:26:13 GMT; domain=.ondigitalocean.app; HttpOnly;
-        Secure; SameSite=None
-      Server:
-      - cloudflare
-      Cf-Ray:
-      - 84a5b04aa8d85188-DEN
+      - '0.285706'
+      Server-Timing:
+      - start_processing.action_controller;dur=0.06, sql.active_record;dur=1.56, process_action.action_controller;dur=282.44
+      Transfer-Encoding:
+      - chunked
     body:
-      encoding: ASCII-8BIT
-      string: '{"data":[]}'
-  recorded_at: Wed, 24 Jan 2024 04:56:13 GMT
+      encoding: UTF-8
+      string: '{"data":[{"id":"SKejKH6BmHG8sL6fs9PeMg","type":"review_object","attributes":{"id":"SKejKH6BmHG8sL6fs9PeMg","rating":5,"text":"Very
+        tasty and yummy food there, Seared scallops \u0026Crab Risotto are highly
+        recommend.\nNice service! :) Bongjoy !","name":"Ash G.","date":"2023-12-26","yelp_id":"f-m7-hyFzkf0HSEeQ2s-9A"}},{"id":"E9EbR01n2aPPfXB2yMI6fQ","type":"review_object","attributes":{"id":"E9EbR01n2aPPfXB2yMI6fQ","rating":5,"text":"Tonight
+        my boyfriend and I decided to go to this fine establishment to celebrate our
+        anniversary \u0026 we had Luis as our server, Luis was so kind and very...","name":"Heaven
+        C.","date":"2024-01-07","yelp_id":"f-m7-hyFzkf0HSEeQ2s-9A"}},{"id":"ZpT1nPwEcwBZlAUTA_V8pQ","type":"review_object","attributes":{"id":"ZpT1nPwEcwBZlAUTA_V8pQ","rating":5,"text":"Awesome
+        service from Daniela!!\n\nGreat food, must get the clam chowder with crab
+        meat!!","name":"Phillip M.","date":"2023-12-25","yelp_id":"f-m7-hyFzkf0HSEeQ2s-9A"}}]}'
+  recorded_at: Sat, 27 Jan 2024 17:17:47 GMT
 recorded_with: VCR 6.2.0

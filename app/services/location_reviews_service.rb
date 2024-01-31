@@ -1,6 +1,6 @@
 class LocationReviewsService
   def conn
-    conn = Faraday.new(url: "https://plankton-app-tavpa.ondigitalocean.app")
+    conn = Faraday.new(url: "http://localhost:3000")
   end
 
   def get_location_reviews(yelp_id)

@@ -12,15 +12,15 @@
   </head>
   <body>
   <br>
-  <%#= render partial: 'shared/navbar' %> 
-  <div id="flash-messages">
-    <% flash.each do |type, message| %>
-    <div class="alert <%= type %>">
-    <%= message %>
+   <%#= render partial: 'shared/navbar' %> 
+        <div id="flash-messages">
+      <% flash.each do |type, message| %>
+        <div class="alert <%= type %>">
+          <%= message %>
+        </div>
+      <% end %>
     </div>
-    <% end %>
-  </div>
-  <%= yield %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= yield %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </body>
 </html>

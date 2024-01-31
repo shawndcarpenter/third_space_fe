@@ -15,7 +15,7 @@ class UsersController < ApplicationController
     spaces = ThirdSpacesFacade.new.spaces
     location_recs = filter_spaces_by_location(spaces)
     @mood_recs = filter_by_mood(location_recs)
-
+    
     @location_recs = location_recs.reject! do |location|
       @mood_recs.any? { |mood_rec| location.name == mood_rec.name }
     end
@@ -159,6 +159,10 @@ class UsersController < ApplicationController
     @user = current_user
   end
 
+  def set_mood
+    
+  end
+
   private
   def users_params
     params.require(:user).permit(:email, :first_name, :last_name, :password, :password_confirmation)
@@ -191,6 +195,9 @@ class UsersController < ApplicationController
   # end
 
   def filter_spaces_by_location(results)
+    # city = current_user.search_location.city.capitalize
+    # state = current_user.search_location.state
+    # locs = results.find_all{|space| space.address.include?("#{city}, #{state}")}
     city = current_user.search_location.city.downcase
     state = current_user.search_location.state.downcase
   

@@ -1,6 +1,6 @@
 class ThirdSpacesService
   def conn
-    conn = Faraday.new(url: "https://plankton-app-tavpa.ondigitalocean.app")
+    conn = Faraday.new(url: "http://localhost:3000")
 
   end
 
@@ -25,7 +25,6 @@ class ThirdSpacesService
 
   def get_third_space_reviews(yelp_id)
     response = conn.get("/api/v1/third_spaces/#{yelp_id}/reviews")
-
     data = JSON.parse(response.body, symbolize_names: true)
   end
 
