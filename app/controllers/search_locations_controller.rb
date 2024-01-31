@@ -64,12 +64,24 @@ class SearchLocationsController < ApplicationController
   
   
   def geolocation_parse(geolocation)
-    # address_parts = geolocation.split(' ').map(&:strip)
+    if geolocation.nil? || geolocation.empty?
+      return { city: nil, state: nil }
+    end
+  
     city = geolocation[0]
     state = geolocation[1]
-    return geo_hash = { city: city, state: state_to_abv(state) } if state.length != 2
-    geo_hash = { city: city, state: state }
+  
+    if state.nil?
+      geo_hash = { city: city }
+    elsif state.length != 2
+      geo_hash = { city: city, state: state_to_abv(state) }
+    else
+      geo_hash = { city: city, state: state }
+    end
+  
+    geo_hash
   end
+  
 
   def state_to_abv(state_name)
     state_abbreviations = {
