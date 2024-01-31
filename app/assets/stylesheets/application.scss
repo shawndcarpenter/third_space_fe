@@ -408,3 +408,25 @@
 .state-select-spacing {
   margin-right: 15px; /* Adjust this value as needed */
 }
+
+.mood-button {
+  margin: 5px; /* Adds space around each button */
+  border-radius: 20px; /* Rounded corners */
+  color: black; /* Make the text color black */
+  font-size: 18px; /* Increase the font size */
+  /* Add any other styling here */
+  outline: none; /* Remove the default focus outline */
+}
+
+.mood-button:hover {
+  border-radius: 20px; /* Ensure border radius is consistent */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .mood-button {
+    width: 100%; /* Full width on smaller screens */
+    margin-bottom: 10px; /* More space between buttons vertically */
+  }
+}
+
