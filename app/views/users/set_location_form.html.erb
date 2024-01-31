@@ -22,6 +22,12 @@
             </div>
           </div>
         <% end %>
+        <%= form_tag update_location_param_path, method: :patch, class: "w-100" do %>
+          <%= hidden_field_tag :geo, "true" %>
+          <%= button_tag(type: 'submit', class: 'btn btn-primary w-100') do %>
+            <%= image_tag 'current_location.svg', alt: "Location Arrow", style: "margin-right: 5px;" %> Use Current Location
+          <% end %>
+        <% end %>
       <% else %>
         <h3>Where would you like to search today?</h3><br>
         <%= form_with url: search_locations_path, method: :post, local: true, html: { class: 'form-floating mb-3' } do |form| %>
@@ -38,15 +44,14 @@
           </div>
           <h6>Allow ThirdSpace to access your location for the nearby search to work. Alternatively, search by city and state.</h6>
         <% end %>
+            <%= form_tag search_locations_path, method: :post, class: "w-100" do %>
+              <%= hidden_field_tag :geo, "true" %>
+              <%= button_tag(type: 'submit', class: 'btn btn-primary w-100') do %>
+                <%= image_tag 'current_location.svg', alt: "Location Arrow", style: "margin-right: 5px;" %> Use Current Location
+              <% end %>
+            <% end %>
       <% end %>
     </div>
-
-    <%= form_tag search_locations_path, method: :post, class: "w-100" do %>
-      <%= hidden_field_tag :geo, "true" %>
-      <%= button_tag(type: 'submit', class: 'btn btn-primary w-100') do %>
-        <%= image_tag 'current_location.svg', alt: "Location Arrow", style: "margin-right: 5px;" %> Use Current Location
-      <% end %>
-    <% end %>
     <br>
   </div>
 </div>
