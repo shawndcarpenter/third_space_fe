@@ -116,20 +116,25 @@ class ThirdSpacesController < ApplicationController
     @tags_with_freq = format_tags(@space.tags)
     @tags = @tags_with_freq.map { |key,value| key }
 
-    @transportation_tag = find_transportation_tags(@space.tags).first.first
-    @mood_tags = find_moods(@space.tags)
-    @light_level = find_light_level(@space.tags).first.first
-    @noise_level = find_noise_level(@space.tags).first.first
-    @staff_tags = find_staff_tags(@space.tags).first.first
-    @purchase_necessary = find_purchase_necessary_tags(@space.tags).first.first
-    @sober_tag = find_sober_tags(@space.tags).first.first
-    @customer_restrooms = find_customer_restroom_tags(@space.tags).first.first
-    @gn_restrooms = find_gn_restroom_tags(@space.tags).first.first
-    @parking_tag = find_parking_tags(@space.tags).first.first
-    @accessible_tags = find_accessible_tags(@space.tags).first.first
-    @bipoc_tag = find_bipoc_tags(@space.tags).first.first
-    @lgbt_tag = find_lgbt_tags(@space.tags).first.first
-    @child_friendly = find_child_tags(@space.tags).first.first
+    if @space.tags.nil? 
+      @transportation_tag, @mood_tags, @light_level, @noise_level, @staff_tags, @purchase_necessary, @sober_tag, @customer_restrooms, @gn_restrooms, @parking_tag, @accessible_tags, @bipoc_tag, @lgbt_tag, @child_friendly  = {}
+
+    else
+      @transportation_tag = find_transportation_tags(@space.tags).first.first
+      @mood_tags = find_moods(@space.tags)
+      @light_level = find_light_level(@space.tags).first.first
+      @noise_level = find_noise_level(@space.tags).first.first
+      @staff_tags = find_staff_tags(@space.tags).first.first
+      @purchase_necessary = find_purchase_necessary_tags(@space.tags).first.first
+      @sober_tag = find_sober_tags(@space.tags).first.first
+      @customer_restrooms = find_customer_restroom_tags(@space.tags).first.first
+      @gn_restrooms = find_gn_restroom_tags(@space.tags).first.first
+      @parking_tag = find_parking_tags(@space.tags).first.first
+      @accessible_tags = find_accessible_tags(@space.tags).first.first
+      @bipoc_tag = find_bipoc_tags(@space.tags).first.first
+      @lgbt_tag = find_lgbt_tags(@space.tags).first.first
+      @child_friendly = find_child_tags(@space.tags).first.first
+    end
   end
 
   def destroy
