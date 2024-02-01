@@ -147,6 +147,9 @@
 
       <div class="rounded-highlight-b mx-auto" style="width: 300px; margin-bottom: 10px;"><%= @child_friendly %></div>
     <% end %>
-
+    <br>
+    <div class="d-flex justify-content-center align-items-center">
+    <%= link_to "Edit this Space", "/third_spaces/#{@space.yelp_id}/edit", class: "small-default-button btn-sm me-2 mt-2" %>
+    </div>
   </div>
 </div>
