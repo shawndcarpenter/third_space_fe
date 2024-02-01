@@ -68,7 +68,9 @@ class ThirdSpacesController < ApplicationController
     if params[:name]
       @spaces = ThirdSpacesByNameFacade.new(params[:name]).spaces
     elsif params[:tags]
-      @spaces = ThirdSpacesByTagsFacade.new(params[:tags]).spaces
+      @spaces = ThirdSpacesByTagsFacade.new(params[:tags], 
+                                            current_user.search_location.city, 
+                                            current_user.search_location.state).spaces
       params[:tags].each do |tag|
         @spaces.delete_if { |space| space.tags == nil || !space.tags.include?(tag) }
       end
