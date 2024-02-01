@@ -3,6 +3,7 @@
     <div class="logo-container">
       <%= link_to dashboard_path do %>
         <%= image_tag 'temp_logo.svg', class: "img-fluid smaller-logo", alt: "Logo" %>
+        <%= image_tag 'temp_logo.svg', class: "img-fluid smaller-logo", alt: "Logo" %>
       <% end %>
     </div>
 
@@ -10,11 +11,8 @@
       <div class="text-center">
         <div class="d-inline-block text-left">
           <h2><%= @location.name %></h2>
-          <div class="rounded-highlight-b">
+          <div class="rounded-highlight-b-ext">
             <%= @location.category %>
-          </div>
-          <div class="rounded-highlight-b">
-              <%= "Address: #{@location.address}"%>
           </div>
         </div>
       </div>
@@ -22,24 +20,47 @@
       <br>
       <div class="text-center">
         <% @location.photos.each do |photo_url| %>
-          <%= image_tag photo_url, width: "200" %>
+          <%= image_tag photo_url, width: "400", height: "350", class: "rounded-image" %>
         <% end %>
 
         <br>
         <br>
 
-        <% if !@location.price.nil? %>
-          <div class="rounded-container"><%= @location.price%></div>
-        <% end %>
-        <div class="rounded-container"><%= "Rating: #{@location.rating}"%></div>
+        <div class="row justify-content-center my-3">
+      <div class="col-md-auto">
+        <div class="d-inline rounded-highlight-b">
+          <%= image_tag 'purple_location.svg', alt: "Purple Location Icon", style: "margin-right: 5px;" %><%= @location.address %>
+        </div>
+      </div>
+
+      <div class="col-md-auto">
+        <div class="d-inline rounded-highlight-b">
+          <% @location.rating.round(1).to_s.split('')[0].to_i.times do %>
+            <%= image_tag 'full-star.svg', alt: "Full Star", style: "margin-right: 5px;" %>
+          <% end %>
+          <% if @location.rating.round(1).to_s.split('')[2].to_i >= 5 %>
+            <%= image_tag 'half-star.svg', alt: "Half Star", style: "margin-right: 5px;" %>
+          <% end %>
+          <%= @location.rating.round(1) %>
+        </div>
+      </div>
+
+      <% if !@location.price.nil? %>
+        <div class="col-md-auto">
+          <div class="d-inline rounded-highlight-b">
+            <%= @location.price %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+
           <a href="<%= new_third_space_path(location_json: @location_json) %>" class="rounded-button">Create a Third Space</a>
           <br><br>
 
           <% @reviews.each do |r| %>
-            <div class="rounded-highlight">
+            <div class="justify-content-center rounded-highlight-custom text-center">
               <%= r.text %> <br> - <%= r.name %> (Rating: <%= r.rating %>/5)
             </div>
-            <br><br>
           <% end %>
       </div>
     </div>

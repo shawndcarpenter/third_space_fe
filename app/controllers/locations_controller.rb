@@ -4,11 +4,15 @@ class LocationsController < ApplicationController
   end
   
   def index
+    if params[:name].empty? || params[:city].empty?
+      redirect_to locations_search_path
+      flash[:alert] = "Please fill in search bars with the name of a location and city where this location is located. (Example: name: Starbucks, city: Boulder)"
+    else
     @third_space_yelp_ids = third_space_yelp_ids
     name = params[:name]
     city = params[:city]
     @location_results = LocationsFacade.new(name, city).locations
-    ##Create error when data is NIL to make new entries
+    end
   end
   
   def show

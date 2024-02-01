@@ -2,24 +2,25 @@
   <div class="row justify-content-center mt-4">
     <%= render partial: 'shared/navbar' %>
 
-    <h3>Third Spaces matching your search terms</h3>
+    <b><h3>third spaces matching your search terms.</h3></b>
+    <br><br>
 
     <% if @spaces.any? %>
       <div class="row">
         <% @spaces.each do |third_space_poro| %>
           <div class="col-4 mb-4 ">
             <div class="rounded-entry me-5 h-100">
-              <h3><%= link_to "#{third_space_poro.name}", third_space_path(third_space_poro.yelp_id) %></h3>
+              <h3><%= link_to "#{third_space_poro.name}", third_space_path(third_space_poro.yelp_id), class: "space-link" %></h3>
               <p><strong>Category:</strong> <%= third_space_poro.category %></p>
               <p><strong>Address:</strong> <%= third_space_poro.address %></p>
               <p><strong>Rating:</strong> <%= third_space_poro.rating %></p>
               <% if @saved_yelp_ids.include?(third_space_poro.yelp_id) %>
                 <form class="d-flex justify-content-between" action="/third_spaces/unfavorite" method="delete">
-                  <button class="btn btn-outline-success me-2" name="yelp_id" id="yelp_id" value="<%= third_space_poro.yelp_id %>" type="submit">Remove Favorite</button>
+                  <button class="small-default-button me-2" name="yelp_id" id="yelp_id" value="<%= third_space_poro.yelp_id %>" type="submit">Remove Favorite</button>
                 </form>
               <% else %>
                 <form class="d-flex justify-content-between" action="/third_spaces/favorite" method="post">
-                  <button class="btn btn-outline-success me-2" name="yelp_id" id="yelp_id" value="<%= third_space_poro.yelp_id %>" type="submit">Favorite</button>
+                  <button class="small-default-button me-2" name="yelp_id" id="yelp_id" value="<%= third_space_poro.yelp_id %>" type="submit">Favorite</button>
                 </form>
               <% end %>
             </div>

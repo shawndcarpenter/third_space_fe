@@ -11,6 +11,17 @@ class SearchLocationsController < ApplicationController
       search_location.save
       redirect_to search_locations_set_mood_path
     elsif (session[:lat].nil? || session[:lon].nil?)
+    if (params["city"].present? && params["state"].present?)
+      search_location = current_user.build_search_location(city: params["city"].titleize, state: params["state"])
+      search_location.save
+      redirect_to search_locations_set_mood_path
+    elsif params[:geo]
+      geolocation = geocode_location(session[:lat], session[:lon])
+      geo_hash = geolocation_parse(geolocation)
+      search_location = current_user.build_search_location(geo_hash)
+      search_location.save
+      redirect_to search_locations_set_mood_path
+    elsif (session[:lat].nil? || session[:lon].nil?)
       flash[:error] = "Error fetching location. Please make sure you have granted permission to access your location."
       redirect_to set_location_path
     else
@@ -46,20 +57,13 @@ class SearchLocationsController < ApplicationController
   def geocode_location(lat, lon)
     results = Geocoder.search([lat, lon])
     city_state = []
-  
-    if results.present? && results.first.present?
-      address = results.first.data["address"]
-  
-      if address["city"].present?
-        city_state << address["city"]
-      elsif address["county"].present?
-        city_state << address["county"]
-      end
-  
-      city_state << address["state"] if address["state"].present?
+    if !results.first.data["address"]["city"]
+      city_state << results.first.data["address"]["county"]
+      city_state << results.first.data["address"]["state"]
+    else
+      city_state << results.first.data["address"]["city"]
+      city_state << results.first.data["address"]["state"]
     end
-  
-    city_state
   end
   
   
@@ -67,10 +71,8 @@ class SearchLocationsController < ApplicationController
     if geolocation.nil? || geolocation.empty?
       return { city: nil, state: nil }
     end
-  
     city = geolocation[0]
     state = geolocation[1]
-  
     if state.nil?
       geo_hash = { city: city }
     elsif state.length != 2
@@ -81,7 +83,6 @@ class SearchLocationsController < ApplicationController
   
     geo_hash
   end
-  
 
   def state_to_abv(state_name)
     state_abbreviations = {

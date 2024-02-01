@@ -1,0 +1,53 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://api.sendgrid.com/v3/mail/send
+    body:
+      encoding: UTF-8
+      string: '{"from":{"email":"thirdspace2308@gmail.com"},"subject":"Your OTP","personalizations":[{"to":[{"email":"sunday@thompson.test"}]}],"content":[{"type":"text/plain","value":"Your
+        OTP for Two-Factor Authentication at third space.\n    Your OTP code is: 123456"}]}'
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - application/json
+      User-Agent:
+      - sendgrid/6.7.0;ruby
+      Authorization:
+      - Bearer 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
+      Content-Type:
+      - application/json
+  response:
+    status:
+      code: 401
+      message: Unauthorized
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Sun, 28 Jan 2024 04:36:54 GMT
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '116'
+      Connection:
+      - keep-alive
+      Access-Control-Allow-Origin:
+      - https://sendgrid.api-docs.io
+      Access-Control-Allow-Methods:
+      - POST
+      Access-Control-Allow-Headers:
+      - Authorization, Content-Type, On-behalf-of, x-sg-elas-acl
+      Access-Control-Max-Age:
+      - '600'
+      X-No-Cors-Reason:
+      - https://sendgrid.com/docs/Classroom/Basics/API/cors.html
+      Strict-Transport-Security:
+      - max-age=600; includeSubDomains
+    body:
+      encoding: UTF-8
+      string: '{"errors":[{"message":"The provided authorization grant is invalid,
+        expired, or revoked","field":null,"help":null}]}'
+  recorded_at: Sun, 28 Jan 2024 04:36:54 GMT
+recorded_with: VCR 6.2.0

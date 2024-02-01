@@ -15,7 +15,7 @@ class UsersController < ApplicationController
     spaces = ThirdSpacesFacade.new.spaces
     location_recs = filter_spaces_by_location(spaces)
     @mood_recs = filter_by_mood(location_recs)
-
+    
     @location_recs = location_recs.reject! do |location|
       @mood_recs.any? { |mood_rec| location.name == mood_rec.name }
     end
@@ -47,7 +47,7 @@ class UsersController < ApplicationController
     new_user = User.create(user)
     if new_user.save
       session[:user_id] = new_user.id
-      flash[:success] = "Welcome, #{new_user.email}!"
+      # flash[:success] = "Welcome, #{new_user.email}!"
       initiate_verification(new_user)
     else
       flash[:notice] = "#{new_user.errors.full_messages.join(', ')}"
@@ -160,7 +160,7 @@ class UsersController < ApplicationController
   end
 
   def set_mood
-
+    
   end
 
   private
@@ -195,6 +195,9 @@ class UsersController < ApplicationController
   # end
 
   def filter_spaces_by_location(results)
+    # city = current_user.search_location.city.capitalize
+    # state = current_user.search_location.state
+    # locs = results.find_all{|space| space.address.include?("#{city}, #{state}")}
     city = current_user.search_location.city.downcase
     state = current_user.search_location.state.downcase
   

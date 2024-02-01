@@ -1,3 +1,5 @@
+require 'date'
+
 class ReviewPoro
   attr_reader :id, 
   :yelp_id, 
@@ -11,6 +13,6 @@ class ReviewPoro
     @rating = data[:rating]
     @text = data[:text]
     @name = data[:name]
-    @date = data[:date]
+    @date = Date.parse(data[:date]).strftime("%b %d, %Y") if data[:date]
   end
 end

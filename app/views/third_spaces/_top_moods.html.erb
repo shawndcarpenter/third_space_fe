@@ -1,19 +1,31 @@
-<% @mood_tags.sort_by { |tag, freq| freq }.reverse.each do |tag, freq| %>
-  <% if freq == 1 %>
-    <div class="rounded-highlight-b mx-auto" style="width: 300px; margin-bottom: 10px;">
-      Voted By <%= freq %> User: <%= tag %>
-    </div>
-  <% else %>
-    <div class="rounded-highlight-b mx-auto" style="width: 300px; margin-bottom: 10px;">
-      Voted By <%= freq %> Users: <%= tag %>
-    </div>
+<% if @mood_tags.nil? %>
+  <h5>No information available</h5>
+<% else %>
+  <% @mood_tags.sort_by { |tag, freq| freq }.reverse.each do |tag, freq| %>
+    <% if freq == 1 %>
+      <div class="rounded-highlight-b mx-auto" style="width: 300px; margin-bottom: 10px; display: flex; align-items: center; justify-content: space-between;">
+        <span><%= tag %></span>
+        <span style="display: flex; align-items: center;">
+          <%= image_tag 'vote_icon.svg', alt: "Vote Icon", style: "margin-right: 5px;" %>
+          <span><%= freq %></span>
+        </span>
+      </div>
+    <% else %>
+      <div class="rounded-highlight-b mx-auto" style="width: 300px; margin-bottom: 10px; display: flex; align-items: center; justify-content: space-between;">
+        <span><%= tag %></span>
+        <span style="display: flex; align-items: center;">
+          <%= image_tag 'vote_icon.svg', alt: "Vote Icon", style: "margin-right: 5px;" %>
+          <span><%= freq %></span>
+        </span>
+      </div>
+    <% end %>
   <% end %>
 <% end %>
 
 <h3>Accessibility Tags</h3>
 
 <p>
-  <button class="btn btn-outline-success btn-sm me-2" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+  <button class="small-default-button btn-sm me-2" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
     Show/Hide
   </button>
 </p>
@@ -25,12 +37,13 @@
     <% if @light_level.nil?  && @noise_level.nil? %>
             <h5>No information available</h5>
       <div class="d-flex justify-content-center align-items-center">
-        <%= link_to "Edit this space", "/third_spaces/#{@space.yelp_id}/edit", class: "btn btn-outline-success btn-sm me-2 mt-2" %>
+        <%= link_to "Add More Tags", "/third_spaces/#{@space.yelp_id}/edit", class: "small-default-button btn-sm me-2 mt-2" %>
         </div>
     <% else %>
       <% if !@light_level.nil? %>
         <div class="rounded-highlight-b mx-auto" style="width: 300px; margin-bottom: 10px;"><%= @light_level %></div>
       <% end %>
+
       <% if !@noise_level.nil? %>
         <div class="rounded-highlight-b mx-auto" style="width: 300px; margin-bottom: 10px;"><%= @noise_level %></div>
       <% end %>
@@ -40,7 +53,7 @@
     <% if @staff_tags.nil? %>
             <h5>No information available 
       <div class="d-flex justify-content-center align-items-center">
-        <%= link_to "Edit this space", "/third_spaces/#{@space.yelp_id}/edit", class: "btn btn-outline-success btn-sm me-2 mt-2" %>
+        <%= link_to "Add More Tags", "/third_spaces/#{@space.yelp_id}/edit", class: "small-default-button btn-sm me-2 mt-2" %>
         </div>
     <% else %>
       <div class="rounded-highlight-b mx-auto" style="width: 300px; margin-bottom: 10px;"><%= @staff_tags %></div>
@@ -50,7 +63,7 @@
     <% if @purchase_necessary.nil? %>
             <h5>No information available 
       <div class="d-flex justify-content-center align-items-center">
-        <%= link_to "Edit this space", "/third_spaces/#{@space.yelp_id}/edit", class: "btn btn-outline-success btn-sm me-2 mt-2" %>
+        <%= link_to "Add More Tags", "/third_spaces/#{@space.yelp_id}/edit", class: "small-default-button btn-sm me-2 mt-2" %>
         </div>
     <% else %>
       <div class="rounded-highlight-b mx-auto" style="width: 300px; margin-bottom: 10px;"><%= @purchase_necessary %></div>
@@ -60,7 +73,7 @@
     <% if @sober_tag.nil? %>
             <h5>No information available 
       <div class="d-flex justify-content-center align-items-center">
-        <%= link_to "Edit this space", "/third_spaces/#{@space.yelp_id}/edit", class: "btn btn-outline-success btn-sm me-2 mt-2" %>
+        <%= link_to "Add More Tags", "/third_spaces/#{@space.yelp_id}/edit", class: "small-default-button btn-sm me-2 mt-2" %>
         </div>
     <% else %>
       <div class="rounded-highlight-b mx-auto" style="width: 300px; margin-bottom: 10px;"><%= @sober_tag %></div>
@@ -70,12 +83,13 @@
     <% if @customer_restrooms.nil? && @gn_restrooms.nil? %>
             <h5>No information available 
       <div class="d-flex justify-content-center align-items-center">
-        <%= link_to "Edit this space", "/third_spaces/#{@space.yelp_id}/edit", class: "btn btn-outline-success btn-sm me-2 mt-2" %>
+        <%= link_to "Add More Tags", "/third_spaces/#{@space.yelp_id}/edit", class: "small-default-button btn-sm me-2 mt-2" %>
         </div>
     <% else %>
       <% if !@customer_restrooms.nil? %>
         <div class="rounded-highlight-b mx-auto" style="width: 300px; margin-bottom: 10px;"><%= @customer_restrooms %></div>
       <% end %>
+
       <% if !@gn_restrooms.nil? %>
         <div class="rounded-highlight-b mx-auto" style="width: 300px; margin-bottom: 10px;"><%= @gn_restrooms %></div>
       <% end %>
@@ -85,12 +99,13 @@
     <% if @parking_tag.nil? && @transportion_tag.nil? %>
             <h5>No information available 
       <div class="d-flex justify-content-center align-items-center">
-        <%= link_to "Edit this space", "/third_spaces/#{@space.yelp_id}/edit", class: "btn btn-outline-success btn-sm me-2 mt-2" %>
+        <%= link_to "Add More Tags", "/third_spaces/#{@space.yelp_id}/edit", class: "small-default-button btn-sm me-2 mt-2" %>
         </div>
     <% else %>
       <% if !@parking_tag.nil? %>
         <div class="rounded-highlight-b mx-auto" style="width: 300px; margin-bottom: 10px;"><%= @parking_tag %></div>
       <% end %>
+
       <% if !@transportion_tag.nil? %>
         <div class="rounded-highlight-b mx-auto" style="width: 300px; margin-bottom: 10px;"><%= @transportion_tag %></div>
       <% end %>
@@ -100,7 +115,7 @@
     <% if @accessible_tags.nil? %>
             <h5>No information available 
       <div class="d-flex justify-content-center align-items-center">
-        <%= link_to "Edit this space", "/third_spaces/#{@space.yelp_id}/edit", class: "btn btn-outline-success btn-sm me-2 mt-2" %>
+        <%= link_to "Add More Tags", "/third_spaces/#{@space.yelp_id}/edit", class: "small-default-button btn-sm me-2 mt-2" %>
         </div>
     <% else %>
       <div class="rounded-highlight-b mx-auto" style="width: 300px; margin-bottom: 10px;"><%= @accessible_tags %></div>
@@ -110,12 +125,13 @@
     <% if @bipoc_tag.nil? && @lgbt_tag.nil? && @gn_restrooms.nil? %>
             <h5>No information available 
       <div class="d-flex justify-content-center align-items-center">
-        <%= link_to "Edit this space", "/third_spaces/#{@space.yelp_id}/edit", class: "btn btn-outline-success btn-sm me-2 mt-2" %>
+        <%= link_to "Add More Tags", "/third_spaces/#{@space.yelp_id}/edit", class: "small-default-button btn-sm me-2 mt-2" %>
         </div>
     <% else %>
       <% if !@bipoc_tag.nil? %>
         <div class="rounded-highlight-b mx-auto" style="width: 300px; margin-bottom: 10px;"><%= @bipoc_tag %></div>
       <% end %>
+
       <% if !@lgbt_tag.nil? %>
         <div class="rounded-highlight-b mx-auto" style="width: 300px; margin-bottom: 10px;"><%= @lgbt_tag %></div>
       <% end %>
@@ -125,12 +141,15 @@
     <% if @child_friendly.nil? %>
       <h5>No information available 
       <div class="d-flex justify-content-center align-items-center">
-        <%= link_to "Edit this space", "/third_spaces/#{@space.yelp_id}/edit", class: "btn btn-outline-success btn-sm me-2 mt-2" %>
+        <%= link_to "Add More Tags", "/third_spaces/#{@space.yelp_id}/edit", class: "small-default-button btn-sm me-2 mt-2" %>
         </div>
     <% else %>
 
       <div class="rounded-highlight-b mx-auto" style="width: 300px; margin-bottom: 10px;"><%= @child_friendly %></div>
     <% end %>
-
+    <br>
+    <div class="d-flex justify-content-center align-items-center">
+    <%= link_to "Edit this Space", "/third_spaces/#{@space.yelp_id}/edit", class: "small-default-button btn-sm me-2 mt-2" %>
+    </div>
   </div>
 </div>
