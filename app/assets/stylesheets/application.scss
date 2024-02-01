@@ -99,11 +99,12 @@
 .dash-header:hover {
   background-color: #F5F5F5;
   border-radius: 20px; 
+  padding: 5px;
 }
 
 
 .space-link {
-  text-decoration: none;
+  text-decoration: none !important;
   color: rgb(35, 35, 35);
   font-weight: bold;
   transition: color 0.3s;
@@ -146,14 +147,27 @@
   font-weight: bold;
 }
 
+.rounded-highlight-b-ext {
+  display: inline-flex; /* Use flexbox */
+  align-items: center; /* Vertically center the content */
+  justify-content: center; /* Horizontally center the content */
+  border-radius: 33px;
+  padding: 5px 20px;
+  background-color: #D7D5AC;
+  border: 2px solid #D7D5AC;
+  font-weight: bold;
+  font-size: 20px;
+}
+
 .rounded-highlight {
   display: inline-flex; /* Use flexbox */
   align-items: center; /* Vertically center the content */
   justify-content: center; /* Horizontally center the content */
   border-radius: 33px;
   padding: 10px 20px !important;
-  background-color: #D7D5AC;
-  border: 2px solid #D7D5AC;
+  background-color: #ACABE3;
+  border: 2px solid #ACABE3;
+  font-weight: bold;
 }
 
 
@@ -351,3 +365,103 @@
 //   background-color: #e9ecef; 
 //   border: 1px solid #dee2e6; 
 // }
+
+.rounded-image {
+  border-radius: 21px;
+}
+
+.initial-button {
+  display: inline-block;
+  height: 50px; /* Set the height */
+  padding: 8px 20px !important; /* Top and bottom padding 8px, left and right padding 20px */
+  border: 2px solid #ACABE3;
+  background-color: #ACABE3;
+  font-weight: bold;
+  cursor: pointer; /* Show a pointer cursor on hover */
+  transition: background-color 0.3s; /* Smooth transition for background color change */
+  text-decoration: none; /* Remove underline from hyperlink */
+  color: inherit;
+  text-align: center; /* Ensure text is horizontally centered */
+  line-height: 27px; /* Vertically center the text */
+  font-size: 25px;
+}
+
+/* Hover state */
+.initial-button:hover {
+  border: 2px solid #A499EC;
+  background-color: #A499EC;
+}
+
+.location-button {
+  display: inline-block;
+  height: 50px;
+  padding: 8px !important;
+  border: 2px solid #ACABE3;
+  background-color: #ACABE3;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  text-decoration: none;
+  color: #black; /* Set font color to white */
+  text-align: center;
+  line-height: 34px;
+  font-size: 20px; /* Adjust font size to be smaller, e.g., 16px */
+}
+
+/* Hover state */
+.location-button:hover {
+  border: 2px solid #A499EC;
+  background-color: #A499EC;
+}
+
+.city-input-spacing {
+  margin-right: 15px; /* Adjust this value as needed */
+}
+
+.state-select-spacing {
+  margin-right: 15px; /* Adjust this value as needed */
+}
+
+.mood-button {
+  margin: 5px; /* Adds space around each button */
+  border-radius: 20px; /* Rounded corners */
+  color: black; /* Make the text color black */
+  font-size: 18px; /* Increase the font size */
+  /* Add any other styling here */
+  outline: none; /* Remove the default focus outline */
+}
+
+.mood-button:hover {
+  border-radius: 20px; /* Ensure border radius is consistent */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .mood-button {
+    width: 100%; /* Full width on smaller screens */
+    margin-bottom: 10px; /* More space between buttons vertically */
+  }
+}
+
+.small-default-button {
+  display: inline-block;
+  height: 50px; /* Set the height */
+  padding: 8px 10px !important; /* Top and bottom padding 8px, left and right padding 20px */
+  border: 2px solid #ACABE3;
+  background-color: #ACABE3;
+  font-weight: bold;
+  cursor: pointer; /* Show a pointer cursor on hover */
+  transition: background-color 0.3s; /* Smooth transition for background color change */
+  text-decoration: none; /* Remove underline from hyperlink */
+  color: inherit;
+  text-align: center; /* Ensure text is horizontally centered */
+  line-height: 27px; /* Vertically center the text */
+  font-size: 16px;
+  border-radius: 8px;
+}
+
+/* Hover state */
+.small-default-button:hover {
+  border: 2px solid #A499EC;
+  background-color: #A499EC;
+}
