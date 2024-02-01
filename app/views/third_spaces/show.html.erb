@@ -81,7 +81,7 @@
 
       <% @reviews.reject { |r| r.date.nil? }.sort_by { |r| r.date }.reverse.first(20).each do |r| %>
         <div class="justify-content-center rounded-highlight-custom text-center">
-          <%= r.text %> <br> - <%= r.name %> (Rating: <%= r.rating %>/5) <br> Date: <%= r.date %>
+          <%= r.text %> <br> - <%= r.name %> (Rating: <%= r.rating %>/5) <br> <%= r.date %>
         </div>
       <% end %>
     </div>

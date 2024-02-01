@@ -47,7 +47,7 @@ class UsersController < ApplicationController
     new_user = User.create(user)
     if new_user.save
       session[:user_id] = new_user.id
-      flash[:success] = "Welcome, #{new_user.email}!"
+      # flash[:success] = "Welcome, #{new_user.email}!"
       initiate_verification(new_user)
     else
       flash[:notice] = "#{new_user.errors.full_messages.join(', ')}"

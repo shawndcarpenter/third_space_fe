@@ -147,7 +147,6 @@ GEM
     marcel (1.0.2)
     matrix (0.4.2)
     method_source (1.0.0)
-    mini_magick (4.12.0)
     mini_mime (1.1.5)
     minitest (5.21.2)
     msgpack (1.7.2)
@@ -184,6 +183,9 @@ GEM
       omniauth-oauth2 (~> 1.8.0)
     omniauth-oauth2 (1.8.0)
       oauth2 (>= 1.4, < 3)
+      omniauth (~> 2.0)
+    omniauth-rails_csrf_protection (1.0.1)
+      actionpack (>= 4.2)
       omniauth (~> 2.0)
     orderly (0.1.1)
       capybara (>= 1.1)
@@ -343,9 +345,9 @@ DEPENDENCIES
   importmap-rails
   jbuilder
   launchy
-  mini_magick
   omniauth
   omniauth-google-oauth2
+  omniauth-rails_csrf_protection
   orderly
   pg (~> 1.1)
   pry
