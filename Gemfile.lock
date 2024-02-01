@@ -165,6 +165,8 @@ GEM
     nio4r (2.7.0)
     nokogiri (1.16.0-arm64-darwin)
       racc (~> 1.4)
+    nokogiri (1.16.0-x86_64-linux)
+      racc (~> 1.4)
     oauth2 (2.0.9)
       faraday (>= 0.17.3, < 3.0)
       jwt (>= 1.0, < 3.0)
@@ -183,9 +185,6 @@ GEM
       omniauth-oauth2 (~> 1.8.0)
     omniauth-oauth2 (1.8.0)
       oauth2 (>= 1.4, < 3)
-      omniauth (~> 2.0)
-    omniauth-rails_csrf_protection (1.0.1)
-      actionpack (>= 4.2)
       omniauth (~> 2.0)
     orderly (0.1.1)
       capybara (>= 1.1)
@@ -330,6 +329,7 @@ GEM
 
 PLATFORMS
   arm64-darwin-22
+  x86_64-linux
 
 DEPENDENCIES
   bcrypt (~> 3.1.7)
@@ -347,7 +347,6 @@ DEPENDENCIES
   launchy
   omniauth
   omniauth-google-oauth2
-  omniauth-rails_csrf_protection
   orderly
   pg (~> 1.1)
   pry
