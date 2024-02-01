@@ -1,4 +1,4 @@
-<body>
+<body style="background-color: #D0D19F; font-size: 20px;">
   <div class="logo-container">
     <%= link_to dashboard_path do %>
       <%= image_tag 'temp_logo.svg', class: "img-fluid smaller-logo", alt: "Logo" %>
@@ -7,7 +7,7 @@
 
   <div class="container text-center mt-5">
     <div class="mb-3">
-      <h3>Create a New Third Space</h3><br>
+      <h2>Create a New Third Space</h2><br>
 
       <%= form_tag(create_third_space_third_spaces_path, method: "get") do %>
 
@@ -16,9 +16,7 @@
             <label class="form-label" for="name">Name</label>
           </div>
           <div class="col-sm-9">
-            <div class="form-control" style="border: none; padding: 0;">
-              <span id="name"><%= @location.name %></span>
-            </div>
+            <h4><%= @location.name %></h4>
           </div>
         </div>
 
@@ -27,9 +25,7 @@
             <label class="form-label" for="category">Category</label>
           </div>
           <div class="col-sm-9">
-            <div class="form-control" style="border: none; padding: 0;">
-              <span id="category"><%= @location.category %></span>
-            </div>
+            <h4><%= @location.category %></h4>
           </div>
         </div>
 
@@ -38,9 +34,7 @@
             <label class="form-label" for="address">Address</label>
           </div>
           <div class="col-sm-9">
-            <div class="form-control" style="border: none; padding: 0;">
-              <span id="address"><%= @location.address %></span>
-            </div>
+            <h4><%= @location.address %></h4>
           </div>
         </div>
 
@@ -50,25 +44,11 @@
               Tags
             </div>
 
-<%
-=begin%>
- 
-            <div class="col-sm-3">
-            <h4>Add A Review</h4>
-              <input class="form-control me-2" id="text" name="text" type="text" placeholder="review" aria-label="Review Text" style="flex-grow: 1;">
-                <% rating_numbers = ['1', '2', '3', '4', '5'] %>
-                <% rating_numbers.each do |rating| %>
-                  <%= radio_button_tag 'tags[]', rating, false, class: 'custom-radio-input' %> <%= rating %>
-                <% end %>
-            </div> 
-<%
-=end%>
-
             <div class="col-sm-3">
               <h4>Moods</h4>
               <% moods_array = ['Happy', 'Sad', 'Studious', 'Social', 'Chill', 'Party'] %>
               <% moods_array.each do |mood| %>
-                <%= check_box_tag 'tags[]', mood, false, class: 'custom-checkbox-input' %> <%= mood %><br>
+                <%= check_box_tag 'tags[]', mood, false, class: 'form-check-input' %> <%= mood %><br>
               <% end %>
             </div>
 
@@ -86,6 +66,7 @@
             </div>
 
             <div class="col-sm-4">
+              <h4>Tags</h4>
               <% labels_array = ['Accessible Entrance', 'BIPOC Friendly', 'Child Friendly', 'Customer Restrooms', 'Gender Neutral Restrooms', 'Parking', 'Purchase Necessary', 'Public Transportation Nearby', 'Queer Friendly', 'Sober'] %>
               <% labels_array.each do |label| %>
                 <%= check_box_tag 'tags[]', label, false, class: 'form-check-input' %> <%= label %><br>
@@ -98,7 +79,7 @@
 
         <div class="row mt-3">
           <div class="col-sm-12 text-center">
-            <%= submit_tag "Create", class: "btn btn-primary" %>
+            <%= submit_tag "create", class: "initial-button" %>
           </div>
         </div>
 
