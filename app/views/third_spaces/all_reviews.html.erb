@@ -17,29 +17,55 @@
 
           <br>
       <div class="text-center">
-        <% if !@space.photos.nil? %>
-          <% if @space.photos.class == String && !@space.photos == "[]" %>
-            <%= image_tag @space.photos, width: "200" %>
-          <% elsif @space.photos == "[]" %>
-          <% elsif !@space.photos.include?("[") %>
-               <%= image_tag @space.photos, width: "200" %>
-          <% else %>
-            <% JSON.parse(@space.photos).each do |photo_url| %>
-              <%= image_tag photo_url, width: "200" %>
-            <% end %>
+            <div class="text-center">
+      <% if !@space.photos.nil? %>
+        <% if @space.photos.class == String && !@space.photos == "[]" %>
+          <%= image_tag @space.photos, width: "400", height: "350", class: "rounded-image" %>
+        <% elsif @space.photos == "[]" %>
+        <% elsif !@space.photos.include?("[") %>
+          <%= image_tag @space.photos, width: "400", height: "350", class: "rounded-image" %>
+        <% else %>
+          <% JSON.parse(@space.photos).each do |photo_url| %>
+            <%= image_tag photo_url, width: "400", height: "350", class: "rounded-image" %>
           <% end %>
         <% end %>
+      <% end %>
+    </div>
+    <br>
+              <div class="row justify-content-center my-3">
+      <div class="col-md-auto">
+        <div class="d-inline rounded-highlight-b">
+          <%= image_tag 'purple_location.svg', alt: "Purple Location Icon", style: "margin-right: 5px;" %><%= @space.address %>
+        </div>
+      </div>
 
-        <br><br>
+      <div class="col-md-auto">
+        <div class="d-inline rounded-highlight-b">
+          <% @avg_rating.round(1).to_s.split('')[0].to_i.times do %>
+            <%= image_tag 'full-star.svg', alt: "Full Star", style: "margin-right: 5px;" %>
+          <% end %>
+          <% if @avg_rating.round(1).to_s.split('')[2].to_i >= 5 %>
+            <%= image_tag 'half-star.svg', alt: "Half Star", style: "margin-right: 5px;" %>
+          <% end %>
+          <%= @avg_rating.round(1) %>
+        </div>
+      </div>
 
-        <p>Average Rating: <%= @avg_rating %></p>
-          
+      <% if !@space.price.nil? %>
+        <div class="col-md-auto">
+          <div class="d-inline rounded-highlight-b">
+            <%= @space.price %>
+          </div>
+        </div>
+      <% end %>
+      <br><br>
         <% selected_rating = params[:rating] || 'all' %>
 
         <%= form_tag("/third_spaces/#{params[:id]}/all_reviews", method: 'get') do %>
           <%= select_tag 'rating', options_for_select({ 'All Ratings' => 'all', '1 Star' => '1', '2 Stars' => '2', '3 Stars' => '3', '4 Stars' => '4', '5 Stars' => '5' }, selected_rating) %>
           <%= submit_tag 'Filter' %>
         <% end %>
+        <br><br>
 
         <% filtered_reviews = if selected_rating == 'all'
                                 @reviews.reject { |r| r.date.nil? }.sort_by { |r| r.date }.reverse

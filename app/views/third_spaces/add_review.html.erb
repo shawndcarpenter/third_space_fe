@@ -11,23 +11,29 @@
     <div class="text-center">
       <% if !@space.photos.nil? %>
         <% if @space.photos.class == String && !@space.photos == "[]" %>
-          <%= image_tag @space.photos, width: "200" %>
+          <%= image_tag @space.photos, width: "400", height: "350", class: "rounded-image" %>
         <% elsif @space.photos == "[]" %>
         <% elsif !@space.photos.include?("[") %>
-          <%= image_tag @space.photos, width: "200" %>
+          <%= image_tag @space.photos, width: "400", height: "350", class: "rounded-image" %>
         <% else %>
           <% JSON.parse(@space.photos).each do |photo_url| %>
-            <%= image_tag photo_url, width: "200" %>
+            <%= image_tag photo_url, width: "400", height: "350", class: "rounded-image" %>
           <% end %>
         <% end %>
       <% end %>
     </div>
     <br>
 
-    <div class="rounded-highlight-b">
-      <%= "Address: #{@space.address}" %>
+    <div class="row justify-content-center my-3">
+      <div class="col-md-auto">
+        <div class="d-inline rounded-highlight-b">
+          <%= image_tag 'purple_location.svg', alt: "Purple Location Icon", style: "margin-right: 5px;" %><%= @space.address %>
+        </div>
+      </div>
+      </div>
     </div>
-  </div>
+
+  <br>
 
   <%= form_tag(save_review_third_space_path(@space.yelp_id), method: "patch") do %>  
     <div class="mb-3 d-flex align-items-center justify-content-center">
@@ -53,7 +59,7 @@
 
     <div class="row mt-3">
       <div class="col-sm-12 text-center">
-        <%= submit_tag "Publish", class: "btn btn-primary" %>
+        <%= submit_tag "publish", class: "initial-button" %>
       </div>
     </div>
   <% end %>
