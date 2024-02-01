@@ -74,10 +74,9 @@
                               end %>
 
         <% filtered_reviews.each do |r| %>
-          <div class="rounded-highlight">
+          <div class="justify-content-center rounded-highlight-custom text-center">
             <%= r.text %> <br> - <%= r.name %> (Rating: <%= r.rating %>/5) <br> Date: <%= r.date %>
           </div>
-          <br><br>
         <% end %>
        </div>
       </div>
