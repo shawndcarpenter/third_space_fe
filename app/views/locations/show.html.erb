@@ -10,7 +10,7 @@
       <div class="text-center">
         <div class="d-inline-block text-left">
           <h2><%= @location.name %></h2>
-          <div class="rounded-highlight-b">
+          <div class="rounded-highlight-b-ext">
             <%= @location.category %>
           </div>
           <div class="rounded-highlight-b">
@@ -35,10 +35,9 @@
           <br><br>
 
           <% @reviews.each do |r| %>
-            <div class="rounded-highlight">
+            <div class="justify-content-center rounded-highlight-custom text-center">
               <%= r.text %> <br> - <%= r.name %> (Rating: <%= r.rating %>/5)
             </div>
-            <br><br>
           <% end %>
       </div>
     </div>

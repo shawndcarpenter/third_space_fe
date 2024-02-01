@@ -1,60 +1,57 @@
-<div class="logo-container">
-  <%= link_to dashboard_path do %>
-    <%= image_tag 'temp_logo.svg', class: "img-fluid smaller-logo", alt: "Logo" %>
-  <% end %>
-</div>
-
-<div class="container text-center mt-5">
-  <div class="mb-3">
-    <h3>Write a Review for <%= @space.name %></h3><br>
-
-    <div class="text-center">
-      <% if !@space.photos.nil? %>
-        <% if @space.photos.class == String && !@space.photos == "[]" %>
-          <%= image_tag @space.photos, width: "200" %>
-        <% elsif @space.photos == "[]" %>
-        <% elsif !@space.photos.include?("[") %>
-          <%= image_tag @space.photos, width: "200" %>
-        <% else %>
-          <% JSON.parse(@space.photos).each do |photo_url| %>
-            <%= image_tag photo_url, width: "200" %>
-          <% end %>
-        <% end %>
-      <% end %>
-    </div>
-    <br>
-
-    <div class="rounded-highlight-b">
-      <%= "Address: #{@space.address}" %>
-    </div>
+<body style="background-color: #C8C991;">
+  <div class="logo-container">
+    <%= link_to dashboard_path do %>
+      <%= image_tag 'temp_logo.svg', class: "img-fluid smaller-logo", alt: "Logo" %>
+    <% end %>
   </div>
 
-  <%= form_tag(save_review_third_space_path(@space.yelp_id), method: "patch") do %>  
-    <div class="mb-3 d-flex align-items-center justify-content-center">
-      <div class="col-sm-9">
-        <div class="row">
-          <div class="col-md-4">
-            <p class="mb-0">Rating:</p>
-          </div>
-          <div class="col-sm-1">
-            <%= select_tag 'rating', options_for_select((1..5).map { |n| [n, n] }), class: 'form-control' %>
+  <div class="container text-center mt-5">
+    <div class="mb-3">
+      <h3><b>Write a Review for <%= @space.name %></b></h3><br>
+
+      <div class="text-center">
+        <% if !@space.photos.nil? %>
+          <% if @space.photos.class == String && !@space.photos == "[]" %>
+            <%= image_tag @space.photos, width: "400", height: "350", class: "rounded-image" %>
+          <% elsif @space.photos == "[]" %>
+          <% elsif !@space.photos.include?("[") %>
+            <%= image_tag @space.photos, width: "400", height: "350", class: "rounded-image" %>
+          <% else %>
+            <% JSON.parse(@space.photos).each do |photo_url| %>
+              <%= image_tag photo_url, width: "400", height: "350", class: "rounded-image" %>
+            <% end %>
+          <% end %>
+        <% end %>
+      </div>
+      <br>
+
+    <%= form_tag(save_review_third_space_path(@space.yelp_id), method: "patch") do %>  
+      <div class="mb-3 d-flex align-items-center justify-content-center">
+        <div class="col-sm-9">
+          <div class="row">
+            <div class="col-md-4">
+              <h4 class="mb-0">Rating:</h4>
+            </div>
+            <div class="col-sm-1">
+              <%= select_tag 'rating', options_for_select((1..5).map { |n| [n, n] }), class: 'form-control' %>
+            </div>
           </div>
         </div>
       </div>
-    </div>
 
-    <div class="mb-3 d-flex align-items-center justify-content-center">
-      <div class="col-sm-9">
-        <%= text_area_tag 'text', nil, class: 'form-control', id: 'text', rows: 10, style: 'width: 100%' %>
+      <div class="mb-3 d-flex align-items-center justify-content-center">
+        <div class="col-sm-9">
+          <%= text_area_tag 'text', nil, class: 'form-control', id: 'text', rows: 10, style: 'width: 100%' %>
+        </div>
       </div>
-    </div>
 
-    <%= hidden_field_tag 'location_json', @json %>
+      <%= hidden_field_tag 'location_json', @json %>
 
-    <div class="row mt-3">
-      <div class="col-sm-12 text-center">
-        <%= submit_tag "Publish", class: "btn btn-primary" %>
+      <div class="row mt-3">
+        <div class="col-sm-12 text-center">
+          <%= submit_tag "publish", class: "initial-button" %>
+        </div>
       </div>
-    </div>
-  <% end %>
-</div>
+    <% end %>
+  </div>
+</body>

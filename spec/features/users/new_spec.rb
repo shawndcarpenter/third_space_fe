@@ -27,7 +27,7 @@ RSpec.describe "New User Registration", type: :feature do
     end
 
     it 'redirects to login page when clicking on "I already have an account"' do
-      click_link "Already Have an Account"
+      click_link "already have an account"
       expect(current_path).to eq(login_path)
     end
 
@@ -37,7 +37,7 @@ RSpec.describe "New User Registration", type: :feature do
       fill_in "email", with: "test@test.test"
       fill_in "password", with: "test"
       fill_in "password confirmation", with: "test"
-      click_button "Create New Account"   
+      click_button "create new account"   
       expect(current_path).to eq(validate_otp_path)
     end
 
@@ -47,7 +47,7 @@ RSpec.describe "New User Registration", type: :feature do
       fill_in "email", with: "test@test.test"
       fill_in "password", with: "test"
       fill_in "password confirmation", with: "test"
-      click_button "Create New Account"
+      click_button "create new account"
 
       expect(page).to have_content("Last name can't be blank")
     end

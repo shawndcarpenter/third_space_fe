@@ -1,23 +1,25 @@
-<div class="container-sm d-flex justify-content-center align-items-center">
-  <div class="text-center">
-  <div class="mb-3">
-    <%= link_to dashboard_path do %>
-      <%= image_tag 'temp_logo.svg', class: "img-fluid", alt: "Logo" %>
-    <% end %>
-  </div>
+<body style="background-color: #C8C991; display: flex; justify-content: center; align-items: center; min-height: 100vh; margin: 0;">
+  <div class="container-sm d-flex justify-content-center align-items-center">
+    <div class="text-center">
+    <div class="mb-3">
+      <%= link_to dashboard_path do %>
+        <%= image_tag 'temp_logo.svg', class: "img-fluid", alt: "Logo" %>
+      <% end %>
+    </div>
 
-<h2>contact us</h2>
-<%= form_with model: @contact, url: new_contact_form_path, local: true, html: { class: 'form-floating mb-3' } do |form| %>
+  <h2>contact us</h2>
+  <%= form_with model: @contact, url: new_contact_form_path, local: true, html: { class: 'form-floating mb-3' } do |form| %>
 
-  <div class="form-floating mb-3">
-    <%= form.text_field :subject, id: 'floatingInput', class: 'form-control', placeholder: 'Subject' %>
-    <%= form.label :subject, 'subject', for: 'floatingInput' %>
-  </div>
+    <div class="form-floating mb-3">
+      <%= form.text_field :subject, id: 'floatingInput', class: 'form-control', placeholder: 'Subject' %>
+      <%= form.label :subject, 'subject', for: 'floatingInput' %>
+    </div>
 
-  <div class="form-floating">
-    <%= form.text_area :description, id: 'floatingTextarea2', class: 'form-control', placeholder: 'Description', style: 'height: 100px' %>
-    <%= form.label :description, 'description', for: 'floatingTextarea2' %>
-  </div>
-  <br>
-  <%= form.submit 'submit', class: 'btn btn-primary' %>
-<% end %>
+    <div class="form-floating">
+      <%= form.text_area :description, id: 'floatingTextarea2', class: 'form-control', placeholder: 'Description', style: 'height: 100px' %>
+      <%= form.label :description, 'description', for: 'floatingTextarea2' %>
+    </div>
+    <br>
+    <%= form.submit 'submit', class: 'initial-button' %>
+  <% end %>
+</body>
