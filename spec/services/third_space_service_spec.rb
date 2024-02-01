@@ -26,9 +26,11 @@ describe ThirdSpacesService do
         expect(search).to be_a Hash
       end
 
-      it "get_spaces_by_tags", :vcr do
+      it "get_spaces_by_tags with city and state", :vcr do
         tags = ["studious", "quiet"]
-        search = ThirdSpacesService.new.get_spaces_by_tags(tags)
+        city = "boulder"
+        state = "CO"
+        search = ThirdSpacesService.new.get_spaces_by_tags(tags, city, state)
         expect(search).to be_a Hash
       end
 
