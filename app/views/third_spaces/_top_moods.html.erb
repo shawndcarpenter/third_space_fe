@@ -1,7 +1,7 @@
 <% if @mood_tags.nil? %>
   <h5>No information available</h5>
 <% else %>
-  <% @mood_tags.sort_by { |tag, freq| freq }.reverse.each do |tag, freq| %>
+  <% @mood_tags.sort_by { |tag, freq| freq }.reverse[0..2].each do |tag, freq| %>
     <% if freq == 1 %>
       <div class="rounded-highlight-b mx-auto" style="width: 300px; margin-bottom: 10px; display: flex; align-items: center; justify-content: space-between;">
         <span><%= tag %></span>
