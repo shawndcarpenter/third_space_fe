@@ -1,10 +1,7 @@
 <body>
   <div class="container-fluid">
-    <div class="logo-container">
-      <%= link_to dashboard_path do %>
-        <%= image_tag 'temp_logo.svg', class: "img-fluid smaller-logo", alt: "Logo" %>
-        <%= image_tag 'temp_logo.svg', class: "img-fluid smaller-logo", alt: "Logo" %>
-      <% end %>
+    <div class="row justify-content-center mt-4">
+      <%= render partial: 'shared/navbar' %>
     </div>
 
     <div class="container text-center mt-5">
