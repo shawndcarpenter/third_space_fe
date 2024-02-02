@@ -1,18 +1,18 @@
 <body style="background-color: #C8C991; display: flex; justify-content: center; align-items: center; min-height: 100vh; margin: 0;">
   <div class="container-sm text-center">
-      <%= image_tag 'temp_logo.svg', class: "img-fluid", alt: "Logo" %>
-      <br><br>
-      <h1>Enter OTP</h1>
-      <%= form_tag(validate_otp_path, method: :post, class: "mb-3") do %>
-        <div class="form-group d-flex justify-content-center">
-          <%= text_field_tag :otp, nil, class: "form-control text-center", id: "otp" %>
-        </div>
-        <div class="d-flex justify-content-center" style="margin-top: 15px;">
-          <%= submit_tag 'submit', class: "initial-button" %>
-        </div>
-      <% end %>
+    <%= image_tag 'temp_logo.svg', class: "img-fluid", alt: "Logo" %>
+    <br><br>
+    <h1>Enter OTP</h1>
+    <%= form_tag(validate_otp_path, method: :post, class: "mb-3") do %>
+      <div class="form-group d-flex justify-content-center">
+        <%= text_field_tag :otp, flash[:error] || nil, class: "form-control text-center", id: "otp", required: true %>
+      </div>
+      <div class="d-flex justify-content-center" style="margin-top: 15px;">
+        <%= submit_tag 'submit', class: "initial-button" %>
+      </div>
+    <% end %>
     <br>
-      For testing, your OTP is: <%= @otp %>
+    For testing, your OTP is: <%= @otp %>
     <br>
   </div>
 </body>

@@ -11,7 +11,7 @@
           <%= form_with url: update_location_param_path, method: :patch, local: true, html: { class: 'form-floating mb-3' } do |form| %>
             <div class="form-row d-flex align-items-end">
               <div class="col-md-8 col-sm-12 mb-2 city-input-spacing">
-                <%= form.text_field :city, id: "floatingInput", class: "form-control", placeholder: "Change location" %>
+                <%= form.text_field :city, id: "floatingInput", class: "form-control", placeholder: "Change location", required: true %>
               </div>
               <div class="col-md-2 col-sm-6 mb-2 state-select-spacing"> 
                 <%= form.select :state, User::STATE_ACRONYMS, { prompt: 'State' }, class: "form-control" %>
