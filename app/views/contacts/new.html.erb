@@ -11,7 +11,7 @@
   <%= form_with model: @contact, url: new_contact_form_path, local: true, html: { class: 'form-floating mb-3' } do |form| %>
 
     <div class="form-floating mb-3">
-      <%= form.text_field :subject, id: 'floatingInput', class: 'form-control', placeholder: 'Subject' %>
+      <%= form.text_field :subject, id: 'floatingInput', class: 'form-control', placeholder: 'Subject', required: true %>
       <%= form.label :subject, 'subject', for: 'floatingInput' %>
     </div>
 

@@ -10,7 +10,7 @@
       <h2>Forgot your password?</h2>
       <%= form_with url: password_reset_path, local: true, html: { class: 'form-floating mb-3' } do |form| %>
         <div class="form-floating mb-3">
-          <%= form.text_field :email, id: 'floatingInput', class: "form-control", placeholder: "email" %>
+          <%= form.text_field :email, id: 'floatingInput', class: "form-control", placeholder: "email", required: true %>
           <%= form.label :email, "email", for: 'floatingInput', class: "form-label" %>
         </div>
         <div class="mb-3">
