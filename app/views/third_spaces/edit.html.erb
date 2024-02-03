@@ -1,89 +1,108 @@
 <body style="background-color: #D0D19F; font-size: 20px;">
-  <div class="logo-container">
-    <%= link_to dashboard_path do %>
-      <%= image_tag 'temp_logo.svg', class: "img-fluid smaller-logo", alt: "Logo" %>
-    <% end %>
+<div class="container mt-5">
+  <div class="row justify-content-center mt-4">
+    <%= render partial: 'shared/navbar' %>
   </div>
 
   <div class="container text-center mt-5">
     <div class="mb-3">
       <h2><b>Edit This Third Space</b></h2><br>
-
       <%= form_tag(third_space_path(@space.yelp_id), method: "patch") do %>
-
-        <div class="mb-3 d-flex align-items-center">
-          <div class="col-sm-2 rounded-highlight">
-            <label class="form-label" for="name">Name</label>
-          </div>
-          <div class="col-sm-9">
-            <h4><%= @space.name %></h4>
-          </div>
+      <div class="mb-3 d-flex justify-content-start">
+        <div class="col-sm-2 rounded-highlight" style="min-width: 150px;">
+          <label class="form-label" for="name">Name</label>
         </div>
-
-        <div class="mb-3 d-flex align-items-center">
-          <div class="col-sm-2 rounded-highlight">
-            <label class="form-label" for="category">Category</label>
-          </div>
-          <div class="col-sm-9">
-            <h4><%= @space.category %></h4>
-          </div>
+        <div class="col align-items-center">
+          <h4><%= @space.name %></h4>
         </div>
-
-        <div class="mb-3 d-flex align-items-center">
-          <div class="col-sm-2 rounded-highlight">
-            <label class="form-label" for="address">Address</label>
-          </div>
-          <div class="col-sm-9">
-            <h4><%= @space.address %></h4>
-          </div>
+      </div>
+      <div class="mb-3 d-flex justify-content-start">
+        <div class="col-sm-2 rounded-highlight" style="min-width: 150px;">
+          <label class="form-label" for="category">Category</label>
         </div>
+        <div class="col">
+          <h4><%= @space.category %></h4>
+        </div>
+      </div>
 
-        <div class="justify-content-center align-items-center">
-          <div class="row">
-            <div class="col-sm-2 rounded-highlight">
-              Tags
-            </div>
+      <div class="mb-3 d-flex justify-content-start">
+        <div class="col-sm-2 rounded-highlight" style="min-width: 150px;">
+          <label class="form-label" for="address">Address</label>
+        </div>
+        <div class="col">
+          <h4><%= @space.address %></h4>
+        </div>
+      </div>
 
-            <div class="col-sm-2">
-              <h4>Moods</h4>
+      <div class="row justify-content-between mt-4">
+        
+        <div class="mb-3 d-flex justify-content-start">
+          <div class="col-sm-2 rounded-highlight" style="min-width: 150px;">
+            <label class="form-label" for="address">Tags</label>
+          </div>
+        <div class="container">
+  <div class="row justify-content-center">
+        <!-- Moods Section -->
+        <div class="col-2 px-3">
+          <div class="mb-3">
+            <h4>Moods</h4>
+            <br>
+            <div class="text-start mb-3 ml-2 mr-2">
               <% moods_array = ['Happy', 'Sad', 'Studious', 'Social', 'Chill', 'Party'] %>
               <% moods_array.each do |mood| %>
-                <%= check_box_tag 'space[tags][]', mood, @space.tags.include?(mood), class: 'form-check-input' %> <%= mood %><br>
+                <%= check_box_tag 'tags[]', mood, false, class: 'form-check-input' %> <%= mood %><br>
               <% end %>
             </div>
+          </div>
+        </div>
 
-            <div class="col-sm-3">
-              <h4>Features</h4>
-              <% features_options = {
-                'Staff Responsiveness' => ['Pushy', 'Helpful', 'Respectful'],
-                'Volume' => ['Loud', 'Quiet', 'Average'],
-                'Lighting' => ['Bright', 'Moody', 'Average Lighting']
-              } %>
-              <% features_options.each do |feature, options| %>
-                <%= label_tag feature %>
-                <%= select_tag "space[tags][]", options_for_select(options, selected: @space.tags & options), multiple: true, class: 'form-select' %><br>
-              <% end %>
-            </div>
+        <!-- Features Section -->
+        <div class="col-3 px-3 ">
+          <div class="mb-3">
+            <h4>Features</h4>
+            <br>
+            <% features_options = {
+              'Staff Responsiveness' => ['Pushy', 'Helpful', 'Respectful'],
+              'Volume' => ['Loud', 'Quiet', 'Average'],
+              'Lighting' => ['Bright', 'Moody', 'Average Lighting']
+            } %>
+            <% features_options.each do |feature, options| %>
+              <%= label_tag feature %>
+              <%= select_tag "tags[]", options_for_select(options), multiple: true, class: 'form-select' %><br>
+            <% end %>
+          </div>
+        </div>
 
-            <div class="col-sm-4">
-              <h4>Tags</h4>
+        <!-- Tags Section -->
+        <div class="col-4 px-3">
+          <div class="mb-3">
+            <h4>Tags</h4>
+            <br>
+            <div class="text-start">
               <% labels_array = ['Accessible Entrance', 'BIPOC Friendly', 'Child Friendly', 'Customer Restrooms', 'Gender Neutral Restrooms', 'Parking', 'Purchase Necessary', 'Public Transportation Nearby', 'Queer Friendly', 'Sober'] %>
               <% labels_array.each do |label| %>
-                <%= check_box_tag 'space[tags][]', label, @space.tags.include?(label), class: 'form-check-input' %> <%= label %><br>
+                <%= check_box_tag 'tags[]', label, false, class: 'form-check-input' %> <%= label %><br>
               <% end %>
             </div>
           </div>
         </div>
-
-        <%= hidden_field_tag 'space[location_json]', @json %>
-
-        <div class="row mt-3">
-          <div class="col-sm-12 text-center">
-            <%= submit_tag "update", class: "initial-button" %>
-          </div>
+      </div>
         </div>
+      </div>
 
-      <% end %>
+      <%= hidden_field_tag 'location_json', @json %>
+
+      <div class="row mt-3">
+        <div class="col-sm-12 text-center mb-4">
+          <%= submit_tag "update", class: "initial-button" %>
+        </div>
+      </div>
     </div>
-  </div>
+  <% end %>
+</div>
+</div>
 </body>
+
+
+
+
