@@ -22,6 +22,10 @@
             </div>
           <% end %>
 
+          <% flash.each do |type, message| %>
+            <div class="flash-messages flash-<%= type %>"><%= message %></div>
+          <% end %>
+
           <%= form_tag update_location_param_path, method: :patch, class: "w-100" do %>
             <%= hidden_field_tag :geo, "true" %>
             <%= button_tag(type: 'submit', class: 'location-button') do %>

@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: http://localhost:3000/api/v1/users/12345/third_spaces
+    uri: https://plankton-app-tavpa.ondigitalocean.app/api/v1/users/12345/third_spaces
     body:
       encoding: US-ASCII
       string: ''
@@ -18,6 +18,14 @@ http_interactions:
       code: 200
       message: OK
     headers:
+      Date:
+      - Sat, 03 Feb 2024 14:17:34 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
       X-Frame-Options:
       - SAMEORIGIN
       X-Xss-Protection:
@@ -30,25 +38,37 @@ http_interactions:
       - none
       Referrer-Policy:
       - strict-origin-when-cross-origin
-      Content-Type:
-      - application/json; charset=utf-8
       Vary:
-      - Accept
+      - Accept, Accept-Encoding
       Etag:
-      - W/"45a7203e484d0cadecb87ba1caecaf8d"
+      - W/"e03cfc774e3c8b83b80f592460642335"
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - 821514ed-d4e1-479d-bc74-34bcb399e944
+      - 30ca1dfa-45a9-4169-946d-cc674a8fa904
       X-Runtime:
-      - '0.009266'
-      Server-Timing:
-      - start_processing.action_controller;dur=0.07, sql.active_record;dur=3.51, instantiation.active_record;dur=0.04,
-        process_action.action_controller;dur=5.14
-      Transfer-Encoding:
-      - chunked
+      - '0.014947'
+      X-Do-App-Origin:
+      - 42daf057-993c-487d-b7a0-cf175a19f2a0
+      X-Do-Orig-Status:
+      - '200'
+      Cf-Cache-Status:
+      - MISS
+      Set-Cookie:
+      - __cf_bm=roylFZ_dkEJJYtBC0zPmt2vje8fDy2dT9pZbuFuhgy8-1706969854-1-AbwwrumU+XUIXM+dBayoNoFuHCWQOX2GkRKmHIV7u9P+KYU1XZVHrUN1YEwnUSuaYX/auzhtbJ5YWTE/HDiD2+A=;
+        path=/; expires=Sat, 03-Feb-24 14:47:34 GMT; domain=.ondigitalocean.app; HttpOnly;
+        Secure; SameSite=None
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 84fb4c5598ee7cb2-EWR
     body:
-      encoding: UTF-8
-      string: '{"data":{"id":"12345","type":"user","relationships":{"third_spaces":{"data":[]}}},"included":[]}'
-  recorded_at: Sat, 27 Jan 2024 17:17:47 GMT
+      encoding: ASCII-8BIT
+      string: '{"data":{"id":"12345","type":"user","relationships":{"third_spaces":{"data":[{"id":"302","type":"third_space"}]}}},"included":[{"id":"302","type":"third_space","attributes":{"yelp_id":"f-m7-hyFzkf0HSEeQ2s-9A","name":"name","address":"address","rating":5.0,"phone":"555-555-5555","photos":"[]","lat":123.4545,"lon":123455.67,"price":"$$$","hours":"{}","category":"yummy","tags":["Social","Quiet","Studious","Studious","Sad","Sad","Not
+        Accessible","Accessible Entrance","Not Accessible","Customer Restrooms","No
+        Customer Restrooms","No Customer Restrooms","No Parking","Sober","Purchase
+        Necessary","Not Child Friendly","Average Lighting","Transportation Close","No
+        Transportation Close","BIPOC Friendly","BIPOC Friendly","Queer Friendly","Pushy","No
+        Gender Neutral Restrooms"]}}]}'
+  recorded_at: Sat, 03 Feb 2024 14:17:34 GMT
 recorded_with: VCR 6.2.0

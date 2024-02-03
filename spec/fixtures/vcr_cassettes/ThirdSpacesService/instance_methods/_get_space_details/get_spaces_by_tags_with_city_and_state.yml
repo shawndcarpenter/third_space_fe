@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: http://localhost:3000/api/v1/third_spaces/search_by_tags?city=boulder&state=CO&tags%5B%5D=quiet&tags%5B%5D=studious
+    uri: https://plankton-app-tavpa.ondigitalocean.app/api/v1/third_spaces/search_by_tags?city=boulder&state=CO&tags%5B%5D=quiet&tags%5B%5D=studious
     body:
       encoding: US-ASCII
       string: ''
@@ -18,6 +18,14 @@ http_interactions:
       code: 200
       message: OK
     headers:
+      Date:
+      - Sat, 03 Feb 2024 14:17:35 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
       X-Frame-Options:
       - SAMEORIGIN
       X-Xss-Protection:
@@ -30,25 +38,47 @@ http_interactions:
       - none
       Referrer-Policy:
       - strict-origin-when-cross-origin
-      Content-Type:
-      - application/json; charset=utf-8
       Vary:
-      - Accept
+      - Accept, Accept-Encoding
       Etag:
-      - W/"8fe32e407a1038ee38753b70e5374b3a"
+      - W/"b597f63aa7972a51e37f20ba5cb16f3c"
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - 3bceea9f-4d8c-42f0-a3c6-925264e2e79d
+      - befe4bd5-b5a6-4ea2-808a-62b45c1c01c1
       X-Runtime:
-      - '0.158084'
-      Server-Timing:
-      - start_processing.action_controller;dur=1.13, sql.active_record;dur=56.98,
-        process_action.action_controller;dur=122.12
-      Transfer-Encoding:
-      - chunked
+      - '0.030865'
+      X-Do-App-Origin:
+      - 42daf057-993c-487d-b7a0-cf175a19f2a0
+      X-Do-Orig-Status:
+      - '200'
+      Cf-Cache-Status:
+      - MISS
+      Set-Cookie:
+      - __cf_bm=G..z985XPOqxrC6PySVEJ1dU19nwbsXcC_rpcFCyLpk-1706969855-1-AambcCG0IS2iCvm/Vu95KwEEJV2c56WKV+ErZxTz+bC4lHiBqWK2nuSSEqeq3gd4QazesKfQopTcBw9vSOdsjNg=;
+        path=/; expires=Sat, 03-Feb-24 14:47:35 GMT; domain=.ondigitalocean.app; HttpOnly;
+        Secure; SameSite=None
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 84fb4c5be8d0426d-EWR
     body:
-      encoding: UTF-8
-      string: '{"data":[]}'
-  recorded_at: Thu, 01 Feb 2024 02:04:55 GMT
+      encoding: ASCII-8BIT
+      string: '{"data":[{"id":"17","type":"third_space","attributes":{"yelp_id":"Y4Fqw4IKl9jDKHkQoDrGfQ","name":"Osaka''s","address":"2460
+        Canyon Blvd, Ste 1, Boulder, CO 80302","rating":4.5,"phone":"(720) 398-9115","photos":"https://s3-media3.fl.yelpcdn.com/bphoto/pXiZBCrLrHZtkeOMiBzd9Q/o.jpg","lat":40.016883196609896,"lon":-105.2627646960685,"price":"$$","hours":null,"category":"Japanese","tags":["Social","Quiet","Studious","Studious","Sad","Sad","Not
+        Accessible","Accessible Entrance","Not Accessible","Customer Restrooms","No
+        Customer Restrooms","No Customer Restrooms","No Parking","Sober","Purchase
+        Necessary","Not Child Friendly","Average Lighting","Transportation Close","No
+        Transportation Close","BIPOC Friendly","BIPOC Friendly","Queer Friendly","Pushy","No
+        Gender Neutral Restrooms"]}},{"id":"42","type":"third_space","attributes":{"yelp_id":"HqOLGrWt4g4Bu5aHorS_kQ","name":"Rayback
+        Collective","address":"2775 Valmont Rd, Boulder, CO 80304","rating":4.0,"phone":"(303)
+        214-2127","photos":"https://s3-media3.fl.yelpcdn.com/bphoto/_JntRNH3_CgkKunTg7zWZw/o.jpg","lat":40.02962686740258,"lon":-105.25945426235702,"price":"$$","hours":null,"category":"Food
+        Trucks","tags":["Chill","Average Noise","Studious","Party","Party","Party","Not
+        Accessible","Accessible Entrance","Customer Restrooms","Parking","Sober","No
+        Purchase Necessary","No Purchase Necessary","No Purchase Necessary","Bright","Transportation
+        Close","BIPOC Friendly","Respectful","Gender Neutral Restrooms"]}},{"id":"177","type":"third_space","attributes":{"yelp_id":"UxM5xYEsUTHRnJosq2pE6Q","name":"Nopalito''s","address":"1805
+        29th St, Ste 1138, Boulder, CO 80301","rating":5.0,"phone":"(720) 881-9934","photos":"https://s3-media2.fl.yelpcdn.com/bphoto/Mt6GqSork_sxr3dHjTZLew/o.jpg","lat":40.01867749294561,"lon":-105.25663387867311,"price":null,"hours":null,"category":"Mexican","tags":["studious","studious","sad","sad","not_accessible","accessible","not_accessible","customer_restrooms","no_customer_restrooms","no_customer_restrooms","no_parking","sober","purchase_necessary","not_child_friendly","average_lighting","transportation_close","no_transportation_close","bipoc_friendly","bipoc_friendly","queer_friendly","pushy","no_gender_neutral_restrooms"]}},{"id":"185","type":"third_space","attributes":{"yelp_id":"OCzajJdQ6p5m82diXAGnRw","name":"Carelli''s
+        Of Boulder","address":"645 30th St, Boulder, CO 80303","rating":4.0,"phone":"(303)
+        938-9300","photos":"https://s3-media2.fl.yelpcdn.com/bphoto/F11F8KuIZmfe01-iebuqFw/o.jpg","lat":39.9989036452522,"lon":-105.253388349175,"price":"$$$","hours":null,"category":"Italian","tags":["studious","party","party","party","not_accessible","accessible","customer_restrooms","parking","sober","no_purchase_necessary","no_purchase_necessary","no_purchase_necessary","bright","transportation_close","bipoc_friendly","respectful","gender_neutral_restrooms"]}}]}'
+  recorded_at: Sat, 03 Feb 2024 14:17:35 GMT
 recorded_with: VCR 6.2.0

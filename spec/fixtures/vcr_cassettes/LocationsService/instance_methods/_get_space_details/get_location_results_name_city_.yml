@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: http://localhost:3000/api/v1/locations/search_locations?city=Boulder&name=Starbucks
+    uri: https://plankton-app-tavpa.ondigitalocean.app/api/v1/locations/search_locations?city=Boulder&name=Starbucks
     body:
       encoding: US-ASCII
       string: ''
@@ -18,6 +18,14 @@ http_interactions:
       code: 200
       message: OK
     headers:
+      Date:
+      - Sat, 03 Feb 2024 14:17:32 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
       X-Frame-Options:
       - SAMEORIGIN
       X-Xss-Protection:
@@ -30,24 +38,32 @@ http_interactions:
       - none
       Referrer-Policy:
       - strict-origin-when-cross-origin
-      Content-Type:
-      - application/json; charset=utf-8
       Vary:
-      - Accept
+      - Accept, Accept-Encoding
       Etag:
       - W/"e2a4db7c8cc9c62e41f2ce36f755021b"
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - b28b47f4-f1fa-4b32-8149-25b70e7c9989
+      - ad33f6de-b50a-4041-bf67-d700f075b3ae
       X-Runtime:
-      - '0.510086'
-      Server-Timing:
-      - start_processing.action_controller;dur=2.86, process_action.action_controller;dur=502.06
-      Transfer-Encoding:
-      - chunked
+      - '0.336157'
+      X-Do-App-Origin:
+      - 42daf057-993c-487d-b7a0-cf175a19f2a0
+      X-Do-Orig-Status:
+      - '200'
+      Cf-Cache-Status:
+      - MISS
+      Set-Cookie:
+      - __cf_bm=agenLqoUOQW94rI3aGr7SaTkHJ2UJwOIFvOCafZT5wU-1706969852-1-AcKeoXWSYhdDnua3ToCo0OgeoreUc/yYBuvOnt4S+fqHANf48ry9JWGuqoiu/a2wNTtu9J12Ge1cElHltLVfU7E=;
+        path=/; expires=Sat, 03-Feb-24 14:47:32 GMT; domain=.ondigitalocean.app; HttpOnly;
+        Secure; SameSite=None
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 84fb4c486fd041e7-EWR
     body:
-      encoding: UTF-8
+      encoding: ASCII-8BIT
       string: '{"data":[{"id":"8ODBEFHVV2Vi2kpNqu_iwQ","type":"search_result","attributes":{"id":"8ODBEFHVV2Vi2kpNqu_iwQ","name":"Starbucks","address":"2770
         Pearl St, Ste B, Boulder, CO 80302","category":"Coffee \u0026 Tea"}},{"id":"7F1v-0oljyURDmNzYKw-VA","type":"search_result","attributes":{"id":"7F1v-0oljyURDmNzYKw-VA","name":"Starbucks","address":"2800
         Pearl St, Target, Boulder, CO 80301","category":"Coffee \u0026 Tea"}},{"id":"POaYhrmLCSBfOpxem8CbpA","type":"search_result","attributes":{"id":"POaYhrmLCSBfOpxem8CbpA","name":"Starbucks","address":"3033
@@ -81,5 +97,5 @@ http_interactions:
         \u0026 Tea"}},{"id":"tQ7UdYAqvn7mm4qzAisJlw","type":"search_result","attributes":{"id":"tQ7UdYAqvn7mm4qzAisJlw","name":"OZO
         Coffee Company","address":"1521 Pearl St, Boulder, CO 80302","category":"Coffee
         \u0026 Tea"}}]}'
-  recorded_at: Sat, 27 Jan 2024 17:17:45 GMT
+  recorded_at: Sat, 03 Feb 2024 14:17:32 GMT
 recorded_with: VCR 6.2.0

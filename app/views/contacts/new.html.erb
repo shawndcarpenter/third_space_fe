@@ -8,6 +8,11 @@
     </div>
 
   <h2>contact us</h2>
+<% flash.each do |type, message| %>
+  <div class="flash-messages flash-<%= type %>"><%= message %></div>
+<% end %>
+
+
   <%= form_with model: @contact, url: new_contact_form_path, local: true, html: { class: 'form-floating mb-3' } do |form| %>
 
     <div class="form-floating mb-3">
