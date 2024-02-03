@@ -117,7 +117,7 @@
 }
 
 .space-link:hover {
-  color: #9a9292 !important; /* Use !important to ensure it overrides other styles */
+  color: #9a9292 !important; 
 }
 
 
@@ -317,7 +317,8 @@
 
 
 .rounded-entry {
-  border-radius: 8px;
+  border-radius: 16px;
+  height: 240px;
   padding: 16px;
   background-color: #D7D5AC;
   border: 2px solid #D7D5AC;
@@ -469,4 +470,39 @@
 .small-default-button:hover {
   border: 2px solid #A499EC;
   background-color: #A499EC;
+}
+
+.navbar-logo {
+  width: 200px; /* Adjust logo size as needed */
+  height: auto;
+}
+
+.form-control-lg {
+  font-size: 1.25rem; /* Larger font size for search input */
+  padding: .5rem 1rem; /* Adjust padding to make the input taller */
+}
+
+/* Ensure elements in the navbar are evenly spaced */
+.navbar-nav {
+  margin-left: auto;
+}
+
+/* CSS for the right-side elements of the navbar */
+.navbar-right {
+  display: flex;
+  align-items: center;
+}
+
+/* Media query for smaller screens */
+@media (max-width: 768px) { /* Adjust the breakpoint as needed */
+  .navbar-collapse {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .navbar-right {
+    justify-content: center; /* Center the items when they stack below */
+    margin-top: 1rem; /* Add some space between the search bar and the right-side elements */
+  }
 }

@@ -1,38 +1,83 @@
+<div class="container-fluid d-flex justify-content-center">
+
 <nav class="navbar navbar-light bg-light" style="box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); margin-bottom: 20px;">
-
-  <div class="container-fluid d-flex align-items-center">
-
+  <div class="container-fluid d-flex align-items-center justify-content-between">
+    <!-- Left side logo -->
     <a class="navbar-brand" href="<%= dashboard_path %>" style="margin-right: 2rem;">
-      <%= image_tag 'temp_logo.svg', style: "width: 200px; height: auto;", alt: "Logo" %> 
+      <%= image_tag 'temp_logo.svg', style: "width: 200px; height: auto;", alt: "Logo", class: "navbar-logo" %> 
     </a>
 
-    <form class="d-flex w-50" action="/third_spaces/search" method="get" name="name" id="name">
-      <input class="form-control me-2" id="name" name="name" type="text" placeholder="search by name" aria-label="Search" style="flex-grow: 1;">
-      <button class="small-default-button" type="submit" style="margin-right: 2rem;">Search</button>
-      <%# <button class="small-default-button" type="submit" style="margin-right: 2rem;">Filter</button> %>
-    </form>
+    <!-- Search Bar -->
+    <div class="d-flex align-items-center flex-grow-1 mx-2">
+      <form class="d-flex flex-grow-1 me-2" action="/third_spaces/search" method="get">
+        <input class="form-control me-2" name="search_name" type="search" placeholder="Search by name" aria-label="Search by name">
+        <button class="small-default-button" type="submit" style="margin-right: 2rem;">Search</button>
+      </form>
+    </div>
 
-
-
-    
-
-<button id="modal-btn" class="btn btn-secondary p-2" data-bs-toggle="modal" data-bs-target="#my-modal">
+    <!-- Right side: Filter, Location and Mood Dropdown -->
+    <div class="navbar-right d-flex align-items-center ms-2">      
+      <button id="filter-modal-btn" class="btn btn-secondary p-2" data-bs-toggle="modal" data-bs-target="#filter-modal">
         <span class="img-btn-wrapper">
-          <%= image_tag 'filter.svg', alt: "Location", style: "margin-right: 5px;" %> Filter
+          <%= image_tag 'filter.svg', alt: "Filter" %> Filter
         </span>
       </button>
 
-      <div class="modal fade" id="my-modal" tabindex="-1" aria-labelledby="filter-modal" aria-hidden="true">
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="my-modal-label">Filter</h5>
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-              <%= form_tag("/third_spaces/search", method: "get") do %>
-                <div class="form-group">
-                              <div class="form-group">
+    <div class="d-flex align-items-center ms-2">
+      <% if current_user.search_location.present? %>
+        <a class="btn btn-secondary p-2 me-2" href="<%= set_location_path %>" style="display: flex; align-items: center;">
+          <span class="img-btn-wrapper">
+            <%= image_tag 'location.svg', alt: "Location" %> 
+            <%= current_user.search_location.city %>, <%= current_user.search_location.state %>
+          </span>
+        </a>
+      <% end %>
+
+      <div class="dropdown me-3">
+        <button class="btn btn-secondary dropdown-toggle p-2" id="moodDropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+          <%= current_user.search_location.mood %> 
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="moodDropdownMenuButton">
+          <li><%= link_to 'happy', update_search_location_path(mood: 'Happy'), class: 'dropdown-item', method: :patch %></li>
+          <li><%= link_to 'studious', update_search_location_path(mood: 'Studious'), class: 'dropdown-item', method: :patch %></li>
+          <li><%= link_to 'sad', update_search_location_path(mood: 'Sad'), class: 'dropdown-item', method: :patch %></li>
+          <li><%= link_to 'social', update_search_location_path(mood: 'Social'), class: 'dropdown-item', method: :patch %></li>
+          <li><%= link_to 'party', update_search_location_path(mood: 'Party'), class: 'dropdown-item', method: :patch %></li>
+          <li><%= link_to 'chill', update_search_location_path(mood: 'Chill'), class: 'dropdown-item', method: :patch %></li>
+        </ul>
+      </div>
+
+    
+
+    <div class="ml-auto collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mb-2 mb-lg-0">
+        <li class="nav-item <%= 'active-nav-item' if current_page?(dashboard_path) %>"><%= link_to 'dashboard', dashboard_path, class: 'nav-link' %></li>
+        <li class="nav-item"><%= link_to 'privacy & security', privacy_path, class: 'nav-link' %></li>
+        <li class="nav-item"><%= link_to 'create a third space', locations_search_path, class: 'nav-link' %></li>
+        <li class="nav-item"><%= link_to 'log out', logout_path, class: 'nav-link' %></li>
+        <li class="nav-item"><%= link_to 'contact us', new_contact_form_path, class: 'nav-link' %></li>
+      </ul>
+    </div>
+    </div>
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" style="order: 2;">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  </div>
+</nav>
+    </div>
+  </div>
+
+  <!-- Modal for the filter button -->
+  <div class="modal fade" id="filter-modal" tabindex="-1" aria-labelledby="filter-modal-label" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="filter-modal-label">Filter</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <%= form_tag("/third_spaces/search", method: "get") do %>
+            <div class="form-group">
               <% features_options = {
                 'Mood' => ['Happy', 'Sad', 'Studious', 'Social', 'Party', 'Chill'],
                 'Staff Responsiveness' => ['Pushy', 'Helpful', 'Respectful'],
@@ -54,6 +99,7 @@
                   <%= label_tag label %>
                 </div>
               <% end %>
+
             </div>
                 </div>
                 <div class="container-fluid d-flex justify-content-center align-items-center pt-3">
@@ -64,45 +110,6 @@
           </div>
         </div>
       </div>
+</div>
 
-    <div class="ml-auto">
-      <% if current_user.search_location.present? %>
-        <a class="btn btn-secondary p-2" href="<%= set_location_path %>" style="height: fit-content; display: flex; align-items: center;">
-          <span class="img-btn-wrapper">
-            <%= image_tag 'location.svg', alt: "Location", style: "margin-right: 5px;" %> 
-            <%= current_user.search_location.city %>, <%= current_user.search_location.state %>
-          </span>
-        </a>
-      <% end %>
-    </div>
 
-      <div class="ml-auto dropdown me-3">
-        <a class="btn btn-secondary dropdown-toggle p-2" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
-          <%= current_user.search_location.mood %> 
-        </a>
-      <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-        <li><%= link_to 'happy', update_search_location_path(mood: 'Happy'), class: 'dropdown-item', method: :patch %></li>
-        <li><%= link_to 'studious', update_search_location_path(mood: 'Studious'), class: 'dropdown-item', method: :patch %></li>
-        <li><%= link_to 'sad', update_search_location_path(mood: 'Sad'), class: 'dropdown-item', method: :patch %></li>
-        <li><%= link_to 'social', update_search_location_path(mood: 'Social'), class: 'dropdown-item', method: :patch %></li>
-        <li><%= link_to 'party', update_search_location_path(mood: 'Party'), class: 'dropdown-item', method: :patch %></li>
-        <li><%= link_to 'chill', update_search_location_path(mood: 'Chill'), class: 'dropdown-item', method: :patch %></li>
-      </ul>
-    </div>
-
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" style="order: 2;">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    
-
-    <div class="ml-auto collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav mb-2 mb-lg-0">
-        <li class="nav-item <%= 'active-nav-item' if current_page?(dashboard_path) %>"><%= link_to 'dashboard', dashboard_path, class: 'nav-link' %></li>
-        <li class="nav-item"><%= link_to 'privacy & security', privacy_path, class: 'nav-link' %></li>
-        <li class="nav-item"><%= link_to 'create a third space', locations_search_path, class: 'nav-link' %></li>
-        <li class="nav-item"><%= link_to 'log out', logout_path, class: 'nav-link' %></li>
-        <li class="nav-item"><%= link_to 'contact us', new_contact_form_path, class: 'nav-link' %></li>
-      </ul>
-    </div>
-  </div>
-</nav>
