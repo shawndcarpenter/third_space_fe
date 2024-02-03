@@ -132,7 +132,7 @@ class UsersController < ApplicationController
     elsif session[:code] == entered_otp && session[:otp_expires_at] < Time.current
       redirect_to login_path, notice: 'OTP session has expired. Please try logging in again.'
     else
-      flash[:alert] = 'Invalid OTP. Please try again.'
+      flash[:error] = 'Invalid OTP. Please try again.'
       redirect_to validate_otp_path
     end
   end

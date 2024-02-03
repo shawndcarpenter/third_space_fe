@@ -68,5 +68,6 @@ Rails.application.routes.draw do
   namespace :admin do
     get "/dashboard", to: "dashboard#index"
   end
+  match "/error", to: "errors#show", via: :all
 
 end

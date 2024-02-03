@@ -10,12 +10,12 @@
       
       <%= form_with url: locations_path, method: :get, local: true do |form| %>
         <div class="form-floating mb-3">  
-            <%= form.text_field :name, id: 'floatingInput', class: "form-control", placeholder: "name" %>
+            <%= form.text_field :name, id: 'floatingInput', class: "form-control", placeholder: "name", required: true %>
             <%= form.label :name, "name", for: 'floatingInput', class: "form-label" %>
         </div>
 
         <div class="form-floating mb-3">
-            <%= form.text_field :city, id: 'floatingInput', class: "form-control", placeholder: "city" %>
+            <%= form.text_field :city, id: 'floatingInput', class: "form-control", placeholder: "city", required: true %>
             <%= form.label :city, "city", for: 'floatingInput', class: "form-label" %>
         </div>
 
