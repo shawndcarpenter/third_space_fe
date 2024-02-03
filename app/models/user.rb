@@ -33,6 +33,7 @@ class User < ApplicationRecord
   
   def generate_otp_secret_key
     self.otp_secret_key = ROTP::Base32.random(6) unless Rails.env.test?
+    self.otp_secret_key = ROTP::Base32.random(6) unless Rails.env.test?
     save
   end
   

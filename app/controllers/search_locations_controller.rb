@@ -49,6 +49,12 @@ class SearchLocationsController < ApplicationController
 
   def geocode_location(lat, lon)
     results = Geocoder.search([lat, lon])
+    
+    if results.empty?
+      flash[:error] = "Unable to geocode location. Please check your coordinates."
+      return []
+    end
+    
     city_state = []
     if !results.first.data["address"]["city"]
       city_state << results.first.data["address"]["county"]
@@ -58,6 +64,7 @@ class SearchLocationsController < ApplicationController
       city_state << results.first.data["address"]["state"]
     end
   end
+  
   
   def geolocation_parse(geolocation)
     if geolocation.nil? || geolocation.empty?

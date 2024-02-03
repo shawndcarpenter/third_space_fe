@@ -1,35 +1,42 @@
 <body>
-  <div class="container-fluid">
-    <div class="logo-container">
-      <%= link_to dashboard_path do %>
-        <%= image_tag 'temp_logo.svg', class: "img-fluid smaller-logo", alt: "Logo" %>
-      <% end %>
+<div class="container mt-5">
+  <div class="row justify-content-center mt-4">
+    <%= render partial: 'shared/navbar' %>
+
+  <div class="container mt-5 text-center">
+    <div class="mb-4">
+      <h2><%= @location.name %></h2>
+      <div class="rounded-highlight-b-ext">
+        <%= @location.category %>
+      </div>
     </div>
 
-    <div class="container text-center mt-5">
-      <div class="text-center">
-        <div class="d-inline-block text-left">
-          <h2><%= @location.name %></h2>
-          <div class="rounded-highlight-b-ext">
-            <%= @location.category %>
-          </div>
+    <!-- Image Section -->
+    <div class="container">
+ <div class="row justify-content-center">
+      <% if @location.photos.count > 0 %>
+        <div class="col-md-5">
+          <%= image_tag @location.photos[0], class: "img-fluid rounded main-image" %>
         </div>
-      </div>
-
-      <br>
-      <div class="text-center">
-        <% @location.photos.each do |photo_url| %>
-          <%= image_tag photo_url, width: "400", height: "350", class: "rounded-image" %>
+        <% if @location.photos.count > 2 %>
+          <div class="col-md-3 d-flex flex-column justify-content-between">
+            <%= image_tag @location.photos[1], class: "img-fluid rounded small-image mb-2" %>
+            <% if @location.photos.count > 2 %>
+              <%= image_tag @location.photos[2], class: "img-fluid rounded small-image" %>
+            <% end %>
+          </div>
         <% end %>
-
-        <br><br>
+      <% end %>
+    </div>
+        <br>
+        <br>
 
         <div class="row justify-content-center my-3">
-      <div class="col-md-auto">
-        <div class="d-inline rounded-highlight-b">
-          <%= image_tag 'purple_location.svg', alt: "Purple Location Icon", style: "margin-right: 5px;" %><%= @location.address %>
-        </div>
-      </div>
+          <div class="col-md-auto">
+            <div class="d-inline rounded-highlight-b">
+              <%= image_tag 'purple_location.svg', alt: "Purple Location Icon", style: "margin-right: 5px;" %><%= @location.address %>
+            </div>
+          </div>
 
       <div class="col-md-auto">
         <div class="d-inline rounded-highlight-b">
@@ -55,8 +62,8 @@
           <a href="<%= new_third_space_path(location_json: @location_json) %>" class="rounded-button">Create a Third Space</a>
           <br><br>
 
-          <% @reviews.each do |r| %>
-            <div class="justify-content-center rounded-highlight-custom text-center">
+<% @reviews.each do |r| %>
+            <div class="justify-content-center rounded-highlight-custom text-center mb-3">
               <div class="d-inline">
               <% r.rating.round(1).to_s.split('')[0].to_i.times do %>
                 <%= image_tag 'full-star.svg', alt: "Full Star", style: "margin-right: 5px;" %>

@@ -1,31 +1,32 @@
 <body>
-  <div class="container-fluid">
+<div class="container mt-5">
+  <div class="row justify-content-center mt-4">
     <%= render partial: 'shared/navbar' %>
 
     <div class="container text-center">
-      <div class="row justify-content-center align-items-center my-3">
-        <div class="col-md-4 text-end"> 
+      <div class="row justify-content-center align-items-center">
+        <div class="col-md-3 text-end"> 
           <h2><%= @space.name %></h2>
         </div>
-        <div class="col-md-2 d-flex justify-content-center"> 
+        <div class="col-md-3 text-center"> 
           <div class="rounded-highlight-b-ext">
             <%= @space.category %>
           </div>
         </div>
-        <div class="col-md-4 text-start"> 
+        <div class="col-md-3 text-start"> 
           <% if @saved_yelp_ids.include?(@space.yelp_id) %>
-            <form class="d-flex justify-content-end align-items-center" action="/third_spaces/unfavorite" method="delete">
+            <form class="d-flex align-items-center" action="/third_spaces/unfavorite" method="delete">
               <button class="small-default-button" name="yelp_id" id="yelp_id" value="<%= @space.yelp_id %>" type="submit">Remove Favorite</button>
             </form>
           <% else %>
-            <form class="d-flex justify-content-end align-items-center" action="/third_spaces/favorite" method="post">
+            <form class="d-flex align-items-center" action="/third_spaces/favorite" method="post">
               <button class="small-default-button" name="yelp_id" id="yelp_id" value="<%= @space.yelp_id %>" type="submit">Favorite</button>
             </form>
           <% end %>
-          </div>
         </div>
       </div>
     </div>
+
 
     <div class="text-center">
       <% if !@space.photos.nil? %>
@@ -42,71 +43,67 @@
       <% end %>
     </div>
 
-  <div class="container text-center">
-    <% if current_user.admin? %>
-      <%= button_to "Delete Third Space", third_space_path(params[:id]), method: :delete %>
-    <% end %>
+    <div class="container text-center">
+      <% if current_user.admin? %>
+        <%= button_to "Delete Third Space", third_space_path(params[:id]), method: :delete %>
+      <% end %>
 
-    <div class="row justify-content-center my-3">
-      <div class="col-md-auto">
-        <div class="d-inline rounded-highlight-b">
-          <%= image_tag 'purple_location.svg', alt: "Purple Location Icon", style: "margin-right: 5px;" %><%= @space.address %>
-        </div>
-      </div>
-
-      <div class="col-md-auto">
-        <div class="d-inline rounded-highlight-b">
-          <% @avg_rating.round(1).to_s.split('')[0].to_i.times do %>
-            <%= image_tag 'full-star.svg', alt: "Full Star", style: "margin-right: 5px;" %>
-          <% end %>
-          <% if @avg_rating.round(1).to_s.split('')[2].to_i >= 5 %>
-            <%= image_tag 'half-star.svg', alt: "Half Star", style: "margin-right: 5px;" %>
-          <% end %>
-          <%= @avg_rating.round(1) %>
-        </div>
-      </div>
-
-      <% if !@space.price.nil? %>
+      <div class="row justify-content-center my-3">
         <div class="col-md-auto">
           <div class="d-inline rounded-highlight-b">
-            <%= @space.price %>
+            <%= image_tag 'purple_location.svg', alt: "Purple Location Icon", style: "margin-right: 5px;" %><%= @space.address %>
           </div>
         </div>
-      <% end %>
-    </div>
 
-    <h3>Top Moods</h3>
-    <%= render partial: 'top_moods' %>
-  </div>
-
-      <% @reviews.reject { |r| r.date.nil? }.sort_by { |r| r.date }.reverse.first(20).each do |r| %>
-        <div class="justify-content-center rounded-highlight-custom text-center">
-          <div class="d-inline">
-          <% r.rating.round(1).to_s.split('')[0].to_i.times do %>
-            <%= image_tag 'full-star.svg', alt: "Full Star", style: "margin-right: 5px;" %>
-          <% end %>
-          <% if r.rating.round(1).to_s.split('')[2].to_i >= 5 %>
-            <%= image_tag 'half-star.svg', alt: "Half Star", style: "margin-right: 5px;" %>
-          <% end %>
-          <%= r.rating.to_f.round(1) %> / 5.0<br>
-          <%= r.text %> <br> - <%= r.name %> <br> <b><%= r.date %></b>
+        <div class="col-md-auto">
+          <div class="d-inline rounded-highlight-b">
+            <% @avg_rating.round(1).to_s.split('')[0].to_i.times do %>
+              <%= image_tag 'full-star.svg', alt: "Full Star", style: "margin-right: 5px;" %>
+            <% end %>
+            <% if @avg_rating.round(1).to_s.split('')[2].to_i >= 5 %>
+              <%= image_tag 'half-star.svg', alt: "Half Star", style: "margin-right: 5px;" %>
+            <% end %>
+            <%= @avg_rating.round(1) %>
           </div>
         </div>
-      <% end %>
-    </div>
-  </div>
 
-  <div class="container-fluid text-center">
-    <div class="d-flex justify-content-center align-items-center">
-      <form action="/third_spaces/<%= @space.yelp_id %>/add_review" method="get" style="margin-right: 10px;">
-        <button class="small-default-button" name="yelp_id" id="yelp_id" value="<%= @space.yelp_id %>" type="submit">Write A Review</button>
-      </form>
-      <%= link_to "See All Reviews", "/third_spaces/#{params[:id]}/all_reviews", class: "small-default-button" %>
+        <% if !@space.price.nil? %>
+          <div class="col-md-auto">
+            <div class="d-inline rounded-highlight-b">
+              <%= @space.price %>
+            </div>
+          </div>
+        <% end %>
+        </div>
+
+        <h3>Top Moods</h3>
+        <%= render partial: 'top_moods' %>
+      </div>
+    <div class="container text-center">
+  <% @reviews.reject { |r| r.date.nil? }.sort_by { |r| r.date }.reverse.first(20).each do |r| %>
+    <div class="row justify-content-center">
+      <div class="col-md-9 mb-3 rounded-highlight-custom">
+        <%= r.text %> <br> - <%= r.name %> (Rating: <%= r.rating %>/5) <br> <%= r.date %>
+      </div>
     </div>
-  </div>
+  <% end %>
+</div>
+  <%# </div> %>
+    <div class="container text-center mt-4">
+      <div class="row justify-content-center">
+        <div class="col-auto">
+          <form action="/third_spaces/<%= @space.yelp_id %>/add_review" method="get">
+            <button class="btn btn-primary" name="yelp_id" id="yelp_id" value="<%= @space.yelp_id %>" type="submit">Write A Review</button>
+          </form>
+        </div>
+        <div class="col-auto">
+          <%= link_to "See All Reviews", "/third_spaces/#{params[:id]}/all_reviews", class: "btn btn-primary" %>
+        </div>
+      </div>
+    </div>
   
   <br><br>
   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 </body>
