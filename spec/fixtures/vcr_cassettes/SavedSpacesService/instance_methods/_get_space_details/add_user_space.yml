@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: post
-    uri: http://localhost:3000/api/v1/user_third_spaces?third_space_id=f-m7-hyFzkf0HSEeQ2s-9A&user_id=12345
+    uri: https://plankton-app-tavpa.ondigitalocean.app/api/v1/user_third_spaces?third_space_id=f-m7-hyFzkf0HSEeQ2s-9A&user_id=12345
     body:
       encoding: UTF-8
       string: ''
@@ -17,9 +17,17 @@ http_interactions:
       - "*/*"
   response:
     status:
-      code: 200
-      message: OK
+      code: 422
+      message: Unprocessable Entity
     headers:
+      Date:
+      - Sat, 03 Feb 2024 14:17:34 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
       X-Frame-Options:
       - SAMEORIGIN
       X-Xss-Protection:
@@ -32,25 +40,31 @@ http_interactions:
       - none
       Referrer-Policy:
       - strict-origin-when-cross-origin
-      Content-Type:
-      - application/json; charset=utf-8
       Vary:
       - Accept
-      Etag:
-      - W/"cef2a3f0b55c8ebcac97a78194d6f143"
       Cache-Control:
-      - max-age=0, private, must-revalidate
+      - no-cache
       X-Request-Id:
-      - 2e00bb38-015d-4b64-b79b-a4839fde4cd2
+      - 33199d13-a5f6-4004-828a-ce12c958b51e
       X-Runtime:
-      - '0.033389'
-      Server-Timing:
-      - start_processing.action_controller;dur=0.06, sql.active_record;dur=24.46,
-        instantiation.active_record;dur=0.15, process_action.action_controller;dur=30.27
-      Transfer-Encoding:
-      - chunked
+      - '0.013230'
+      X-Do-App-Origin:
+      - 42daf057-993c-487d-b7a0-cf175a19f2a0
+      X-Do-Orig-Status:
+      - '422'
+      Cf-Cache-Status:
+      - DYNAMIC
+      Set-Cookie:
+      - __cf_bm=dMT.zGVCSV40g8QrlGfQ0poB.dF8A9mrCqqUJcg1c6c-1706969854-1-ASq8Wqlhsklv1RF3i963SQbIh9lFMGZZuoMn78UgW20kJKECujT/J3ep5+hdBN9mFxmD8xLwQduA1tiGRNmkGD0=;
+        path=/; expires=Sat, 03-Feb-24 14:47:34 GMT; domain=.ondigitalocean.app; HttpOnly;
+        Secure; SameSite=None
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 84fb4c5678299e02-EWR
     body:
       encoding: UTF-8
-      string: '{"data":{"id":"12345","type":"user","relationships":{"third_spaces":{"data":[{"id":"151","type":"third_space"}]}}},"included":[{"id":"151","type":"third_space","attributes":{"yelp_id":"f-m7-hyFzkf0HSEeQ2s-9A","name":"name","address":"address","rating":5.0,"phone":"555-555-5555","photos":"[]","lat":123.4545,"lon":123455.67,"price":"$$$","hours":"{}","category":"yummy","tags":["happy"]}}]}'
-  recorded_at: Sat, 27 Jan 2024 17:17:47 GMT
+      string: '{"errors":[{"detail":"Validation failed: user third_space association
+        between user with user_id=12345 and third_space_id=302 already exists"}]}'
+  recorded_at: Sat, 03 Feb 2024 14:17:34 GMT
 recorded_with: VCR 6.2.0

@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: post
-    uri: http://localhost:3000/api/v1/third_spaces/f-m7-hyFzkf0HSEeQ2s-9A/reviews?date&name=name&rating=5&text=text&yelp_id=f-m7-hyFzkf0HSEeQ2s-9A
+    uri: https://plankton-app-tavpa.ondigitalocean.app/api/v1/third_spaces/f-m7-hyFzkf0HSEeQ2s-9A/reviews?date&name=name&rating=5&text=text&yelp_id=f-m7-hyFzkf0HSEeQ2s-9A
     body:
       encoding: UTF-8
       string: ''
@@ -20,6 +20,14 @@ http_interactions:
       code: 200
       message: OK
     headers:
+      Date:
+      - Sat, 03 Feb 2024 14:17:36 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
       X-Frame-Options:
       - SAMEORIGIN
       X-Xss-Protection:
@@ -32,25 +40,32 @@ http_interactions:
       - none
       Referrer-Policy:
       - strict-origin-when-cross-origin
-      Content-Type:
-      - application/json; charset=utf-8
       Vary:
       - Accept
       Etag:
-      - W/"cf45459ed1af349137a8c1135baa866d"
+      - W/"ecbb42ef00c845fc6645a7e8e9c18516"
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - dd016a8f-f0ac-41ac-b36e-523911631659
+      - 18063b3c-8100-464e-adbf-4cc88f3f2f3c
       X-Runtime:
-      - '0.014787'
-      Server-Timing:
-      - start_processing.action_controller;dur=0.08, sql.active_record;dur=6.82, instantiation.active_record;dur=0.09,
-        process_action.action_controller;dur=11.39
-      Transfer-Encoding:
-      - chunked
+      - '0.021786'
+      X-Do-App-Origin:
+      - 42daf057-993c-487d-b7a0-cf175a19f2a0
+      X-Do-Orig-Status:
+      - '200'
+      Cf-Cache-Status:
+      - DYNAMIC
+      Set-Cookie:
+      - __cf_bm=CEkDe2tvIUiN3GVGVz.mBAtzUdNfjl9M82LQLoQrg6A-1706969856-1-AUHnHNGW1AC6T5wlTszq2zJ5s3Gi6nMus9uMXD5nMSNHQc5Wp7MmYuwCeOcZp1uMgwFif6pgkycQsGIi5nQMDGk=;
+        path=/; expires=Sat, 03-Feb-24 14:47:36 GMT; domain=.ondigitalocean.app; HttpOnly;
+        Secure; SameSite=None
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 84fb4c632f4d8cb7-EWR
     body:
-      encoding: UTF-8
-      string: '{"data":{"id":"1","type":"review_object","attributes":{"id":1,"rating":"5","text":"text","name":"name","date":null,"yelp_id":"f-m7-hyFzkf0HSEeQ2s-9A"}}}'
-  recorded_at: Sat, 27 Jan 2024 17:17:48 GMT
+      encoding: ASCII-8BIT
+      string: '{"data":{"id":"8","type":"review_object","attributes":{"id":8,"rating":"5","text":"text","name":"name","date":null,"yelp_id":"f-m7-hyFzkf0HSEeQ2s-9A"}}}'
+  recorded_at: Sat, 03 Feb 2024 14:17:36 GMT
 recorded_with: VCR 6.2.0

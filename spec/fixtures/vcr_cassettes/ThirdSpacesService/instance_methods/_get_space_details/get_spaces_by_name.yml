@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: http://localhost:3000/api/v1/third_spaces/search_by_name?name=name
+    uri: https://plankton-app-tavpa.ondigitalocean.app/api/v1/third_spaces/search_by_name?name=name
     body:
       encoding: US-ASCII
       string: ''
@@ -18,6 +18,14 @@ http_interactions:
       code: 200
       message: OK
     headers:
+      Date:
+      - Sat, 03 Feb 2024 14:17:35 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
       X-Frame-Options:
       - SAMEORIGIN
       X-Xss-Protection:
@@ -30,25 +38,46 @@ http_interactions:
       - none
       Referrer-Policy:
       - strict-origin-when-cross-origin
-      Content-Type:
-      - application/json; charset=utf-8
       Vary:
-      - Accept
+      - Accept, Accept-Encoding
       Etag:
-      - W/"31fa2ad946c394a0b1e07beb383a735f"
+      - W/"7e7186f80220ba4233ac32808465d02c"
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - 0ee28b66-f2af-460c-9df2-d9b011a9dc19
+      - 27a6279e-6470-4143-ba13-0dc45148611e
       X-Runtime:
-      - '0.005494'
-      Server-Timing:
-      - start_processing.action_controller;dur=0.06, sql.active_record;dur=1.76, instantiation.active_record;dur=0.03,
-        process_action.action_controller;dur=2.47
-      Transfer-Encoding:
-      - chunked
+      - '0.011508'
+      X-Do-App-Origin:
+      - 42daf057-993c-487d-b7a0-cf175a19f2a0
+      X-Do-Orig-Status:
+      - '200'
+      Cf-Cache-Status:
+      - MISS
+      Set-Cookie:
+      - __cf_bm=pT81QTOFY0FFd478Ms1_FIn3GepjPtEcW9nf4J4pzbs-1706969855-1-AZNLT8TASv6fgF/Ak6xaI6MIWORVf+p0NnUFGJIAOwyyxiJuVuDZuqBADlxZ0YRgE4itHxmwysSAFgHTGQJchis=;
+        path=/; expires=Sat, 03-Feb-24 14:47:35 GMT; domain=.ondigitalocean.app; HttpOnly;
+        Secure; SameSite=None
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 84fb4c5b1bb20f5d-EWR
     body:
-      encoding: UTF-8
-      string: '{"data":[{"id":"151","type":"third_space","attributes":{"yelp_id":"f-m7-hyFzkf0HSEeQ2s-9A","name":"name","address":"address","rating":5.0,"phone":"555-555-5555","photos":"[]","lat":123.4545,"lon":123455.67,"price":"$$$","hours":"{}","category":"yummy","tags":["happy","happy"]}}]}'
-  recorded_at: Sat, 27 Jan 2024 17:17:48 GMT
+      encoding: ASCII-8BIT
+      string: '{"data":[{"id":"302","type":"third_space","attributes":{"yelp_id":"f-m7-hyFzkf0HSEeQ2s-9A","name":"name","address":"address","rating":5.0,"phone":"555-555-5555","photos":"[]","lat":123.4545,"lon":123455.67,"price":"$$$","hours":"{}","category":"yummy","tags":["Social","Quiet","Studious","Studious","Sad","Sad","Not
+        Accessible","Accessible Entrance","Not Accessible","Customer Restrooms","No
+        Customer Restrooms","No Customer Restrooms","No Parking","Sober","Purchase
+        Necessary","Not Child Friendly","Average Lighting","Transportation Close","No
+        Transportation Close","BIPOC Friendly","BIPOC Friendly","Queer Friendly","Pushy","No
+        Gender Neutral Restrooms","happy"]}},{"id":"303","type":"third_space","attributes":{"yelp_id":"f-m7-hyFzkf0HSEeQ2s-9A","name":"name","address":"address","rating":5.0,"phone":"555-555-5555","photos":"[]","lat":123.4545,"lon":123455.67,"price":"$$$","hours":"{}","category":"yummy","tags":["Social","Quiet","Party","Party","Party","Party","Party","Party","Accessible
+        Entrance","Accessible Entrance","Accessible Entrance","No Customer Restrooms","No
+        Parking","No Parking","Sober","Purchase Necessary","Purchase Necessary","No
+        Purchase Necessary","Moody","No Transportation Close","Queer Friendly","Responsive","Gender
+        Neutral Restrooms"]}},{"id":"304","type":"third_space","attributes":{"yelp_id":"f-m7-hyFzkf0HSEeQ2s-9A","name":"name","address":"address","rating":5.0,"phone":"555-555-5555","photos":"[]","lat":123.4545,"lon":123455.67,"price":"$$$","hours":"{}","category":"yummy","tags":["Quiet","Happy","Studious","Happy","Studious","Accessible
+        Entrance","Accessible Entrance","Accessible Entrance","Accessible Entrance","Customer
+        Restrooms","Customer Restrooms","Parking","Sober","Purchase Necessary","Purchase
+        Necessary","Purchase Necessary","Child Friendly","Child Friendly","Bright","No
+        Transportation Close","BIPOC Friendly","Queer Friendly","Respectful","Gender
+        Neutral Restrooms"]}},{"id":"766","type":"third_space","attributes":{"yelp_id":"f-m7-hyFzkf0HSEeQ2s-9A","name":"name","address":"address","rating":5.0,"phone":"555-555-5555","photos":"[]","lat":123.4545,"lon":123455.67,"price":"$$$","hours":"{}","category":"yummy","tags":["happy"]}},{"id":"767","type":"third_space","attributes":{"yelp_id":"f-m7-hyFzkf0HSEeQ2s-9A","name":"name","address":"address","rating":5.0,"phone":"555-555-5555","photos":"[]","lat":123.4545,"lon":123455.67,"price":"$$$","hours":"{}","category":"yummy","tags":["happy"]}}]}'
+  recorded_at: Sat, 03 Feb 2024 14:17:35 GMT
 recorded_with: VCR 6.2.0

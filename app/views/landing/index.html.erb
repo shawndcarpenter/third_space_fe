@@ -1,12 +1,13 @@
 <body style="background-color: #C8C991;">
   <div class="container-fluid d-flex justify-content-center align-items-center vh-100">
     <div class="text-center">
-      <%= link_to dashboard_path do %>
-        <%= image_tag 'temp_logo.svg', class: "img-fluid", alt: "Logo", style: "width: 567px; height: 95px;" %>
-      <% end %>
       <% if current_user %>
+        <%= link_to dashboard_path do %>
+          <%= image_tag 'temp_logo.svg', class: "img-fluid", alt: "Logo", style: "width: 567px; height: 95px;" %>
+        <% end %><br>
         <%= link_to "log out", logout_path, class: "initial-button" %>
       <% else %>
+        <%= image_tag 'temp_logo.svg', class: "img-fluid", alt: "Logo", style: "width: 567px; height: 95px;" %>
         <div class="d-grid gap-4 d-md-flex justify-content-md-center">
           <a href="/login" class="initial-button">login</a> 
           <a href="/register" class="initial-button">new user</a>

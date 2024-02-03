@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: delete
-    uri: http://localhost:3000/api/v1/user_third_spaces?third_space_id=f-m7-hyFzkf0HSEeQ2s-9A&user_id=12345
+    uri: https://plankton-app-tavpa.ondigitalocean.app/api/v1/user_third_spaces?third_space_id=f-m7-hyFzkf0HSEeQ2s-9A&user_id=12345
     body:
       encoding: US-ASCII
       string: ''
@@ -18,6 +18,10 @@ http_interactions:
       code: 204
       message: No Content
     headers:
+      Date:
+      - Sat, 03 Feb 2024 14:17:34 GMT
+      Connection:
+      - keep-alive
       X-Frame-Options:
       - SAMEORIGIN
       X-Xss-Protection:
@@ -35,14 +39,25 @@ http_interactions:
       Cache-Control:
       - no-cache
       X-Request-Id:
-      - e267990b-7759-4972-b45c-7b59a4d56002
+      - b8aa4d33-080a-4890-a3d5-2dcb6b93072b
       X-Runtime:
-      - '0.052305'
-      Server-Timing:
-      - start_processing.action_controller;dur=0.14, sql.active_record;dur=14.73,
-        instantiation.active_record;dur=3.11, process_action.action_controller;dur=43.13
+      - '0.019605'
+      X-Do-App-Origin:
+      - 42daf057-993c-487d-b7a0-cf175a19f2a0
+      X-Do-Orig-Status:
+      - '204'
+      Cf-Cache-Status:
+      - DYNAMIC
+      Set-Cookie:
+      - __cf_bm=ohFkWxnN_cCps8rOqGfi87GB2KHgf5T2c9m9gX6j5n4-1706969854-1-Abr+mgRV9WWfclbTq44VYWvZPZ3XCjF8v6KwQHEn/4sN4T+pX62EjLUQAXCjUl1WNx/OVZ2cc3aBoCcHGmR0V70=;
+        path=/; expires=Sat, 03-Feb-24 14:47:34 GMT; domain=.ondigitalocean.app; HttpOnly;
+        Secure; SameSite=None
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 84fb4c579ef85e82-EWR
     body:
       encoding: UTF-8
       string: ''
-  recorded_at: Sat, 27 Jan 2024 19:26:10 GMT
+  recorded_at: Sat, 03 Feb 2024 14:17:34 GMT
 recorded_with: VCR 6.2.0

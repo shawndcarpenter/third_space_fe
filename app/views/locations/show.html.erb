@@ -13,21 +13,22 @@
 
     <!-- Image Section -->
     <div class="container">
-  <div class="row justify-content-center">
-      <% if @location.photos.count > 0 %>
-        <div class="col-md-5">
-          <%= image_tag @location.photos[0], width: "400", height: "350", class: "rounded-image" %>
-        </div>
-        <% if @location.photos.count > 2 %>
-          <div class="col-md-3 d-flex flex-column justify-content-between">
-            <%= image_tag @location.photos[1], width: "200", height: "175", class: "rounded-image" %>
-            <% if @location.photos.count > 2 %>
-              <%= image_tag @location.photos[2], width: "200", height: "175", class: "rounded-image" %>
-            <% end %>
-          </div>
-        <% end %>
-      <% end %>
+ <div class="row justify-content-center">
+  <% if @location.photos.count > 0 %>
+    <div class="col-md-5 d-flex align-items-center justify-content-center">
+      <%= image_tag @location.photos[0], class: "rounded-image img-fluid", style: "max-width: 400px; max-height: 350px;" %>
     </div>
+    <% if @location.photos.count > 2 %>
+      <div class="col-md-3 d-flex flex-column justify-content-between">
+        <%= image_tag @location.photos[1], class: "rounded-image img-fluid", style: "max-width: 200px; max-height: 175px;" %>
+        <% if @location.photos.count > 2 %>
+          <%= image_tag @location.photos[2], class: "rounded-image img-fluid", style: "max-width: 200px; max-height: 175px;" %>
+        <% end %>
+      </div>
+    <% end %>
+  <% end %>
+</div>
+
         <br>
         <br>
 
