@@ -2,32 +2,36 @@
   <div class="row justify-content-center mt-4">
     <%= render partial: 'shared/navbar' %>
 
-    <b><h3>third spaces matching your search terms.</h3></b>
-    <br><br>
-
-    <% if @spaces.any? %>
-      <div class="row">
-        <% @spaces.each do |third_space_poro| %>
-          <div class="col-4 mb-4 ">
-            <div class="rounded-entry">
-              <h3><%= link_to "#{third_space_poro.name}", third_space_path(third_space_poro.yelp_id), class: "space-link" %></h3>
-              <p><strong>Category:</strong> <%= third_space_poro.category %></p>
-              <p><strong>Address:</strong> <%= third_space_poro.address %></p>
-              <p><strong>Rating:</strong> <%= third_space_poro.rating %></p>
-              <% if @saved_yelp_ids.include?(third_space_poro.yelp_id) %>
-                <form class="d-flex justify-content-between" action="/third_spaces/unfavorite" method="delete">
-                  <button class="small-default-button me-2" name="yelp_id" id="yelp_id" value="<%= third_space_poro.yelp_id %>" type="submit">Remove Favorite</button>
-                </form>
-              <% else %>
-                <form class="d-flex justify-content-between" action="/third_spaces/favorite" method="post">
-                  <button class="small-default-button me-2" name="yelp_id" id="yelp_id" value="<%= third_space_poro.yelp_id %>" type="submit">Favorite</button>
-                </form>
+      <div class="col mx-auto"> 
+        <div class="container-fluid text-center">
+          <h3 class="text-center my-4">third spaces matching your search terms.</h3>
+          <% if @spaces.any? %>
+            <div class="row">
+              <% @spaces.each do |recommendation| %>
+                <div class="col-md-4 mb-4">
+                  <div id="location_result-<%= recommendation.id %>" class="recommendation-entry rounded-entry p-3 h-100 w-100">
+                    <p class="fs-4 text-center">
+                    <%= link_to recommendation.name, third_space_path(recommendation.yelp_id), class: "space-link" %> </p>
+                    <p class="fs-6 text-center text-wrap"><%= recommendation.address %></p>
+                    <p class="fs-6 text-center text-wrap"><%= recommendation.category %></p>
+                    <div style="padding-bottom: 10px">
+                      <% recommendation.rating.round(1).to_s.split('')[0].to_i.times do %>
+                        <%= image_tag 'full-star.svg', alt: "Full Star", style: "margin-right: 5px;" %>
+                      <% end %>
+                      <% if recommendation.rating.round(1).to_s.split('')[2].to_i >= 5 %>
+                        <%= image_tag 'half-star.svg', alt: "Half Star", style: "margin-right: 5px;" %>
+                      <% end %>
+                      <span><b><%= recommendation.rating.round(1) %></b></span>
+                    </div>
+                  </div>
+                </div>
               <% end %>
             </div>
-          </div>
-        <% end %>
+          <% else %>
+            No Third Spaces found with these search terms.
+          <% end %>
+        </div>
       </div>
-    <% else %>
-      No Third Spaces found with these search terms.
-    <% end %>
+    </div>
   </div>
+</div>

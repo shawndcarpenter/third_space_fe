@@ -387,6 +387,22 @@
   border-radius: 21px;
 }
 
+.initial-button-small {
+  display: inline-block;
+  height: 30px; /* Reduced height */
+  padding: 4px 10px !important; /* Reduced padding for top, bottom, left, and right */
+  border: 1px solid #ACABE3; /* Thinner border */
+  background-color: #ACABE3;
+  font-weight: bold;
+  cursor: pointer; /* Show a pointer cursor on hover */
+  transition: background-color 0.3s; /* Smooth transition for background color change */
+  text-decoration: none; /* Remove underline from hyperlink */
+  color: inherit;
+  text-align: center; /* Ensure text is horizontally centered */
+  line-height: 20px; /* Adjusted line height for vertical centering */
+  font-size: 16px; /* Smaller font size */
+}
+
 .initial-button {
   display: inline-block;
   height: 50px; /* Set the height */
