@@ -21,12 +21,16 @@ class SearchLocationsController < ApplicationController
   def update_search_location
     if params[:city] && params[:state]
       current_user.search_location.update(city: search_params[:city].titleize, state: search_params[:state])
-    else params[:geo]
+      redirect_to dashboard_path
+    elsif (session[:lat].nil? || session[:lon].nil?)
+      flash[:error] = "Error fetching location. Please make sure you have granted permission to access your location."
+      redirect_to set_location_path
+    else params[:geo] && session[:lat] && session[:lon]
       geolocation = geocode_location(session[:lat], session[:lon])
       geo_hash = geolocation_parse(geolocation)
       search_location = current_user.search_location.update(geo_hash)
+      redirect_to dashboard_path
     end
-    redirect_to dashboard_path
   end
 
   def update

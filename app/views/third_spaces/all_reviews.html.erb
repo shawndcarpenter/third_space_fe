@@ -75,7 +75,16 @@
 
         <% filtered_reviews.each do |r| %>
           <div class="justify-content-center rounded-highlight-custom text-center">
-            <%= r.text %> <br> - <%= r.name %> (Rating: <%= r.rating %>/5) <br> <%= r.date %>
+            <div class="d-inline">
+            <% r.rating.round(1).to_s.split('')[0].to_i.times do %>
+              <%= image_tag 'full-star.svg', alt: "Full Star", style: "margin-right: 5px;" %>
+            <% end %>
+            <% if r.rating.round(1).to_s.split('')[2].to_i >= 5 %>
+              <%= image_tag 'half-star.svg', alt: "Half Star", style: "margin-right: 5px;" %>
+            <% end %>
+            <%= r.rating.to_f.round(1) %> / 5.0<br>
+            <%= r.text %> <br> - <%= r.name %> <br> <b><%= r.date %></b>
+            </div>
           </div>
         <% end %>
        </div>

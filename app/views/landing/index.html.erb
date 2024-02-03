@@ -5,7 +5,7 @@
         <%= image_tag 'temp_logo.svg', class: "img-fluid", alt: "Logo", style: "width: 567px; height: 95px;" %>
       <% end %>
       <% if current_user %>
-        <%= link_to "Log Out", logout_path, class: "initial-button" %>
+        <%= link_to "log out", logout_path, class: "initial-button" %>
       <% else %>
         <div class="d-grid gap-4 d-md-flex justify-content-md-center">
           <a href="/login" class="initial-button">login</a> 
