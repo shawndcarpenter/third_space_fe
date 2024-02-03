@@ -3,7 +3,7 @@
   <div class="container-fluid d-flex align-items-center">
 
     <a class="navbar-brand" href="<%= dashboard_path %>" style="margin-right: 2rem;">
-      <%= image_tag 'temp_logo.svg', style: "width: 200px; height: auto;", alt: "Logo" %> 
+      <%= image_tag 'temp_logo.png', style: "width: 200px; height: auto;", alt: "Logo" %> 
     </a>
 
     <form class="d-flex w-50" action="/third_spaces/search" method="get" name="name" id="name">
@@ -76,10 +76,10 @@
       <% end %>
     </div>
 
-      <div class="ml-auto dropdown me-3">
-        <a class="btn btn-secondary dropdown-toggle p-2" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
-          <%= current_user.search_location.mood %> 
-        </a>
+    <div class="ml-auto dropdown me-3">
+      <a class="btn btn-secondary dropdown-toggle p-2" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+        <%= current_user.search_location.mood %> 
+      </a>
       <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
         <li><%= link_to 'happy', update_search_location_path(mood: 'Happy'), class: 'dropdown-item', method: :patch %></li>
         <li><%= link_to 'studious', update_search_location_path(mood: 'Studious'), class: 'dropdown-item', method: :patch %></li>
@@ -104,5 +104,6 @@
         <li class="nav-item"><%= link_to 'contact us', new_contact_form_path, class: 'nav-link' %></li>
       </ul>
     </div>
+    
   </div>
 </nav>

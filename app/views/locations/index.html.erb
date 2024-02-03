@@ -25,7 +25,7 @@
                     <button class="small-default-button me-2 text-center" name="yelp_id" id="yelp_id" value="<%= location.id %>" type="submit">Update Third Space</button>
                 </form>
               <% else %>
-                <h3 class="space-link text-center"><%= link_to location.name, location_path(location.id) %></h3>
+                <h3 class="space-link text-center"><%= link_to location.name, location_path(location.id), class: "space-link" %></h3>
                 <p class="fs-6 text-center text-wrap"><%= location.address %></p>
                 <p class="fs-6 text-center text-wrap"><%= location.category %></p>
               <% end %>
