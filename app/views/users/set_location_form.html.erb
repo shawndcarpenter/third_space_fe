@@ -22,15 +22,15 @@
             </div>
           <% end %>
 
-
-
           <%= form_tag update_location_param_path, method: :patch, class: "w-100" do %>
             <%= hidden_field_tag :geo, "true" %>
             <%= button_tag(type: 'submit', class: 'location-button') do %>
               <%= image_tag 'blk-location.svg', alt: "Location Arrow", style: "margin-right: 5px;" %> Use Current Location
             <% end %>
           <% end %>
+
         <% else %>
+        
           <h3>Where would you like to search today?</h3><br>
           <%= form_with url: search_locations_path, method: :post, local: true, html: { class: 'form-floating mb-3' } do |form| %>
             <div class="form-row d-flex align-items-end">
