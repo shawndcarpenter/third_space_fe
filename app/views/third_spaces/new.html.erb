@@ -1,5 +1,6 @@
 <body style="background-color: #D0D19F; font-size: 20px;">
-  <div class="container-fluid">
+<div class="container mt-5">
+  <div class="row justify-content-center mt-4">
     <%= render partial: 'shared/navbar' %>
   </div>
 
@@ -8,92 +9,94 @@
       <h2><b>Create a New Third Space</b></h2><br>
       <%= form_tag(create_third_space_third_spaces_path, method: "get") do %>
     </div>
-      <div class="mb-3 d-flex justify-content-center">
+      <div class="mb-3 d-flex justify-content-start">
         <div class="col-sm-2 rounded-highlight" style="min-width: 150px;">
           <label class="form-label" for="name">Name</label>
         </div>
-        <div class="col-sm-4">
+        <div class="col align-items-center">
           <h4><%= @location.name %></h4>
         </div>
       </div>
-      <div class="mb-3 d-flex justify-content-center">
+      <div class="mb-3 d-flex justify-content-start">
         <div class="col-sm-2 rounded-highlight" style="min-width: 150px;">
           <label class="form-label" for="category">Category</label>
         </div>
-        <div class="col-sm-4">
+        <div class="col">
           <h4><%= @location.category %></h4>
         </div>
       </div>
 
-      <div class="mb-3 d-flex justify-content-center">
+      <div class="mb-3 d-flex justify-content-start">
         <div class="col-sm-2 rounded-highlight" style="min-width: 150px;">
           <label class="form-label" for="address">Address</label>
         </div>
-        <div class="col-sm-4">
+        <div class="col">
           <h4><%= @location.address %></h4>
         </div>
       </div>
 
-<div class="row justify-content-center">
-  <div class="col-md-3">
-    <div class="mb-4">
-      <div class="col-2 rounded-highlight" style="min-width: 150px;">
-        <h4>Moods</h4>
-      </div>
-      <br>
-      <div class="text-start">
-        <% moods_array = ['Happy', 'Sad', 'Studious', 'Social', 'Chill', 'Party'] %>
-        <% moods_array.each do |mood| %>
-          <%= check_box_tag 'tags[]', mood, false, class: 'form-check-input' %> <%= mood %><br>
-        <% end %>
-      </div>
-    </div>
-  </div>
-
-  <div class="col-md-3">
-    <div class="mb-4">
-      <div class="col-2 rounded-highlight" style="min-width: 150px;">
-        <h4>Features</h4>
-      </div>
-      <br>
-      <% features_options = {
-        'Staff Responsiveness' => ['Pushy', 'Helpful', 'Respectful'],
-        'Volume' => ['Loud', 'Quiet', 'Average'],
-        'Lighting' => ['Bright', 'Moody', 'Average Lighting']
-      } %>
-      <% features_options.each do |feature, options| %>
-        <%= label_tag feature %>
-        <%= select_tag "tags[]", options_for_select(options), multiple: true, class: 'form-select' %><br>
-      <% end %>
-    </div>
-  </div>
-
-  <div class="col-md-3">
-    <div class="mb-4">
-      <div class="col-2 rounded-highlight" style="min-width: 150px;">
-        <h4>Tags</h4>
-      </div>
-      <div class="text-start">
-        <% labels_array = ['Accessible Entrance', 'BIPOC Friendly', 'Child Friendly', 'Customer Restrooms', 'Gender Neutral Restrooms', 'Parking', 'Purchase Necessary', 'Public Transportation Nearby', 'Queer Friendly', 'Sober'] %>
-        <% labels_array.each do |label| %>
-          <%= check_box_tag 'tags[]', label, false, class: 'form-check-input' %> <%= label %><br>
-        <% end %>
-      </div>
-    </div>
-  </div>
-</div>
-
-
-
-        <%= hidden_field_tag 'location_json', @json %>
-
-        <div class="row mt-3">
-          <div class="col-sm-12 text-center">
-            <%= submit_tag "create", class: "initial-button" %>
+    <div class="row justify-content-between mt-4">
+      
+      <div class="mb-3 d-flex justify-content-start">
+        <div class="col-sm-2 rounded-highlight" style="min-width: 150px;">
+          <label class="form-label" for="address">Tags</label>
+        </div>
+      <!-- Moods Section -->
+      <div class="col-3 px-3">
+        <div class="mb-3">
+          <h4>Moods</h4>
+          <br>
+          <div class="text-start mb-3 ml-2 mr-2">
+            <% moods_array = ['Happy', 'Sad', 'Studious', 'Social', 'Chill', 'Party'] %>
+            <% moods_array.each do |mood| %>
+              <%= check_box_tag 'tags[]', mood, false, class: 'form-check-input' %> <%= mood %><br>
+            <% end %>
           </div>
         </div>
+      </div>
 
-      <% end %>
+      <!-- Features Section -->
+      <div class="col-3 px-3 ">
+        <div class="mb-3">
+          <h4>Features</h4>
+          <br>
+          <% features_options = {
+            'Staff Responsiveness' => ['Pushy', 'Helpful', 'Respectful'],
+            'Volume' => ['Loud', 'Quiet', 'Average'],
+            'Lighting' => ['Bright', 'Moody', 'Average Lighting']
+          } %>
+          <% features_options.each do |feature, options| %>
+            <%= label_tag feature %>
+            <%= select_tag "tags[]", options_for_select(options), multiple: true, class: 'form-select' %><br>
+          <% end %>
+        </div>
+      </div>
+
+      <!-- Tags Section -->
+      <div class="col-3 px-3">
+        <div class="mb-3">
+          <h4>Tags</h4>
+          <br>
+          <div class="text-start">
+            <% labels_array = ['Accessible Entrance', 'BIPOC Friendly', 'Child Friendly', 'Customer Restrooms', 'Gender Neutral Restrooms', 'Parking', 'Purchase Necessary', 'Public Transportation Nearby', 'Queer Friendly', 'Sober'] %>
+            <% labels_array.each do |label| %>
+              <%= check_box_tag 'tags[]', label, false, class: 'form-check-input' %> <%= label %><br>
+            <% end %>
+          </div>
+        </div>
+      </div>
+
     </div>
-  </div>
+
+    <%= hidden_field_tag 'location_json', @json %>
+
+    <div class="row mt-3">
+      <div class="col-sm-12 text-center mb-4">
+        <%= submit_tag "create", class: "initial-button" %>
+      </div>
+    </div>
+
+  <% end %>
+</div>
+</div>
 </body>

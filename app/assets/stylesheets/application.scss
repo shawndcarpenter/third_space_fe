@@ -75,8 +75,8 @@
   color: black;
   font-weight: bold;
 
-  border-radius: 5px; /* Adjust as needed for the desired rounded effect */
-  padding: 5px; /* Add padding to make the rounded corners noticeable */
+  border-radius: 10px; /* Adjust as needed for the desired rounded effect */
+  padding: 10px; /* Add padding to make the rounded corners noticeable */
   display: inline-block; /* This helps in applying padding and border-radius */
   margin-right: -5px; /* Negative margin to compensate for the padding */
   margin-left: -5px; /* Negative margin to compensate for the padding */
@@ -102,13 +102,24 @@
   text-transform: none;
 }
 
+
 .dash-header:hover {
-  background-color: #F5F5F5;
-  border-radius: 20px; 
-  padding: 5px;
+  background-color: #F5F5F5; /* Color change on hover */
+  box-shadow: 0 0 0 10px #F5F5F5 inset; /* Inset box-shadow that simulates padding */
+  
 }
 
+.btn-primary {
+  border: rgba(153, 171, 236, 1);
+  background-color: rgba(153, 171, 236, 1);
+  color: black;
+}
 
+.btn-primary:hover {
+  border: #A499EC;
+  background-color: #A499EC;
+  color: black;
+}
 .space-link {
   text-decoration: none !important;
   color: rgb(35, 35, 35);
