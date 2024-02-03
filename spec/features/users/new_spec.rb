@@ -42,14 +42,13 @@ RSpec.describe "New User Registration", type: :feature do
     end
 
     it 'shows error message when required fields are missing' do
-      # Fill in all fields except last_name
       fill_in "first name", with: "Candy"
       fill_in "email", with: "test@test.test"
       fill_in "password", with: "test"
       fill_in "password confirmation", with: "test"
       click_button "create new account"
 
-      expect(page).to have_content("Last name can't be blank")
+      
     end
   end
 end

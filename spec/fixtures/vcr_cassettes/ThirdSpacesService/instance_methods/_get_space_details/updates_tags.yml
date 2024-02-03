@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: patch
-    uri: http://localhost:3000/api/v1/third_spaces/f-m7-hyFzkf0HSEeQ2s-9A?tags%5B%5D=happy&yelp_id=f-m7-hyFzkf0HSEeQ2s-9A
+    uri: https://plankton-app-tavpa.ondigitalocean.app/api/v1/third_spaces/f-m7-hyFzkf0HSEeQ2s-9A?tags%5B%5D=happy&yelp_id=f-m7-hyFzkf0HSEeQ2s-9A
     body:
       encoding: UTF-8
       string: ''
@@ -20,6 +20,14 @@ http_interactions:
       code: 200
       message: OK
     headers:
+      Date:
+      - Sat, 03 Feb 2024 14:17:35 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
       X-Frame-Options:
       - SAMEORIGIN
       X-Xss-Protection:
@@ -32,25 +40,37 @@ http_interactions:
       - none
       Referrer-Policy:
       - strict-origin-when-cross-origin
-      Content-Type:
-      - application/json; charset=utf-8
       Vary:
       - Accept
       Etag:
-      - W/"8c27725601ee84f6a6c9f551906a8495"
+      - W/"e70afd28a8b5933adc62b2e522eb9e5a"
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - 859b6f16-d2f7-4976-af3a-571d7afc9aa3
+      - deb5281e-5ee8-4c78-847f-e4ee2d3bd033
       X-Runtime:
-      - '0.009905'
-      Server-Timing:
-      - start_processing.action_controller;dur=0.07, sql.active_record;dur=4.10, instantiation.active_record;dur=0.04,
-        process_action.action_controller;dur=6.57
-      Transfer-Encoding:
-      - chunked
+      - '0.026078'
+      X-Do-App-Origin:
+      - 42daf057-993c-487d-b7a0-cf175a19f2a0
+      X-Do-Orig-Status:
+      - '200'
+      Cf-Cache-Status:
+      - DYNAMIC
+      Set-Cookie:
+      - __cf_bm=kz9xkPwHgMWcEMuqvCzeaFq_em.PTmq9DZWtpO07jGc-1706969855-1-Ac/NmFVaciemmdVGG1UpnADjBFX1f/fFmYgIpL+YU3j/4Rgt2M3iv6hVYm2hZcToN5w4LXyTL2neaz6VQtMUuGc=;
+        path=/; expires=Sat, 03-Feb-24 14:47:35 GMT; domain=.ondigitalocean.app; HttpOnly;
+        Secure; SameSite=None
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 84fb4c5a4f7242d8-EWR
     body:
-      encoding: UTF-8
-      string: '{"data":{"id":"151","type":"third_space","attributes":{"yelp_id":"f-m7-hyFzkf0HSEeQ2s-9A","name":"name","address":"address","rating":5.0,"phone":"555-555-5555","photos":"[]","lat":123.4545,"lon":123455.67,"price":"$$$","hours":"{}","category":"yummy","tags":["happy","happy"]}}}'
-  recorded_at: Sat, 27 Jan 2024 17:17:47 GMT
+      encoding: ASCII-8BIT
+      string: '{"data":{"id":"302","type":"third_space","attributes":{"yelp_id":"f-m7-hyFzkf0HSEeQ2s-9A","name":"name","address":"address","rating":5.0,"phone":"555-555-5555","photos":"[]","lat":123.4545,"lon":123455.67,"price":"$$$","hours":"{}","category":"yummy","tags":["Social","Quiet","Studious","Studious","Sad","Sad","Not
+        Accessible","Accessible Entrance","Not Accessible","Customer Restrooms","No
+        Customer Restrooms","No Customer Restrooms","No Parking","Sober","Purchase
+        Necessary","Not Child Friendly","Average Lighting","Transportation Close","No
+        Transportation Close","BIPOC Friendly","BIPOC Friendly","Queer Friendly","Pushy","No
+        Gender Neutral Restrooms","happy"]}}}'
+  recorded_at: Sat, 03 Feb 2024 14:17:35 GMT
 recorded_with: VCR 6.2.0

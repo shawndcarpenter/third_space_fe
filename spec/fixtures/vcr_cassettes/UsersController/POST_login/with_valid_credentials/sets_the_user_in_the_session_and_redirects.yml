@@ -5,7 +5,7 @@ http_interactions:
     uri: https://api.sendgrid.com/v3/mail/send
     body:
       encoding: UTF-8
-      string: '{"from":{"email":"thirdspace2308@gmail.com"},"subject":"Your OTP","personalizations":[{"to":[{"email":"zonia@huel.example"}]}],"content":[{"type":"text/plain","value":"Your
+      string: '{"from":{"email":"thirdspace2308@gmail.com"},"subject":"Your OTP","personalizations":[{"to":[{"email":"melissia@leannon.test"}]}],"content":[{"type":"text/plain","value":"Your
         OTP for Two-Factor Authentication at third space.\n    Your OTP code is: 123456"}]}'
     headers:
       Accept-Encoding:
@@ -15,24 +15,24 @@ http_interactions:
       User-Agent:
       - sendgrid/6.7.0;ruby
       Authorization:
-      - Bearer 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
+      - Bearer <sendgrid_api_key>
       Content-Type:
       - application/json
   response:
     status:
-      code: 401
-      message: Unauthorized
+      code: 202
+      message: Accepted
     headers:
       Server:
       - nginx
       Date:
-      - Sun, 28 Jan 2024 04:34:02 GMT
-      Content-Type:
-      - application/json
+      - Sat, 03 Feb 2024 14:17:26 GMT
       Content-Length:
-      - '116'
+      - '0'
       Connection:
       - keep-alive
+      X-Message-Id:
+      - spZBTUQsSQOSlpc85Ad0Eg
       Access-Control-Allow-Origin:
       - https://sendgrid.api-docs.io
       Access-Control-Allow-Methods:
@@ -47,7 +47,6 @@ http_interactions:
       - max-age=600; includeSubDomains
     body:
       encoding: UTF-8
-      string: '{"errors":[{"message":"The provided authorization grant is invalid,
-        expired, or revoked","field":null,"help":null}]}'
-  recorded_at: Sun, 28 Jan 2024 04:34:02 GMT
+      string: ''
+  recorded_at: Sat, 03 Feb 2024 14:17:25 GMT
 recorded_with: VCR 6.2.0
