@@ -8,7 +8,7 @@
       <div class="d-flex">
         <% if @mood_recs.any? %>
           <% @mood_recs.each do |third_space_poro| %>
-            <div class="rounded-entry me-5" >
+            <div class="text-center rounded-entry me-5" style="display: flex; flex-direction: column; align-items: center;">
               <h3 class="space-link">
                 <%= link_to third_space_path(third_space_poro.yelp_id), class: "space-link" do %>
                   <%= third_space_poro.name %>
@@ -16,17 +16,24 @@
               </h3>
               <p><strong>Category:</strong> <%= third_space_poro.category %></p>
               <p><strong>Address:</strong> <%= third_space_poro.address %></p>
-              <p><strong>Rating:</strong> <%= third_space_poro.rating %></p>
+              <div style="display: flex; align-items: center; justify-content: center; padding-bottom: 10px;">
+                <% third_space_poro.rating.round(1).to_s.split('')[0].to_i.times do %>
+                  <%= image_tag 'full-star.svg', alt: "Full Star", style: "margin-right: 5px;" %>
+                <% end %>
+                <% if third_space_poro.rating.round(1).to_s.split('')[2].to_i >= 5 %>
+                  <%= image_tag 'half-star.svg', alt: "Half Star", style: "margin-right: 5px;" %>
+                <% end %>
+                <span><b><%= third_space_poro.rating.round(1) %></b></span>
+              </div>
               <% if @saved_yelp_ids.include?(third_space_poro.yelp_id) %>
-                <form class="container-fluid d-flex justify-content-between" action="/third_spaces/unfavorite" method="delete" >
-                  <button class="small-default-button me-2" name="yelp_id" id="yelp_id" value="<%= third_space_poro.yelp_id %>" type="submit">Remove Favorite</button>
+                <form class="d-flex justify-content-center" action="/third_spaces/unfavorite" method="delete">
+                  <button class="small-default-button">Favorite</button>
                 </form>
               <% else %>
-                <form class="container-fluid d-flex justify-content-between" action="/third_spaces/favorite" method="post" >
-                  <button class="small-default-button me-2" name="yelp_id" id="yelp_id" value="<%= third_space_poro.yelp_id %>" type="submit">Favorite</button>
+                <form class="d-flex justify-content-center" action="/third_spaces/favorite" method="post">
+                  <button class="small-default-button" name="yelp_id" id="yelp_id" value="<%= third_space_poro.yelp_id %>" type="submit">Favorite</button>
                 </form>
               <% end %>
-
             </div>
           <% end %>
         <% else %>
@@ -42,7 +49,7 @@
         <% if @location_recs.nil? %>
         <% elsif @location_recs.any? %>
           <% @location_recs.each do |third_space_poro| %>
-            <div class="rounded-entry me-5" >
+            <div class="text-center rounded-entry me-5">
               <h3 class="space-link">
                 <%= link_to third_space_path(third_space_poro.yelp_id), class: "space-link" do %>
                   <%= third_space_poro.name %>
@@ -50,20 +57,27 @@
               </h3>
               <p><strong>Category:</strong> <%= third_space_poro.category %></p>
               <p><strong>Address:</strong> <%= third_space_poro.address %></p>
-              <p><strong>Rating:</strong> <%= third_space_poro.rating %></p>
-              
+              <div style="display: flex; align-items: center; justify-content: center; padding-bottom: 10px;">
+                <% third_space_poro.rating.round(1).to_s.split('')[0].to_i.times do %>
+                  <%= image_tag 'full-star.svg', alt: "Full Star", style: "margin-right: 5px;" %>
+                <% end %>
+                <% if third_space_poro.rating.round(1).to_s.split('')[2].to_i >= 5 %>
+                  <%= image_tag 'half-star.svg', alt: "Half Star", style: "margin-right: 5px;" %>
+                <% end %>
+                <span><b><%= third_space_poro.rating.round(1) %></b></span>
+              </div>
               <% if @saved_yelp_ids.include?(third_space_poro.yelp_id) %>
-                <form class="container-fluid d-flex justify-content-between" action="/third_spaces/unfavorite" method="delete" >
-                  <button class="small-default-button me-2" name="yelp_id" id="yelp_id" value="<%= third_space_poro.yelp_id %>" type="submit">Remove Favorite</button>
+                <form class="d-flex justify-content-center" action="/third_spaces/unfavorite" method="delete">
+                  <button class="small-default-button me-2 pb-15 d-inline-block">Remove Favorite</button>
                 </form>
               <% else %>
-                <form class="container-fluid d-flex justify-content-between" action="/third_spaces/favorite" method="post" >
-                  <button class="small-default-button me-2" name="yelp_id" id="yelp_id" value="<%= third_space_poro.yelp_id %>" type="submit">Favorite</button>
+                <form class="d-flex justify-content-center" action="/third_spaces/favorite" method="post">
+                  <button class="small-default-button" name="yelp_id" id="yelp_id" value="<%= third_space_poro.yelp_id %>" type="submit">Favorite</button>
                 </form>
               <% end %>
-              
             </div>
           <% end %>
+
         <% else %>
           No Third Spaces near you. <%= link_to "Add a location", locations_search_path %>.
         <% end %>
@@ -75,7 +89,7 @@
     <div class="d-flex">
       <% if @saved.any? %>
         <% @saved.each do |third_space_poro| %> 
-          <div class="rounded-entry me-5">
+          <div class="rounded-entry me-5 text-center">
               <h3 class="space-link">
                 <%= link_to third_space_path(third_space_poro.yelp_id), class: "space-link" do %>
                   <%= third_space_poro.name %>
@@ -83,7 +97,15 @@
               </h3>
             <p><strong>Category:</strong> <%= third_space_poro.category %></p> 
             <p><strong>Address:</strong> <%= third_space_poro.address %></p> 
-            <p><strong>Rating:</strong> <%= third_space_poro.rating %></p>
+              <div style="text-center display: flex; align-items: center; padding-bottom: 10px;">
+                <% third_space_poro.rating.round(1).to_s.split('')[0].to_i.times do %>
+                  <%= image_tag 'full-star.svg', alt: "Full Star", style: "margin-right: 5px;" %>
+                <% end %>
+                <% if third_space_poro.rating.round(1).to_s.split('')[2].to_i >= 5 %>
+                  <%= image_tag 'half-star.svg', alt: "Half Star", style: "margin-right: 5px;" %>
+                <% end %>
+                <span><b><%= third_space_poro.rating.round(1) %></b></span>
+              </div>
             <form action="/third_spaces/unfavorite" method="delete">
               <button class="small-default-button me-2" name="yelp_id" value="<%= third_space_poro.yelp_id %>" type="submit">Remove Favorite</button>
             </form> 
