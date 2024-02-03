@@ -1,16 +1,33 @@
-<nav class="navbar navbar-light bg-light" style="box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); margin-bottom: 20px;">
+<html>
+<head>
+  <!-- Your other head content goes here -->
+  <style>
+    /* Specific selector to target the search form */
+    .navbar .search-form {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  </style>
+</head>
+<body>
 
+<nav class="navbar navbar-light bg-light" style="box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); margin-bottom: 20px;">
   <div class="container-fluid d-flex align-items-center">
 
-    <a class="navbar-brand" href="<%= dashboard_path %>" style="margin-right: 2rem;">
-      <%= image_tag 'temp_logo.png', style: "width: 200px; height: auto;", alt: "Logo" %> 
+    <!-- Logo -->
+    <a class="navbar-brand my-auto" href="<%= dashboard_path %>" style="margin-right: 2rem;">
+      <%= image_tag 'temp_logo.svg', style: "width: 200px; height: auto;", alt: "Logo" %> 
     </a>
 
-    <form class="d-flex w-50" action="/third_spaces/search" method="get" name="name" id="name">
-      <input class="form-control me-2" id="name" name="name" type="text" placeholder="search by name" aria-label="Search" style="flex-grow: 1;">
-      <button class="small-default-button" type="submit" style="margin-right: 2rem;">Search</button>
-      <%# <button class="small-default-button" type="submit" style="margin-right: 2rem;">Filter</button> %>
+    <!-- Search Form with specific class -->
+    <form class="d-flex my-auto search-form" action="/third_spaces/search" method="get" style="flex-grow: 1; margin-right: 10px;" name="name" id="name">
+      <input class="form-control me-3" id="name" name="name" type="text" placeholder="search by name" aria-label="Search" style="flex-grow: 1;">
+      <button class="btn btn-outline-secondary" type="submit">Search</button>
     </form>
+
+
+ 
 
 
 
@@ -18,7 +35,7 @@
 
 <button id="modal-btn" class="btn btn-secondary p-2" data-bs-toggle="modal" data-bs-target="#my-modal">
         <span class="img-btn-wrapper">
-          <%= image_tag 'filter.svg', alt: "Location", style: "margin-right: 5px;" %> Filter
+          <%= image_tag 'filter.svg', alt: "Location", style: "margin-right: 10px;" %> Filter
         </span>
       </button>
 
@@ -67,7 +84,7 @@
 
     <div class="ml-auto">
       <% if current_user.search_location.present? %>
-        <a class="btn btn-secondary p-2" href="<%= set_location_path %>" style="height: fit-content; display: flex; align-items: center;">
+        <a class="btn btn-secondary p-2" href="<%= set_location_path %>" style="height: fit-content; display: flex; align-items: center; margin-right: 10px; margin-left: 10px;">
           <span class="img-btn-wrapper">
             <%= image_tag 'location.svg', alt: "Location", style: "margin-right: 5px;" %> 
             <%= current_user.search_location.city %>, <%= current_user.search_location.state %>
@@ -104,6 +121,5 @@
         <li class="nav-item"><%= link_to 'contact us', new_contact_form_path, class: 'nav-link' %></li>
       </ul>
     </div>
-    
   </div>
 </nav>
