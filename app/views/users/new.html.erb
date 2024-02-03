@@ -7,6 +7,9 @@
       <div class="mb-3">
         <%= link_to "already have an account", "/login", class: "initial-button" %>
       </div>
+      <% flash.each do |type, message| %>
+  <div class="flash-messages flash-<%= type %>"><%= message %></div>
+<% end %>
 
       <%= form_with(model: User.new, url: "/register", method: "post", local: true) do |f| %>
 
