@@ -15,7 +15,8 @@ class UsersController < ApplicationController
     spaces = ThirdSpacesFacade.new.spaces
     location_recs = filter_spaces_by_location(spaces)
     @mood_recs = filter_by_mood(location_recs)
-    
+    @mood_recs = make_uniq(@mood_recs)
+    @location_recs = make_uniq(location_recs)
     @location_recs = location_recs.reject! do |location|
       @mood_recs.any? { |mood_rec| location.name == mood_rec.name }
     end
@@ -69,7 +70,9 @@ class UsersController < ApplicationController
     @saved_yelp_ids = saved_yelp_ids(@saved)
     spaces = ThirdSpacesFacade.new.spaces
 
-    @recommendation_results = @mood_recs = filter_by_mood(filter_spaces_by_location(spaces))
+    recommendation_results = @mood_recs = filter_by_mood(filter_spaces_by_location(spaces))
+    @recommendation_results = make_uniq(recommendation_results)
+    
   end
 
   def loc_recommendations_index
@@ -78,7 +81,8 @@ class UsersController < ApplicationController
     @saved = SavedSpacesFacade.new(@user.id).spaces
     @saved_yelp_ids = saved_yelp_ids(@saved)
     spaces = ThirdSpacesFacade.new.spaces
-    @recommendation_results = filter_spaces_by_location(spaces)
+    recommendation_results = filter_spaces_by_location(spaces)
+    @recommendation_results = make_uniq(recommendation_results)
   end
 
   def saved_list
@@ -218,6 +222,19 @@ class UsersController < ApplicationController
     results.find_all do |space|
       next if space.tags.nil?
       space.tags.include?(mood)
+    end
+  end
+
+  def make_uniq(duplicates)
+    seen_addresses = {}
+    duplicates.delete_if do |space|
+      normalized_address = space.address.downcase.strip
+      if seen_addresses[normalized_address]
+        true 
+      else
+        seen_addresses[normalized_address] = true
+        false 
+      end
     end
   end
 

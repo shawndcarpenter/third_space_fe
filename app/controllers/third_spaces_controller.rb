@@ -72,12 +72,24 @@ class ThirdSpacesController < ApplicationController
                                             current_user.search_location.city, 
                                             current_user.search_location.state).spaces
       params[:tags].each do |tag|
-        @spaces.delete_if { |space| space.tags == nil || !space.tags.include?(tag) }
+        @spaces.delete_if { |space| space.tags.nil? || !space.tags.include?(tag) }
+      end
+    end
+    seen_addresses = {}
+    @spaces.delete_if do |space|
+      normalized_address = space.address.downcase.strip
+      if seen_addresses[normalized_address]
+        true 
+      else
+        seen_addresses[normalized_address] = true
+        false 
       end
     end
     @saved = SavedSpacesFacade.new(@user.id).spaces
     @saved_yelp_ids = saved_yelp_ids(@saved)
+    # require 'pry'; binding.pry
   end
+
 
   def favorite
     user_id = current_user.id
