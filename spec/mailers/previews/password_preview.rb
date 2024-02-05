@@ -7,3 +7,4 @@ class PasswordPreview < ActionMailer::Preview
   end
 
 end
+ 

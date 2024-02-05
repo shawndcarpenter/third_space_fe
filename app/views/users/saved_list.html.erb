@@ -9,7 +9,7 @@
           <% @saved.each do |saved| %>
             <div class="col-md-4 mb-4 text-center">
               <div id="location_result-<%= saved.id %>" class="saved-entry rounded-entry p-3 h-100 w-100">
-                <p class="fs-4 text-center"><%= link_to saved.name, location_path(saved.yelp_id), class: "space-link" %> </p>
+                <p class="fs-4 text-center"><%= link_to saved.name, third_space_path(saved.yelp_id), class: "space-link" %> </p>
                 <p class="fs-6 text-center text-wrap"><%= saved.address %></p>
                 <p class="fs-6 text-center text-wrap"><%= saved.category %></p>
                 <div style="padding-bottom: 10px">
